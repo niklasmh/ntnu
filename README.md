@@ -1,2 +1,2 @@
 # NTNU
-Luckely for you, now everyone can copy my work!
+Luckily for you, now everyone can copy my work!
