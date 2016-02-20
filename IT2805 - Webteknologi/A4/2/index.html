@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+        <link href="style.css" type="text/css" rel="stylesheet">
+        <link href="print.css" type="text/css" rel="stylesheet" media="print">
+        <title>Assignment 4</title>
+    </head>
+    <body>
+        <a href="../../">Hjem</a>&nbsp;&raquo;&nbsp;<a href="../">Assignment 4</a>&nbsp;&raquo;&nbsp;2
+		
+		<div class="form-container">
+			<form class="form" id="my-form" action="http://www.idi.ntnu.no/~michailg/IT2805/form.php" method="post">
+                <h2>Fyll ut skjemaet</h2>
+				<fieldset>
+					<legend>Kontaktinfo:</legend>
+					<div class="name">
+						<label for="name">Navn</label>
+						<input autofocus type="text" id="name" name="name" maxlength="32" pattern="[A-zøæåØÆÅ ]*" placeholder="f.eks. Ole Normann" required oninput="update(this)" onblur="update(this)">
+						<div class="feedback"></div>
+					</div>
+
+					<div class="email">
+						<label for="email">Mail</label>
+						<input type="email" id="email" name="email" placeholder="dette.er.et@eksempel.com" required oninput="update(this)" onblur="update(this)">
+						<div class="feedback"></div>
+					</div>
+
+					<div class="address">
+						<label for="address">Adresse</label>
+						<input type="text" id="address" name="address" pattern="[A-zøæåØÆÅ \d]*" placeholder="f.eks. Gløshaugen 1" oninput="update(this)" onblur="update(this)">
+						<div class="feedback"></div>
+					</div>
+
+					<div class="phone">
+						<label for="phone">Telefon</label>
+						<input type="tel" id="phone" name="phone" maxlength="16" pattern="[+\d]*" placeholder="f.eks. +4712345678" oninput="update(this)" onblur="update(this)">
+						<div class="feedback"></div>
+					</div>
+				</fieldset>
+				
+				<fieldset>
+					<legend>Studieinfo:</legend>
+					<div class="year">
+						<label for="year">Klasse</label>
+						<select id="year" name="year">
+							<option value="1" selected>1st Year-Freshman</option>
+							<option value="2">2st Year-Sophomore</option>
+							<option value="3">3st Year-Junior</option>
+							<option value="4">4st Year-Senior</option>
+						</select>
+					</div>
+
+					<div class="startDate">
+						<label for="startDate">Start dato</label>
+						<input type="date" id="startDate" name="startDate" required>
+					</div>
+
+					<div class="fag">
+						<!-- -->
+						<label for="classes">Velg klasser du er interessert i<br><span style="font-size:.5em">Hold Ctrl for å velge flere</span></label>
+						<select id="classes" name="classes[]" multiple required>
+							<option value="ITX1001" selected>ITX1001: HTML Basics</option>
+							<option value="ITX1002">ITX1002: URLs and Site Structures</option>
+							<option value="ITX2001">ITX2001: Introduction to Cascading Style Sheets (CSS)</option>
+							<option value="ITX2002">ITX2002: CSS Properties and Applications</option>
+							<option value="ABC1001">ABC1001: Working with Multimedia on the Web</option>
+							<option value="JSX1000">JSX1000: Introduction to JavaScript</option>
+							<option value="JSX1040">JSX1040: JavaScript: DOM</option>
+							<option value="XML1000">XML1000: XML: Formatting Namespace Trees</option>
+						</select>
+
+						<!-- Dette er et alternativ til liste. Men siden den skal være required, vil ikke dette fungere uten noe mer JavaScript.
+						<div placeholder="Velg klasser du er interessert i:">
+							<fieldset>
+								<input type="checkbox" id="ITX1001" name="classes[]" value="ITX1001">
+								<label for="ITX1001">ITX1001: HTML Basics</label>
+
+								<input type="checkbox" id="ITX1002" name="classes[]" value="ITX1002">
+								<label for="ITX1002">ITX1002: URLs and Site Structures</label>
+
+								<input type="checkbox" id="ITX2001" name="classes[]" value="ITX2001">
+								<label for="ITX2001">ITX2001: Introduction to Cascading Style Sheets (CSS)</label>
+
+								<input type="checkbox" id="ITX2002" name="classes[]" value="ITX2002">
+								<label for="ITX2002">ITX2002: CSS Properties and Applications</label>
+
+								<input type="checkbox" id="ABC1001" name="classes[]" value="ABC1001">
+								<label for="ABC1001">ABC1001: Working with Multimedia on the Web
+	</label>
+
+								<input type="checkbox" id="JSX1000" name="classes[]" value="JSX1000">
+								<label for="JSX1000">JSX1000: Introduction to JavaScript</label>
+
+								<input type="checkbox" id="JSX1040" name="classes[]" value="JSX1040">
+								<label for="JSX1040">JSX1040: JavaScript: DOM
+	</label>
+
+								<input type="checkbox" id="XML1000" name="classes[]" value="XML1000">
+								<label for="XML1000">XML1000: XML: Formatting Namespace Trees
+	</label>
+							</fieldset>
+						</div> -->
+					</div>
+
+					<div class="comments">
+						<label for="comments">Special requests or comments</label>
+						<!-- Vet ikke helt hvorfor, men denne tekstboksen er pålagt med required. -->
+						<textarea id="comments" name="comments" placeholder="Any special requests or comments.." required oninput="update(this)" onblur="update(this)"></textarea>
+						<div class="feedback"></div>
+					</div>
+				</fieldset>
+				
+                <input type="submit" value="Send inn">
+                <script>
+                    // Dette er bare fordi pseudo-elementet :empty ikke fungerer på input i css, ettersom de ikke er containere.
+                    // Slang også med en ".used" så ikke valideringa klager før bruker har vært innom input-boksene.
+                    // Ellers skal all validering og feilmeld være oppgitt i css med :before og :after-pseudovelgerne :)
+                    function update(e) {
+                        e.className = (e.value == '' ? 'used' : 'has-val used' );
+                    }
+                </script>
+			</form>
+		</div>
+	</body>
+</html>

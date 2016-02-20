@@ -1,0 +1,85 @@
+p, a {
+    font-family: Georgia, serif;
+    font-size: 16px;
+}
+
+a:hover {
+    font-style: italic;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #ddd;
+    background-image: -webkit-linear-gradient(90deg, #aaa, #eee);
+    background-image: linear-gradient(0deg, #aaa, #eee);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 98vh;
+    margin: 1vh 8px;
+}
+
+
+
+
+
+/** Dette er fra tidligere **/
+
+p.info:after {
+    content: "Made by Niklas M. Hole at NTNU\01F603";
+}
+
+.info, header, p.img {
+    text-align: center;
+}
+
+.building-img {
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 2px 4px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+nav ul li a:hover {
+    background-color: #fff;
+    border-left: 2px solid #0aa;
+}
+nav ul li a.selected {
+    background-color: #eee;
+    border-left: 3px solid #0aa;
+}
+
+nav {
+    width: 30%;
+    vertical-align: top;
+}
+
+.content {
+    width: 68%;
+}
+
+nav, .content {
+    display: inline-block;
+}
+
+.navbar {
+    text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+    nav, .content {
+        width: 100%;
+    }
+}

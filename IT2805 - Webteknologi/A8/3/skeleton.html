@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Graphics and animation using HTML5 Canvas</title>
+        <style>
+            #the-canvas { border: 1px dashed gray }   
+        </style>
+        <script>
+            addEventListener('load', function() {
+                var canvas = document.getElementById('the-canvas'),
+                    ctx = canvas.getContext('2d'),
+                    img = document.createElement('img'),
+                    rot = 0,
+                    radius = 100;
+                
+                function drawCircRect(context) {
+                    if (context) {
+                        context.beginPath();
+                        context.arc(125, 125, 75, 0, Math.PI*2);
+                        context.closePath();
+
+                        context.fillStyle = '#f00';
+                        context.fill();
+
+                        context.beginPath();
+                        context.rect(300, 200, 150, 150);
+                        context.closePath();
+
+                        context.fillStyle = '#00f';
+                        context.fill();
+                    }
+                }
+                
+                img.src = 'doge.jpg';
+                img.onload = function () {
+                    setInterval(function () {
+                        rot += Math.PI/90; // Tilsvarer 3 grader
+                        var x = canvas.width/2 - img.width/2 + radius*Math.cos(rot),
+                            y = canvas.height/2 - img.height/2 + radius*Math.sin(rot);
+                        
+                        ctx.clearRect(0, 0, canvas.width, canvas.height);
+                        drawCircRect(ctx);
+                        ctx.drawImage(img, x, y);
+                    }, 20);
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <canvas id="the-canvas" width="500" height="400">   
+            Your browser does not support the &lt;canvas&gt; element.
+        </canvas>
+    </body>
+</html>

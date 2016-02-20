@@ -1,0 +1,112 @@
+body {
+    font-size: 100%;
+}
+
+p, a {
+    font-family: Georgia, serif;
+    font-size: 1em;
+}
+
+a:hover {
+    font-style: italic;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #ddd;
+    background-image: -webkit-linear-gradient(90deg, #aaa, #eee);
+    background-image: linear-gradient(0deg, #aaa, #eee);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 98vh;
+    margin: 1vh 8px;
+}
+
+.navigation {
+    position: absolute;
+}
+.navigation > ul {
+    padding-left: 0;
+}
+.navigation, .content {
+    display: block;
+}
+
+.container {
+    width: 100%;
+    position: relative;
+}
+
+/** Dette er fra tidligere **/
+
+p.info:after {
+    content: "Made by Niklas M. Hole at NTNU";
+    letter-spacing: 2px;
+}
+
+.info, header, p.img {
+    text-align: center;
+}
+
+.building-img {
+    width: 100%;
+}
+
+.content {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    padding: 2px 4px;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: .7em;
+}
+.navigation ul li a:hover {
+    background-color: #fff;
+    border-left: 2px solid #0aa;
+}
+.navigation ul li a.selected {
+    background-color: #eee;
+    border-left: 3px solid #0aa;
+}
+
+.navigation {
+    width: 30%;
+    vertical-align: top;
+}
+
+.navbar {
+    text-align: center;
+}
+
+@media screen and (max-width: 960px) {
+    .navigation, .content {
+        width: 100%;
+        position: static;
+    }
+    
+    .navigation ul li {
+        display: inline-block;
+    }
+    .navigation ul li a {
+        font-size: 1em;
+    }
+    .navigation ul li a:hover {
+        background-color: #fff;
+        border-left: none;
+        border-bottom: 2px solid #0aa;
+    }
+    .navigation ul li a.selected {
+        background-color: #eee;
+        border-left: none;
+        border-bottom: 3px solid #0aa;
+    }
+}

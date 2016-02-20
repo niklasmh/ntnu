@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Graphics and animation using HTML5 Canvas</title>
+        <style>
+            #the-canvas { border: 1px dashed gray }   
+        </style>
+        <script>
+            addEventListener('load', function() {
+                var canvas = document.getElementById('the-canvas'),
+                    ctx = canvas.getContext('2d'),
+                    img = document.createElement('img');
+                
+                // Det stod building on, så jeg legger ved forrige kode med tegningene
+                
+                if (ctx) {
+                    ctx.beginPath();
+                    ctx.arc(125, 125, 75, 0, Math.PI*2);
+                    ctx.closePath();
+
+                    ctx.fillStyle = '#f00';
+                    ctx.fill();
+
+                    ctx.beginPath();
+                    ctx.rect(300, 200, 150, 150);
+                    ctx.closePath();
+
+                    ctx.fillStyle = '#00f';
+                    ctx.fill();
+                }
+                
+                img.src = 'doge.jpg';
+                img.onload = function () {
+                    ctx.drawImage(this, canvas.width/2 - this.width/2, canvas.height/2 - this.height/2);
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <canvas id="the-canvas" width="500" height="400">
+            Your browser does not support the &lt;canvas&gt; element.
+        </canvas>
+    </body>
+</html>

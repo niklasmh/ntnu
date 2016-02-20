@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="UTF-8">
+        <title>Little boxes</title>
+        <style type="text/css">
+            #one {
+                position: relative; /* Vi må gjøre denne relativ slik at de absolutte får et riktigere rutenett å henge seg på. */
+                
+                width: 600px;
+                height: 400px;
+                margin-left: auto;
+                margin-right: auto;
+                top: 10px;
+                left: 10px;
+                border: 2px solid black;
+            }
+            
+            #two, #four, #three { /* Jeg vil definere alle som absolutte inni #one med relativ posisjonering med 100x100[px] i størrelse. */
+                position: absolute;
+                width: 100px;
+                height: 100px;
+                
+                margin: 2px; /* Slik at de har 2 pixler med tomrom på siden. */
+            }
+            
+            #three {
+                background-color: #47ABDE;
+                bottom: 0;
+                left: 0;
+            }
+            
+            #four {
+                background-color: #9C8951;
+                top: 150px; 
+                
+                /* Man kunne eventuelt hatt -50px i margin-top med 50% i top for å gjøre det mer dynamisk.
+                /* Slik (Kommenter for å sjekke -->) * /
+                top: 50%;
+                margin-top: -50px;
+                /**/
+                
+                right: 0;
+            }
+        </style>
+	</head>
+    <body>
+        <a href="../../">Hjem</a>&nbsp;&raquo;&nbsp;<a href="../">Assignment 3</a>&nbsp;&raquo;&nbsp;2
+        <div id="one">
+            <div id="two"><img src="bearOne.jpg"></div>	
+            <div id="four"></div>
+            <div id="three"></div>
+        </div>
+    </body>
+</html>

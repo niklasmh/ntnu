@@ -1,0 +1,35 @@
+a:link { color: #DD4814; }
+a:visited { color: #DD4814; }
+a:hover { color: #77216F; }
+a:active { color: #77216F ; }
+
+header {
+	color: #DD4814;
+	font-family: "Verdana";
+	font-size: 50px;
+	font-weight: bold;
+	width: 853px;
+	text-align: center;
+	padding-top: 30px;
+	line-height: 40%;
+
+}
+
+body {
+	background-color: #E3E3E3;
+	width: 854px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#mediaplayer {
+	position: absolute;
+	top: 125px;
+	box-shadow: 0px 0px 30px #888888;
+	text-align: center;
+	height: 480px;
+}
+
+t {
+	font-size: 10px;
+}

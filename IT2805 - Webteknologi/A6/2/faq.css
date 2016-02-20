@@ -1,0 +1,50 @@
+faq {
+    margin: 10px;
+    width: 600px;
+}
+
+title {
+    display: block;
+    font-family: Arial, Helvetica, sans-serif; 
+    font-size: 18pt;
+    margin: 10px 0 5px;
+}
+
+subtitle {
+    display: block;
+    font-family: Arial, Helvetica, sans-serf; 
+    font-size:14pt;
+    font-style:italic;
+    margin-left: 10px 0;
+}
+
+product {
+    display: block;
+    background-color: ivory;
+    border: solid 2px black;
+    margin-bottom: 20px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+model {
+    display: block;
+    font-family: Arial, Helvertica, sans-serif; 
+    font-size: 14pt;
+    color:blue;
+    margin: 0 0 5px;
+}
+
+question {
+    display: list-item;
+    list-style-type: disc;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+answer   {
+    display:block;
+    font-family: Times New Roman, Times, serif;
+    color: green;
+    margin-left: 35px;
+}

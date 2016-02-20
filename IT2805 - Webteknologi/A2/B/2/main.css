@@ -1,0 +1,55 @@
+p.info:after {
+    content: "Made by Niklas M. Hole at NTNU\01F603";
+}
+
+.info, header, p.img {
+    text-align: center;
+}
+
+.building-img {
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 2px 4px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+nav ul li a:hover {
+    background-color: #eee;
+    border-left: 2px solid #0ff;
+}
+nav ul li a[selected] {
+    background-color: #ddd;
+    border-left: 3px solid #0ff;
+}
+
+nav {
+    width: 30%;
+    vertical-align: top;
+}
+
+.content {
+    width: 68%;
+}
+
+nav, .content {
+    display: inline-block;
+}
+
+.navbar {
+    text-align: center;
+}
+
+@media screen and (max-width: 700px) {
+    nav, .content {
+        width: 100%;
+    }
+}

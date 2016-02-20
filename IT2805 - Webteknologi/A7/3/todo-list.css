@@ -1,0 +1,136 @@
+body {
+    font-size: 100%;
+    font-family: Lemon Sans Rounded, Helvetica, sans-serif;
+}
+
+.content {
+    width: 100%;
+    max-width: 577px;
+    box-sizing: border-box;
+    padding: 10px;
+    position: relative;
+}
+
+button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: .25em 9px;
+    font-weight: bold;
+    font-size: 1.2em;
+    box-sizing: border-box;
+    cursor: pointer;
+    
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+header h1 {
+    margin: 0;
+}
+
+#clear-btn {
+    vertical-align: text-bottom;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 10px;
+}
+
+#todo-lst {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#todo-lst li {
+    line-height: 2em;
+    padding-left: 2em;
+    -webkit-transition: background-color .2s ease-in-out;
+    transition: background-color .2s ease-in-out;
+}
+
+#todo-lst li input[type="checkbox"] {
+    display: none;
+}
+
+#todo-lst li input[type="checkbox"] + label:before {
+    content: "";
+    position: absolute;
+    top: .8em;
+    right: 100%;
+    margin-right: 12px;
+    width: .6em;
+    height: .6em;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .3);
+}
+
+#todo-lst li input[type="checkbox"]:checked + label:before {
+    background-color: #F68253;
+    box-shadow: 0 0 0 1px #D05828,
+        0 1px 1px rgba(0, 0, 0, .3),
+        inset 0 -1px #F68253,
+        inset 0 0 0 1px rgba(255, 255, 255, .2);
+}
+
+#todo-lst li input[type="checkbox"]:checked + label:after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 4px;
+    background: transparent;
+    border: 3px solid #79432D;
+    border-bottom-width: 2px;
+    border-top: none;
+    border-right: none;
+    top: .8em;
+    right: 100%;
+    margin-right: 10px;
+    -webkit-transform: rotate(-40deg);
+    -ms-transform: rotate(-40deg);
+    transform: rotate(-40deg);
+}
+
+#todo-lst li input[type="checkbox"] + label {
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    display: block;
+}
+
+#todo-lst li:hover {
+    background-color: rgba(0, 0, 0, .1);
+    border-radius: 4px;
+    
+    -webkit-transition-duration: .05s;
+    transition-duration: .05s;
+}
+
+.form {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.form tr td:first-child {
+    width: 100%;
+}
+
+.form button[type="submit"] {
+    margin-left: 10px;
+}
+
+.form input[type="text"] {
+    border: 2px solid #000;
+    outline: none;
+    padding: 1px 8px;
+    box-sizing: border-box;
+    line-height: 1.68em;
+    font-size: 1em;
+    font-weight: bold;
+    width: 100%;
+    
+    -webkit-appearance: none;
+    appearance: none;
+}

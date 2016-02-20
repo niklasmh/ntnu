@@ -1,0 +1,215 @@
+body {
+    background-color: #aaa;
+}
+
+.form-container {
+	max-width: 480px;
+	width: 100%;
+	margin: 16px auto;
+    font-size: 120%;
+    font-family: sans-serif;
+    text-shadow: 0 1px #fff;
+    box-shadow: 0 0 16px #444;
+}
+
+.form {
+	background-color: #ccc;
+	padding: 9px;
+    border-radius: 4px;
+    border: 1px solid #aaa;
+    box-shadow: 0 1px #888, 0 -1px #fff;
+}
+
+.form > h2 {
+    margin: 0;
+}
+
+.form label {
+    cursor: text;
+}
+
+.form > div {
+    margin-top: 12px;
+}
+
+.form fieldset {
+	border: 2px dashed #bbb;
+    margin: 16px 0;
+}
+
+.form fieldset legend {
+	font-size: 14px;
+	font-weight: bold;
+	color: #666;
+}
+
+.form input, .form select, .form textarea {
+	display: block;
+	position: relative;
+	margin: 4px;
+    width: 100%;
+    box-sizing: border-box;
+	outline: none;
+    background-color: #eee;
+    border: none;
+    border-radius: 3px;
+    padding: 2px;
+    font-size: 1em;
+}
+
+.form select[multiple] {
+    font-size: .6em;
+    height: 124px;
+    background-color: #eee;
+	overflow-y: auto;
+}
+
+.form .fag > div:before {
+    margin: 8px 0;
+    display: block;
+    content: attr(placeholder);
+}
+
+.form input[type="checkbox"] {
+    -webkit-appearance: none;
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: 8px;
+}
+
+.form input[type="checkbox"] + label {
+    position: relative;
+    padding: 8px 6px 8px 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 16px;
+    font-size: .5em;
+}
+.form input[type="checkbox"]:hover + label {
+    background-color: #aaa;
+}
+
+.form input[type="checkbox"]:checked + label:after {
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 5px;
+    background: transparent;
+    top: 1.2px;
+    left: 2px;
+    border: 4px solid #ccc;
+    border-top: none;
+    border-right: none;
+    margin: 5px;
+	box-shadow: -1px 1px #000, inset 1px -1px #fff;
+}
+
+.form input[type="checkbox"]:checked + label:before {
+    background-color: #666;
+    box-shadow: 0 -1px #000, 0 1px #fff;
+}
+.form input[type="checkbox"] + label:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 5px;
+    display: block;
+    width: 1.8em;
+    height: 1.7em;
+    background-color: #888;
+    border-radius: 4px;
+    box-shadow: 0 1px #000, 0 -1px #fff;
+}
+
+.form input:not([type="checkbox"]):not([type="submit"]), .form textarea, .form select {
+    box-shadow: inset 0 1px #999, inset 0 -1px #fff;
+    
+    -webkit-transition: background-color .4s ease-in-out;
+    transition: background-color .4s ease-in-out;
+}
+
+.form input:not([type="checkbox"]):not([type="submit"]):focus, .form textarea:focus, .form select:not([multiple]):focus {
+    box-shadow: inset 0 1px #999, inset 0 -1px #fff;
+    background-color: #fff;
+    
+    -webkit-transition: background-color .1s ease-in-out;
+    transition: background-color .1s ease-in-out;
+}
+
+.form input[type="submit"] {
+    margin-top: 16px;
+    background-color: #3c3;
+    background-image: -webkit-linear-gradient(#3c3, #1a1);
+    background-image: linear-gradient(#3c3, #1a1);
+    color: #fff;
+    text-shadow: 0 -1px #000;
+    cursor: pointer;
+    box-shadow: 0 1px #000, 0 -1px #fff;
+}
+
+.form input[type="submit"]:hover {
+    background-color: #1a1;
+    background-image: -webkit-linear-gradient(#1a1, #090);
+    background-image: linear-gradient(#1a1, #090);
+}
+
+.form input[type="submit"]:active {
+    background-color: #1a1;
+    background-image: -webkit-linear-gradient(#1a1, #3c3);
+    background-image: linear-gradient(#1a1, #3c3);
+    box-shadow: 0 -1px #000, 0 1px #fff;
+}
+
+::-moz-selection {
+    background-color: rgba(0, 0, 0, .5);
+    color: #fff;
+}
+
+::selection {
+    background-color: rgba(0, 0, 0, .5);
+    color: #fff;
+}
+
+.form div {
+    position: relative;
+}
+
+.form textarea {
+    resize: vertical;
+}
+
+.form input + .feedback, .form textarea + .feedback {
+    position: absolute;
+    bottom: 3px;
+    right: -2px;
+}
+
+.form input + .feedback:after, .form textarea + .feedback:after {
+    background-color: #c00;
+    font-size: .8em;
+    border-radius: 3px;
+    padding: 2px 4px;
+    color: #fff;
+    text-shadow: 0 -1px #000;
+    box-shadow: inset 0 -1px #999, inset 0 1px #fff;
+}
+.form input:not(.has-val):not(:required) + .feedback:after, .form textarea:not(.has-val):not(:required) + .feedback:after {
+    content: "Valgfri";
+    background-color: #d60;
+}
+.form input:not(.has-val):not(:focus).used:required + .feedback:after, .form textarea:not(.has-val):not(:focus).used:required + .feedback:after {
+    content: "Fyll inn!";
+}
+.form input:invalid.has-val + .feedback:after, .form textarea:invalid.has-val + .feedback:after {
+    content: "Feil i syntaks!";
+}
+.form input:valid.has-val + .feedback:after, .form textarea:valid.has-val + .feedback:after {
+    content: "Korrekt!";
+    background-color: #0c0;
+}

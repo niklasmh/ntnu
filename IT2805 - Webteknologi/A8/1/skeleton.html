@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Graphics and animation using HTML5 Canvas</title>
+        <style>
+            #the-canvas { border: 1px dashed gray }   
+        </style>
+        <script>
+            addEventListener('load', function() {
+                var canvas = document.getElementById('the-canvas'),
+                    ctx = canvas.getContext('2d');
+                
+                if (ctx) {
+                    
+                    // Vi kartlegger først hva som skal tegnes som grafikk
+
+                    ctx.beginPath();
+                    ctx.arc(125, 125, 75, 0, Math.PI*2);
+                    ctx.closePath();
+
+                    // Her er det mulig å tegne mer som skal være i samme farge med fyll
+                    // Til slutt velger vi farge og gir et avtrykk av grafikken
+
+                    ctx.fillStyle = '#f00';
+                    ctx.fill();
+
+
+                    // Vi skal bytte farge og starter å kartlegge på nytt
+
+                    ctx.beginPath();
+                    ctx.rect(300, 200, 150, 150);
+                    ctx.closePath();
+
+                    // Her er det mulig å tegne mer som skal være i samme farge med fyll
+
+                    ctx.fillStyle = '#00f';
+                    ctx.fill();
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <canvas id="the-canvas" width="500" height="400">   
+            Your browser does not support the &lt;canvas&gt; element.
+        </canvas>
+    </body>
+</html>

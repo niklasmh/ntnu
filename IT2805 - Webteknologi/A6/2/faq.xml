@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="faq.css"?>
+<faq>
+    <title>Jackson Electronics Products Frequently Asked Questions</title>
+    <subtitle>Frequently Asked Questions</subtitle>
+    <products>
+        <product>
+            <model>
+                <name>The ScanMaster</name>
+            </model>
+            <questions>
+                <question>
+                    <text>How do I scan slides?</text>
+                    <answer>
+                        <text>You can scan slides using the JE Transparency Adapter (part number STA8901) available from Jackson Electronics.</text>
+                    </answer>
+                </question>
+                <question>
+                    <text>Where can I find the latest drivers for my ScanMaster?</text>
+                    <answer>
+                        <text>You can download the latest software drivers from the Jackson Electronics Web page.</text>
+                    </answer>
+                </question>
+                <question>
+                    <text>What is the largest sheet that I can scan?</text>
+                    <answer>
+                        <text> 8.5 × 14 inches (216 × 356 mm).</text>
+                    </answer>
+                </question>
+                <question>
+                    <text>How do I fax with my ScanMaster?</text>
+                    <answer>
+                        <text>You can turn your scanner into a fax machine by purchasing the FaxRight add-on component (part number STA4500) available from Jackson Electronics.</text>
+                    </answer>
+                </question>
+            </questions>
+        </product>
+        <product>
+            <model>
+                <name>DigiCam</name>
+            </model>
+            <questions>
+                <question>
+                    <text>What is the difference between optical and digital zoom?</text>
+                    <answer>
+                        <text>With optical zoom, the Digicam's lens physically moves inside the camera; with digital zoom, the camera's processor zooms the image electronically. If you zoom too much, your image will become pixelated.</text>
+                    </answer>
+                </question>
+                <question>
+                    <text>What sort of batteries should I use with the DigiCam?</text>
+                    <answer>
+                        <text>Nickel metal hydride (NiMH) batteries work the best and have the longest lifetime. Nickel-cadium batteries also work very well, as do alkaline batteries. Do not use lithium batteries.</text>
+                    </answer>
+                </question>
+                <question>
+                    <text>What resolution should I use for 4×6-inch photos?</text>
+                    <answer>
+                        <text>We recommend 640×480 for 4×6-inch images, 1024×768 for 5×7-inch photos, and 1600×1200 for 8×10-inch photos.</text>
+                    </answer>
+                </question>
+                <question>
+                    <text>Can the DigiCam be harmed by airport X-ray machines?</text>
+                    <answer>
+                        <text>No, there is no evidence that X-ray machines can affect the performance of the DigiCam or the quality of DigiCam photos.</text>
+                    </answer>
+                </question>
+            </questions>
+        </product>
+    </products>
+</faq>

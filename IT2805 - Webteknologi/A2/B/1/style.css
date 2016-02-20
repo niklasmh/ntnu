@@ -1,0 +1,43 @@
+body{
+	width: 70%;
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #FCFCFC;
+}
+
+header{
+	width: 100%;
+	text-align: center;
+	padding-top: 20px;
+}
+
+nav{
+	text-align: center;
+}
+
+aside{
+	width: 18%;
+	padding-left: 2%;
+	padding-top: 30px;
+	position: relative;
+	float: left;
+	margin-bottom: 10px;
+
+}
+
+section#main{
+	width: 76%;
+	position: relative;
+	float: right;
+	margin-bottom: 10px;
+	padding-left: 4%;
+
+}
+
+footer{
+	height: 100px;
+	width: 100%;
+	clear: both;
+	text-align: center;
+}

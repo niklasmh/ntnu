@@ -1,0 +1,50 @@
+Jackson Electronics Products Frequently Asked Questions
+=======================================================
+
+The ScanMaster
+--------------
+
+Q: How do I scan slides?
+
+A: You can scan slides using the JE Transparency Adapter (part number STA8901)
+available from Jackson Electronics.
+
+Q: Where can I find the latest drivers for my ScanMaster?
+
+A: You can download the latest software drivers from the Jackson Electronics Web
+page.
+
+Q: What is the largest sheet that I can scan?
+
+A: 8.5 × 14 inches (216 × 356 mm).
+
+Q: How do I fax with my ScanMaster?
+
+A: You can turn your scanner into a fax machine by purchasing the FaxRight add-on
+component (part number STA4500) available from Jackson Electronics.
+
+
+DigiCam
+-------
+
+Q: What is the difference between optical and digital zoom?
+
+A: With optical zoom, the Digicam's lens physically moves inside the camera; with
+digital zoom, the camera's processor zooms the image electronically. If you zoom
+too much, your image will become pixelated.
+
+Q: What sort of batteries should I use with the DigiCam?
+
+A: Nickel metal hydride (NiMH) batteries work the best and have the longest
+lifetime. Nickel-cadium batteries also work very well, as do alkaline batteries.
+Do not use lithium batteries.
+
+Q: What resolution should I use for 4×6-inch photos?
+
+A: We recommend 640×480 for 4×6-inch images, 1024×768 for 5×7-inch photos, and
+1600×1200 for 8×10-inch photos.
+
+Q: Can the DigiCam be harmed by airport X-ray machines?
+
+A: No, there is no evidence that X-ray machines can affect the performance of the
+DigiCam or the quality of DigiCam photos.

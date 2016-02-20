@@ -1,0 +1,77 @@
+/* Siden det stod linka en cssed.css i starter regner jeg med denne skal være ekstern. */
+
+body {
+    font-size: 100%;
+    margin: 0;
+}
+
+#head {
+    background-color: #1D1D1D;
+    color: #fff;
+    text-align: center;
+    
+    padding: 8px;
+}
+
+#head h1 {
+    margin: 8px 0 -6px 0;
+}
+
+#head p {
+    margin: 0 0 8px 0;
+}
+
+#main {
+    margin: 0 auto;
+    padding: 8px;
+    box-sizing: border-box;
+    
+    /* For responsivheten: */
+    width: 100%;
+    max-width: 600px;
+}
+
+#articleHeader {
+    font-size: 2em;
+    font-weight: bold;
+    
+    margin: 16px 0 32px 0;
+}
+
+.head-pic {
+    border-radius: 12px;
+    
+    width: 100%;
+    max-width: 600px;
+}
+
+header, #leadParagraph, h1, h2 {
+    font-family: Geneva, Arial;
+    font-weight: bold;
+}
+
+#leadParagraph {
+    font-weight: normal;
+}
+
+#byline {
+    font-size: .8em;
+    color: #666;
+}
+#bodyText {
+    width: 85%;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+a[href^="http"] {
+    text-decoration: none;
+    color: #222;
+}
+
+a[href^="http"]:hover {
+    text-decoration: underline;
+    color: #09f;
+}
