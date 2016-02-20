@@ -1,2 +1,2 @@
-# Ntnu
-Just another repo
+# NTNU
+Luckely for you, now everyone can copy my work!
