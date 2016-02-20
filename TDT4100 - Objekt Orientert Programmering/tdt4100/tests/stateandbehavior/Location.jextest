@@ -1,0 +1,41 @@
+test stateandbehavior.Location
+
+sequence constructor "Konstruktør" {
+	-->
+	state {
+		x == 0;
+		y == 0;
+	}
+}
+
+sequence left "Venstre" {
+	"Flytter til venstre" -- left -->
+	state {
+		x == -1;
+		y == 0;
+	}
+}
+
+sequence right "Høyre" {
+	"Flytter til høyre" -- right -->
+	state {
+		x == 1;
+		y == 0;
+	}
+}
+
+sequence up "Opp" {
+	"Flytter opp" -- up -->
+	state {
+		x == 0;
+		y == -1;
+	}
+}
+
+sequence ned "Ned" {
+	"Flytter ned" -- down -->
+	state {
+		x == 0;
+		y == 1;
+	}
+}

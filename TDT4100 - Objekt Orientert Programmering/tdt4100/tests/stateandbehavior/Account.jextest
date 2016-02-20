@@ -1,0 +1,43 @@
+test stateandbehavior.Account
+
+sequence constructor "Konstruktør" {
+	-->
+	state {
+		balance == 0;
+	}
+}
+
+sequence deposit "Innskudd" {
+	"Setter inn 100 kr." -- deposit(100) -->
+	state {
+		balance == 100;
+	}
+}
+
+sequence depositNegative "Negativt innskudd" {
+	"Setter inn -50 kr." -- deposit(-50) -->
+	state {
+		balance == 0;
+	}
+}
+
+sequence addInterest "Legge til renter" {
+	"Setter rentefoten" -- interestRate = 5 -->
+	state {
+		balance == 0;
+		interestRate == 5;
+	}
+	"Setter inn 100 kr." -- deposit(100) -->
+	state {
+		balance == 100;
+	}
+	-- addInterest -->
+	state {
+		balance == 105;
+	}
+}
+
+method == (double d1, double d2) {
+	val epsilon = 0.000001d
+	d1 >= d2 - epsilon && d1 <= d2 + epsilon
+}

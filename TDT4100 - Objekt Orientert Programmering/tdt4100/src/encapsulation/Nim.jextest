@@ -1,0 +1,55 @@
+test encapsulation.Nim
+
+instance nim = new Nim(5)
+
+sequence constructor "Konstruktør" {
+	-->
+	state {
+		getPile(0) == 5;
+		getPile(1) == 5;
+		getPile(2) == 5;
+	}
+}
+
+sequence removePieces "Fjerning av brikker" {
+	"Fjerner brikker" -- removePieces(3, 0), removePieces(2, 1), removePieces(1, 2) -->
+	state {
+		getPile(0) == 2;
+		getPile(1) == 3;
+		getPile(2) == 4;
+	}
+	"Fjerner negativt antall" -- removePieces(-1, 0) throws IllegalArgumentException
+	"Fjerner for få brikker" -- removePieces(0, 0) throws IllegalArgumentException
+	"Fjerner for mange brikker" -- removePieces(6, 0) throws IllegalArgumentException
+}
+
+sequence gameOver "Avsluttet spill" {
+	-->
+	state{
+		! isGameOver();
+	}
+	"Fjerner brikker" -- removePieces(5, 0) -->
+	state {
+		getPile(0) == 0;
+		isGameOver();
+	}
+	"Fjerner brikker etter avsluttet spill " -- removePieces(5, 0) throws IllegalStateException
+}
+
+sequence isValidMove "Gyldige trekk" {
+	-->
+	state {
+		isValidMove(2, true);
+		isValidMove(-2, false);
+		isValidMove(0, false);
+		isValidMove(6, false);
+	}
+	"Avslutter spillet" -- removePieces(5, 0) -->
+	state {
+		isValidMove(2, false);
+	}
+}
+
+method boolean isValidMove(Nim game, int pieces, boolean legal) {
+	return (legal == game.isValidMove(pieces, 0) && (legal == game.isValidMove(pieces, 1)) && (legal == game.isValidMove(pieces, 2)));
+}

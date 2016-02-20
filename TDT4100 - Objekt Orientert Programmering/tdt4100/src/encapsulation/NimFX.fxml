@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.collections.*?>
+<?import java.lang.String?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" spacing="30">
+	<HBox spacing="5">
+		<Text text="New Nim game with pile sizes " />
+		<TextField fx:id="pileSizeField" promptText="pileSize"/>
+		<Button text="Start" onAction="#newGame" />
+	</HBox>
+	<HBox alignment="CENTER" spacing="30">
+		<Text fx:id="gameState" text="Game inactive" />
+		<VBox>
+			<Text text="Pile 1:" />
+			<Text fx:id="pile1" text="0" />
+		</VBox>
+		<VBox>
+			<Text text="Pile 2:"/>
+			<Text fx:id="pile2" text="0" />
+		</VBox>
+		<VBox>
+			<Text text="Pile 3:"/>
+			<Text fx:id="pile3" text="0" />
+		</VBox>
+	</HBox>
+	<VBox spacing="10">
+		<HBox>
+			<Text text="Remove " />
+			<TextField fx:id="numberField" promptText="number"/>
+			<Text text=" from pile "/>
+			<ChoiceBox fx:id="targetPileChoice">
+				<value>
+					<String fx:value="1"/>
+				</value>
+				 <items>
+					<FXCollections fx:factory="observableArrayList">
+						<String fx:value="1"/>
+						<String fx:value="2"/>
+						<String fx:value="3"/>
+					</FXCollections>
+				</items>
+		</ChoiceBox>
+		</HBox>
+		<HBox spacing="10">
+			<Button text="removePieces(number, targetPile)" onAction="#removePieces"/>
+			<Text fx:id="feedbackText" text=""/>
+		</HBox>
+	</VBox>
+	
+</VBox>
+
