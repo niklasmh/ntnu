@@ -1,0 +1,2 @@
+# Ntnu
+Just another repo
