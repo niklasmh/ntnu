@@ -1,0 +1,40 @@
+a) Nevn 3 eksempler på distribusjonsnett. Nevn 3 eksempler på kommunikasjonsnett.
+Posten, NSB, SAS.
+2G, 3G, 4G.
+
+b) Hva er forskjellen på analoge og digitale signaler?
+Analog er smoothe mens digitale konstrueres av bits og bytes.
+
+c) Hva er Nyquist samplingsteorem, hvorfor vil man benytte seg av det?
+Ta punktprøvinger(samplingsfrekvensen) som er dobbelt så høyt som den høyeste frekvensen av det analoge signalet. Dette for å unngå aliasing.
+
+d) Hvordan oppstår feil i digitale signaler?
+Interferense. Defekt hardware. Kvantiseringsstøy.
+
+e) Hvem eier internett?
+Alle/Ingen. Fritt område. Du kan dermed eie et domene.
+
+f) Nevn noen utfordringer med trådløst nett.
+- Ingen enkelt-organisasjon eier eller kontrollerer internettet. Det er ikke fastsatt konkrete lover, men er heller styrt etter anbefalinger.
+   - Blir likevel kontrollert av ICANN (regulerer domene-navnene), ARINN (administrerer IP-adressene), 
+
+g) Hva er en protokoll?
+En protokoll er et standardisert sett med regler som bestemmer tilkoblinger, kommunikasjon og dataoverføring mellom to endepunkter (f.eks. to dataprogrammer på ulike maskiner i et nettverk). 
+
+h) Hva er de 4 kravene til nett?
+Kravene til nett avhenger av hva sags tjeneste som skal ytes, men generelt er det snakk om:
+-	Skalarbarhet: Evnen til å håndtere en stadig større mengde trafikk, antall kunder eller dekning
+-	Tilgjengelighet: Et nett sin evne til å tilby et sett av tjenester på et bestemt tidspunkt
+-	Pålitelighet: Et nett sin evne til å levere uavbrutt/kontinuerlig tjeneste
+-	Ytelse: Et nett sin evne til å levere de nødvendige ressurser til alle typer tjenester
+
+i) Hva er cookies?
+Cookies er en tekst som lagres som en liten fil i nettleseren din.
+Gjennom den kan informasjon fra pc-en som besøker hjemmesiden lagres og oppbevares til neste gang nettsiden besøkes av samme pc. Derfor kan en cookie være til store hjelp.
+
+Det finnes to hovedtyper cookies:
+* Sessioncookie: en midlertidig cookie som kun eksisterer mens du bruker nettleseren.
+* Permanent cookie: Oppbevares på harddisken og er aktiv til en angitt utløpsdato.
+
+j) Hvordan kan men sende hemmelige meldinger over nett?
+Kryptering og/eller gjennom en proxy. Kan også bruke VPN, f.eks. det vi bruker til NTNU - folk.ntnu.no.

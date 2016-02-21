@@ -1,0 +1,39 @@
+a) Hva er pseudokode og når får vi bruk for det? Lag en pseudokode for steking av speilegg. 
+Pseudokode er en beskrivelse av koden i ren tekst. Dette skal, evt. punktvis, forklare hvordan koden skal gå frem slik at det blir lettere å skrive og organisere koden senere. Det er også smart for å optimalisere kode før man setter seg ned med det ordentlige programmet.
+
+Pseudokode for steking av speilegg:
+1. Henter antall egg og lagrer det i en variabel
+2. Definerer en stekefunksjon som tar inn antall egg
+2.1 Sett stekepanne på hothothot
+2.2 Traverser gjennom alle eggene med samme prosedyre
+2.2.1 Fjern skall og legg egget i panna
+2.2.2 Vent
+2.2.3 Vent litt til
+2.2.4 Sjekk om den er ferdig
+2.2.4.1 Hvis ikke ferdig, så vent litt til
+2.2.4.2 Hvis ferdig, break, og gå til neste hvis den finnes
+2.3 Fortell at eggene er ferdig speila
+3. Kjør stekefunksjonen med antall egg
+
+
+b) Hva er et flytdiagram? 
+Også kalt flowchart på engelsk, er en teknikk for å få oversikt over prysedyrene i koden - nesten som pseudokode. Man kan kjøre dette på et høyt nivå og strukturere hele programmet eller gå ned til en funksjon og beskrive den detaljert. Det finnes noen spesielle elementer i et flytdiagram, som:
+- Ellipser, runde kanter, som definerer start- og sluttsekvensen av programdelen.
+- Romber, skarpe kanter, som er en test. Videre ut leder konsekvensene av testen, slik som sant og ikke sant.
+- Rektangler, som definerer en prosedyre. Dette kan være en ny if-test eller flere prosedyrer.
+
+c) Hva er debugging?
+I de store, gammeldagse datamaskinene kunne det oppstå såkalte bugs i maskinene. Et insekt kunne derfor være til hinder for programmet. På den tiden måtte man lete etter dette insektet fysisk. Idag oppstår det oftest bare maskinkode som kan bugge programmet. Dette kan vi idag hindre ved å debugge. Altså gå inn i maskinkoden, stoppe programmet i et breakpoint, se på variablene, endre variabler og teste videre. Programmene til dags dato er også flinke til å fortelle om hva som er feil om det skulle oppstå en rumtime-error. En Debug vil da bli optimalt ettersom dette gjør det enklere enn å sette seg inn i alle resultatene ifra koden. Sentimentale errorer vil ikke kunne bli debugga.
+
+d) Hva er forksjellen på et høynivå- og et lavnivå-programmeringsspråk? 
+Før, i virkelig gamle dager, måtte man håndtere bits til bytes osv. Idag trenger vi bare å kalle en funksjon som gjør en hau med optimaliserte oppgaver for oss. Det som ligger nærmest maskinen er lavnivå-programmeringsspråk og kan være greit om man vil optimalisere en prosess til senere, men det er langt ifra klokt å tukle med kode så langt nede i rota ettersom det krever en ekstrem konsentrasjon. Høynivå, derimot, er mye ferdigbygd og mer ferdigbygd jo høyere man kommer. Spillmotorer er gjerne høynivå siden det krever nesten alt av alt og det er så mange prosesser som er like, slik som grafikk og 3D.
+
+e) Forklar de fem stegene i Hente/Utføre-kretsen.
+IF
+ID
+DF
+EX
+RR
+
+f) Hva gjør programtelleren (Program Counter)?
+Det er den telleren som beskriver hvor i programmet vi er.

@@ -1,0 +1,12 @@
+a) Btw, feil i swap-funksjonen! Skjermen skal returnere:
+i main : 7 3
+ ---> i swap : 3 7
+i main : 3 7
+ ---> i printglobals : 5 8
+i main : 3 7
+
+b) Den har 2 globale utenfor som ikke er hentet lokalt inn i funksjonen main().
+Derfor blir x og y laget som 2 lokale og uavhengige variabler.
+Funksjonen swap() tar inn verdiene x og y fra main() og bytter de om. De lokale variablene blir byttet.
+Så kaller vi på printglobals(). Denne henter ikke inn de lokale variablene og bruker derfor de globale.
+Parameterne og de globale er det eneste som kommuniserer med funksjonene i python, som vi har lært hittil.

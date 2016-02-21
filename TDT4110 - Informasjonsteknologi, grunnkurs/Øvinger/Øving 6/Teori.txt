@@ -1,0 +1,9 @@
+A) En datamaskin representerer tegn via ASCII-karaktersystemet. Videre kan et display representere tegnet på en skjerm ifra en font.
+B) For å representere dobbelt presisjonstall trenger vi 64 bits. For å finne ut antall bytes, deler vi bits på 8: 64/8 = 8 bytes. Maksimalt kan 15-17 desimaler blir representert.
+C) BIN: 0001 0010
+DEC: 18
+HEX: 12
+D) 0100 1111  0100 1100  0100 0101
+E) Presentere en farge på en skjerm slik at data kan representeres.
+F) Analog er den vi hører som lydbølger, mens digital lyd er dannet med bytes og en output som en høyttaler. Overgangen fra analog må samples. Jo høyere frekvens som samples jo mer data.
+G) Beskrivelse av data, slik at dataen gir mening.

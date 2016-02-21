@@ -1,0 +1,35 @@
+Jeg trengte ikke denne øvinga, så droppa å gjøre ferdig f)
+
+
+a) Hva er en algoritme?
+
+b) Hvis du hadde fått i oppgave å skrive en meget vanskelig algoritme, hva kunne du gjort for å gjøre implementasjonen enklere?
+
+c) Hva vil det si at en algoritme har kjøre tid på O(n^2)? Nevn noen eksempler på slike algoritmer?
+
+d) Hva er en rekursiv algoritme? Hva skiller denne fra en iterativ algoritme?
+
+e) Hvilke utviklingsmodeller finnes? Hva er forskjellen mellom de?
+
+f) Hva definerer en smidig utviklingsprosess?
+
+g) Når er programvare ferdig utviklet?
+
+
+
+a) En algoritme kan vi definere som et set med steg for at en oppgave skal bli løst.
+
+b) Se på alternative løsninger og se på begrensingene som er satt. Dele problemet opp i mindre funksjoner. 
+
+c) Den bruker kvadratet av mengden data som prosesseres gjennom algoritmen. Sorteringsalgoritmer som boblesortering er eksempler på disse.
+
+d) En rekursiv algoritme er en som bruker seg selv om igjen og om igjen til helst en slutt mens en iterativ er en som itererer gjennom en prosess et visst antall ganger.
+
+e)
+- Fossefallsmodellen (Kravspekk, design, implementasjon, integrasjon og testing, så opprettholdelse (ikke essensielt))
+- V-modellen (Samme som fossefallsmodellen, bortsett ifra at du kan endre kravspekk utifra testing og endre system designet ut ifra integrasjon, kanskje noe burde vært gjort annerledes)
+- Prototyp (Utforsker nye ideer og teknologien fra en prototype. F.eks. Du kan finne på et bedre UI etterhvert etter testing og mer planlegging)
+- Transformasjonsmodeller (Fra formelle spesifiksajoner til programvare. Fra Kravspekk til 
+- Boehms spiral modell (Finne metoder, alternativer og mål - Evaluere de, idenifisere de og redusere de - Utvikle de og validere de - Planlegge neste fase)*4 - avslutte på nest siste
+
+f) Etter testing

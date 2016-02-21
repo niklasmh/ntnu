@@ -1,0 +1,34 @@
+a) Hva er forskjellen på primær og sekundær lagring? Nevn eksempler på disse? 
+
+Primær lagring er den lagringa som skjer nærmest prosessoren. RAM (Random Access Memory) er primær og behandler store mengder data når maskinen er på.
+Sekundær lagring er den som skjer når data overføres til en ekstern enhet - f.eks.: minnepenn eller en ekstern harddrive.
+
+
+b) Harddisk, SSD og RAM: Nevn de ulike egenskapene med tanke på permanent/volatilt og tilfeldig/sekvensiell aksess.
+
+En harddisk består av en disk som lagrer data. Dette er en av de gamle metodene nå. Den er extern og bruker tid på å lagre.
+Nå er SSD - Solid State Drive - blitt et mye bedre alternativ ettersom den kan lagre kjappere uten å være avhengig av en bevegende disk.
+RAM derimot - Random Access Memory - er det som lagres i maskinen midlertidig imens strømmen går.
+Dette slettes umiddelbart etter at strømmen avsluttes, dette er altså volatilt.
+
+
+c) Silisium brukes mye i elektronikk. Hvorfor?
+
+Det ble billigere enn tidligere metoder.
+Man kan dope det med elektroner og få en halvleder slik at man kan kontruere en transistor - ofte en npn-transistor.
+Integrerte krestser bruker også mye silisium.
+
+
+d) Hvordan kan en datamaskin lagre og behandle bilder, lyd og tekst?
+
+En datamaskin kan behandle bilder, lyd og tekst ved å sample og gjøre analoge signal over til digitale. Videre kan en datamaskin, med hjelp av utskriftsenheter som dataskjerm, printer og høyttalere, konvertere signalene tilbake til den analoge verden igjen. Kvaliteten kan bli en del dempet gjennom dette steget.
+
+
+e) Det overføres 32 000 bytes mellom to datamaskiner. Hva må netthastigheten (målt i bits) være for å fullføre denne overføringen i løpet av 40 sekunder?
+
+6400 bits per sek.
+
+
+f) Hva er et OS og hva brukes det til?
+
+Operativ System og brukes som brukergrensesnitt for en datamaskin.
