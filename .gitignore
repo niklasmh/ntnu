@@ -1,5 +1,7 @@
 -*/
 *.pdf
+*.tar
+*.tar.*
 
 EXPH0004*/
 IT1501*/
@@ -27,6 +29,7 @@ TDT4110*/*
 !TDT4110*/Øvinger/
 
 TDT4120*/
+TFY4125*/
 
 #OneDrive sync error
 *-Niklas-PC.*
