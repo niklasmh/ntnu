@@ -60,4 +60,8 @@ public class CardDeck {
 
         return newDeck;
     }
+
+    private Iterator<Card> iterator () {
+        return deck.iterator();
+    }
 }

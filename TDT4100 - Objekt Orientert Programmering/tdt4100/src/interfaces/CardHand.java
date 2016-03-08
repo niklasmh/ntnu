@@ -33,4 +33,8 @@ public class CardHand {
 
         return pick;
     }
+
+    private Iterator<Card> iterator () {
+        return hand.iterator();
+    }
 }

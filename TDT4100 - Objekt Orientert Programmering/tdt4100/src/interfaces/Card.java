@@ -1,6 +1,8 @@
 package interfaces;
 
-public class Card {
+
+
+public class Card implements Comparable<Card> {
     private char color;
     private int val;
     private static final String LEGAL_SUITS = "SHDC";
@@ -34,5 +36,16 @@ public class Card {
     @Override
     public String toString () {
         return String.format("%s%d", this.color, this.val);
+    }
+
+    public int compareTo (Card card) {
+        int pos = LEGAL_SUITS.indexOf(card.getSuit()) - LEGAL_SUITS.indexOf(getSuit());
+
+        // If it is the same suit we need to check the faces so they can be sorted too
+        if (pos == 0) {
+            return card.getFace() - getFace();
+        }
+
+        return pos;
     }
 }
