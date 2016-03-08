@@ -2,6 +2,7 @@
 *.pdf
 *.tar
 *.tar.*
+*.iml
 
 EXPH0004*/
 IT1501*/
