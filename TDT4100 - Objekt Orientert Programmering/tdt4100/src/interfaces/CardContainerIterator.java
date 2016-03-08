@@ -10,4 +10,12 @@ public class CardContainerIterator implements Iterator<Card> {
         this.cardContainer = cardContainer;
         this.position = 0;
     }
+
+    public boolean hasNext () {
+        return cardContainer.getCardCount() < position;
+    }
+
+    public Card next () {
+        return cardContainer.getCard(position++);
+    }
 }

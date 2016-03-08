@@ -2,9 +2,9 @@ package interfaces;
 
 import java.util.Comparator;
 
-public class CardComparator implements Comparator {
+public class CardComparator implements Comparator<Card> {
     private char[] suits = {'S', 'H', 'D', 'C'};
-    private int ess;
+    private boolean ess;
     private char trumf;
 
     public CardComparator (boolean ess, char trumf) {
