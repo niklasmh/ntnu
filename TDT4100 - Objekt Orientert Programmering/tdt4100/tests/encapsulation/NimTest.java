@@ -1,6 +1,6 @@
 package encapsulation;
 
-import encapsulation.Nim;
+//import encapsulation.Nim;
 import junit.framework.TestCase;
 import no.hal.jex.runtime.JExercise;
 
