@@ -7,11 +7,8 @@ public class StreamLogger implements ILogger {
     private String logMessage, format = "%s: %s (%s)";
     private OutputStream stream;
 
-    public StreamLogger() {
-        this(System.out);
-    }
-
     public StreamLogger(OutputStream stream) {
+        super();
         this.stream = stream;
     }
 

@@ -9,9 +9,12 @@ public class FilteringLogger implements ILogger {
     private List<String> severities;
     private String logMessage, format = "%s: %s (%s)";
     private OutputStream stream;
+    private ILogger logger;
 
     public FilteringLogger(ILogger logger, String... severities) {
+        super();
         Collections.addAll(this.severities, severities);
+        this.logger = logger;
     }
 
     public boolean isLogging(String severity) {
@@ -22,6 +25,8 @@ public class FilteringLogger implements ILogger {
 
         if (value && !this.severities.contains(severity)) {
             this.severities.add(severity);
+        } else if (!value) {
+            this.severities.remove(severity);
         }
     }
 
@@ -29,10 +34,6 @@ public class FilteringLogger implements ILogger {
     public void log(String severity, String message, Exception exception) {
         logMessage = String.format(format, severity, message, exception);
 
-        try {
-            stream.write(logMessage.getBytes());
-        } catch (IOException err) {
-            System.out.println("Error: " + err.getMessage());
-        }
+        logger.log(severity, logMessage, exception);
     }
 }
