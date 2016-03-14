@@ -1,0 +1,39 @@
+test delegation.StreamLogger
+
+import java.io.ByteArrayOutputStream
+
+instance String formatString = "%s: %s (%s)"
+
+instance ByteArrayOutputStream stream = new ByteArrayOutputStream()
+instance StreamLogger logger = new StreamLogger(stream)
+
+sequence log {
+	"Logger infomelding" -- logger.log(ILogger.INFO, "En melding ble logget!", null) -->
+	state {
+		stream.toString().contains("En melding ble logget!")
+		stream.toString().contains(ILogger.INFO)		
+	}
+}
+
+sequence logException {
+	instance IllegalStateException exception = new IllegalStateException
+	"Logger unntak" -- logger.setFormatString(formatString), logger.log(ILogger.INFO, "En melding ble logget!", exception) -->
+	state{
+		stream == String.format(formatString, ILogger.INFO, "En melding ble logget!", exception)
+	}
+}
+
+
+sequence logWithFormat {
+	instance IllegalStateException exception = new IllegalStateException
+	"Logger infomelding med spesifisert format" -- logger.setFormatString(formatString), logger.log(ILogger.INFO, "En melding ble logget!", exception) -->
+	state{
+		stream == String.format(formatString, ILogger.INFO, "En melding ble logget!", exception)	
+	}
+}
+
+
+method boolean operator_equals(ByteArrayOutputStream stream, String content) {
+	// ignore leadning and trailing whitespace
+	return stream.toString().trim() == content.trim()
+}
