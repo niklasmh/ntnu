@@ -2,7 +2,7 @@ package interfaces;
 
 import java.util.*;
 
-public class CardDeck {
+public class CardDeck implements CardContainer {
     private List<Card> deck = new ArrayList<Card>();
     private char suits[] = new char[]{'S', 'H', 'D', 'C'};
 
@@ -61,7 +61,7 @@ public class CardDeck {
         return newDeck;
     }
 
-    private Iterator<Card> iterator () {
+    public Iterator<Card> iterator () {
         return deck.iterator();
     }
 }

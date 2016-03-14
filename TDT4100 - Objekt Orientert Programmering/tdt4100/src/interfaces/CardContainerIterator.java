@@ -12,10 +12,15 @@ public class CardContainerIterator implements Iterator<Card> {
     }
 
     public boolean hasNext () {
-        return cardContainer.getCardCount() < position;
+        return position < cardContainer.getCardCount();
     }
 
     public Card next () {
         return cardContainer.getCard(position++);
     }
+
+	@Override
+	public void remove() {
+		
+	}
 }

@@ -2,8 +2,10 @@ package interfaces;
 
 import java.util.*;
 
-public class CardHand {
+public class CardHand implements CardContainer {
+	
     private List<Card> hand = new ArrayList<Card>();
+    private int pos;
 
     public CardHand () {
 
@@ -34,7 +36,7 @@ public class CardHand {
         return pick;
     }
 
-    private Iterator<Card> iterator () {
+    public Iterator<Card> iterator () {
         return hand.iterator();
     }
 }
