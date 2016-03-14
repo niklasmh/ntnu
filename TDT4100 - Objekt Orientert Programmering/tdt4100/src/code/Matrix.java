@@ -84,13 +84,13 @@ public class Matrix {
 	
 	public double getField (int x, int y) {
 		
-		if (x >= 0 && x < this.matrix.length && y >= 0 && y < this.matrix.length) {
+		if (y >= 0 && y < this.matrix.length && x >= 0 && x < this.matrix[0].length) {
 			return this.matrix[y][x];
 		}
 		
 		throw new IllegalArgumentException("Can't find field in matrix. Try to check columns and rows first.");
 	}
-	
+
 	public boolean setField (int x, int y, double val) {
 		
 		if (x >= 0 && x < this.matrix.length && y >= 0 && y < this.matrix.length) {
@@ -158,9 +158,12 @@ public class Matrix {
 	
 	public Matrix invers (Matrix matrix) {
 		double[][] newMatrix = new double[matrix.getMatrixRows()][matrix.getMatrixColumns()];
-		
-		for (int i = 0; i < newMatrix.length; i++) {
-			
+
+		for (int y = 0; y < newMatrix.length; y++) {
+
+			for (int x = 0; x < newMatrix[0].length; x++) {
+
+			}
 		}
 		
 		return new Matrix(newMatrix);
