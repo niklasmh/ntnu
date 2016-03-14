@@ -1,5 +1,5 @@
 package debugging;
-/*
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -22,32 +22,30 @@ public class StringMergingIterator implements Iterator<String> {
 
 	@Override
 	public String next() {
-		
-		if(! hasNext()){ throw new NoSuchElementException(); }
 
-		String result = null;
-		
-		if(! first.hasNext()){
-			result = first.next();
-		} 
-		else if(! second.hasNext()){
-			result = second.next();
-		} 
-		else {
-			if(turnSwitch){
-				result = first.next();
-				turnSwitch = false;
-			}
-			if(!turnSwitch){
-				result = second.next();
-				turnSwitch = true;
-			}
-			
-		}
-		
-		return result;
-	}
-	
-	
+        if (!hasNext()) {
+            throw new NoSuchElementException();
+        }
+
+        String result = null;
+
+        if (first.hasNext() && turnSwitch) {
+            result = first.next();
+        } else if (second.hasNext() && !turnSwitch) {
+            result = second.next();
+        } else {
+
+            if (first.hasNext() && turnSwitch) {
+                result = first.next();
+                turnSwitch = false;
+            }
+
+            if (second.hasNext() && !turnSwitch) {
+                result = second.next();
+                turnSwitch = true;
+            }
+        }
+
+        return result;
+    }
 }
-/**/
