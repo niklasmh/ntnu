@@ -1,5 +1,5 @@
 package delegation;
-/*
+
 //import delegation.ILogger;
 //import delegation.StreamLogger;
 import com.google.common.base.Objects;
@@ -176,4 +176,3 @@ public class StreamLoggerTest extends TestCase {
     no.hal.jex.standalone.JexStandalone.main(StreamLoggerTest.class);
   }
 }
-*/
