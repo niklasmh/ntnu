@@ -20,20 +20,20 @@ public class Sudoku {
 		Board b;
 		
 		if (board.matches("[1-9.]{81,}")) {
-			System.out.println("Sukksess i å importere brett:\n");
+			System.out.println("Sukksess i Ã¥ importere brett:\n");
 			b = new Board(board.substring(0, 81));
 		} else if (board.length() > 0) {
-			System.out.println("Kunne ikke lage brett, du får nå default:\n");
+			System.out.println("Kunne ikke lage brett, du fÃ¥r nÃ¥ default:\n");
 			b = new Board();
 		} else {
-			System.out.println("Du får nå default:\n");
+			System.out.println("Du fÃ¥r nÃ¥ default:\n");
 			b = new Board();
 		}
 		
 		System.out.println(b);
 		
 		/* Trying to brute force until a solution is found. * /
-		System.out.println("Løse selv? (blank - ja)");
+		System.out.println("Lï¿½se selv? (blank - ja)");
 		boolean human = (scan.nextLine().length() == 0);
 		/**/
 		boolean human = true;
