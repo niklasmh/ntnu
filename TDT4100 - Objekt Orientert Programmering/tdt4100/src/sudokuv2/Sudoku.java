@@ -73,27 +73,79 @@ public class Sudoku {
             int posX, posY, val;
 
             while (true) {
-                String posXChar = scan.next();
-                posX = (int)posXChar.charAt(0) - 97;
-                posY = scan.nextInt();
-                val = scan.nextInt();
+                String[] input = scan.nextLine().split(" ");
 
-                System.out.println(posXChar + ", " + posY + ", " + val);
+                if (input[0].matches("[Uu]|[Uu]ndo")) {
 
-                if (posX >= 0 && posX < 9) {
+                    if (input.length >= 2 && input[1].matches("-[Aa]|--[Aa]ll")) {
+                        System.out.println("Undoing all steps.");
+                        System.out.println("You can still go to last step with \"goto --last\", " +
+                                "but one move will reset the game for good");
+                    } else {
 
-                    if (posY >= 0 && posY < 9) {
+                    }
+                } else if (input[0].matches("[Rr]|[Rr]edo")) {
 
-                        if (val >= 0 && val <= 9) {
-                            break;
+                    if (input.length >= 2 && input[1].matches("-[Aa]|--[Aa]ll")) {
+
+                    }
+                } else if (input[0].matches("[Gg][Tt]|[Gg]oto")) {
+
+                    if (input.length >= 2 && input[1].matches("-[Ff]|--[Ff]irst")) {
+
+                    } else if (input.length >= 2 && input[1].matches("-[Ll]|--[Ll]ast")) {
+
+                    } else if (input.length >= 2 && input[1].matches("[0-9]+")) {
+                        int step = Integer.parseInt(input[1]);
+                        if (step > 0) {
+                            if (step < 10) {
+                                System.out.println("Moving to step " + step);
+                            } else {
+                                System.out.println("You can't go further than " + (step - 10) + " steps after the future");
+                            }
                         } else {
-                            System.out.println("Not a valid value, must be between 0-9.");
+                            System.out.println("You can't go back before time..");
                         }
                     } else {
-                        System.out.println("Not a valid y-position, must be between 0-8.");
+                        System.out.println("You are on step ");
+                    }
+                } else if (input[0].matches("clear")) {
+                    if (input.length >= 2 && input[1].matches("-[Aa]|--[Aa]ll")) {
+
+                    } else if (input.length >= 2 && input[1].matches("-[Pp]|--[Pp]ast")) {
+
+                    } else if (input.length >= 2 && input[1].matches("-[Ff]|--[Ff]uture")) {
+
+                    } else {
+                        System.out.println("Need to apply --past, --future or --all");
                     }
                 } else {
-                    System.out.println("Not a valid x-position, must be a-i.");
+
+                    if (input.length >= 3) {
+                        posX = (int) input[0].charAt(0) - 97;
+                        posY = Integer.parseInt(input[1]);
+                        val = Integer.parseInt(input[2]);
+
+                        System.out.println(input[0] + ", " + posY + ", " + val);
+
+                        if (posX >= 0 && posX < 9) {
+
+                            if (posY >= 0 && posY < 9) {
+
+                                if (val >= 0 && val <= 9) {
+                                    break;
+                                } else {
+                                    System.out.println("Not a valid value, must be between 0-9.");
+                                }
+                            } else {
+                                System.out.println("Not a valid y-position, must be between 0-8.");
+                            }
+                        } else {
+                            System.out.println("Not a valid x-position, must be a-i.");
+                        }
+                    } else {
+                        System.out.println("For få argumenter. Må være 3 med mellomrom");
+                    }
                 }
             }
 
