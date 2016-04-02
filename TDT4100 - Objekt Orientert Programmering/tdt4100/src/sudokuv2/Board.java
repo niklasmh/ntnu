@@ -39,6 +39,7 @@ public class Board {
         this(board);
         List<String> moves = new ArrayList<>(Arrays.asList(log.split(",")));
         this.log.setLog(moves, moves.size() - 1);
+        this.addLogToBoard(this.log);
     }
 
     /**
@@ -190,15 +191,25 @@ public class Board {
      */
     public void rebuild () {
         this.board = StrToFields(this.initBoard);
+        this.addLogToBoard(this.log);
+    }
+
+    /**
+     * Adds the input log to the board. This can be used to build board from the start.
+     *
+     * @param log = list of history elements in the game
+     */
+    public void addLogToBoard (Log log) {
 
         for (String step : log.getLog()) {
 
-            if (step.matches("^[0-8][0-8][0-9.]$")) {
+            if (step.matches("[0-8][0-8][0-9]")) {
                 String[] pieces = step.split("");
                 int x = Integer.parseInt(pieces[0]);
                 int y = Integer.parseInt(pieces[1]);
                 int val = (pieces[2].matches("\\.") ? 0 : Integer.parseInt(pieces[2]));
                 this.board[x + y * this.width].setField(val);
+                System.out.println("Set " + x + ", " + y + ", " + val);
             }
         }
     }
