@@ -1,9 +1,14 @@
 package sudokuv2;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Board {
     private int height, width;
     private Field[] board;
     private String initBoard;
+    private Log log;
 
     /**
      * Generating board with a default value. If file does not exist.
@@ -13,7 +18,7 @@ public class Board {
     }
 
     /**
-     * Generating board from a string.
+     * Generating board from a string and initializing an empty log.
      *
      * @param board = a string
      */
@@ -22,6 +27,18 @@ public class Board {
         height = 9;
         this.initBoard = board;
         this.board = StrToFields(this.initBoard);
+        log = new Log();
+    }
+
+    /**
+     * Generating board from a string and adding log to log object from log.
+     *
+     * @param board = a string
+     */
+    public Board(String board, String log) {
+        this(board);
+        List<String> moves = new ArrayList<>(Arrays.asList(log.split(",")));
+        this.log.setLog(moves, moves.size() - 1);
     }
 
     /**
