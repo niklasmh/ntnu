@@ -1,7 +1,6 @@
 package sudokuv2;
 
 import java.io.*;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -11,7 +10,7 @@ import java.util.stream.Stream;
 
 public class FileHandler {
     private String filePath;
-    private List<String> content = new ArrayList<String>();
+    private List<String> content = new ArrayList<>();
 
     /**
      * A contructor which sets history.txt as default path for import/export file.
@@ -119,10 +118,12 @@ public class FileHandler {
      * @param game = the current game in this format: name;board;log;stepsInLog
      */
     public void appendContent(String game) {
-        this.content.add(game + "\n");
+        this.content.add(game);
 
         try {
-            Files.write(Paths.get(this.filePath), game.getBytes(), StandardOpenOption.APPEND);
+            Files.write(Paths.get("./src/sudokuv2", this.filePath), game.getBytes(), StandardOpenOption.APPEND);
+            Files.write(Paths.get("./src/sudokuv2", this.filePath), System.getProperty("line.separator").getBytes(), StandardOpenOption.APPEND);
+            System.out.println("Kunne legge til i " + this.filePath);
         } catch (IOException e) {
             System.out.println("Kan ikke legge til " + this.filePath);
         }
@@ -147,7 +148,7 @@ public class FileHandler {
      * Returns a list of games in this format: name;board;log;stepsInLog.
      * This is to later make it accessible through the game.
      *
-     * @param filePath =
+     * @param filePath = the relative path to file
      * @return = a list of games
      */
     public List<String> getFileContent(String filePath) {
@@ -166,7 +167,7 @@ public class FileHandler {
             System.out.println("Feilet med noe I/O greier: " + e);
         }
 
-        return new ArrayList<String>();
+        return new ArrayList<>();
     }
 
     /**
