@@ -50,7 +50,7 @@ public class Sudoku {
 
                 if (num < content.size()) {
                     System.out.println("Du valgte brett " + num + ". Du får nå brettet: " + file.getContentField(num, 0));
-                    b = new Board(file.getContentField(num, 1).substring(0, 81));
+                    b = new Board(file.getContentField(num, 1).substring(0, 81), file.getContentField(num, 2));
                 } else {
                     System.out.println("Du valgte et nummer, men brettet fantes ikke. Du får nå default: \n");
                     b = new Board();
