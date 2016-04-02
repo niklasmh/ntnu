@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Log {
-    private List<String> log = new ArrayList<String>();
+    private List<String> log = new ArrayList<>();
     private int step = 0;
 
     /**

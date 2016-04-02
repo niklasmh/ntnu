@@ -17,6 +17,7 @@ public class Sudoku {
         Scanner scan = new Scanner(System.in);
         System.out.println("Du kan velge mellom");
         List<String> content = file.getContent();
+
         for (int i = 0; i < content.size(); i++) {
             System.out.println(i + ". - " + file.getContentField(i, 0));
         }
@@ -43,23 +44,27 @@ public class Sudoku {
             file.appendContent(file.buildSave(name, b.getBoard(), "", 0));
             System.out.println("Brettet ble lagret i " + filepath + "!");
 
-        } else if (board.matches("[0-9]{1,10}")) {
-            int num = Integer.parseInt(board);
+        } else {
+            if (board.matches("[0-9]{1,10}")) {
+                int num = Integer.parseInt(board);
 
-            if (num < content.size()) {
-                System.out.println("Du valgte brett " + num + ". Du får nå brettet: " + file.getContentField(num, 0));
-                b = new Board(file.getContentField(num, 1).substring(0, 81));
+                if (num < content.size()) {
+                    System.out.println("Du valgte brett " + num + ". Du får nå brettet: " + file.getContentField(num, 0));
+                    b = new Board(file.getContentField(num, 1).substring(0, 81));
+                } else {
+                    System.out.println("Du valgte et nummer, men brettet fantes ikke. Du får nå default: \n");
+                    b = new Board();
+                }
+
             } else {
-                System.out.println("Du valgte et nummer, men brettet fantes ikke. Du får nå default: \n");
+
+                if (board.length() > 0) {
+                    System.out.println("Kunne ikke lage brett... ");
+                }
+
+                System.out.println("Du får nå default: \n");
                 b = new Board();
             }
-
-        } else if (board.length() > 0) {
-            System.out.println("Kunne ikke lage brett, du får nå default: \n");
-            b = new Board();
-        } else {
-            System.out.println("Du får nå default: \n");
-            b = new Board();
         }
 
         while (!b.isGameOver()) {
