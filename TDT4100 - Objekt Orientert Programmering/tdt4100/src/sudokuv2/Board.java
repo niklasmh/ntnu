@@ -185,6 +185,32 @@ public class Board {
     }
 
     /**
+     * Rebuilding the whole board from scratch.
+     * First by refactoring the initial board - then build by the log, like Git.
+     */
+    public void rebuild () {
+        this.board = StrToFields(this.initBoard);
+
+        for (String step : log.getLog()) {
+
+            if (step.matches("^[0-8][0-8][0-9.]$")) {
+                String[] pieces = step.split("");
+                int x = Integer.parseInt(pieces[0]);
+                int y = Integer.parseInt(pieces[1]);
+                int val = (pieces[2].matches("\\.") ? 0 : Integer.parseInt(pieces[2]));
+                this.board[x + y * this.width].setField(val);
+            }
+        }
+    }
+
+    /**
+     * Undo last step from the board. Reversing the build process by one step.
+     */
+    public void undo () {
+        log.undo();
+    }
+
+    /**
      * Returns a drwaing of the board with all the essentials.
      *
      * @return = a string of the board and its components
