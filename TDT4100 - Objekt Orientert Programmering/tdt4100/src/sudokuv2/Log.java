@@ -30,18 +30,35 @@ public class Log {
      * @param move = what move which should replace at the step counter
      */
     public void append (String move) {
-        log.subList(log.size() - this.step, log.size()).clear();
+        log.subList(this.step, log.size()).clear();
         log.add(move);
+        this.step++;
     }
 
     /**
-     * Decrease the stepper by one.
+     * Decrease the stepper by one if possible.
      */
-    public void undo () {
+    public boolean undo () {
 
         if (this.step > 0) {
             this.step--;
+            return true;
         }
+
+        return false;
+    }
+
+    /**
+     * Increase the stepper by one if possible.
+     */
+    public boolean redo () {
+
+        if (this.step < this.log.size()) {
+            this.step++;
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -49,11 +66,14 @@ public class Log {
      *
      * @param step = number between 0 and log length
      */
-    public void setStep (int step) {
+    public boolean setStep (int step) {
 
-        if (step >= 0 && step < this.log.size()) {
+        if (step >= 0 && step <= this.log.size()) {
             this.step = step;
+            return true;
         }
+
+        return false;
     }
 
     /**
@@ -66,12 +86,51 @@ public class Log {
     }
 
     /**
+     * Returns the private size.
+     *
+     * @return = the size
+     */
+    public int getSize () {
+        return this.log.size();
+    }
+
+    /**
      * Returns the log as a list of moves.
      *
      * @return = a list of strings
      */
     public List<String> getLog () {
         return this.log;
+    }
+
+    /**
+     * Returns the log as a string of moves.
+     *
+     * @return = a string
+     */
+    public String getLogFormatted () {
+        return String.join(",", this.log);
+    }
+
+    /**
+     * Returns the log as a string of moves with pointer at step.
+     *
+     * @return = a string
+     */
+    public String getLogFormatted (int step) {
+        String formatted = "";
+        for (int i = 0; i < log.size(); i++) {
+            if (i == step) {
+                formatted += "->";
+            }
+
+            formatted += log.get(i);
+
+            if (i < log.size() - 1) {
+                formatted += ",";
+            }
+        }
+        return formatted;
     }
 
     /**

@@ -71,6 +71,29 @@ public class FileHandler {
     }
 
     /**
+     * Set content of index.
+     *
+     * @param game = index of the game
+     * @param content = the content in one string
+     */
+    public void setContent (int game, String content) {
+        this.content.set(game, content);
+    }
+
+    /**
+     * Set field in content of index.
+     *
+     * @param game = index of the game
+     * @param field = the content of the field
+     * @param content = the content to replace with field
+     */
+    public void setContentField (int game, int field, String content) {
+        String[] pieces = this.content.get(game).split(";");
+        pieces[field] = content;
+        this.content.set(game, String.join(";", pieces));
+    }
+
+    /**
      * Returns the field from an indexed game in the memory.
      *
      * @param game = the nth element in the content
@@ -129,11 +152,22 @@ public class FileHandler {
         }
     }
 
+    public void save (List<String> content) {
+        this.content = content;
+        save();
+    }
+
     /**
      * Saves the game to the file at filepath.
      */
     public void save () {
-        try (PrintWriter file = new PrintWriter(new BufferedWriter(new FileWriter(this.filePath, true)))) {
+        try {
+            new PrintWriter("./src/sudokuv2/" + this.filePath).close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Kunne ikke finne filen");
+        }
+
+        try (PrintWriter file = new PrintWriter(new BufferedWriter(new FileWriter("./src/sudokuv2/" + this.filePath, true)))) {
 
             for (int i = 0; i < this.content.size(); i++) {
                 file.println(this.content.get(i));
