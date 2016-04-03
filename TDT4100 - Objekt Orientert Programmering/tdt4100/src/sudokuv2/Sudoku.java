@@ -141,13 +141,13 @@ public class Sudoku {
                     System.exit(1);
                 } else if (input[0].matches("[Ll]|[Ll]og")) {
                     System.out.println("Log: " + b.getLogFormatted(b.getStep()));
-                } else if (input[0].matches("[Ss]tate|[Ss]tatus")) {
+                } else if (input[0].matches("[Ss]tat[es]|[Ss]tatus")) {
                     System.out.println(b);
                     System.out.println("Step: " + b.getStep() + "/" + b.getSizeOfLog());
                     System.out.println("Log: " + b.getLogFormatted(b.getStep()));
                     break;
                 } else if (input[0].matches("[Ss]|[Ss]tep")) {
-                    System.out.println("Log: " + b.getLogFormatted(b.getStep()));
+                    System.out.println("Step: " + b.getStep() + "/" + b.getSizeOfLog());
                     break;
                 } else if (input[0].matches("[Gg][Tt]|[Gg]oto")) {
 
