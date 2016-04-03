@@ -85,6 +85,7 @@ public class Board {
 
         if (validField(x, y)) {
             board[x + y * width].setField(val);
+            log.append("" + x + y + val);
 
             return true;
         }
@@ -218,11 +219,72 @@ public class Board {
     }
 
     /**
+     * Returns the private stepper.
+     *
+     * @return = the stepper
+     */
+    public int getStep () {
+        return this.log.getStep();
+    }
+
+    /**
+     * Sets the private stepper.
+     *
+     * @return = the stepper
+     */
+    public boolean setStep (int step) {
+        return this.log.setStep(step);
+    }
+
+    /**
+     * Returns the private stepper.
+     *
+     * @return = the size of the que
+     */
+    public int getSizeOfLog () {
+        return this.log.getSize();
+    }
+
+    /**
+     * Returns the log as one string. It can then be saved.
+     * Format: a00,a01...i89
+     *
+     * @return = a string of the log
+     */
+    public String getLogFormatted () {
+        return this.log.getLogFormatted();
+    }
+
+    /**
+     * Returns the log as one string. It can then be saved.
+     * Format: a00,a01...i89
+     *
+     * @return = a string of the log
+     */
+    public String getLogFormatted (int step) {
+        return this.log.getLogFormatted(step);
+    }
+
+    /**
      * Undo last step from the board. Reversing the build process by one step.
      */
-    public void undo () {
-        log.undo();
-        rebuild();
+    public boolean undo () {
+        if (log.undo()) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Undo last step from the board. Reversing the build process by one step.
+     */
+    public boolean redo () {
+        if (log.redo()) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

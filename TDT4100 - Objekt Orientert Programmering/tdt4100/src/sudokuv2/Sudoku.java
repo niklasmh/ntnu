@@ -13,6 +13,7 @@ public class Sudoku {
     public static void main(String[] args) {
         String filepath = "history.txt";
         FileHandler file = new FileHandler(filepath);
+        int game;
 
         Scanner scan = new Scanner(System.in);
         System.out.println("Du kan velge mellom");
@@ -43,7 +44,7 @@ public class Sudoku {
             System.out.println("Vi lagrer nå brettet til " + filepath + "...");
             file.appendContent(file.buildSave(name, b.getBoard(), "", 0));
             System.out.println("Brettet ble lagret i " + filepath + "!");
-
+            game = file.getContent().size() - 1;
         } else {
             if (board.matches("[0-9]{1,10}")) {
                 int num = Integer.parseInt(board);
@@ -53,9 +54,11 @@ public class Sudoku {
                     b = new Board(file.getContentField(num, 1).substring(0, 81),
                             file.getContentField(num, 2),
                             Integer.parseInt(file.getContentField(num, 3)));
+                    game = num;
                 } else {
                     System.out.println("Du valgte et nummer, men brettet fantes ikke. Du får nå default: \n");
                     b = new Board();
+                    game = 0;
                 }
 
             } else {
@@ -66,12 +69,14 @@ public class Sudoku {
 
                 System.out.println("Du får nå default: \n");
                 b = new Board();
+                game = 0;
             }
         }
 
+        System.out.println(b);
+
         while (!b.isGameOver()) {
-            System.out.println(b);
-            System.out.println("\n\nEndre felt (f.eks. g 1 5): ");
+            System.out.println("\nEndre felt (f.eks. g 1 5): ");
             int posX, posY, val;
 
             while (true) {
@@ -81,35 +86,103 @@ public class Sudoku {
 
                     if (input.length >= 2 && input[1].matches("-[Aa]|--[Aa]ll")) {
                         System.out.println("Undoing all steps.");
-                        System.out.println("You can still go to last step with \"goto --last\", " +
+                        int steps = 0;
+                        while (b.undo()) {
+                            steps++;
+                            System.out.println("Undoing");
+                        }
+                        b.rebuild();
+                        System.out.println(b);
+                        System.out.println("Undid " + steps + " steps");
+                        System.out.println("You can still go to last step with \"goto [--last|-l]\", " +
                                 "but one move will reset the game for good");
                     } else {
                         System.out.println("Undoing last action...");
                         b.undo();
+                        b.rebuild();
+                        System.out.println(b);
                         System.out.println("Success!");
                     }
+
+                    System.out.println("Step: " + b.getStep() + "/" + b.getSizeOfLog());
+                    System.out.println("Log: " + b.getLogFormatted(b.getStep()));
+                    file.setContentField(game, 3, String.valueOf(b.getStep()));
+                    file.save();
                 } else if (input[0].matches("[Rr]|[Rr]edo")) {
 
                     if (input.length >= 2 && input[1].matches("-[Aa]|--[Aa]ll")) {
+                        int steps = 0;
+                        while (b.redo()) {
+                            steps++;
+                            System.out.println("Redoing");
+                        }
+                        b.rebuild();
+                        System.out.println(b);
+                        System.out.println("Redid " + steps + " steps");
+                    } else {
+                        if (b.redo()) {
+                            b.rebuild();
+                            System.out.println(b);
+                            System.out.println("Redoing one step");
+                        } else {
+                            System.out.println("Out of redo");
+                        }
                     }
+                    System.out.println("Step: " + b.getStep() + "/" + b.getSizeOfLog());
+                    System.out.println("Log: " + b.getLogFormatted(b.getStep()));
+                    file.setContentField(game, 3, String.valueOf(b.getStep()));
+                    file.save();
+                    break;
+                } else if (input[0].matches("[Qq]|[Qq]uit|[Ee]xit")) {
+                    file.setContentField(game, 2, b.getLogFormatted());
+                    file.setContentField(game, 3, String.valueOf(b.getStep()));
+                    file.save();
+                    System.out.println("Bye. All your date is saved and you're welcome back!");
+                    System.exit(1);
+                } else if (input[0].matches("[Ll]|[Ll]og")) {
+                    System.out.println("Log: " + b.getLogFormatted(b.getStep()));
+                } else if (input[0].matches("[Ss]tate|[Ss]tatus")) {
+                    System.out.println(b);
+                    System.out.println("Step: " + b.getStep() + "/" + b.getSizeOfLog());
+                    System.out.println("Log: " + b.getLogFormatted(b.getStep()));
+                    break;
+                } else if (input[0].matches("[Ss]|[Ss]tep")) {
+                    System.out.println("Log: " + b.getLogFormatted(b.getStep()));
+                    break;
                 } else if (input[0].matches("[Gg][Tt]|[Gg]oto")) {
 
                     if (input.length >= 2 && input[1].matches("-[Ff]|--[Ff]irst")) {
+                        b.setStep(0);
+                        b.rebuild();
+                        file.setContentField(game, 3, String.valueOf(b.getStep()));
+                        System.out.println(b);
+                        System.out.println("You are now at the start.");
                     } else if (input.length >= 2 && input[1].matches("-[Ll]|--[Ll]ast")) {
-                    } else if (input.length >= 2 && input[1].matches("[0-9]+")) {
+                        b.setStep(b.getSizeOfLog());
+                        b.rebuild();
+                        file.setContentField(game, 3, String.valueOf(b.getStep()));
+                        System.out.println(b);
+                        System.out.println("You are now at the end of stack.");
+                    } else if (input.length >= 2 && input[1].matches("-?[0-9]+")) {
                         int step = Integer.parseInt(input[1]);
-                        if (step > 0) {
-                            if (step < 10) {
-                                System.out.println("Moving to step " + step);
+                        if (step >= 0) {
+                            if (step <= b.getSizeOfLog()) {
+                                b.setStep(step);
+                                b.rebuild();
+                                System.out.println(b);
+                                file.setContentField(game, 3, String.valueOf(b.getStep()));
+                                System.out.println("Moved to step " + step);
+                                break;
                             } else {
-                                System.out.println("You can't go further than " + (step - 10) + " steps after the future");
+                                System.out.println("You can't go further than " + (step - b.getSizeOfLog()) + " steps after the future");
                             }
                         } else {
-                            System.out.println("You can't go back before time..");
+                            System.out.println("You can't go back before time existed..");
                         }
                     } else {
-                        System.out.println("You are on step ");
+                        System.out.println("You are on step " + b.getStep());
                     }
+                    System.out.println("Log: " + b.getLogFormatted(b.getStep()));
                 } else if (input[0].matches("clear")) {
 
                     if (input.length >= 2 && input[1].matches("-[Aa]|--[Aa]ll")) {
@@ -132,6 +205,11 @@ public class Sudoku {
                             if (posY >= 0 && posY < 9) {
 
                                 if (val >= 0 && val <= 9) {
+                                    b.setField(posX, posY, val);
+                                    System.out.println(b);
+                                    file.setContentField(game, 2, b.getLogFormatted());
+                                    file.setContentField(game, 3, String.valueOf(b.getStep()));
+                                    file.save();
                                     break;
                                 } else {
                                     System.out.println("Not a valid value, must be between 0-9.");
@@ -148,7 +226,7 @@ public class Sudoku {
                 }
             }
 
-            b.setField(posX, posY, val);
+            file.save();
         }
 
         System.out.println("Du vant! Spillet avsluttes her.");
