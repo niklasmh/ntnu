@@ -38,7 +38,10 @@ public class Log {
      * Decrease the stepper by one.
      */
     public void undo () {
-        this.step--;
+
+        if (this.step > 0) {
+            this.step--;
+        }
     }
 
     /**
@@ -63,7 +66,7 @@ public class Log {
     }
 
     /**
-     * Returns the los as a list of moves.
+     * Returns the log as a list of moves.
      *
      * @return = a list of strings
      */
@@ -80,8 +83,14 @@ public class Log {
     public void setLog (List<String> log, int step) {
         this.log = log;
 
-        if (step >= 0 && step < this.log.size()) {
-            this.step = step;
+        if (step >= 0) {
+            if (step >= this.log.size()) {
+                this.step = this.log.size();
+            } else {
+                this.step = step;
+            }
+        } else {
+            this.step = 0;
         }
     }
 }

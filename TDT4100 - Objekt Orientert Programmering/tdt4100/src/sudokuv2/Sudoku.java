@@ -50,7 +50,9 @@ public class Sudoku {
 
                 if (num < content.size()) {
                     System.out.println("Du valgte brett " + num + ". Du får nå brettet: " + file.getContentField(num, 0));
-                    b = new Board(file.getContentField(num, 1).substring(0, 81), file.getContentField(num, 2));
+                    b = new Board(file.getContentField(num, 1).substring(0, 81),
+                            file.getContentField(num, 2),
+                            Integer.parseInt(file.getContentField(num, 3)));
                 } else {
                     System.out.println("Du valgte et nummer, men brettet fantes ikke. Du får nå default: \n");
                     b = new Board();
@@ -82,19 +84,18 @@ public class Sudoku {
                         System.out.println("You can still go to last step with \"goto --last\", " +
                                 "but one move will reset the game for good");
                     } else {
-
+                        System.out.println("Undoing last action...");
+                        b.undo();
+                        System.out.println("Success!");
                     }
                 } else if (input[0].matches("[Rr]|[Rr]edo")) {
 
                     if (input.length >= 2 && input[1].matches("-[Aa]|--[Aa]ll")) {
-
                     }
                 } else if (input[0].matches("[Gg][Tt]|[Gg]oto")) {
 
                     if (input.length >= 2 && input[1].matches("-[Ff]|--[Ff]irst")) {
-
                     } else if (input.length >= 2 && input[1].matches("-[Ll]|--[Ll]ast")) {
-
                     } else if (input.length >= 2 && input[1].matches("[0-9]+")) {
                         int step = Integer.parseInt(input[1]);
                         if (step > 0) {
@@ -110,12 +111,10 @@ public class Sudoku {
                         System.out.println("You are on step ");
                     }
                 } else if (input[0].matches("clear")) {
+
                     if (input.length >= 2 && input[1].matches("-[Aa]|--[Aa]ll")) {
-
                     } else if (input.length >= 2 && input[1].matches("-[Pp]|--[Pp]ast")) {
-
                     } else if (input.length >= 2 && input[1].matches("-[Ff]|--[Ff]uture")) {
-
                     } else {
                         System.out.println("Need to apply --past, --future or --all");
                     }
