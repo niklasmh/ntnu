@@ -152,6 +152,11 @@ public class FileHandler {
         }
     }
 
+    /**
+     * Saves the content of the game. Makes it possible to reset the whole game.
+     *
+     * @param content = list of strings with games
+     */
     public void save (List<String> content) {
         this.content = content;
         save();
