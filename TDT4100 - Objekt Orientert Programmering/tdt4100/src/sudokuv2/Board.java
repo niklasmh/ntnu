@@ -35,10 +35,10 @@ public class Board {
      *
      * @param board = a string
      */
-    public Board(String board, String log) {
+    public Board(String board, String log, int step) {
         this(board);
         List<String> moves = new ArrayList<>(Arrays.asList(log.split(",")));
-        this.log.setLog(moves, moves.size() - 1);
+        this.log.setLog(moves, step);
         this.addLogToBoard(this.log);
     }
 
@@ -201,15 +201,18 @@ public class Board {
      */
     public void addLogToBoard (Log log) {
 
-        for (String step : log.getLog()) {
+        List<String> list = log.getLog();
+        int moves = log.getStep();
 
+        System.out.println(list.size() + "," + moves);
+        for (int i = 0; i <= list.size() && i < moves; i++) {
+            String step = list.get(i);
             if (step.matches("[0-8][0-8][0-9]")) {
                 String[] pieces = step.split("");
                 int x = Integer.parseInt(pieces[0]);
                 int y = Integer.parseInt(pieces[1]);
                 int val = (pieces[2].matches("\\.") ? 0 : Integer.parseInt(pieces[2]));
                 this.board[x + y * this.width].setField(val);
-                System.out.println("Set " + x + ", " + y + ", " + val);
             }
         }
     }
@@ -219,6 +222,7 @@ public class Board {
      */
     public void undo () {
         log.undo();
+        rebuild();
     }
 
     /**
