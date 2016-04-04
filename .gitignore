@@ -1,5 +1,8 @@
 -*/
 *.pdf
+*.tar
+*.tar.*
+*.iml
 
 EXPH0004*/
 IT1501*/
@@ -21,20 +24,24 @@ TDT4100*/*
 TDT4100*/tdt4100/*
 !TDT4100*/tdt4100/tests/
 !TDT4100*/tdt4100/src/
+TDT4100*/tdt4100/src/debugging/*
 
 TDT4110*/*
 !TDT4110*/Code/
 !TDT4110*/Øvinger/
 
 TDT4120*/
+TFY4125*/
+TTM4100*/
 
 #OneDrive sync error
-*-Niklas-PC.*
-*-Niklas-PC/
-*-NDCGift.*
-*-NDCGift/
+#*-Niklas-PC.*
+#*-Niklas-PC/
+#*-NDCGift.*
+#*-NDCGift/
 
 .idea/
+.metadata/
 *.com
 *.class
 *.dll
