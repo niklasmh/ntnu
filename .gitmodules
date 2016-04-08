@@ -1,0 +1,3 @@
+[submodule "TDT4100 - Objekt Orientert Programmering/tdt4100-oop-bullet-maniac"]
+	path = TDT4100 - Objekt Orientert Programmering/tdt4100-oop-bullet-maniac
+	url = git@github.com:niklasmh/tdt4100-oop-bullet-maniac.git

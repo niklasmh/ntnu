@@ -25,6 +25,7 @@ TDT4100*/tdt4100/*
 !TDT4100*/tdt4100/tests/
 !TDT4100*/tdt4100/src/
 TDT4100*/tdt4100/src/debugging/*
+!TDT4100*/tdt4100-oop-bullet-maniac/
 
 TDT4110*/*
 !TDT4110*/Code/
