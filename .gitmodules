@@ -1,6 +1,6 @@
 [submodule "TDT4100 - Objekt Orientert Programmering/tdt4100-oop-bullet-maniac"]
 	path = TDT4100 - Objekt Orientert Programmering/tdt4100-oop-bullet-maniac
 	url = git@github.com:niklasmh/tdt4100-oop-bullet-maniac.git
-[submodule "IT2805 - Webteknologi/Documents/Project"]
+[submodule "IT2805 - Webteknologi/Documents/it2805-webtech-project"]
 	path = IT2805 - Webteknologi/Documents/Project
 	url = git@github.com:niklasmh/it2805-webtech-project.git
