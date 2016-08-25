@@ -8,11 +8,7 @@ class Kubbe:
         self.neste = None
 
 def spor(kubbe):
-    vekt = kubbe.vekt
-    while kubbe.neste is not None:
-        kubbe = kubbe.neste
-        vekt = kubbe.vekt if kubbe.vekt > vekt else vekt
-    return vekt
+    # SKRIV DIN KODE HER
 
 # Oppretter lenket liste
 forste = None

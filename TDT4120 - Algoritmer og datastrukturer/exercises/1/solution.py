@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from sys import stdin
 
 class Kubbe:
@@ -8,7 +10,11 @@ class Kubbe:
         self.neste = None
 
 def spor(kubbe):
-    # SKRIV DIN KODE HER
+    vekt = kubbe.vekt
+    while kubbe.neste is not None:
+        kubbe = kubbe.neste
+        vekt = kubbe.vekt if kubbe.vekt > vekt else vekt
+    return vekt
 
 # Oppretter lenket liste
 forste = None
