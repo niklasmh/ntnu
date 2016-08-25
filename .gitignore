@@ -34,7 +34,9 @@ TDT4110*/*
 !TDT4110*/Code/
 !TDT4110*/Øvinger/
 
-!TDT4120*/
+TDT4120*/*
+!TDT4120*/lectures/
+!TDT4120*/execises/
 
 TFY4125*/
 TTM4100*/
