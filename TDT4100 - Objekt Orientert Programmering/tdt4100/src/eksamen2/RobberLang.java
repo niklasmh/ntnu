@@ -39,7 +39,7 @@ public class RobberLang {
         FileManager fm = new FileManager();
         char[] chars = fm.readChars(filePath);
         String fileContent = new String(chars);
-        System.out.println("Vi har flg. input: " + fileContent.toString());
+        System.out.println("Vi har flg. input: " + fileContent);
 
         String encryptedContent = r.encrypt(fileContent);
         System.out.println(encryptedContent);

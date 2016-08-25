@@ -16,6 +16,9 @@ IT2805*/Documents/Project/
 !IT2805*/*.css
 !IT2805*/*.less
 
+IT2810*/*
+!IT2810*/
+
 TMA*/
 TTM4100*/
 
