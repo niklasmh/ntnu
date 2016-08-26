@@ -1,0 +1,163 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+
+body, html {
+    min-height: 100vh;
+}
+
+body {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    color: #ddd;
+    background-color: #444;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.music-player {
+    display: none;
+}
+
+a.link {
+    color: #0ff;
+    text-decoration: none;
+}
+
+a.link:active {
+    color: #0aa;
+}
+
+a.link:visited {
+    color: #08f;
+}
+
+.head, .foot {
+    padding: 0 32px;
+    box-sizing: border-box;
+}
+
+.head {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    min-height: 64px;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.main {
+    display: flex;
+    flex: 1;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.section:first-of-type {
+    background-color: #222;
+    font-size: 4em;
+    position: relative;
+}
+.animate-font-size {
+    animation: font-size-grow .4s infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+.animate-bottom-pos {
+    animation: bottom-pos .4s infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+.animate-colors {
+    animation: colors .4s infinite;
+}
+.animate-wiggle {
+    animation: wiggle .4s infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+@keyframes font-size-grow {
+    from {
+        font-size: 1em;
+    }
+    to {
+        font-size: 1.1em;
+    }
+}
+@keyframes bottom-pos {
+    from {
+        bottom: 0;
+    }
+    to {
+        bottom: 1em;
+    }
+}
+@keyframes colors {
+    0% {
+        color: #f00;
+    }
+    20% {
+        color: #ff0;
+    }
+    40% {
+        color: #0f0;
+    }
+    60% {
+        color: #0ff;
+    }
+    80% {
+        color: #00f;
+    }
+    100% {
+        color: #f0f;
+    }
+}
+@keyframes wiggle {
+    from {
+        transform: rotate(20deg);
+    } to {
+        transform: rotate(-20deg);
+    }
+}
+
+.next-slide {
+    position: absolute;
+    margin: 10px auto;
+    bottom: 0;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
+.section:nth-of-type(2) {
+    position: relative;
+    font-size: 5rem;
+}
+.section > span {
+    display: inline-block;
+    margin: auto;
+    font-size: 1em;
+}
+.section {
+    flex: 1 0 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.foot {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex: 0 0 160px;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.foot p {
+    display: inline-block;
+    margin: auto;
+}
