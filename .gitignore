@@ -19,6 +19,8 @@ IT2805*/Documents/Project/
 
 IT2810*/*
 !IT2810*/A*/
+!IT2810*/*.html
+!IT2810*/*.md
 
 TMA*/
 TTM4100*/
