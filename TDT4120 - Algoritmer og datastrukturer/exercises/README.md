@@ -41,7 +41,7 @@ $ for i in {1..10}; do time ./solution.py < input.txt; done
 
 Or get the total (or both, just combine them). I recommend this method
 ```bash
-$ time for i in {1..10}; do ./solution.py < input.txt; done **> /dev/null 2>&1**
+$ time for i in {1..10}; do ./solution.py < input.txt; done > /dev/null 2>&1
 ```
 
 The last piece is for not doing output on the script inside the for loop. So just add
