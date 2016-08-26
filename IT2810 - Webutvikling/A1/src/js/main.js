@@ -13,16 +13,18 @@
 (function () {
   var d = document
 
+  /**
+   * Adding clickable buttons to elements with a .next-slide class.
+   */
   var nextSlideBtns = d.querySelectorAll('.next-slide')
+  var slides = d.querySelectorAll('.slide')
   for(var i = 0; i < nextSlideBtns.length; i++) {
     var _btn = nextSlideBtns[i]
-
-    if (i + 1 < nextSlideBtns.length)
-      var _nextBtn = nextSlideBtns[i + 1]
+    var _nextSlide = slides[Math.min(i + 1, slides.length - 1)]
 
     _btn.addEventListener('click', function () {
-      if (typeof _nextBtn === 'object')
-        scrollTo(_nextBtn, undefined, easeInOut)
+      if (typeof _nextSlide === 'object')
+        scrollTo(_nextSlide, undefined, easeInOut)
     })
   }
 
