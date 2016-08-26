@@ -59,4 +59,15 @@
       }
     }, 1)
   }
+
+  /**
+   * Timeing function which can be used by the scrollTo function.
+   * 
+   * @param {number} process Number from 0-1, could be intepreted as 0% - 100%.
+   */
+  function easeInOut (process) {
+    if (process < .5)
+      return .5 - Math.pow(1 - 2*process, 1/3)*.5
+    return Math.pow(2*process - 1, 1/3)*.5 + .5
+  }
 }())
