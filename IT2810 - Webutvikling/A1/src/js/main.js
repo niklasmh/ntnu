@@ -14,10 +14,15 @@
   var d = document
 
   var nextSlideBtns = d.querySelectorAll('.next-slide')
-  for(var i = 0; i < nextSlideBtns; i++) {
+  for(var i = 0; i < nextSlideBtns.length; i++) {
     var _btn = nextSlideBtns[i]
+
+    if (i + 1 < nextSlideBtns.length)
+      var _nextBtn = nextSlideBtns[i + 1]
+
     _btn.addEventListener('click', function () {
-      // Do something
+      if (typeof _nextBtn === 'object')
+        scrollTo(_nextBtn, undefined, easeInOut)
     })
   }
 
@@ -50,7 +55,7 @@
     var _process = 0
 
     var _interval = setInterval(function () {
-      _process += 10/time
+      _process += 10/_time
       _scrollBoard.scrollTop = _scrollStartPos - _diff*fn(_process, 8)
 
       if (_process > 1) {
