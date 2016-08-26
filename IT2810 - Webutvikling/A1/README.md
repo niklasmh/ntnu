@@ -33,14 +33,13 @@ I am really thankful for taco, so I may think I will chose that as my theme mean
 
 #### Quotes
 > *"Tacoes is what made me rich"*
-> - Bill Gates
 
-
+- Bill Gates
 
 > *"Taco is love, taco is life"*
-> - Shrek
 
-
+- Shrek
 
 > *"Sometimes i rap about tacoes"*
-> - Eminem
+
+- Emine
