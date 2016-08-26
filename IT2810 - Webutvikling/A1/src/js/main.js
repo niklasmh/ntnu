@@ -70,4 +70,21 @@
       return .5 - Math.pow(1 - 2*process, 1/3)*.5
     return Math.pow(2*process - 1, 1/3)*.5 + .5
   }
+
+  /**
+   * Timeing function which can be used by the scrollTo function. This is
+   * a self made function using the tan trigonometric function as function.
+   * 
+   * @param {number} process Number from 0-1, could be intepreted as 0% - 100%.
+   * @param {number} smoothness How smooth the slope/function should be.
+   */
+  function easeWithTan (process, smoothness) {
+    smoothness = typeof smoothness !== 'undefined' && smoothness > 0
+      ? smoothness
+      : 2
+    return (
+      Math.atan(smoothness * (process - .5))
+      + Math.atan(smoothness * .5)
+    ) / (2 * Math.atan(smoothness * .5))
+  }
 }())
