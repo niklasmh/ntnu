@@ -76,6 +76,9 @@ a.link:visited {
 .animate-colors {
     animation: colors .4s infinite;
 }
+.animate-background-colors {
+    animation: background-colors .4s infinite;
+}
 .animate-wiggle {
     animation: wiggle .4s infinite;
     animation-direction: alternate;
@@ -117,6 +120,26 @@ a.link:visited {
         color: #f0f;
     }
 }
+@keyframes background-colors {
+    0% {
+        background-color: #f00;
+    }
+    20% {
+        background-color: #ff0;
+    }
+    40% {
+        background-color: #0f0;
+    }
+    60% {
+        background-color: #0ff;
+    }
+    80% {
+        background-color: #00f;
+    }
+    100% {
+        background-color: #f0f;
+    }
+}
 @keyframes wiggle {
     from {
         transform: rotate(20deg);
@@ -134,7 +157,8 @@ a.link:visited {
     text-align: center;
 }
 
-.section:nth-of-type(2) {
+.section:nth-of-type(2),
+.section:nth-of-type(3) {
     position: relative;
     font-size: 5rem;
 }

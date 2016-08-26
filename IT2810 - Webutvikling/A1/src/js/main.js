@@ -20,11 +20,11 @@
   var slides = d.querySelectorAll('.slide')
   for(var i = 0; i < nextSlideBtns.length; i++) {
     var _btn = nextSlideBtns[i]
-    var _nextSlide = slides[Math.min(i + 1, slides.length - 1)]
 
+    _btn.nextSlide = slides[Math.min(i + 1, slides.length - 1)]
     _btn.addEventListener('click', function () {
-      if (typeof _nextSlide === 'object')
-        scrollTo(_nextSlide, undefined, easeInOut)
+      if (typeof this.nextSlide === 'object')
+        scrollTo(this.nextSlide, undefined, easeInOut)
     })
   }
 
