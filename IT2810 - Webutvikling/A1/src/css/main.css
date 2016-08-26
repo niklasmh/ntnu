@@ -152,6 +152,7 @@ a.link:visited {
 .next-slide {
     position: absolute;
     margin: 10px auto;
+    left: 0;
     bottom: 0;
     width: 100%;
     display: inline-block;
