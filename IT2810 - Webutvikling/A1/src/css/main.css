@@ -51,6 +51,7 @@ a.link:visited {
 .main {
     display: flex;
     flex: 1;
+    padding-bottom: 64px;
 }
 
 .content {
