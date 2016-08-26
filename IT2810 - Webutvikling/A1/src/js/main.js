@@ -29,6 +29,20 @@
   }
 
   /**
+   * Making the elements with the .play-music class play the .music-player
+   * element.
+   */
+  var playBtns = d.querySelectorAll('.play-music')
+  for(var i = 0; i < playBtns.length; i++) {
+    var _btn = playBtns[i]
+
+    _btn.addEventListener('click', function () {
+      var _player = d.querySelector('#music-player')
+      _player.play()
+    })
+  }
+
+  /**
    * Scroll to element from an element with some kind of function.
    * 
    * @param {string} to Element to scroll to.
