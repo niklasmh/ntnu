@@ -4,7 +4,7 @@ Be sure to use python ```3.x.x```.
 To test each exercise, you can use the terminal (recommended) several ways.
 
 ### UNIX - Linux, Mac, [Windows with ubuntu bash](http://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/) or [putty](http://www.putty.org/)
-
+***
 To determine which version you are running, write
 ```bash
 $ python -V
@@ -24,7 +24,28 @@ $ ./solution.py < input.txt
 
 This can be done as the solution.py file has ```#!/usr/bin/python3``` as the first line. The shell will then run the shell script at that location. UNIX/Bash only!
 
+Want to record time? Let the UNIX alias, time, save you. Just run
+```bash
+$ time ./solution.py < input.txt
+123
+
+real    0m0.061s
+user    0m0.000s
+sys     0m0.063s
+```
+
+Not enough? Run multiple times while getting the total time of each like this
+```bash
+$ for i in {1..10}; do time ./solution.py < input.txt; done
+```
+
+Or get the total (or both, just combine them). I recommend this method
+```bash
+$ time for i in {1..10}; do ./solution.py < input.txt; done
+```
+
 ### Windows
+***
 If you are in Windows, be sure to add ```C:\Users\{User}\AppData\Local\Programs\Python\Python35-{version}``` to the environment variables.
 
 To be sure python 2.x.x is not overriding the path, restart the terminal (cmd or powershell) and write
