@@ -1,6 +1,7 @@
 # Initial assignment
 
-This is the first assignment in the web course IT2810.
+This is the first assignment in the web course IT2810. You can always view the current website at:
+https://rawgit.com/niklasmh/ntnu/master/IT2810%20-%20Webutvikling/A1/index.html
 
 ## Theme
 
