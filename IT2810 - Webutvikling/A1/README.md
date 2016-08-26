@@ -32,14 +32,10 @@ I am really thankful for taco, so I may think I will chose that as my theme mean
  - Salsa sause.
 
 #### Quotes
-> *"Tacoes is what made me rich"*
-
--- Bill Gates
-
-> *"Taco is love, taco is life"*
-
--- Shrek
-
-> *"Sometimes i rap about tacoes"*
-
--- Emine
+> *"Tacoes is what made me rich"* - Bill Gates
+<br>
+<br>
+> *"Taco is love, taco is life"* - Shrek
+<br>
+<br>
+> *"Sometimes i rap about tacoes"* - Emine
