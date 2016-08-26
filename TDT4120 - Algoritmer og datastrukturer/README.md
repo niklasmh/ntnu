@@ -13,6 +13,12 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Forstå ideen bak divide-or-conquer
  - [x] Forstå Merge-Sort
  - [x] Kunne definere asymptotisk notasjon, O, Ω, Θ, o og ω.
+    - Huskeregel:
+        - ω >
+        - Ω >=
+        - Θ =
+        - O <=
+        - o <
 
 ### Forelesning 2 - Datastrukturer
  - [ ] Forstå hvordan stakker og køer fungerer
