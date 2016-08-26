@@ -159,11 +159,6 @@ a.link:visited {
     text-align: center;
 }
 
-.section:nth-of-type(2),
-.section:nth-of-type(3) {
-    position: relative;
-    font-size: 5rem;
-}
 .section > span {
     display: inline-block;
     margin: auto;
@@ -173,6 +168,49 @@ a.link:visited {
     flex: 1 0 100vh;
     display: flex;
     align-items: center;
+}
+
+.section:nth-of-type(2),
+.section:nth-of-type(3) {
+    position: relative;
+    font-size: 5rem;
+}
+.section:nth-of-type(4) {
+    flex-direction: column;
+    font-size: 2em;
+    flex: 0 0 auto;
+    min-height: 100vh;
+    align-items: flex-start;
+}
+.section:nth-of-type(4) > ul {
+    display: inline-block;
+    margin: 16px auto 16px 10px;
+}
+.section:nth-of-type(4) > ul > li > ol > li {
+    white-space: nowrap;
+}
+.section:nth-of-type(4) > .title {
+    display: inline-block;
+    margin: 42px auto;
+    font-size: 3em;
+    text-decoration: underline;
+}
+.section:nth-of-type(4) > .quote {
+    display: inline-block;
+    margin: 10px auto 10px 10px;
+    font-size: 1.2em;
+    font-style: italic;
+    color: #fff;
+}
+.section:nth-of-type(4) > .quote:before {
+    content: '"';
+    color: #ccc;
+    font-size: .8em;
+}
+.section:nth-of-type(4) > .quote:after {
+    content: '" - ' attr(data-author);
+    color: #ccc;
+    font-size: .8em;
 }
 
 .foot {
