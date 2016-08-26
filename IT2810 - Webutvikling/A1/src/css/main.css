@@ -220,6 +220,7 @@ a.link:visited {
 
 .foot {
     display: flex;
+    flex-direction: column;
     text-align: center;
     align-items: center;
     flex: 0 0 160px;
