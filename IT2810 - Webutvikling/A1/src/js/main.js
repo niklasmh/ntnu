@@ -20,4 +20,43 @@
       // Do something
     })
   }
+
+  /**
+   * Scroll to element from an element with some kind of function.
+   * 
+   * @param {string} to Element to scroll to.
+   * @param {string} from Element to scroll from.
+   * @param {function} fn Function used to control animation. From x, get y.
+   */
+  function scrollTo(to, from, fn) {
+    from = typeof from === 'object'
+      ? from.offsetTop
+      : (typeof from !== 'undefined'
+        ? from
+        : document.querySelector('body').scrollTop
+      )
+    to = typeof to === 'object'
+      ? to.offsetTop
+      : (typeof to !== 'undefined' ? to : 0)
+    fn = typeof fn !== 'undefined'
+      ? fn
+      : function (x) { return x; }
+
+    var _scrollBoard = document.querySelector('body')
+    var _scrollStartPos = from
+    var _scrollEndPos = to
+    var _diff = _scrollStartPos - _scrollEndPos
+    var _time = 1000
+    var _process = 0
+
+    var _interval = setInterval(function () {
+      _process += 10/time
+      _scrollBoard.scrollTop = _scrollStartPos - _diff*fn(_process, 8)
+
+      if (_process > 1) {
+        clearInterval(_interval)
+        _scrollBoard.scrollTop = _scrollEndPos
+      }
+    }, 1)
+  }
 }())
