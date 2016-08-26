@@ -184,7 +184,9 @@ a.link:visited {
 }
 .section:nth-of-type(4) > ul {
     display: inline-block;
-    margin: 16px auto 16px 10px;
+    margin: 16px auto;
+    max-width: 450px;
+    width: 100%;
 }
 .section:nth-of-type(4) > ul > li > ol > li {
     white-space: nowrap;
@@ -197,7 +199,9 @@ a.link:visited {
 }
 .section:nth-of-type(4) > .quote {
     display: inline-block;
-    margin: 10px auto 10px 10px;
+    margin: 10px auto;
+    max-width: 450px;
+    width: 100%;
     font-size: 1.2em;
     font-style: italic;
     color: #fff;
