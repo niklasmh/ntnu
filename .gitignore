@@ -5,6 +5,10 @@
 *.tar.*
 *.iml
 
+# Ignore folder and files with an ignore extension
+*.ignorefile.*
+*.ignorefolder/
+
 EXPH0004*/
 IT1501*/
 
