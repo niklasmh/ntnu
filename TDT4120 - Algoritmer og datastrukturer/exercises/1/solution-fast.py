@@ -12,13 +12,13 @@ def spor_rec (k, vekt):
 # Lineaert forsok
 def spor_lin(kubbe):
     vekt = kubbe[0]
-    while True:
-        try:
+    try:
+        while True:
             kubbe = kubbe[1]
             if kubbe[0] > vekt:
                 vekt = kubbe[0]
-        except:
-            return vekt
+    except:
+        return vekt
 
 # Oppretter lenket liste
 siste = None
