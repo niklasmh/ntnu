@@ -2,13 +2,6 @@
 
 from sys import stdin
 
-class Kubbe:
-    vekt = None
-    neste = None
-    def __init__(self, vekt):
-        self.vekt = vekt
-        self.neste = None
-
 def spor(kubbe):
     vekt = kubbe[0]
     while kubbe[1] is not None:
