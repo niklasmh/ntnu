@@ -51,6 +51,23 @@ The last piece is for not doing output on the script inside the for loop. So jus
 ```
 to fix massive outputs when you run 100 or 1000 tests.
 
+#### More shortcuts
+If you want to execute in even less commands, try creating a bash function in .bashrc
+```bash
+$ nano ~/.bashrc
+# Now add
+function algdat () {
+        time for i in `seq $3`; do time python3 $1 < $2; done
+}
+# Ctrl+X -> J/Y to save
+# Now restart the terminal or write the following
+$ source ~/.bashrc
+```
+You can now, at the folder, run
+```bash
+algdat program.py input.txt 4 # Last arg is times to run
+```
+
 ### Windows
 ***
 If you are in Windows, be sure to add ```C:\Users\{User}\AppData\Local\Programs\Python\Python35-{version}``` to the environment variables.
