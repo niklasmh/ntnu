@@ -15,8 +15,7 @@ def spor_lin(kubbe):
     try:
         while True:
             kubbe = kubbe[1]
-            if kubbe[0] > vekt:
-                vekt = kubbe[0]
+            if kubbe[0] > vekt: vekt = kubbe[0]
     except:
         return vekt
 
