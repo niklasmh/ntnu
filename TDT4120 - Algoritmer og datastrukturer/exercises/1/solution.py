@@ -13,7 +13,8 @@ def spor(kubbe):
     vekt = kubbe.vekt
     while kubbe.neste is not None:
         kubbe = kubbe.neste
-        vekt = kubbe.vekt if kubbe.vekt > vekt else vekt
+        if kubbe.vekt > vekt:
+            vekt = kubbe.vekt
     return vekt
 
 # Oppretter lenket liste
