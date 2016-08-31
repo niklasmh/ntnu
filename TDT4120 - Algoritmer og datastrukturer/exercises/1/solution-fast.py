@@ -2,11 +2,9 @@
 
 from sys import stdin
 
-# Rekursivt forsok
+# Rekursivt forsok, kan ikke ga veldig dypt
 def spor_rec (k, vekt):
-    if k[0] > vekt:
-        vekt = k[0]
-        print(vekt)
+    if k[0] > vekt: vekt = k[0]
     return spor_rec(k[1], vekt) if k[1] is not None else vekt
 
 # Lineaert forsok
