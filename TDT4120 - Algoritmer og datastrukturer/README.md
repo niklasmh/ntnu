@@ -189,6 +189,3 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
             - ∃xP(x) | P(y)
         - E!xP(x):
             - xP(x)  ∀x∀y((P(x) ∧ P(y)) ⇒ x = y)
- - [ ] 
- - [ ] 
- - [ ] 
