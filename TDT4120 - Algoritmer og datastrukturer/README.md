@@ -147,3 +147,48 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [ ] Forstå at 0-1-ryggsekkproblemet er NP-hardt
  - [ ] Forstå at lengste enkle-vei-problemet er NP-hardt
  - [ ] Være i stand til å konstruere enkle NP-kompletthetsbevis 
+
+## Appendix A
+ - [x] Setningslogikk
+    - And, or, not
+ - [x] Predikatslogikk
+    - Forhold mellom de induviduelle x, y, x... og kvantifikatorene "for alle x" og "det eksisterer en x"
+ - [x] Inferensregler
+    - Introduksjon og eliminasjon
+    - Formelle systemer
+        - Regler
+            - | P | Q | 
+            - | 0 | 0 | 
+            - | 0 | 1 | 
+            - | 1 | 0 | 
+            - | 1 | 1 | 
+        - Implikasjon P ⇒ Q
+        - Modus Ponens P ⇒ Q, P | Q
+        - P ⇒ Q
+        - P^- vs. ¬P
+        - P ⇒ Q ≡ ¬Q ⇒ ¬P
+        - P ⇒ Q, Q ⇒ P | P ⇔ Q
+        - P ⇔ Q | P ⇒ Q, Q ⇒ P
+        - P ⇔ Q ⇔ R ≡ P ⇒ Q ⇒ R ⇒ P
+    - Negasjon, Reductio ad Absurdum
+        - Q, ¬Q | ⊥
+    - Andre bevis for at P eller Q er sant
+        - P, Q | P  ∧ Q
+        - P  ∧ Q | P, Q
+    - Proof by Cases
+        - P | P ∨ Q
+        - P ∨ Q, P...R, Q...R | R
+    - Annet bevis for eller
+        - P ∨ Q ≡ ¬P ⇒ Q
+    - Kvantifikatorer
+        - Alle
+            - P(a) | ∀xP(x)
+            - ∀xP(x) | P(a)
+        - Element
+            - P(a) | ∃xP(x)
+            - ∃xP(x) | P(y)
+        - E!xP(x):
+            - xP(x)  ∀x∀y((P(x) ∧ P(y)) ⇒ x = y)
+ - [ ] 
+ - [ ] 
+ - [ ] 
