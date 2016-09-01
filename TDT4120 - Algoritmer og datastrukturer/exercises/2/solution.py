@@ -22,9 +22,21 @@ def bygg(ordliste):
     return snode
 
 def posisjoner(ord, indeks, node):
-    if len(ord) > indeks + 1:
-        return posisjoner(ord, indeks + 1, node.barn[ord[indeks]])
-    else:
+    try:
+        if ord[indeks] == '?':
+            posis = []
+            for i in node.barn:
+                for p in node.barn[i].posi:
+                    posis.append(p)
+                try:
+                    for q in posisjoner(ord, indeks + 1, node.barn[i]):
+                        posis.append(q)
+                except:
+                    posis = posis
+            return posis
+        else:
+            return posisjoner(ord, indeks + 1, node.barn[ord[indeks]])
+    except:
         return node.barn[ord[indeks]].posi
 
 def main():
