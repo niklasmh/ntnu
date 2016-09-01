@@ -10,6 +10,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Kjenne egenskapene til random-access machine-modellen
  - [x] Forstå Insertion-Sort
  - [x] Kunne definere best-case, average-case og worst-case
+    - 
  - [x] Forstå ideen bak divide-or-conquer
  - [x] Forstå Merge-Sort
  - [x] Kunne definere asymptotisk notasjon, O, Ω, Θ, o og ω.
@@ -19,6 +20,12 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
         - Θ =
         - O <=
         - o <
+    - Kompleksitetsregler
+        - 1
+        - n
+        - n^k
+        - ...
+        - 1 < ln(n) < n < n^2 < 2^n < n! < n^n
 
 ### Forelesning 2 - Datastrukturer
  - [ ] Forstå hvordan stakker og køer fungerer
