@@ -31,8 +31,8 @@ I denne oppgaven skal vi se på en variant av spillet Nim. Reglene er som følge
      - 12: Ta 4 -> 8.
      - Osv...
    - Vi kan nå se at det omhandler modulo og kan lage en formel:
-     - f(x, maks) = max((x - 1) % (maks + 1), random)
+     - `f(x, maks) = max((x - 1) % (maks + 1), random)`
      - Ifølge denne blir da vinnertrekket:
-       - f(200, 6) = 4
+       - `f(200, 6) = 4`
  - d) **Hvis det er 134 fyrstikker igjen, hvor mange må du ta for å vinne? (12.5 %)**
-   - f(134, 6) = random. Er ikke sikkert man vinner uansett trekk.
+   - `f(134, 6) = random`. Er ikke sikkert man vinner uansett trekk.
