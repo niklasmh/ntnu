@@ -72,6 +72,7 @@ TTM4100*/
 *.sql
 *.sqlite
 
+.vscode
 vim.*
 .DS_Store
 .DS_Store?
