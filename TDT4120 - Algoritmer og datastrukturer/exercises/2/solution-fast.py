@@ -3,57 +3,55 @@
 from sys import stdin, stderr
 import traceback
 
-class Node:
-    def __init__(self):
-        self.barn = {}
-        self.posi = []
+def bygg(ol):
+    n = [{}, []]
+    sn = n
+    for e in ol:
+        n = sn
+        for i, l in enumerate(e[0]):
+            if l not in n[0]:
+                n[0][l] = [{}, []]
+            if i + 1 >= len(e[0]):
+                n[0][l][1].append(e[1])
+            n = n[0][l]
+    return sn
 
-def bygg(ordliste):
-    node = Node()
-    snode = node
-    for element in ordliste:
-        node = snode
-        for i, letter in enumerate(element[0]):
-            if letter not in node.barn:
-                node.barn[letter] = Node()
-            if i + 1 >= len(element[0]):
-                node.barn[letter].posi.append(element[1])
-            node = node.barn[letter]
-    return snode
-
-def posisjoner(ord, indeks, node):
+def posisjoner(o, i, n):
     try:
-        if ord[indeks] == '?':
-            posis = []
-            for i in node.barn:
-                for p in node.barn[i].posi:
-                    posis.append(p)
+        if o[i] is '?':
+            ps = []
+            for b in n[0]:
+                for p in n[0][b][1]:
+                    ps.append(p)
                 try:
-                    for q in posisjoner(ord, indeks + 1, node.barn[i]):
-                        posis.append(q)
+                    for p in posisjoner(o, i + 1, n[0][b]):
+                        ps.append(p)
                 except:
-                    posis = posis
-            return posis
+                    continue
+            return ps
         else:
-            return posisjoner(ord, indeks + 1, node.barn[ord[indeks]])
+            return posisjoner(o, i + 1, n[0][o[i]])
     except:
-        return node.barn[ord[indeks]].posi
+        return n[0][o[i]][1]
+
+def tup (el):
+    return (el[1], el[0])
 
 def main():
     try:
-        ord = stdin.readline().split()
-        ordliste = []
-        pos = 0
-        for o in ord:
-            ordliste.append((o, pos))
-            pos += len(o) + 1
-        toppnode = bygg(ordliste)
-        for sokeord in stdin:
-            sokeord = sokeord.strip()
-            print("%s:" % sokeord, end='')
-            posi = posisjoner(sokeord, 0, toppnode)
-            posi.sort()
-            for p in posi:
+        os = stdin.readline().split()
+        ol = []
+        p = 0
+        for o in os:
+            ol.append((o, p))
+            p += len(o) + 1
+        tn = bygg(ol)
+        for so in stdin:
+            so = so.strip()
+            print("%s:" % so, end='')
+            p = posisjoner(so, 0, tn)
+            p.sort()
+            for p in p:
                 print(" %s" % p, end='')
             print()
     except:
