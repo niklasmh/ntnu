@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+        <link href="stylesheet.css" rel="stylesheet">
+        <link href="print.css" rel="stylesheet" media="print">
+        <title>P3 Changes</title>
+    </head>
+    <body>
+        <p id="footer"></p>
+        
+        <div id="main-content">
+            <div id="head">
+                <header class="title">
+                    <h1><a href="">P3 Changes</a></h1>
+                    <p>Sist endret: 16.11.2015
+                        <br />
+                        <a title="Send mail" href="mailto:ellebak@stud.ntnu.no">Ellen</a>
+                        <a title="Send mail" href="mailto:niklasmh@stud.ntnu.no">Niklas</a>
+                        <a title="Send mail" href="mailto:siddise.hirpa@ntnu.no">Siddise</a>
+                        <a title="Send mail" href="mailto:stiasor@stud.ntnu.no">Stian</a>
+                        <a title="Send mail" href="mailto:oyvinabj@stud.ntnu.no">Øyvind</a>
+                    </p>
+                </header>
+            </div>
+            
+            <div id="body">
+                <section>
+                    <h2 id="docDetails"><a href="#details">Dokumentdetaljer</a></h2>
+			<p>P3 changes</p>
+				<p>Ansvaret over sidene oppdag, om oss, artikler og kalender (med undersider) ble fordelt til henholdsvis Øyvind, Stian, Siddise og Ellen, mens Niklas tok ansvar for template og hjemmesiden.</p>
+                </section>
+                
+                <section>
+                    <h2 id="adminDetails"><a href="#admin">Administrative detaljer</a></h2>
+				<p>Klientens navn: Mozart Salieri</p>
+				<p>Organisasjon: Nabostøy - musikklubben for musikkelskere</p>
+					<p>Websidens navn: Nabostøy</p>
+				<p>Link til startsiden: <a href="http://org.ntnu.no/dreamteam2015" target="blank">http://org.ntnu.no/dreamteam2015/</a></p>
+					<p>Niklas: templateend.php, templatemiddle.php, templatestart.php, scripts.js, main.less, compile.json, img_ui.js, index.php, join.php, api</p>
+				<p>Øyvind: artists.xml, calendar.xml, discover.php, form_validator.js, artists.dtd, calendar.dtd, discover.less, get_genre.js, artist.php</p>
+					<p>Siddise: articles.php, articles.css, archive.php, articles.xml, articles.dtd, articles.less, play_media.js, get_article.js,</p>
+				<p>Ellen: calendar_generator.js, slideshow.js, calendar.less, calendar.php, </p>
+					<p>Stian: artwork og design, buttons, touchfix.js, get_artist.js, about.less, sitemap.php, about.less</p>
+				<p>Sammen: main.less, main.css,                 
+				</section>
+                
+                
+                <section>
+                    <h2 id="changes"><a href="#changes">Oversikt over gjennomførte endringer</a></h2>
+                    
+                <p> Kort hva vi originalt hadde planlagt. Kanskje den tydeligste forskjellen 
+                  	er at vi bestemte oss for å ta i bruk php for å lage en template som alle 
+                  	sidene bygger på. Dette gjorde det veldig enkelt for oss å lage nye sider 
+                  	uten å måtte enten kopiere masse tekst eller skrive noe nytt fra scratch. </p>
+					
+				<p>Vi planla i P2 å lage ulike css-filer til de ulike sidene, men fant ut at det var lettere med en felles css-fil som innlemmer alle css-filene vi tenkte å lage i P2. Dette fikset vi med et .less-system.</p>
+
+				<p>Vi bestemte oss også for å legge til noen ekstra javascript-filer slik at vi fikk ytterligere funksjoner 
+					på nettsiden vår, som for eksempel musikkspiller og slideshow på artiklene på forsiden. 
+					Til sammen ble det 9 javascript-filer, hvor de som ikke var planlagt i P2 er: slideshow.js, 
+					play_media.js, get_article.js , get_artist.js, get_genre.js. </p>
+
+				<p>Vi fant i tillegg ut at vi trengte en fil kalt calendar.xml hvor data om de 
+					forskjellige eventene som skal inn i kalenderen lagres. </p>
+
+				<p>De tre ulike xml-filene trengte også en dokmenttypedefinisjon (.dtd-fil) hver for å strukture dem.</p>
+
+				<p>Det er mindre estetiske endringer gjennom hele siden som ikke går utover funksjonalitet, 
+					basert på hvor enkle funksjoner og elementer var å implementere pluss videreutvikling av 
+					det originale designet. </p>
+
+				<p>Dersom du ser på den originale designmanualen og det ferdige produktet er dette tydelig.</p>
+
+				<p>Vi bestemte oss for å legge inn en API for å klare å kjøre ReCaptcha på oppmeldingsskjemaet.
+					 Slik slipper vi at spambotter melder seg på nyhetsbrevet.</p>
+
+			
+                </section>
+                
+                <section>
+                    <h2 id="files"><a href="#files">Filoversikt</a></h2>
+                    <p>Her vil du se hvilke filer og mapper vi har lagt til, beholdt og fjernet. Sammenlign gjerne med P2, designdokumentet.
+                    	Filer og mapper markert med grønt er lagt til, markert med rødt er fjernet. Nøytrale elementer er uendrede.</p>
+					<h3 id="Liste"><a href="#Liste">Liste over filer og mapper</a></h3>
+					<input type="checkbox" id="vis-skjulte-filer-i-liste" class="hide-removed-files" checked/>
+					<label for="vis-skjulte-filer-i-liste">skjulte filer</label>
+					<div class="filelist">
+                        <ul>
+							<li class="removed">template.html</li>
+							<li class="added">templatestart.php</li>
+							<li class="added">templatemiddle.php</li>
+							<li class="added">templateend.php</li>
+							<li class="removed">index.html</li>
+							<li class="added">index.php</li>
+							<li class="removed">articles.html</li>
+							<li class="added">about.php</li>
+							<li class="removed">calendar.html</li>
+							<li class="added">discover.php</li>
+							<li class="removed">articles.html</li>
+							<li class="added">about.php</li>
+							<li class="removed">calendar.html</li>
+							<li class="added">discover.php</li>
+							<li>&nbsp;</li>
+                            <li>articles/
+                                <ul>
+                                    <li class="removed">archive.html</li>
+                                    <li class="added">archive.php</li>
+                                    <li class="removed">style.css</li>
+                                    <li class="added">articles.less</li>
+                                </ul>
+                            </li>
+							<li>&nbsp;</li>
+                            <li>about/
+                                <ul>
+                                    <li class="removed">join.html</li>
+                                    <li class="added">sitemap.html</li>
+									<li class="removed">style.css</li>
+                                    <li class="added">about.less</li>
+                                </ul>
+                            </li>
+							<li>&nbsp;</li>
+                            <li>calendar/
+                                <ul>
+									<li class="removed">style.css</li>
+                                    <li class="added">calendar.less</li>
+                                </ul>
+                            </li>
+							<li>&nbsp;</li>
+                            <li>discover/
+                                <ul>
+                                    <li>artist.css</li>
+									<li class="removed">style.css</li>
+                                    <li class="added">discover.less</li>
+                                </ul>
+                            </li>
+							<li>&nbsp;</li>
+                            <li>buttons/
+                                <ul>
+									<li>up.svg</li>
+									<li class="removed">down.svg</li>
+									<li>left.svg</li>
+									<li>right.svg</li>
+									<li>totop.svg</li>
+                                </ul>
+                            </li>
+							<li>&nbsp;</li>
+							<li>images/
+								<ul>
+									<li class="removed">background.html</li>
+									<li class="added">header.png</li>
+									<li class="added">icon.png</li>
+									<li class="added">medlemmer.jpg</li>
+									<li>&nbsp;</li>
+									<li>articleimages/
+										<ul>
+											<li class="added">article1.jpg</li>
+											<li class="added">article2.jpg</li>
+											<li class="added">article3.jpg</li>
+											<li class="added">...</li>
+										</ul>
+									</li>
+									<li class="added">artistimages/
+										<ul>
+											<li class="added">artist1.jpg</li>
+											<li class="added">artist2.jpg</li>
+											<li class="added">artist3.jpg</li>
+											<li class="added">...</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>&nbsp;</li>
+                            <li>js/
+                                <ul>
+									<li>img_ui.js</li>
+									<li>touchfix.js</li>
+									<li>calendar_generator.js</li>
+									<li>form_validator.js</li>
+									<li class="added">get_article.js</li>
+									<li class="added">get_artist.js</li>
+									<li class="added">get_genre.js</li>
+									<li class="added">play_media.js</li>
+									<li class="added">slideshow.js</li>
+                                </ul>
+                            </li>
+							<li>&nbsp;</li>
+                            <li>data/
+                                <ul>
+									<li>articles.xml</li>
+									<li>artists.xml</li>
+									<li class="added">calendar.xml</li>
+									<li class="added">articles.dtd</li>
+									<li class="added">artists.dtd</li>
+									<li class="added">calendar.dtd</li>
+                                </ul>
+                            </li>
+							<li>&nbsp;</li>
+							<li>css/
+								<ul>
+									<li>img_ui.less</li>
+								</ul>
+							</li>
+							<li>&nbsp;</li>
+							<li>main.css</li>
+							<li class="added">main.less</li>
+							<li class="removed">reset.css</li>
+							<li class="removed">print.css</li>
+							<li>scripts.js</li>
+                        </ul>
+                    </div>
+                    
+					<h3 id="Arbeidsfordeling"><a href="#Arbeidsfordeling">Arbeidsfordeling og deadlines</a></h3>
+					<input type="checkbox" id="vis-skjulte-filer" class="hide-removed-files" checked/>
+					<label for="vis-skjulte-filer">skjulte filer</label>
+                    <table class="files">
+                        <thead>
+                            <tr>
+                                <th>Filnavn</th>
+                                <th>Beskrivelse</th>
+                                <th>Hovedansvar</th>
+                                <th>Deadline</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="file removed">
+                                <td>template.html</td>
+                                <td>Malen for filene videre. Skal ikke benyttes offentlig.</td>
+                                <td>Niklas</td>
+                                <td>16. Okt</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>templatestart.php</td>
+                                <td>Startmal</td>
+                                <td>Niklas</td>
+                                <td>16. Okt</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>templatemiddle.php</td>
+                                <td>Mal for meny</td>
+                                <td>Niklas</td>
+                                <td>16. Okt</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>templateend.php</td>
+                                <td>Sluttmal</td>
+                                <td>Niklas</td>
+                                <td>16. Okt</td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>index.html</td>
+                                <td>Hjemmeside</td>
+                                <td>Alle</td>
+                                <td>1. Nov</td>
+                            </tr>
+							<tr class="file added">
+                                <td>index.php</td>
+                                <td>Hjemmeside</td>
+                                <td>Niklas</td>
+                                <td>1. Nov</td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>articles.html</td>
+                                <td>Artikler</td>
+                                <td>Siddise</td>
+                                <td>25. Okt</td>
+                            </tr>
+							<tr class="file added">
+                                <td>articles.php</td>
+                                <td>Artikler</td>
+                                <td>Siddise</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>about.html</td>
+                                <td>Om oss</td>
+                                <td>Stian</td>
+                                <td>25. Okt</td>
+                            </tr>
+							<tr class="file added">
+                                <td>about.php</td>
+                                <td>Om oss</td>
+                                <td>Stian</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>calendar.html</td>
+                                <td>Kalender</td>
+                                <td>Ellen</td>
+                                <td>25. Okt</td>
+                            </tr>
+							<tr class="file added">
+                                <td>calendar.php</td>
+                                <td>Kalender</td>
+                                <td>Ellen</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>discover.html</td>
+                                <td>Oppdag</td>
+                                <td>Øyvind</td>
+                                <td>25. Okt</td>
+                            </tr>
+							<tr class="file added">
+                                <td>discover.php</td>
+                                <td>Oppdag</td>
+                                <td>Øyvind</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="folder">
+                                <td>articles/</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>archive.html</td>
+                                <td>Arkiv</td>
+                                <td>Siddise</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>archive.php</td>
+                                <td>Arkiv</td>
+                                <td>Siddise</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>style.css</td>
+                                <td>Artikkelstilfil</td>
+                                <td>Siddise</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>article.less</td>
+                                <td>Artikkelstilfil</td>
+                                <td>Siddise</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="folder">
+                                <td>about/</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>join.html</td>
+                                <td>Bli med!</td>
+                                <td>Stian</td>
+                                <td>25. Okt</td>
+                            </tr>
+							<tr class="file added">
+                                <td>join.php</td>
+                                <td>Bli med!</td>
+                                <td>Niklas</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>sitemap.html</td>
+                                <td>Sidekart</td>
+                                <td>Stian</td>
+                                <td>25. Okt</td>
+                            </tr>
+							<tr class="file added">
+                                <td>sitemap.php</td>
+                                <td>Sidekart</td>
+                                <td>Stian</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>style.css</td>
+                                <td>Stil til om oss filer</td>
+                                <td>Stian</td>
+                                <td>25. Okt</td>
+                            </tr>
+							<tr class="file added">
+                                <td>about.less</td>
+                                <td>Stil til om oss filer</td>
+                                <td>Stian</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="folder">
+                                <td>calendar/</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>style.css</td>
+                                <td>Stil til kalenderen</td>
+                                <td>Ellen</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>calendar.less</td>
+                                <td>Stil til kalenderen</td>
+                                <td>Ellen</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="folder">
+                                <td>discover/</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>artist.html</td>
+                                <td>Ukas artist</td>
+                                <td>Øyvind</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>artist.php</td>
+                                <td>Ukas artist</td>
+                                <td>Øyvind</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>style.css</td>
+                                <td>Stil til oppdag-modulen</td>
+                                <td>Øyvind</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>discover.less</td>
+                                <td>Stil til oppdag-modulen</td>
+                                <td>Øyvind</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="folder">
+                                <td>buttons/</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="file">
+                                <td>up.svg</td>
+                                <td></td>
+                                <td>Stian</td>
+                                <td>16. Okt</td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>down.svg</td>
+                                <td></td>
+                                <td>Stian</td>
+                                <td>16. Okt</td>
+                            </tr>
+                            <tr class="file">
+                                <td>left.svg</td>
+                                <td></td>
+                                <td>Stian</td>
+                                <td>16. Okt</td>
+                            </tr>
+                            <tr class="file">
+                                <td>right.svg</td>
+                                <td></td>
+                                <td>Stian</td>
+                                <td>16. Okt</td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>totop.svg</td>
+                                <td></td>
+                                <td>Stian</td>
+                                <td>16. Okt</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>fblogo.svg</td>
+                                <td></td>
+                                <td>Stian</td>
+                                <td>16. Okt</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>twlogo.svg</td>
+                                <td></td>
+                                <td>Stian</td>
+                                <td>16. Okt</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>ghlogo.svg</td>
+                                <td></td>
+                                <td>Stian</td>
+                                <td>16. Okt</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="folder">
+                                <td>images/</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="file added">
+                                <td>header.png</td>
+                                <td>Header</td>
+                                <td>Stian</td>
+                                <td>1. Nov</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>icon.png</td>
+                                <td>Ikonet som vises i nettleseren</td>
+                                <td>Stian</td>
+                                <td>1. Nov</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>medlemmer.jpg</td>
+                                <td>Et stockphoto som illustrerer Nabostøys medlemmer, ikke eid av oss</td>
+                                <td>Stian</td>
+                                <td>23. Okt</td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>background.html</td>
+                                <td>Bakgrunnsbildet</td>
+                                <td>Stian</td>
+                                <td>20. Okt</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>background.html</td>
+                                <td>Bakgrunnsbildet</td>
+                                <td>Stian</td>
+                                <td>20. Okt</td>
+                            </tr>
+                            <tr class="folder">
+                                <td>&nbsp;&nbsp;articleimages/</td>
+                                <td>Artikkelbilder</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="file added">
+                                <td>&nbsp;&nbsp;&nbsp;article1.jpg</td>
+                                <td></td>
+                                <td>Stian</td>
+                                <td>1. Nov</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>&nbsp;&nbsp;&nbsp;article2.jpg</td>
+                                <td></td>
+                                <td>Stian</td>
+                                <td>1. Nov</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>&nbsp;&nbsp;&nbsp;article3.jpg</td>
+                                <td></td>
+                                <td>Stian</td>
+                                <td>1. Nov</td>
+                            </tr>
+                            <tr class="folder">
+                                <td>&nbsp;&nbsp;artistimages/</td>
+                                <td>Artikkelbilder</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="file added">
+                                <td>&nbsp;&nbsp;&nbsp;artist1.jpg</td>
+                                <td></td>
+                                <td>Stian</td>
+                                <td>1. Nov</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>&nbsp;&nbsp;&nbsp;artist2.jpg</td>
+                                <td></td>
+                                <td>Stian</td>
+                                <td>1. Nov</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>&nbsp;&nbsp;&nbsp;artist3.jpg</td>
+                                <td></td>
+                                <td>Stian</td>
+                                <td>1. Nov</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="folder">
+                                <td>js/</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="file">
+                                <td>img_ui.js</td>
+                                <td>Bildeforstørrelse</td>
+                                <td>Niklas</td>
+                                <td>16. Okt</td>
+                            </tr>
+                            <tr class="file">
+                                <td>touchfix.js</td>
+                                <td>Berøringsfiks</td>
+                                <td>Stian</td>
+                                <td>20. Okt</td>
+                            </tr>
+                            <tr class="file">
+                                <td>calendar_generator.js</td>
+                                <td>For å generere kalenderen</td>
+                                <td>Ellen</td>
+                                <td>1. Nov</td>
+                            </tr>
+                            <tr class="file">
+                                <td>form_validator.js</td>
+                                <td>For å validere innsedingsskjema</td>
+                                <td>Øyvind</td>
+                                <td>1. Nov</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>get_article.js</td>
+                                <td>For å generere artikler</td>
+                                <td>Siddise</td>
+                                <td>1. Nov</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>get_artist.js</td>
+                                <td>For å generere artister</td>
+                                <td>Stian</td>
+                                <td>1. Nov</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>get_genre.js</td>
+                                <td>For å generere et sjangerbibliotek</td>
+                                <td>Øyvind</td>
+                                <td>1. Nov</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>play_media.js</td>
+                                <td>For å generere en musikkspiller</td>
+                                <td>Siddise</td>
+                                <td>1. Nov</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>slideshow.js</td>
+                                <td>For å generere slideshows</td>
+                                <td>Ellen</td>
+                                <td>1. Nov</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="folder">
+                                <td>data/</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="file">
+                                <td>articles.xml</td>
+                                <td>Innhold til artiklene</td>
+                                <td>Siddise</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file">
+                                <td>artists.xml</td>
+                                <td>Artistinfo</td>
+                                <td>Øyvind</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>calendar.xml</td>
+                                <td>Artistinfo</td>
+                                <td>Øyvind</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>articles.dtd</td>
+                                <td>XML-struktur</td>
+                                <td>Siddise</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>artists.dtd</td>
+                                <td>XML-struktur</td>
+                                <td>Øyvind</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>calendar.dtd</td>
+                                <td>XML-struktur</td>
+                                <td>Øyvind</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="folder">
+                                <td>css/</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>img_ui.css</td>
+                                <td>Generell stilfil til bildeforstørrelse</td>
+                                <td>Niklas</td>
+                                <td>16. Okt</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>img_ui.less</td>
+                                <td>Generell stilfil til bildeforstørrelse</td>
+                                <td>Niklas</td>
+                                <td>16. Okt</td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>form.css</td>
+                                <td>Form-validering og stilgivning</td>
+                                <td>Ellen</td>
+                                <td>1. Nov</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr class="file">
+                                <td>main.css</td>
+                                <td>Hovedstilen til nettsiden</td>
+                                <td>Alle</td>
+                                <td>6. Nov</td>
+                            </tr>
+                            <tr class="file added">
+                                <td>main.less</td>
+                                <td>Hovedstilen til nettsiden</td>
+                                <td>Alle</td>
+                                <td>6. Nov</td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>reset.css</td>
+                                <td>Fjerner all stil fra nettleser</td>
+                                <td>Niklas</td>
+                                <td>13. Okt</td>
+                            </tr>
+                            <tr class="file removed">
+                                <td>print.css</td>
+                                <td>Gjør siden utskriftsvennlig</td>
+                                <td>Alle</td>
+                                <td>6. Nov</td>
+                            </tr>
+                            <tr class="file">
+                                <td>scripts.js</td>
+                                <td>Generelle kodesnutter for malen</td>
+                                <td>Niklas</td>
+                                <td>25. Okt</td>
+                            </tr>
+                            <tr class="file">
+                                <td>Siste sjekk</td>
+                                <td>Sjekke om alle filene fungerer uten error. Validere CSS, HTML, XML og JS.</td>
+                                <td>Alle</td>
+                                <td>16. Nov</td>
+                            </tr>
+                        </tbody>
+                    </table>
+				</section>
+                
+                <p class="print-btn-container">
+                    <button onclick="window.print()" class="print-btn">Skriv ut siden</button>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

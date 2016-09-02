@@ -1,0 +1,44 @@
+#main-content {
+    max-width: 100%;
+    box-shadow: none;
+    
+    margin-top: 16px;
+}
+
+#head .title {
+    position: static;
+    margin-top: auto;
+    text-shadow: none;
+}
+#head .title p {
+    white-space: pre-line;
+}
+#head .title a[href^="mailto"]:after, a[href^="http://"]:after {
+    content: " (" attr(href) ")";
+}
+#head .title a[href^="mailto"]:before {
+    content: "";
+}
+
+#body h2 {
+    padding: 40px 0 0 30px;
+}
+
+.unimportant:after {
+    content: "*";
+}
+
+.sitemap, .filelist, tables {
+    box-shadow: none;
+    border: 1px solid #999;
+    border-radius: 2px;
+}
+
+#footer:after,
+.print-btn-container,
+#main-content:before,
+#main-content:after,
+.remove-from-print,
+input[type="checkbox"].hide-removed-files + label {
+    display: none;
+}
