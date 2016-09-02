@@ -28,16 +28,16 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
         - 1 < ln(n) < n < n^2 < 2^n < n! < n^n
 
 ### Forelesning 2 - Datastrukturer
- - [ ] Forstå hvordan stakker og køer fungerer
- - [ ] Forstå hvordan lenkede lister fungerer
- - [ ] Forstå hvordan pekere og objekter kan implementeres
- - [ ] Forstå hvordan rotfaste trær kan implementeres
- - [ ] Forstå hvordan direkte adressering og hashtabeller fungerer
- - [ ] Forstå konfliktløsing ved kjeding (chaining)
- - [ ] Kjenne til grunnleggende hashfunksjoner
- - [ ] Vite at man for statiske datasett kan ha worst-case O(1) for søk
- - [ ] Kunne definere amortisert analyse
- - [ ] Forstå hvordan dynamiske tabeller fungerer 
+ - [x] Forstå hvordan stakker og køer fungerer
+ - [x] Forstå hvordan lenkede lister fungerer
+ - [x] Forstå hvordan pekere og objekter kan implementeres
+ - [x] Forstå hvordan rotfaste trær kan implementeres
+ - [x] Forstå hvordan direkte adressering og hashtabeller fungerer
+ - [x] Forstå konfliktløsing ved kjeding (chaining)
+ - [x] Kjenne til grunnleggende hashfunksjoner
+ - [x] Vite at man for statiske datasett kan ha worst-case O(1) for søk
+ - [x] Kunne definere amortisert analyse
+ - [x] Forstå hvordan dynamiske tabeller fungerer 
 
 ### Forelesning 3 - Splitt og hersk
  - [ ] Forstå strukturell induksjon∗
