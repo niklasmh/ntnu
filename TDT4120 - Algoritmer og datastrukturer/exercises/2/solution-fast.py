@@ -4,7 +4,7 @@ from sys import stdin, stderr
 import traceback
 
 def bygg(ol):
-    n = [{}, []]
+    n = ({}, [])
     sn = n
     for e in ol:
         n = sn
@@ -18,7 +18,10 @@ def bygg(ol):
 
 def posisjoner(o, i, n):
     try:
-        if o[i] is '?':
+        l = ord(o[i])
+        if 96 < l < 123:
+            return posisjoner(o, i + 1, n[0][o[i]])
+        elif l == 63:
             ps = []
             for b in n[0]:
                 for p in n[0][b][1]:
@@ -29,13 +32,8 @@ def posisjoner(o, i, n):
                 except:
                     continue
             return ps
-        else:
-            return posisjoner(o, i + 1, n[0][o[i]])
     except:
         return n[0][o[i]][1]
-
-def tup (el):
-    return (el[1], el[0])
 
 def main():
     try:
