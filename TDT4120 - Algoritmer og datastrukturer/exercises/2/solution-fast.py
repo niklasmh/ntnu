@@ -22,12 +22,14 @@ def posisjoner(o, i, n):
         if 96 < l < 123:
             return posisjoner(o, i + 1, n[0][o[i]])
         elif l == 63:
+            i = i + 1
             ps = []
             for b in n[0]:
-                for p in n[0][b][1]:
-                    ps.append(p)
+                if i == len(o):
+                    for p in n[0][b][1]:
+                        ps.append(p)
                 try:
-                    for p in posisjoner(o, i + 1, n[0][b]):
+                    for p in posisjoner(o, i, n[0][b]):
                         ps.append(p)
                 except:
                     continue
