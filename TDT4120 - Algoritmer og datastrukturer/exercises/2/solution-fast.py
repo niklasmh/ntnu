@@ -19,9 +19,7 @@ def bygg(ol):
 def posisjoner(o, i, n):
     try:
         l = ord(o[i])
-        if 96 < l < 123:
-            return posisjoner(o, i + 1, n[0][o[i]])
-        elif l == 63:
+        if l == 63:
             i = i + 1
             ps = []
             for b in n[0]:
@@ -34,6 +32,8 @@ def posisjoner(o, i, n):
                 except:
                     continue
             return ps
+        else:#if 96 < l < 123:
+            return posisjoner(o, i + 1, n[0][o[i]])
     except:
         return n[0][o[i]][1]
 
