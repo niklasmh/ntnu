@@ -40,12 +40,45 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Forstå hvordan dynamiske tabeller fungerer 
 
 ### Forelesning 3 - Splitt og hersk
- - [ ] Forstå strukturell induksjon∗
- - [ ] Forstå designmetoden divide-and-conquer (splitt og hersk)
- - [ ] Kunne løse rekurrenser med substitusjon, rekursjonstrær og masterteoremet
+ - [x] Forstå strukturell induksjon∗
+   - `+ 2`
+   - `+ 2 x 2`
+   - `+ ...`
+   - `+ 2 x ... x 2`
+   - `= 2 x ... x 2 x 2 - 2`
+   - `+ 2 x ... x 2 x 2`
+   - `**= 2 x ... x 2 x 2 - 2**`
+   - `sum^ln(n)_{i=1} 2^i = 2n - 1`
+ - [x] Forstå designmetoden divide-and-conquer (splitt og hersk)
+   - `len(2 x 2 x 2 x ... x 2) = m`
+   - `lg(2 x 2 x 2 x ... x 2) = m`
+   - `lg(3 x 3 x 3 x ... x 3) = m`
+   - `lg(k x k x k x ... x k) = m`
+ - [x] Kunne løse rekurrenser med substitusjon, rekursjonstrær og masterteoremet
+   - `f(x) = 1 + f(x)`
+   - `[f(x)] = [1 + [f(x)]]`
+   - `[f(x)] = [1 + [1 + [f(x)]]]`
+   - `[f(x)] = [1 + [1 + [1 + [...]]]]`
+   - `f(x) = 1 + f(x - 1)`
+   - `[f(x)] = [1 + f(x - 1)]`
+   - `[f(x)] = [1 + f(x - 1)]`
  - [ ] Forstå hvordan variabelskifte fungerer
  - [ ] Forstå Quicksort og Randomized-Quicksort
  - [ ] Forstå binærsøk
+ - Notater:
+   - Merge sort:
+     - ```Merge(A, p, q, r)
+       1. Copier L til R
+       2. **for** k = p **til** r
+       3.       **if** L[i] <= R[j]
+       4.             A[k] = L[i]
+       5.             i++
+       6.       **else** A[k] = R[j]
+       7.            j++
+       ```
+   - Litt grunnleggende:
+     - log(x^(log(y))) = log(y^(log(x)))
+     - 2^log\_3(n) = n^log_3(2)
 
 ### Forelesning 4 - Rangering i lineær tid
  - [ ] Forstå hvorfor sammenligningsbasert sortering har en worst-case på Ω(n lg n)
