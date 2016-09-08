@@ -4,3 +4,6 @@
 [submodule "IT2805 - Webteknologi/Documents/Project"]
 	path = IT2805 - Webteknologi/Documents/Project
 	url = git@github.com:niklasmh/it2805-webtech-project.git
+[submodule "IT2810 - Webutvikling/it2810-04-oppgave-2"]
+	path = IT2810 - Webutvikling/it2810-04-oppgave-2
+	url = git@bitbucket.org:trondaal/it2810-04-oppgave-2.git
