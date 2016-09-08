@@ -35,10 +35,9 @@ def posisjoner(o, i, n):
         else:#if 96 < l < 123:
             return posisjoner(o, i + 1, n[0][o[i]])
     except:
-        try:
+        if o[i] in n[0]:
             return n[0][o[i]][1]
-        except:
-            return []
+        return []
 
 def main():
     try:
