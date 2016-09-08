@@ -16,16 +16,16 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Kunne definere asymptotisk notasjon, O, Ω, Θ, o og ω.
     - Huskeregel:
         - ω >
-        - Ω >=
+        - Ω ≧
         - Θ =
-        - O <=
+        - O ≦
         - o <
-    - Kompleksitetsregler
+    - Kompleksitetsregler:
         - 1
         - n
-        - n^k
+        - nᵏ
         - ...
-        - 1 < ln(n) < n < n^2 < 2^n < n! < n^n
+        - 1 < ln(n) < n < n² < 2ⁿ < n! < nⁿ
 
 ### Forelesning 2 - Datastrukturer
  - [x] Forstå hvordan stakker og køer fungerer
