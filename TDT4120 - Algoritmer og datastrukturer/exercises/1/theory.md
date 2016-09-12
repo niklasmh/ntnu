@@ -1,13 +1,13 @@
 # Teorioppgaver øving 1
 ## Oppgave 1:
  - a) **En instans av et problem er ... (12.5 %)**
-   - ...
+   - en sub-klasse av problemet.
  - b) **Hvilket alternativ beskriver best algoritmer og datastrukturer? (12.5 %)**
-   - Ummm...
+   - En algoritme beskriver utvetydig hvordan et problem kan løses. Algoritmen lager data i (og henter fra) datastrukturer.
  - c) **Hva er pseudokode? (12.5 %)**
-   - Kode for å beskrive en prosess som er ganske generell for de fleste kodespråk
+   - En måte å spesifisere algoritmer på, uavhengig av spesifikke programmeringsspråk.
  - d) **I dette faget vil vi i hovedsak vurdere algoritmer ut fra ... (12.5 %)**
-   - Kjøretid
+   - hvordan kjøretiden vokser når n går mot uendelig.
 
 ## Oppgave 2:
 I denne oppgaven skal vi se på en variant av spillet Nim. Reglene er som følger: To spillere skal etter tur plukke vekk fyrstikker fra en haug på bordet. Den som plukker opp den siste fyrstikken har tapt. Hver spiller må plukke opp mins en fyrstikk i hver runde, og kan maksimal plukke opp seks fyrstikker.
