@@ -37,7 +37,9 @@ def posisjoner(ord, indeks, node):
         else:
             return posisjoner(ord, indeks + 1, node.barn[ord[indeks]])
     except:
-        return node.barn[ord[indeks]].posi
+        if ord[indeks] in node.barn:
+            return node.barn[ord[indeks]].posi
+        return []
 
 def main():
     try:
