@@ -6,10 +6,16 @@ int main() {
     scanf("%[^\n]", line);
     printf("Line: %s\n", line);
     
-    int i = 0;
+    int wordCount = 0;
     char words[MAX_BUFFER];
     while (scanf("%s", words) != EOF)
-        printf("Word %d: %s\n", ++i, words);
+        printf("Word %d: %s\n", ++wordCount, words);
+
     
+
+    for(int i = 0; i < wordCount; i++) {
+        printf("%s", words[i])
+    }
+
     return 0;
 }
