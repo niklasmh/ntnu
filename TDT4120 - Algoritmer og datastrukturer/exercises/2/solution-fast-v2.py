@@ -9,10 +9,7 @@ def main():
     p = [] # Positions
     sc = 0 # Save Count
     ac = 0 # Add Count
-
-    #if 63 in set(s): # May use this instead
-    #if 63 in s or True:
-    #    print("? found! Going into advanced build")
+    
     for c, l in enumerate(ol):
         if 96 < l < 123:
             p.append(l)
@@ -30,22 +27,46 @@ def main():
             ac = ac + 1
             sc = c + ac
             p = []
-    #else:
-    #    print("? not found! Going into easy build")
-
+    
     b = [] # Build array
     p = [] # Positions
+    br = False # Break
+    pb = {} # PosiBilities
 
     for o in s:
         if 96 < o < 123:
+            b.append(o)
+            continue
+        if o is 63:
             b.append(o)
             continue
         if o is 10:
             print("".join(map(chr, b)) + ":", end="")
             n = wt
             for l in b:
-                if l in n[0]:
+                if l is 63:
+                    print("?", end="")
+                    # Giving up... This loop is going to be slow anyway
+                    #    if m in n[0]:
+                    #        n = n[0][m]
+                    #    else:
+                    #print(" " + chr(m), end="")
+                    #p.extend(n[1])
+                    #break
+                    #if l in n[0]:
+                    #        n = n[0][l]
+                elif l in n[0]:
                     n = n[0][l]
+                else:
+                    print()
+                    b = []
+                    p = []
+                    br = True
+                    break
+            if br:
+                br = False
+                continue
+            
             p.extend(n[1])
             p.sort()
             for i in p:
@@ -54,5 +75,4 @@ def main():
             b = []
             p = []
 
-    
 main()
