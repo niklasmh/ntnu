@@ -67,6 +67,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [ ] Forstå binærsøk
  - Notater:
    - Merge sort:
+     - 
      ```
      Merge(A, p, q, r)
        1. Copier L til R
