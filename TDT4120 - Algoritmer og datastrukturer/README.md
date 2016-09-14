@@ -67,7 +67,6 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [ ] Forstå binærsøk
  - Notater:
    - Merge sort:
-     - 
      ```
      Merge(A, p, q, r)
        1. Copier L til R
@@ -79,8 +78,8 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
        7.            j++
        ```
    - Litt grunnleggende:
-     - log(x^(log(y))) = log(y^(log(x)))
-     - 2^log\_3(n) = n^log_3(2)
+     - `log(x^(log(y))) = log(y^(log(x)))`
+     - `2^log₃(n) = n^log₃(2)`
 
 ### Forelesning 4 - Rangering i lineær tid
  - [ ] Forstå hvorfor sammenligningsbasert sortering har en worst-case på Ω(n lg n)
