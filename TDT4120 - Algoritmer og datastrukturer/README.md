@@ -97,6 +97,29 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [ ] Forstå Bucket-Sort
  - [ ] Forstå Randomized-Select
  - [ ] Forstå Select
+   - Notater:
+     -
+     ```
+     Rekursjon:
+
+     **Time:**
+     1. if n > 1
+     2.     t = Time(n - 1)
+     3.     return t + n
+     4. else return 1
+
+     Iterativ:
+
+     **Rec-Ins-Sort:**
+     1. if j > 1
+     2.     Rec-Ins-Sort(A, j - 1)
+     3.     key = A[j]
+     4.     i = j - 1
+     5.     while i > 0 and A[i] > key
+     6.         A[i + 1] = A[i]
+     7.         i--
+     8.     A[i + 1] = key
+     ```
 
 ### Forelesning 5 - Rotfaste trestrukturer
  - [ ] Forstå hvordan heaps fungerer, og hvordan de kan brukes som prioritetskøer
