@@ -62,9 +62,16 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
    - `f(x) = 1 + f(x - 1)`
    - `[f(x)] = [1 + f(x - 1)]`
    - `[f(x)] = [1 + f(x - 1)]`
- - [ ] Forstå hvordan variabelskifte fungerer
- - [ ] Forstå Quicksort og Randomized-Quicksort
- - [ ] Forstå binærsøk
+ - [x] Forstå hvordan variabelskifte fungerer
+ - [x] Forstå Quicksort og Randomized-Quicksort
+   - Quicksort starter på siste element.
+   - Randomized starter på et tilfeldig element.
+   - Worst case er ferdig sortert. O(n²).
+ - [x] Forstå binærsøk
+   1. Sortèr utvalget.
+   2. Dele i 2.
+   3. Velg den biten som inneholder søket.
+   4. Fortsett punkt 2 og 3 til elementet er funnet.
  - Notater:
    - Merge sort:
      - 
