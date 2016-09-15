@@ -13,21 +13,19 @@ def merge(decks):
     for l in linear:
         if l[0] < gmin[0]:
             gmin = l
+    min = gmin
     for l in linear:
-        if l[0] > gmin[0]:
-            #print(l,end="")
-            #print(gmin)
-            min = l
-            for i in linear:
-                #print(min)
-                if i not in sorted:
-                    if i[0] <= min[0]:
-                        min = i
-            #print(min[0])
-            gmin = min
-            sorted.append(min)
-            word.append(min[1])
-    #print(sorted)
+        for i in linear:
+            if i not in sorted:
+                min = i
+                break
+        for i in linear:
+            if i not in sorted:
+                if i[0] <= min[0]:
+                    min = i
+        gmin = min
+        sorted.append(min)
+        word.append(min[1])
     return "".join(word)
 
 def main():
