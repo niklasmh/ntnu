@@ -7,11 +7,16 @@
 
 # Ignore folder and files with an ignore extension
 *.ignorefile.*
+*.ignorecompiled
 *.ignorefolder/
 
+# Examen Philososophicum
 EXPH0004*/
+
+# Programmeringslab for Informatikk
 IT1501*/
 
+# Webteknologi
 IT2805*/*
 !IT2805*/A*/
 !IT2805*/Documents/
@@ -21,14 +26,16 @@ IT2805*/Documents/*/images/*
 !IT2805*/*.css
 !IT2805*/*.less
 
+# Webutvikling
 IT2810*/*
 !IT2810*/A*/
 !IT2810*/*.html
 !IT2810*/*.md
 
+# Math, not code
 TMA*/
-TTM4100*/
 
+# Objekt Orientert Programmering
 TDT4100*/*
 !TDT4100*/tdt4100/
 TDT4100*/tdt4100/*
@@ -37,13 +44,18 @@ TDT4100*/tdt4100/*
 TDT4100*/tdt4100/src/debugging/*
 !TDT4100*/tdt4100-oop-bullet-maniac/
 
+# Informasjonsteknologi, grunnkurs
 TDT4110*/*
 !TDT4110*/Code/
 !TDT4110*/Øvinger/
 
+# Datamaskiner og Digitalteknikk
 TDT4160*/*
 
+# Fysikk
 TFY4125*/
+
+# Kommunikasjon - Tjenester og nett
 TTM4100*/
 
 #OneDrive sync error
