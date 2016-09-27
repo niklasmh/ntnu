@@ -47,7 +47,11 @@ def find(A, lower, upper):
     if upper > A[half_upper]:
         half_upper = half_upper + 1
 
+<<<<<<< Updated upstream
     return [A[half_low if half_low > 0 else 0], A[half_upper if half_upper < len(A) else len(A) - 1]]
+=======
+    return [A[half_low], A[half_upper]]
+>>>>>>> Stashed changes
 
 def main():
     input_list = []
@@ -60,7 +64,12 @@ def main():
         word = line.split()
         minimum = int(word[0])
         maximum = int(word[1])
+<<<<<<< Updated upstream
         result = find(sorted_list, minimum, maximum)
+=======
+        #result = find(sorted_list, minimum, maximum)
+        result = [1, 2]
+>>>>>>> Stashed changes
         print(str(result[0]) + " " + str(result[1]))
 
 if __name__ == "__main__":
