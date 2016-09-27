@@ -3,7 +3,7 @@
 from sys import stdin
 
 def sort_list(A):
-    for j in xrange(1, len(A)):
+    for j in range(1, len(A)):
         k = A[j]
         i = j - 1
         while i >= 0 and A[i] > k:
@@ -47,7 +47,7 @@ def find(A, lower, upper):
     if upper > A[half_upper]:
         half_upper = half_upper + 1
 
-    return [A[half_low], A[half_upper]]
+    return [A[half_low if half_low > 0 else 0], A[half_upper if half_upper < len(A) else len(A) - 1]]
 
 def main():
     input_list = []
@@ -60,8 +60,7 @@ def main():
         word = line.split()
         minimum = int(word[0])
         maximum = int(word[1])
-        #result = find(sorted_list, minimum, maximum)
-        result = [1, 2]
+        result = find(sorted_list, minimum, maximum)
         print(str(result[0]) + " " + str(result[1]))
 
 if __name__ == "__main__":
