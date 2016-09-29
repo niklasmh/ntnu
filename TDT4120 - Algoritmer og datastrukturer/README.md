@@ -125,7 +125,8 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Forstå hvordan heaps fungerer, og hvordan de kan brukes som prioritetskøer
  - [x] Forstå Heapsort
  - [x] Forstå hvordan binære søketrær fungerer
-   - ```
+   - 
+   ```
      Successor(x)
      1. if x.right != NIL
      2.     return Min(x.right)
@@ -137,7 +138,8 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      ```
  - [x] Forstå flere ulike operasjoner på binære søketrær, ut over bare søk
    - Insetting
-   - ```
+   - 
+   ```
      Insert(T, z)
      1. y = NIL
      2. x = T.root
@@ -154,7 +156,8 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      13. **else** y.right = z
      ```
    - Transplant - brukes i ved sletting
-   - ```
+   - 
+   ```
      Transplant(T, u, v)
      1. **if** u.p == NIL
      2.     T.root = v
@@ -165,7 +168,8 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      7.     v.p = u.p
      ```
    - Sletting
-   - ```
+   - 
+   ```
      Delete(T,z)
      1. **if** z.left == NIL
      2.     Transp(T, z, z.right)
@@ -183,7 +187,8 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Vite at forventet høyde for et tilfeldig binært søketre er Θ(lg n)
  - [x] Vite at det finnes søketrær med garantert høyde på Θ(lg n)
  - Kjøretider for binære søketre:
-   - ```
+   - 
+   ```
      Algoritme          Kjøretid
      Inorder-Tree-Walk  Θ(n)
      Tree-Search        O(h)
@@ -216,7 +221,8 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [ ] Vite forskjellen på et segment og en underfølge (subsequence)
  - [ ] Forstå eksemplene stavkutting, matrisekjede-multiplikasjon og LCS
    - Stavkutting. Denne er eksponentiell:
-   - ```
+   - 
+   ```
      Cut(p, n)
      1. if n == 0
      2.     return 0
@@ -229,7 +235,8 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      q, t = -∞, - > 6.6 > -, -
      ```
    - En annen metode med 2 prosedyrer som er kvadratisk O(n²):
-   - ```
+   - 
+   ```
      Memoized-Cut-Rod(p, n)
      1 let r[0 ..n] be a new array
      2 **for** i = 0 to n
@@ -237,7 +244,8 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      4 **return** Aux(p, n, r)
      ```
    - Selve prosedyren:
-   - ```
+   - 
+   ```
      Aux(p, n, r)
      1. **if** r[n] ≥ 0
      2.     **return** r[n]
@@ -260,7 +268,8 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
        - `1234567 1234567`
        - `klapper takpapp`
      - Endelig eksempel:
-       - ```
+       - 
+       ```
                    | s t o r m k a s t
                  0 | 1 2 3 4 5 6 7 8 9
            ------- |------------------
@@ -276,7 +285,8 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
          t | 8 | 0 | 0 1 2 2 3 4 4 4 **5**
          ```
      - Observasjon 1:
-       - ```
+       - 
+       ```
                    | s t o r m k a s t
                  0 | 1 2 3 4 5 6 7 8 9
            ------- |------------------
@@ -292,7 +302,8 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
          t | 8 | 0 | ↑ ⇖ ↑ ↑ ↑ ↑ ↑ ↑ **⇖**
          ```
      - Observasjon 2:
-       - ```
+       - 
+       ```
                    | s **t** **o** r **m** k **a** s **t**
                  0 | 1 2 3 4 5 6 7 8 9
            ------- |------------------
