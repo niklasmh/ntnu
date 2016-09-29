@@ -125,10 +125,73 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Forstå hvordan heaps fungerer, og hvordan de kan brukes som prioritetskøer
  - [x] Forstå Heapsort
  - [x] Forstå hvordan binære søketrær fungerer
+   - ```
+     Successor(x)
+     1. if x.right != NIL
+     2.     return Min(x.right)
+     3. y = x.p
+     4. while y != NIL and x == y.right
+     5.     x = y
+     6.     y = y.p
+     7.     return y
+     ```
  - [x] Forstå flere ulike operasjoner på binære søketrær, ut over bare søk
+   - Insetting
+   - ```
+     Insert(T, z)
+     1. y = NIL
+     2. x = T.root
+     3. **while** x != NIL
+     4.     y = x
+     5.     **if** z.key < x.key
+     6.         x = x.left
+     7.     **else** x = x.right
+     8. z.p = y
+     9. **if** y == NIL
+     10.    T.root = z
+     11. **else if** z.key < y.key
+     12.    y.left = z
+     13. **else** y.right = z
+     ```
+   - Transplant - brukes i ved sletting
+   - ```
+     Transplant(T, u, v)
+     1. **if** u.p == NIL
+     2.     T.root = v
+     3. **elseif** u == u.p.left
+     4.     u.p.left = v
+     5. **else** u.p.right = v
+     6. **if** v != NIL
+     7.     v.p = u.p
+     ```
+   - Sletting
+   - ```
+     Delete(T,z)
+     1. **if** z.left == NIL
+     2.     Transp(T, z, z.right)
+     3. **elseif** z.right == NIL
+     4.     Transp(T, z, z.left)
+     5. **else** y = Minimum(z.right)
+     6.     **if** y.p != z
+     7.         Transp(T, y, y.right)
+     8.         y.right = z.right
+     9.         y.right.p = y
+     10.    Transp(T, z, y)
+     11.    y.left = z.left
+     12.    y.left.p = y
+     ```
  - [x] Vite at forventet høyde for et tilfeldig binært søketre er Θ(lg n)
- - [x] Vite at det finnes søketrær med garantert høyde på Θ(lg n) 
-
+ - [x] Vite at det finnes søketrær med garantert høyde på Θ(lg n)
+ - Kjøretider for binære søketre:
+   - ```
+     Algoritme          Kjøretid
+     Inorder-Tree-Walk  Θ(n)
+     Tree-Search        O(h)
+     Tree-Minimum       O(h)
+     Tree-Successor     O(h)
+     Tree-Insert        O(h)
+     Tree-Delete        O(h)
+     ```
 ### Forelesning 6 - Dynamisk programmering
  - [ ] Forstå ideen om en delproblemrelasjon eller delproblemgraf
  - [ ] Forstå induksjon over velfunderte relasjoner ∗
