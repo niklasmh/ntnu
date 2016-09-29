@@ -102,7 +102,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      <pre>
      Rekursjon:
 
-     <b>Time:**
+     <b>Time:</b>
      1. if n > 1
      2.     t = Time(n - 1)
      3.     return t + n
@@ -110,7 +110,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
 
      Iterativ:
 
-     <b>Rec-Ins-Sort:**
+     <b>Rec-Ins-Sort:</b>
      1. if j > 1
      2.     Rec-Ins-Sort(A, j - 1)
      3.     key = A[j]
@@ -201,12 +201,12 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Forstå ideen om en delproblemrelasjon eller delproblemgraf
  - [x] Forstå induksjon over velfunderte relasjoner ∗
  - [x] Forstå designmetoden dynamisk programmering
-   - Hva er <b>DP**?
+   - Hva er <b>DP</b>?
      - Karakterisere strukturen ...
      - Rekursivt definere verdi ...
      - Kalkuler verdi ...
      - Konstruktør ...
-   - Oppskrift, <b>Sniedivich**
+   - Oppskrift, <b>Sniedivich</b>
      1. Embed your problem in a family of related problems
      2. Derive a relationship between the solutions to these problems
      3. Solve this relationship
@@ -258,7 +258,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      9. r[n] = q
      10. <b>return</b> q
      </pre>
-   - <b>LCS**
+   - <b>LCS</b>
      - Mye brukt i bioinformatikk.
      - Eksempel 1:
        - `klapper takpapp`
@@ -282,7 +282,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
          m | 5 | 0 | 0 1 2 2 3 3 3 3 3
          a | 6 | 0 | 0 1 2 2 3 3 <b>4</b> 4 4
          k | 7 | 0 | 0 1 2 2 3 4 4 4 4
-         t | 8 | 0 | 0 1 2 2 3 4 4 4 <b>5**
+         t | 8 | 0 | 0 1 2 2 3 4 4 4 <b>5</b>
          </pre>
      - Observasjon 1:
        - 
@@ -299,12 +299,12 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
          m | 5 | 0 | ↑ ↑ ↑ ↑ ⇖ <b>↑</b> ↑ ↑ ↑
          a | 6 | 0 | ↑ ↑ ↑ ↑ ↑ ↑ <b>⇖</b> <b>←</b> ←
          k | 7 | 0 | ↑ ↑ ↑ ↑ ↑ ⇖ ↑ <b>↑</b> ↑
-         t | 8 | 0 | ↑ ⇖ ↑ ↑ ↑ ↑ ↑ ↑ <b>⇖**
+         t | 8 | 0 | ↑ ⇖ ↑ ↑ ↑ ↑ ↑ ↑ <b>⇖</b>
          </pre>
      - Observasjon 2:
        - 
        <pre>
-                   | s <b>t</b> <b>o</b> r <b>m</b> k <b>a</b> s <b>t**
+                   | s <b>t</b> <b>o</b> r <b>m</b> k <b>a</b> s <b>t</b>
                  0 | 1 2 3 4 5 6 7 8 9
            ------- |------------------
            | 0 | 0 | 0 0 0 0 0 0 0 0 0
@@ -316,7 +316,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
          m | 5 | 0 | ↑ ↑ ↑ ↑ ⇖ ↑ ↑ ↑ ↑
          <b>a</b> | 6 | 0 | ↑ ↑ ↑ ↑ ↑ ↑ <b>⇖</b> ← ←
          k | 7 | 0 | ↑ ↑ ↑ ↑ ↑ ⇖ ↑ ↑ ↑
-         <b>t</b> | 8 | 0 | ↑ ⇖ ↑ ↑ ↑ ↑ ↑ ↑ <b>⇖**
+         <b>t</b> | 8 | 0 | ↑ ⇖ ↑ ↑ ↑ ↑ ↑ ↑ <b>⇖</b>
          </pre>
  - [ ] Forstå løsningen på 0-1-ryggsekkproblemet
 
