@@ -214,12 +214,12 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Forstå løsning ved memoisering (top-down)
    - Nyttig når vi har overlappende løsninger.
    - Korrekt når vi har optimal substruktur.
- - [ ] Forstå løsning ved iterasjon (bottom-up)
- - [ ] Forstå hvordan man rekonstruerer en løsning fra lagrede beslutninger
- - [ ] Forstå hva optimal delstruktur er
- - [ ] Forstå hva overlappende delproblemer er
- - [ ] Vite forskjellen på et segment og en underfølge (subsequence)
- - [ ] Forstå eksemplene stavkutting, matrisekjede-multiplikasjon og LCS
+ - [x] Forstå løsning ved iterasjon (bottom-up)
+ - [x] Forstå hvordan man rekonstruerer en løsning fra lagrede beslutninger
+ - [x] Forstå hva optimal delstruktur er
+ - [x] Forstå hva overlappende delproblemer er
+ - [x] Vite forskjellen på et segment og en underfølge (subsequence)
+ - [x] Forstå eksemplene stavkutting, matrisekjede-multiplikasjon og LCS
    - Stavkutting. Denne er eksponentiell:
    - 
    <pre>
@@ -318,7 +318,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
          k | 7 | 0 | ↑ ↑ ↑ ↑ ↑ ↖ ↑ ↑ ↑
          <b>t</b> | 8 | 0 | ↑ ↖ ↑ ↑ ↑ ↑ ↑ ↑ ⇖
          </pre>
- - [ ] Forstå løsningen på 0-1-ryggsekkproblemet
+ - [x] Forstå løsningen på 0-1-ryggsekkproblemet
 
 ### Forelesning 7 - Grådige algoritmer
  - [ ] Forstå designmetoden grådighet
