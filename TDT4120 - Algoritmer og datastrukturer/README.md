@@ -193,16 +193,87 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      Tree-Delete        O(h)
      ```
 ### Forelesning 6 - Dynamisk programmering
- - [ ] Forstå ideen om en delproblemrelasjon eller delproblemgraf
- - [ ] Forstå induksjon over velfunderte relasjoner ∗
- - [ ] Forstå designmetoden dynamisk programmering
- - [ ] Forstå løsning ved memoisering (top-down)
+ - [x] Forstå ideen om en delproblemrelasjon eller delproblemgraf
+ - [x] Forstå induksjon over velfunderte relasjoner ∗
+ - [x] Forstå designmetoden dynamisk programmering
+   - Hva er **DP**?
+     - Karakterisere strukturen ...
+     - Rekursivt definere verdi ...
+     - Kalkuler verdi ...
+     - Konstruktør ...
+   - Oppskrift, **Sniedivich**
+     1. Embed your problem in a family of related problems
+     2. Derive a relationship between the solutions to these problems
+     3. Solve this relationship
+     4. Recover a solution to your problem from this relationship
+ - [x] Forstå løsning ved memoisering (top-down)
+   - Nyttig når vi har overlappende løsninger.
+   - Korrekt når vi har optimal substruktur.
  - [ ] Forstå løsning ved iterasjon (bottom-up)
  - [ ] Forstå hvordan man rekonstruerer en løsning fra lagrede beslutninger
  - [ ] Forstå hva optimal delstruktur er
  - [ ] Forstå hva overlappende delproblemer er
  - [ ] Vite forskjellen på et segment og en underfølge (subsequence)
  - [ ] Forstå eksemplene stavkutting, matrisekjede-multiplikasjon og LCS
+   - Stavkutting. Denne er eksponentiell:
+   - ```
+     Cut(p, n)
+     1. if n == 0
+     2.     return 0
+     3. q = -∞
+     4. **for** i = 1 to n
+     5.     t = p[i] + Cut(p, n - i)
+     6.     q = max(q, t)
+     7. **return** q
+
+     q, t = -∞, - > 6.6 > -, -
+     ```
+   - En annen metode med 2 prosedyrer som er kvadratisk O(n²):
+   - ```
+     Memoized-Cut-Rod(p, n)
+     1 let r[0 ..n] be a new array
+     2 **for** i = 0 to n
+     3  r[i] = -∞
+     4 **return** Aux(p, n, r)
+     ```
+   - Selve prosedyren:
+   - ```
+     Aux(p, n, r)
+     1. **if** r[n] ≥ 0
+     2.     **return** r[n]
+     3. **if** n == 0
+     4.     q = 0
+     5. **else** q = -∞
+     6.     **for** i = 1 **to** n
+     7.         t = p[i] + Aux(p, n - i, r)
+     8.         q = max(q, t)
+     9. r[n] = q
+     10. **return** q
+     ```
+   - **LCS**
+     - Mye brukt i bioinformatikk.
+     - Eksempel 1:
+       - `klapper takpapp`
+       - `kapp akpapp`
+       - `kapp kapp`
+     - Eksempel 2:
+       - `1234567 1234567`
+       - `klapper takpapp`
+     - Endelig eksempel:
+       - ```
+       -      s t o r m k a s t
+       -    0 1 2 3 4 5 6 7 8 9
+       -    ____________________
+         0 | 0 0 0 0 0 0 0 0 0 0
+         1 | 0 0 0 0 0 0 0 1 1 1
+         2 | 0 0 **1** 1 1 1 1 1 1 2
+         3 | 0 0 1 **2** 2 2 2 2 2 2
+         4 | 0 0 1 2 2 **3** 3 3 3 3
+         5 | 0 0 1 2 2 3 3 3 3 3
+         6 | 0 0 1 2 2 3 3 **4** 4 4
+         7 | 0 0 1 2 2 3 4 4 4 4
+         8 | 0 0 1 2 2 3 4 4 4 **5**
+         ```
  - [ ] Forstå løsningen på 0-1-ryggsekkproblemet
 
 ### Forelesning 7 - Grådige algoritmer
