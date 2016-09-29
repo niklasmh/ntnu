@@ -284,7 +284,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
          k | 7 | 0 | 0 1 2 2 3 4 4 4 4
          t | 8 | 0 | 0 1 2 2 3 4 4 4 **5**
          ```
-     - Observasjon 1:
+     - Observasjon <pre>1: <b>bold</b></pre>
        - 
        ```
                    | s t o r m k a s t
