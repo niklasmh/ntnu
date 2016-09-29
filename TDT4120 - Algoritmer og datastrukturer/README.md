@@ -90,13 +90,13 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      - `2^log₃(n) = n^log₃(2)`
 
 ### Forelesning 4 - Rangering i lineær tid
- - [ ] Forstå hvorfor sammenligningsbasert sortering har en worst-case på Ω(n lg n)
- - [ ] Vite hva en stabil sorteringsalgoritme er
- - [ ] Forstå Counting-Sort, og hvorfor den er stabil
- - [ ] Forstå Radix-Sort, og hvorfor den trenger en stabil subrutine
- - [ ] Forstå Bucket-Sort
- - [ ] Forstå Randomized-Select
- - [ ] Forstå Select
+ - [x] Forstå hvorfor sammenligningsbasert sortering har en worst-case på Ω(n lg n)
+ - [x] Vite hva en stabil sorteringsalgoritme er
+ - [x] Forstå Counting-Sort, og hvorfor den er stabil
+ - [x] Forstå Radix-Sort, og hvorfor den trenger en stabil subrutine
+ - [x] Forstå Bucket-Sort
+ - [x] Forstå Randomized-Select
+ - [x] Forstå Select
    - Notater:
      -
      ```
@@ -122,12 +122,12 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      ```
 
 ### Forelesning 5 - Rotfaste trestrukturer
- - [ ] Forstå hvordan heaps fungerer, og hvordan de kan brukes som prioritetskøer
- - [ ] Forstå Heapsort
- - [ ] Forstå hvordan binære søketrær fungerer
- - [ ] Forstå flere ulike operasjoner på binære søketrær, ut over bare søk
- - [ ] Vite at forventet høyde for et tilfeldig binært søketre er Θ(lg n)
- - [ ] Vite at det finnes søketrær med garantert høyde på Θ(lg n) 
+ - [x] Forstå hvordan heaps fungerer, og hvordan de kan brukes som prioritetskøer
+ - [x] Forstå Heapsort
+ - [x] Forstå hvordan binære søketrær fungerer
+ - [x] Forstå flere ulike operasjoner på binære søketrær, ut over bare søk
+ - [x] Vite at forventet høyde for et tilfeldig binært søketre er Θ(lg n)
+ - [x] Vite at det finnes søketrær med garantert høyde på Θ(lg n) 
 
 ### Forelesning 6 - Dynamisk programmering
  - [ ] Forstå ideen om en delproblemrelasjon eller delproblemgraf
