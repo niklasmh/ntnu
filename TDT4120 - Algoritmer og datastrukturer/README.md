@@ -332,7 +332,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [ ] Forstå hvordan grafer kan implementeres
  - [ ] Forstå BFS, også for å finne korteste vei uten vekter
    - Breadth-first search, algoritme:
-     - <pre>
+     <pre>
      BFS(s, Adj)
      1. level = { s: ø }
      2. parent = { s: None }
