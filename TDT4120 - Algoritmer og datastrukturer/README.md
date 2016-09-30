@@ -333,21 +333,21 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [ ] Forstå BFS, også for å finne korteste vei uten vekter
    - Breadth-first search, algoritme:
      <pre>
-BFS(s, Adj)
-1. level = { s: ø }
-2. parent = { s: None }
-3. i = 0
-4. frontier = [s] ← level i - 1
-5. <b>while</b> frontier:
-6.     next = [] ← level i
-7.     <b>for</b> u <b>in</b> frontier:
-8.         <b>for</b> v <b>in</b> Adj[u]:
-9.             <b>if</b> v <b>not in</b> level: <b># Unngå duplikater</b>
-10.                level[v] = i
-11.                parent[v] = u
-12.                next.append(v)
-13.     frontier = next
-14.     i = i + 1
+     BFS(s, Adj)
+     1. level = { s: ø }
+     2. parent = { s: None }
+     3. i = 0
+     4. frontier = [s] ← level i - 1
+     5. <b>while</b> frontier:
+     6.     next = [] ← level i
+     7.     <b>for</b> u <b>in</b> frontier:
+     8.         <b>for</b> v <b>in</b> Adj[u]:
+     9.             <b>if</b> v <b>not in</b> level: <b># Unngå duplikater</b>
+     10.                level[v] = i
+     11.                parent[v] = u
+     12.                next.append(v)
+     13.     frontier = next
+     14.     i = i + 1
      </pre>
  - [ ] Forstå DFS og parentesteoremet
  - [ ] Forstå hvordan DFS klassifiserer kanter
