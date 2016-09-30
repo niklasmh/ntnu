@@ -186,7 +186,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Vite at det finnes søketrær med garantert høyde på Θ(lg n)
  - Kjøretider for binære søketre:
    <pre>
-   Algoritme          Kjøretid
+   <b>Algoritme</b>          <b>Kjøretid</b>
    Inorder-Tree-Walk  Θ(n)
    Tree-Search        O(h)
    Tree-Minimum       O(h)
@@ -220,13 +220,13 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
    - Stavkutting. Denne er eksponentiell:
    - <pre>
      Cut(p, n)
-     1. if n == 0
-     2.     return 0
-     3. q = -∞
-     4. <b>for</b> i = 1 to n
-     5.     t = p[i] + Cut(p, n - i)
-     6.     q = max(q, t)
-     7. <b>return</b> q
+     1 if n == 0
+     2     return 0
+     3 q = -∞
+     4 <b>for</b> i = 1 to n
+     5     t = p[i] + Cut(p, n - i)
+     6     q = max(q, t)
+     7 <b>return</b> q
 
      q, t = -∞, - > 6.6 > -, -
      </pre>
@@ -255,13 +255,15 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
    - <b>LCS</b>
      - Mye brukt i bioinformatikk.
      - Eksempel 1:
-       - ```
+       - 
+       ```
        1 klapper takpapp
        2 kapp akpapp
        3 kapp kapp
        ```
      - Eksempel 2:
-       - ```
+       - 
+       ```
        1234567 1234567`
        klapper takpapp
        ```
