@@ -15,17 +15,21 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Forstå Merge-Sort
  - [x] Kunne definere asymptotisk notasjon, O, Ω, Θ, o og ω.
     - Huskeregel:
-        - ω >
-        - Ω ≧
-        - Θ =
-        - O ≦
-        - o <
+      <pre>
+      ω >
+      Ω ≧
+      Θ =
+      O ≦
+      o <
+      </pre>
     - Kompleksitetsregler:
-        - 1
-        - n
-        - nᵏ
-        - ...
-        - 1 < ln(n) < n < n² < 2ⁿ < n! < nⁿ
+      <pre>
+      1
+      n
+      nᵏ
+      ...
+      1 < ln(n) < n < n² < 2ⁿ < n! < nⁿ
+      </pre>
 
 ### Forelesning 2 - Datastrukturer
  - [x] Forstå hvordan stakker og køer fungerer
@@ -47,7 +51,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
    - `+ 2 x ... x 2`
    - `= 2 x ... x 2 x 2 - 2`
    - `+ 2 x ... x 2 x 2`
-   - `**= 2 x ... x 2 x 2 - 2**`
+   - **`= 2 x ... x 2 x 2 - 2`**
    - `sum^ln(n)_{i=1} 2^i = 2n - 1`
  - [x] Forstå designmetoden divide-and-conquer (splitt og hersk)
    - `len(2 x 2 x 2 x ... x 2) = m`
@@ -74,16 +78,15 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
    4. Fortsett punkt 2 og 3 til elementet er funnet.
  - Notater:
    - Merge sort:
-     - 
      <pre>
      Merge(A, p, q, r)
-       1. Copier L til R
-       2. <b>for</b> k = p <b>til</b> r
-       3.       <b>if</b> L[i] <= R[j]
-       4.             A[k] = L[i]
-       5.             i++
-       6.       <b>else</b> A[k] = R[j]
-       7.            j++
+       1 Copier L til R
+       2 <b>for</b> k = p <b>til</b> r
+       3       <b>if</b> L[i] <= R[j]
+       4             A[k] = L[i]
+       5             i++
+       6       <b>else</b> A[k] = R[j]
+       7            j++
        </pre>
    - Litt grunnleggende:
      - `log(x^(log(y))) = log(y^(log(x)))`
@@ -98,105 +101,99 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Forstå Randomized-Select
  - [x] Forstå Select
    - Notater:
-     -
      <pre>
      Rekursjon:
 
      <b>Time:</b>
-     1. if n > 1
-     2.     t = Time(n - 1)
-     3.     return t + n
-     4. else return 1
+     1 if n > 1
+     2     t = Time(n - 1)
+     3     return t + n
+     4 else return 1
 
      Iterativ:
 
      <b>Rec-Ins-Sort:</b>
-     1. if j > 1
-     2.     Rec-Ins-Sort(A, j - 1)
-     3.     key = A[j]
-     4.     i = j - 1
-     5.     while i > 0 and A[i] > key
-     6.         A[i + 1] = A[i]
-     7.         i--
-     8.     A[i + 1] = key
+     1 if j > 1
+     2     Rec-Ins-Sort(A, j - 1)
+     3     key = A[j]
+     4     i = j - 1
+     5     while i > 0 and A[i] > key
+     6         A[i + 1] = A[i]
+     7         i--
+     8     A[i + 1] = key
      </pre>
 
 ### Forelesning 5 - Rotfaste trestrukturer
  - [x] Forstå hvordan heaps fungerer, og hvordan de kan brukes som prioritetskøer
  - [x] Forstå Heapsort
  - [x] Forstå hvordan binære søketrær fungerer
-   - 
-   <pre>
+     <pre>
      Successor(x)
-     1. if x.right != NIL
-     2.     return Min(x.right)
-     3. y = x.p
-     4. while y != NIL and x == y.right
-     5.     x = y
-     6.     y = y.p
-     7.     return y
+     1 if x.right != NIL
+     2     return Min(x.right)
+     3 y = x.p
+     4 while y != NIL and x == y.right
+     5     x = y
+     6     y = y.p
+     7     return y
      </pre>
  - [x] Forstå flere ulike operasjoner på binære søketrær, ut over bare søk
    - Insetting
-   - 
-   <pre>
+     <pre>
      Insert(T, z)
-     1. y = NIL
-     2. x = T.root
-     3. <b>while</b> x != NIL
-     4.     y = x
-     5.     <b>if</b> z.key < x.key
-     6.         x = x.left
-     7.     <b>else</b> x = x.right
-     8. z.p = y
-     9. <b>if</b> y == NIL
-     10.    T.root = z
-     11. <b>else if</b> z.key < y.key
-     12.    y.left = z
-     13. <b>else</b> y.right = z
+     1 y = NIL
+     2 x = T.root
+     3 <b>while</b> x != NIL
+     4     y = x
+     5     <b>if</b> z.key < x.key
+     6         x = x.left
+     7     <b>else</b> x = x.right
+     8 z.p = y
+     9 <b>if</b> y == NIL
+     10    T.root = z
+     11 <b>else if</b> z.key < y.key
+     12    y.left = z
+     13 <b>else</b> y.right = z
      </pre>
    - Transplant - brukes i ved sletting
-   - 
-   <pre>
+   - <pre>
      Transplant(T, u, v)
-     1. <b>if</b> u.p == NIL
-     2.     T.root = v
-     3. <b>elseif</b> u == u.p.left
-     4.     u.p.left = v
-     5. <b>else</b> u.p.right = v
-     6. <b>if</b> v != NIL
-     7.     v.p = u.p
+     1 <b>if</b> u.p == NIL
+     2     T.root = v
+     3 <b>elseif</b> u == u.p.left
+     4     u.p.left = v
+     5 <b>else</b> u.p.right = v
+     6 <b>if</b> v != NIL
+     7     v.p = u.p
      </pre>
    - Sletting
-   - 
-   <pre>
+   - <pre>
      Delete(T,z)
-     1. <b>if</b> z.left == NIL
-     2.     Transp(T, z, z.right)
-     3. <b>elseif</b> z.right == NIL
-     4.     Transp(T, z, z.left)
-     5. <b>else</b> y = Minimum(z.right)
-     6.     <b>if</b> y.p != z
-     7.         Transp(T, y, y.right)
-     8.         y.right = z.right
-     9.         y.right.p = y
-     10.    Transp(T, z, y)
-     11.    y.left = z.left
-     12.    y.left.p = y
+     1 <b>if</b> z.left == NIL
+     2     Transp(T, z, z.right)
+     3 <b>elseif</b> z.right == NIL
+     4     Transp(T, z, z.left)
+     5 <b>else</b> y = Minimum(z.right)
+     6     <b>if</b> y.p != z
+     7         Transp(T, y, y.right)
+     8         y.right = z.right
+     9         y.right.p = y
+     10    Transp(T, z, y)
+     11    y.left = z.left
+     12    y.left.p = y
      </pre>
  - [x] Vite at forventet høyde for et tilfeldig binært søketre er Θ(lg n)
  - [x] Vite at det finnes søketrær med garantert høyde på Θ(lg n)
  - Kjøretider for binære søketre:
-   - 
    <pre>
-     Algoritme          Kjøretid
-     Inorder-Tree-Walk  Θ(n)
-     Tree-Search        O(h)
-     Tree-Minimum       O(h)
-     Tree-Successor     O(h)
-     Tree-Insert        O(h)
-     Tree-Delete        O(h)
-     </pre>
+   Algoritme          Kjøretid
+   Inorder-Tree-Walk  Θ(n)
+   Tree-Search        O(h)
+   Tree-Minimum       O(h)
+   Tree-Successor     O(h)
+   Tree-Insert        O(h)
+   Tree-Delete        O(h)
+   </pre>
 ### Forelesning 6 - Dynamisk programmering
  - [x] Forstå ideen om en delproblemrelasjon eller delproblemgraf
  - [x] Forstå induksjon over velfunderte relasjoner ∗
@@ -221,8 +218,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Vite forskjellen på et segment og en underfølge (subsequence)
  - [x] Forstå eksemplene stavkutting, matrisekjede-multiplikasjon og LCS
    - Stavkutting. Denne er eksponentiell:
-   - 
-   <pre>
+   - <pre>
      Cut(p, n)
      1. if n == 0
      2.     return 0
@@ -235,8 +231,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      q, t = -∞, - > 6.6 > -, -
      </pre>
    - En annen metode med 2 prosedyrer som er kvadratisk O(n²):
-   - 
-   <pre>
+     <pre>
      Memoized-Cut-Rod(p, n)
      1 let r[0 ..n] be a new array
      2 <b>for</b> i = 0 to n
@@ -244,31 +239,33 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      4 <b>return</b> Aux(p, n, r)
      </pre>
    - Selve prosedyren:
-   - 
-   <pre>
+     <pre>
      Aux(p, n, r)
-     1. <b>if</b> r[n] ≥ 0
-     2.     <b>return</b> r[n]
-     3. <b>if</b> n == 0
-     4.     q = 0
-     5. <b>else</b> q = -∞
-     6.     <b>for</b> i = 1 <b>to</b> n
-     7.         t = p[i] + Aux(p, n - i, r)
-     8.         q = max(q, t)
-     9. r[n] = q
-     10. <b>return</b> q
+     1 <b>if</b> r[n] ≥ 0
+     2     <b>return</b> r[n]
+     3 <b>if</b> n == 0
+     4     q = 0
+     5 <b>else</b> q = -∞
+     6     <b>for</b> i = 1 <b>to</b> n
+     7         t = p[i] + Aux(p, n - i, r)
+     8         q = max(q, t)
+     9 r[n] = q
+     10 <b>return</b> q
      </pre>
    - <b>LCS</b>
      - Mye brukt i bioinformatikk.
      - Eksempel 1:
-       - `klapper takpapp`
-       - `kapp akpapp`
-       - `kapp kapp`
+       - ```
+       1 klapper takpapp
+       2 kapp akpapp
+       3 kapp kapp
+       ```
      - Eksempel 2:
-       - `1234567 1234567`
-       - `klapper takpapp`
+       - ```
+       1234567 1234567`
+       klapper takpapp
+       ```
      - Endelig eksempel:
-       - 
        <pre>
          . . . . . | s t o r m k a s t
          . . . . 0 | 1 2 3 4 5 6 7 8 9
@@ -285,7 +282,6 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
          t | 8 | 0 | 0 1 2 2 3 4 4 4 <b>5</b>
          </pre>
      - Observasjon 1:
-       - 
        <pre>
          . . . . . | s t o r m k a s t
          . . . . 0 | 1 2 3 4 5 6 7 8 9
@@ -302,7 +298,6 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
          t | 8 | 0 | ↑ ↖ ↑ ↑ ↑ ↑ ↑ ↑ ⇖
          </pre>
      - Observasjon 2:
-       - 
        <pre>
          . . . . . | s <b>t</b> <b>o</b> r <b>m</b> k <b>a</b> s <b>t</b>
          . . . . 0 | 1 2 3 4 5 6 7 8 9
