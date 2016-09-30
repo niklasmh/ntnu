@@ -255,14 +255,12 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
    - <b>LCS</b>
      - Mye brukt i bioinformatikk.
      - Eksempel 1:
-       - 
        ```
        1 klapper takpapp
        2 kapp akpapp
        3 kapp kapp
        ```
      - Eksempel 2:
-       - 
        ```
        1234567 1234567`
        klapper takpapp
