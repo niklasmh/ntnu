@@ -7,3 +7,6 @@
 [submodule "IT2810 - Webutvikling/it2810-04-oppgave-2"]
 	path = IT2810 - Webutvikling/it2810-04-oppgave-2
 	url = git@bitbucket.org:trondaal/it2810-04-oppgave-2.git
+[submodule "IT2810 - Webutvikling/it2810-04-oppgave-3"]
+	path = IT2810 - Webutvikling/it2810-04-oppgave-3
+	url = git@bitbucket.org:trondaal/it2810-04-oppgave-3.git
