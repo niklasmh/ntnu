@@ -316,12 +316,65 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Forstå løsningen på 0-1-ryggsekkproblemet
 
 ### Forelesning 7 - Grådige algoritmer
- - [ ] Forstå designmetoden grådighet
- - [ ] Forstå grådighetsegenskapen (the greedy-choice property)
- - [ ] Forstå eksemplene aktivitet-utvelgelse og det fraksjonelle ryggsekkproblemet
- - [ ] Forstå Huffman og Huffman-koder
- - [ ] Forstå bevismetoden bevis ved fortrinn (exchange arguments) ∗
- - [ ] Forstå bevismetoden bevis ved forsprang (staying ahead) ∗
+ - [x] Forstå designmetoden grådighet
+ - [x] Forstå grådighetsegenskapen (the greedy-choice property)
+ - [x] Forstå eksemplene aktivitet-utvelgelse og det fraksjonelle ryggsekkproblemet
+ - [x] Forstå Huffman og Huffman-koder
+   - `abbabcad` i bits
+     - `a=000, b=001, c=01, d=1`
+     - `000 001 001 000 001 01 001 1 (uten mellomrom)`
+     - Prefix hindrer lesing fra å kunne kombineres med andre tegn.
+ - [x] Forstå bevismetoden bevis ved fortrinn (exchange arguments) ∗
+ - [x] Forstå bevismetoden bevis ved forsprang (staying ahead) ∗
+ - Notater:
+   - Aktivitetsutvalg (tabell), start på første slutt (her: 0-**2**):
+     <pre>
+     0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16
+     |←-----→| . | . | . | . | . | . | . | . | . | . | . | . | . | . |
+     | . |←-------------→| . | . | . | . | . | . | . | . | . | . | . |
+     | . | . | . | . |←---------→| . | . | . | . | . | . | . | . | . |
+     |←-----------------------------→| . | . | . | . | . | . | . | . |
+     | . | . | . | . | . |←-------------→| . | . | . | . | . | . | . |
+     | . | . | . | . | . | . | . | . |←-----→| . | . | . | . | . | . |
+     | . | . | . | . | . | . | . | . | . |←-----→| . | . | . | . | . |
+     | . | . | . | . | . | . | . | . | . | . | . |←---------→| . | . |
+     | . | . | . | . | . | . | . | . | . | . | . | . | . |←---------→|
+     </pre>
+   - Aktivitetsutvalg (etter algoritme):
+     <pre>
+     0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16
+     |███████| . | . | . | . | . | . | . | . | . | . | . | . | . | . |
+     | . |←------x------→| . | . | . | . | . | . | . | . | . | . | . |
+     | . | . | . | . |███████████| . | . | . | . | . | . | . | . | . |
+     |←--------------x--------------→| . | . | . | . | . | . | . | . |
+     | . | . | . | . | . |←------x------→| . | . | . | . | . | . | . |
+     | . | . | . | . | . | . | . | . |███████| . | . | . | . | . | . |
+     | . | . | . | . | . | . | . | . | . |←--x--→| . | . | . | . | . |
+     | . | . | . | . | . | . | . | . | . | . | . |███████████| . | . |
+     | . | . | . | . | . | . | . | . | . | . | . | . | . |←----x----→|
+     </pre>
+   - Grådig Algoritme:
+     <pre>
+     Recursive-Activity-Selector(s, f, m, n)
+     1 m = k + 1
+     2 <b>while</b> m ≦ n <b>and</b> s[m] < f[k]
+     3    m = m + 1
+     4 <b>if</b> m ≦ n
+     5    S = Recursive-Activity-Selector(s, f, m, n)
+     6    <b>return</b> {aₘ} ∪ S
+     7 <b>else</b> <b>return</b> ∅
+     </pre>
+   - Iterativ Algoritme:
+     <pre>
+     Greedy-Activity-Selector(s, f)
+     1 n = s.length
+     2 A = {a₁}
+     3 for m = 2 to n
+     4    if s[m] ≧ f[k]
+     5        A = A ∪ {aₘ}
+     6        k = m
+     7 return A
+     </pre>
 
 ### Forelesning 8 - Traversering av grafer
  - [ ] Forstå hvordan grafer kan implementeres

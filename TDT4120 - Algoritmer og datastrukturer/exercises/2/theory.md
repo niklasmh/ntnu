@@ -1,43 +1,43 @@
 # Teorioppgaver øving 2
 ## Oppgave 1:
  - a) **At en algoritme har kjøretid Θ(f(n)), betyr at kjøretiden har en ... begrensning. (5 %)**
-   - .
+   - øvre og nedre
  - b) **Hvilke av egenskapene må ikke bevises for å bevise en løkkeinvariant? (5 %)**
-   - .
+   - Indeksering
  - c) **Ved sterk induksjon antar vi at ... (5 %)**
-   - .
+   - P(n) er sann for alle n mindre enn m+1 
 
 ## Oppgave 2:
  - a) **Hilken av algoritmene under er en splitt-og-hersk-algoritme? (5 %)**
-   - .
+   - Merge sort
  - b) **Hvor mange sammenligninger (comparisons) og bytter (swaps) trengs for å sortere listen [5, 29, 32, 32, 65, 66] om du bruker insertion sort? (5 %)**
-   - .
+   - 5 sammenligninger og 0 bytter
  - c) **Hvor mange sammenligninger (comparisons) og bytter (swaps) trengs for å sortere listen [5, 32, 66, 32, 65, 29] om du bruker insertion sort? (5 %)**
-   - .
+   - 11 sammenligninger og 6 bytter
  - d) **Hva er det maksimale antallet sammenligninger (comparisons) og bytter (swaps) man kan måtte bruke med en liste på 6 elementer om man bruker insertion sort? (5 %)**
-   - .
+   - 15 sammenligninger og 15 bytter
  - e) **Hva er worst-case-kjøretiden til merge sort? (5 %)**
-   - .
+   - O(nlogn)
  - f) **Hvor mange merge-operasjoner er nødvendig for å sortere listen [1, 2, 3, 4, 5, 6, 8, 7] med merge-sort? (5 %)**
-   - .
+   - 7 merge-operasjoner
  - g) **Hvor mange merge-opersjoner er nødvendig for å sortere en liste på 1024 elementer med merge sort? (5 %)**
-   - .
+   - 1023 merge-operasjoner
 
 ## Oppgave 3:
  - a) **Uttrykket 65n4 + 3n3 + 43n2 + 23n + 45 er: (5 %)**
-   - .
+   - Alle alternativene over
  - b) **Uttrykket n3 + logn er: (5 %)**
-   - .
+   - Ingen av alternativene over
  - c) **Uttrykket 15n er: (5 %)**
-   - .
+   - O((log n)n)
  - d) **Uttrykket 6(n/2)4 + sqrt(n)logn + 1 (sqrt = kvadratrot) er: (5 %)**
-   - .
+   - Θ(n4)
  - e) **Uttrykket 3nlog3n er: (5 %)**
-   - .
+   - Θ(nlog2n)
  - f) **Uttrykket n1+sin(n) er: (5 %)**
-   - .
+   - Bare O(n2)
  - g) **Hvilket av uttrykkene stiger raskest? (5 %)**
-   - .
+   - n!
 
 ## Oppgave 4:
 gjørNoe(n) har kjøretid Θ(n2) for alle oppgavene.
@@ -62,8 +62,8 @@ def function3(n):
 ```
 
  - a) **Hva er kjøretiden til function1(n)? (5 %)**
-   - .
+   - Θ(n5)
  - b) **Hva er kjøretiden til function2(n)? (5 %)**
-   - .
+   - Θ(n3)
  - c) **Hva er kjøretiden til function3? (5 %)**
-   - .
+   - Den vil aldri stoppe
