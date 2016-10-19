@@ -378,7 +378,27 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
 
 ### Forelesning 8 - Traversering av grafer
  - [ ] Forstå hvordan grafer kan implementeres
- - [ ] Forstå BFS, også for å finne korteste vei uten vekter
+   - Defineres som G = (V, E) | V = |noder|, E = |kanter|
+   - Nabolister, som beskriver grafen
+     - A -> B*
+     - B -> D -> E*
+     - C -> A -> E*
+   - Nabomatrise
+     <pre>
+      . | A B C D E
+      -------------
+      A | 0 1 0 0 0
+      B | 0 1 0 1 1
+      C | 1 1 0 0 1
+      D | 0 0 0 0 0
+      E | 0 0 0 0 0
+     </pre>
+   - Graftraversering
+     - British Museum Algorithm
+       - Gå en tilfeldig vei. Vil å evig fordi den ikke husker.
+ - [x] Forstå BFS, også for å finne korteste vei uten vekter
+   - Breadth-first search:
+     - Går til hvert naboelement. Fra de igjen - velg naboene som ikke er valgt.
    - Breadth-first search, algoritme:
      <pre>
      BFS(s, Adj)
@@ -397,7 +417,34 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      13     frontier = next
      14     i = i + 1
      </pre>
- - [ ] Forstå DFS og parentesteoremet
+ - [x] Forstå DFS og parentesteoremet
+   - Depth-first search.
+     - Går helt inn til en kant før den traverserer en annen vei.
+   - DFS. Algoritme:
+     <pre>
+     DFS(G)
+     1 <b>for</b> each vertex u ∈ G.V
+     2    u.color = white
+     3    u.π = NIL
+     4 time = 0 # global
+     5 <b>for</b> each vertex u ∈ G.V
+     6    <b>if</b> u.color == white
+     7        DFS-Visit(G, u)
+     </pre>
+   - DFS-Visit funksjon:
+     <pre>
+     DFS-Visit(G, u)
+     1 time = time + 1
+     2 u.d = time
+     3 u.color = gray
+     4 <b>for</b> each v ∈ V.Adj[u]
+     5    <b>if</b> v.color == white
+     6        v.π = u
+     7        DFS-Visit(G, v)
+     8 u.color = black
+     9 time = time + 1
+     10 u.f = time
+     </pre>
  - [ ] Forstå hvordan DFS klassifiserer kanter
  - [ ] Forstå Topological-Sort
  - [ ] Forstå hvordan DFS kan implementeres med en stakk ∗
