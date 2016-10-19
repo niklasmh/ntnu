@@ -1,3 +1,5 @@
+# Teorioppgaver øving 6
+## Oppgave 1:
  - a) **Dersom man allerede har laget en heap av tallene som skal sorteres, kan man sortere med Heapsort i O(n)O(n) kjøretid. (11.1 %)**
   - Usant
  - b) **I en heap har du en node med indeks 6. Hva er indeksen til foreldrenoden? (11.1 %)**
