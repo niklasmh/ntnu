@@ -446,6 +446,15 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      10 u.f = time
      </pre>
  - [ ] Forstå hvordan DFS klassifiserer kanter
+   - 3 statuser:
+     - Før oppdagelse.
+     - Er i stacken. Har naboer som er i stack eller ikke oppdaget.
+     - Tatt ut av stack.
+   - 4 cases:
+     - **Three edges:** Første oppdagelse.
+     - **Back edges:** En sykel.
+     - **Forward edges:** Ikke en three edge. Hvis u er forgjenger av v.
+     - **Cross edfes:** Alle andre kanter.
  - [ ] Forstå Topological-Sort
  - [ ] Forstå hvordan DFS kan implementeres med en stakk ∗
  - [ ] Forstå hva traverseringstrær (som bredde-først- og dybde-først-trær) er
