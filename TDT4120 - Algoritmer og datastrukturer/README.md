@@ -396,6 +396,24 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
    - Graftraversering
      - British Museum Algorithm
        - Gå en tilfeldig vei. Vil å evig fordi den ikke husker.
+   - Tegning:
+     <pre>
+       +-+
+       |A| <---+
+       +++     |
+        |      |
+        |      |
++-+     |     +++
+|B|     |     |C|
++-+     |     +-+
+  |     |
+  |     +----+
+  v          v
+
+  +-+       +-+
+  |D+-----> |E|
+  +-+       +-+
+     </pre>
  - [x] Forstå BFS, også for å finne korteste vei uten vekter
    - Breadth-first search:
      - Går til hvert naboelement. Fra de igjen - velg naboene som ikke er valgt.
@@ -445,7 +463,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      9 time = time + 1
      10 u.f = time
      </pre>
- - [ ] Forstå hvordan DFS klassifiserer kanter
+ - [x] Forstå hvordan DFS klassifiserer kanter
    - 3 statuser:
      - Før oppdagelse.
      - Er i stacken. Har naboer som er i stack eller ikke oppdaget.
@@ -456,6 +474,15 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      - **Forward edges:** Ikke en three edge. Hvis u er forgjenger av v.
      - **Cross edfes:** Alle andre kanter.
  - [ ] Forstå Topological-Sort
+   - Def.: Hvilken rekkefølge som er lov.
+   - Eks: Grunnmur.
+     - Vegger.
+       - Tak.
+         - Interiør.
+       - Vinduer.
+         - Interiør.
+       - Vann.
+         - Interiør.
  - [ ] Forstå hvordan DFS kan implementeres med en stakk ∗
  - [ ] Forstå hva traverseringstrær (som bredde-først- og dybde-først-trær) er
  - [ ] Forstå traversering med vilkårlig prioritetskø ∗ 
