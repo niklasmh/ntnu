@@ -551,7 +551,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
        </pre>
        <pre>
        Find-Set(x)
-       1 <b>if</b> x 6= x.p
+       1 <b>if</b> x != x.p
        2      x.p = Find-Set(x.p)
        3 <b>return</b> x.p
        </pre>
@@ -575,7 +575,52 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
    - Møter en svart node:
      - Forover- eller krysskant
  - [x] Forstå MST-Kruskal
- - [x] Forstå MST-Prim 
+   - Algoritme:
+     <pre>
+     MST-Kruskal(G, w)
+     1 A = ∅
+     2 <b>for</b> each vertex v ∈ G.V
+     3    Make-Set(v)
+     4 sort G.E by w
+     5 <b>for</b> each edge (u, v) ∈ G.E
+     6    <b>if</b> Find-Set(u) != Find-Set(v)
+     7      A = A U {(u, v)}
+     8      Union(u, v)
+     9 <b>return</b> A
+     </pre>
+   - Kjøretid:
+     Operasjon Antall   Kjøretid
+     **Make-Set**    V        O(1)
+     **Sortering**   1        O(E lg E)
+     **Find-Set**    O(E)     O(lg V )
+     **Union**       O(E)     O(lg V )
+     **Totalt**: O(E lg V )
+     |E| < |V|² => lg|E| < 2 lg|V| => lgE = O(lg V)
+ - [x] Forstå MST-Prim
+   - Hva det er:
+     - Kan implementeres vha. traversering
+     - Der BFS bruker FIFO og DFS bruker LIFO, så bruker Prim en min-prioritets-kø
+     - Prioriteten er vekten på den letteste kanten mellom noden til treet
+     - For enkelhets skyld: Legg alle noder inn fra starten, med uendelig dårlig prioritet
+   - Algoritme:
+     <pre>
+     MST-Prim(G, w, r)
+     1 <b>for</b> each u ∈ G.V
+     2     u.key = ∞
+     3     u.pi = NIL
+     4 r.key = 0
+     5 Q = G.V
+     6 <b>while</b> Q != ∅
+     7     u = Extract-Min(Q)
+     8     <b>for</b> each v ∈ G.Adj[u]
+     9         <b>if</b> v ∈ Q and w(u, v) < v.key
+     10            v.pi = u
+     11            v.key = w(u, v)
+     </pre>
+   - I det følgende: Farging som for BFS
+   - Kanter mellom svarte noder er endelige
+   - Beste kanter for grå noder også uthevet
+   - Boka uthever bare kantene i spenntreet
 
 ### Forelesning 10 - Korteste vei fra én til alle
  - [ ] Forstå ulike varianter av korteste-vei- eller korteste-sti-problemet
