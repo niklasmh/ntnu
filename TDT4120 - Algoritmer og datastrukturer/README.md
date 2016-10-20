@@ -589,6 +589,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      9 <b>return</b> A
      </pre>
    - Kjøretid:
+     <pre>
      Operasjon Antall   Kjøretid
      **Make-Set**    V        O(1)
      **Sortering**   1        O(E lg E)
@@ -596,6 +597,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      **Union**       O(E)     O(lg V )
      **Totalt**: O(E lg V )
      |E| < |V|² => lg|E| < 2 lg|V| => lgE = O(lg V)
+     </pre>
  - [x] Forstå MST-Prim
    - Hva det er:
      - Kan implementeres vha. traversering
