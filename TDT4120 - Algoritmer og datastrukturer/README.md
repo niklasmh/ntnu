@@ -377,7 +377,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      </pre>
 
 ### Forelesning 8 - Traversering av grafer
- - [ ] Forstå hvordan grafer kan implementeres
+ - [x] Forstå hvordan grafer kan implementeres
    - Defineres som G = (V, E) | V = |noder|, E = |kanter|
    - Nabolister, som beskriver grafen
      - A -> B*
@@ -472,7 +472,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      - **Back edges:** En sykel.
      - **Forward edges:** Ikke en three edge. Hvis u er forgjenger av v.
      - **Cross edfes:** Alle andre kanter.
- - [ ] Forstå Topological-Sort
+ - [x] Forstå Topological-Sort
    - Def.: Hvilken rekkefølge som er lov.
    - Eks: Grunnmur.
      - Vegger.
@@ -508,13 +508,13 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
 . . . . . . . . . . . .+--------->.|. .Jakke. . | 3/4. .
 . . . . . . . . . . . . . . . . . .+------------+. . . .
      </pre>
- - [ ] Forstå hvordan DFS kan implementeres med en stakk ∗
- - [ ] Forstå hva traverseringstrær (som bredde-først- og dybde-først-trær) er
- - [ ] Forstå traversering med vilkårlig prioritetskø ∗ 
+ - [x] Forstå hvordan DFS kan implementeres med en stakk ∗
+ - [x] Forstå hva traverseringstrær (som bredde-først- og dybde-først-trær) er
+ - [x] Forstå traversering med vilkårlig prioritetskø ∗ 
 
 ### Forelesning 9 - Minimale spenntrær
- - [ ] Forstå skog-implementasjonen av disjunkte mengder
- - [ ] Vite hva spenntrær og minimale spenntrær er
+ - [x] Forstå skog-implementasjonen av disjunkte mengder
+ - [x] Vite hva spenntrær og minimale spenntrær er
    - Backlog
      - Kantklassifisering, DFS
      - Parentesteoremet
@@ -555,8 +555,9 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
        2      x.p = Find-Set(x.p)
        3 <b>return</b> x.p
        </pre>
- - [ ] Forstå Generic-MST
- - [ ] Forstå hvorfor lette kanter er trygge kanter
+ - [x] Forstå Generic-MST
+   - ###
+ - [z] Forstå hvorfor lette kanter er trygge kanter
    - Kantklassifiseringer:
      - Tre-kanter
        - Konter i dybde-først-"skogen".
@@ -573,8 +574,8 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      - Bakoverkant
    - Møter en svart node:
      - Forover- eller krysskant
- - [ ] Forstå MST-Kruskal
- - [ ] Forstå MST-Prim 
+ - [x] Forstå MST-Kruskal
+ - [x] Forstå MST-Prim 
 
 ### Forelesning 10 - Korteste vei fra én til alle
  - [ ] Forstå ulike varianter av korteste-vei- eller korteste-sti-problemet
