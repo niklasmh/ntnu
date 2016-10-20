@@ -393,26 +393,26 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
       D | 0 0 0 0 0
       E | 0 0 0 0 0
      </pre>
+   - Tegning:
+     <pre>
+. . . . . . +---+ . . . . . +---+. .
+. . +-----+ | A | <-------+ | C |. .
+. . | . . . +---+ . . . . . +---+. .
+. . v. . . . . . . . . . . . . . . .
+. . . . . . . +. . . . . . . . . . .
+. +---+ . . . |. . . . . . . . . . .
+. | B | . . . |. . . . . . . . . . .
+. +---+ . . . | . . . . . . .+---+ .
+. . . . . . . +------------>.|.E.| .
+. . + . . . . . . . . . . . .+---+ .
+. . |. . . . . . . . . . . . . . . .
+. . | . . . .+---+. . . . . . .^ . .
+. . +------>.|.D.|.+-----------+ . .
+. . . . . . .+---. . . . . . . . . .
+     </pre>
    - Graftraversering
      - British Museum Algorithm
        - Gå en tilfeldig vei. Vil å evig fordi den ikke husker.
-   - Tegning:
-     <pre>
-. . . . .+-+ . . . . .
-. . . . .|A|.<---+ . .
-. . . . .+++. . .| . .
-. . . . . | . . .| . .
-. . . . . | . . .| . .
-. +-+ . . | . . +++. .
-. |B| . . | . . |C|. .
-. +-+ . . | . . +-+. .
-. . | . . |. . . . . .
-. . | . . +----+ . . .
-. . v . . . . .v . . .
-. . +-+ . . . +-+. . .
-. . |D+-----> |E|. . .
-. . +-+ . . . +-+. . .
-     </pre>
  - [x] Forstå BFS, også for å finne korteste vei uten vekter
    - Breadth-first search:
      - Går til hvert naboelement. Fra de igjen - velg naboene som ikke er valgt.
@@ -434,7 +434,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      13     frontier = next
      14     i = i + 1
      </pre>
- - [x] Forstå DFS og parentesteoremet
+ - [x] Forstå DFS og **parentesteoremet** (parantes)
    - Depth-first search.
      - Går helt inn til en kant før den traverserer en annen vei.
    - DFS. Algoritme:
@@ -468,7 +468,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      - Er i stacken. Har naboer som er i stack eller ikke oppdaget.
      - Tatt ut av stack.
    - 4 cases:
-     - **Three edges:** Første oppdagelse.
+     - **Three edges:** Første oppdagelse. → **Ref. Forelesning 9.**
      - **Back edges:** En sykel.
      - **Forward edges:** Ikke en three edge. Hvis u er forgjenger av v.
      - **Cross edfes:** Alle andre kanter.
@@ -482,6 +482,32 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
          - Interiør.
        - Vann.
          - Interiør.
+   - Gir nodene en rekkefølge.
+   - Foreldre før barn.
+   - Evt.: Alle kommer etter avhengigheter.
+   - Krevevr DAG (dvs. velfundert)!
+   - Ex:
+     <pre>
+. . . . +------------+. . . . . . .+------------+. . . .
+. .9/10 | .Klokke . .|. . . . . . .|. .Sokker . | 17/18.
+. . . . +------------+. . . . . . .+------+-----+. . . .
+. . . . . . . . . . . . . . . . . . . . . v. . . . . . .
+. . . . +------------+.+--------->.+------+-----+. . . .
+. 11/16 | .Truse. . .|. . . . . . .|. Sko . . . | 13/14.
+. . . . +-----+------+.+--------->.+------------+. . . .
+. . . . . . . v . . . .| . . . . . . . . . . . . . . . .
+. . . . +-----+------+.|. . . . . .+------------+. . . .
+. 12/15 | . Bukse . .|.+. . . . .+.|. .Skjorte. | 1/8. .
+. . . . +-----+------+. . . . . .|.+------+-----+. . . .
+. . . . . . . v . . . . . . . . .|. . . . v. . . . . . .
+. . . . +-----+------+.<---------+.+------+-----+. . . .
+. . 6/7 | . Belte . .|. . . . . . .|. .Slips. . | 2/5. .
+. . . . +------------+.+. . . . . .+------+-----+. . . .
+. . . . . . . . . . . .|. . . . . . . . . v. . . . . . .
+. . . . . . . . . . . .|. . . . . .+------+-----+. . . .
+. . . . . . . . . . . .+--------->.|. .Jakke. . | 3/4. .
+. . . . . . . . . . . . . . . . . .+------------+. . . .
+     </pre>
  - [ ] Forstå hvordan DFS kan implementeres med en stakk ∗
  - [ ] Forstå hva traverseringstrær (som bredde-først- og dybde-først-trær) er
  - [ ] Forstå traversering med vilkårlig prioritetskø ∗ 
@@ -489,8 +515,64 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
 ### Forelesning 9 - Minimale spenntrær
  - [ ] Forstå skog-implementasjonen av disjunkte mengder
  - [ ] Vite hva spenntrær og minimale spenntrær er
+   - Backlog
+     - Kantklassifisering, DFS
+     - Parentesteoremet
+     - Topologisk sortering
+   - Minimale:
+     - Disjunkte mengder
+     - Generisk MST
+     - Kruskals algoritme
+     - Prims algoritme
+   - Spenntrær:
+     - 
+   - Disjunkte mengder:
+     - Union by rank
+     - m operasjoner: O(m*a(n))
+     - Sette varablene
+       <pre>
+       Make-Set(x)
+       1 x.p = x
+       2 x.rank = 0
+       </pre>
+     - Sette varablene
+       <pre>
+       Union(x, y)
+       1 Link(Find-Set(x), Find-Set(y))
+       </pre>
+     - Sette varablene
+       <pre>
+       Link(x, y)
+       1 <b>if</b> x.rank > y.rank
+       2     y.p = x
+       3 <b>else</b> x.p = y
+       4     <b>if</b> x.rank == y.rank
+       5         y.rank = y.rank + 1
+       </pre>
+       <pre>
+       Find-Set(x)
+       1 <b>if</b> x 6= x.p
+       2      x.p = Find-Set(x.p)
+       3 <b>return</b> x.p
+       </pre>
  - [ ] Forstå Generic-MST
  - [ ] Forstå hvorfor lette kanter er trygge kanter
+   - Kantklassifiseringer:
+     - Tre-kanter
+       - Konter i dybde-først-"skogen".
+     - Bakoverkanter
+       - Kanter til en forgjenger i DF-"skogen".
+     - Foroverkanter
+       - Kanter utenfor DF-skogen to en etterkommer i DF-skogen.
+     - Krysskanter
+       - Alle andre kanter.
+   - Hvordan definere klassene
+   - Møter en hvit node
+     - Tre-kant
+   - Møter en grå node
+     - Bakoverkant
+   - Møter en svart node:
+     - Forover- eller krysskant
  - [ ] Forstå MST-Kruskal
  - [ ] Forstå MST-Prim 
 
