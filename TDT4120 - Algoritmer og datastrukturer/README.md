@@ -595,8 +595,8 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      **Sortering**   1        O(E lg E)
      **Find-Set**    O(E)     O(lg V )
      **Union**       O(E)     O(lg V )
-     **Totalt**: O(E lg V )
-     |E| < |V|² => lg|E| < 2 lg|V| => lgE = O(lg V)
+     **Totalt**: O(E lgV)
+     |E| < |V|² => lg|E| < 2 lg|V| => lgE = O(lgV)
      </pre>
  - [x] Forstå MST-Prim
    - Hva det er:
@@ -620,12 +620,13 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      11            v.key = w(u, v)
      </pre>
    - Kjøretid:
-     Operasjon Antall   Kjøretid
-     **Build-Min-Heap**    1 O(V )
-     **Extract-Min**       V O(lg V )
-     **Decrease-Key**      E O(lg V )
-     **Totalt**: O(E lg V )
-     Dette gjelder om vi bruker en binærhaug
+     Operasjon        Antall   Kjøretid
+     **Build-Min-Heap**    1       O(V )
+     **Extract-Min**       V       O(lg V )
+     **Decrease-Key**      E       O(lg V )
+     **Totalt**: O(E lgV)
+     **Dette gjelder om vi bruker en binærhaug**
+     **Kan forbedres til O(E + V lgV) med Fibonacci-haug**
    - I det følgende: Farging som for BFS
    - Kanter mellom svarte noder er endelige
    - Beste kanter for grå noder også uthevet
@@ -633,6 +634,11 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
 
 ### Forelesning 10 - Korteste vei fra én til alle
  - [x] Forstå ulike varianter av korteste-vei- eller korteste-sti-problemet
+   - En enkel sti er en sti uten sykler
+   - En kortest vei vil aldri inneholde en positiv sykel
+   - Om vi ikke kan nå noen negative sykler så er «korteste sti» det samme som «korteste enkle sti»
+   - Om en sti til v har en negativ sykel, så finnes det alltid en kortere sti – ingen er kortest!
+   - Det vil likevel finnes en kortest enkel sti til v, men vi kjenner ingen generelle algoritmer for å finne den
  - [x] Forstå strukturen til korteste-vei-problemet
  - [x] Forstå at negative sykler gir mening for korteste enkle vei (simple path) ∗
  - [x] Forstå at korteste enkle vei er ekvivalent med lengste enkle vei ∗
@@ -643,6 +649,28 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Forstå Dag-Shortest-Path
  - [x] Forstå kobling mellom Dag-Shortest-Path og dynamisk programmering∗
  - [x] Forstå Dijkstra
+ - Notater:
+   - **Sti-slakkings-egenskapen:**
+     - Om p er en kortest vei fra s til v og vi slakker
+     - kantene til p i rekkefølge, så vil v få riktig avstandsestimat.
+     - Det gjelder uavhengig av om
+     - andre slakkinger forekommer, selv om de kommer
+     - innimellom.
+   - Slakkingsalgoritme, init:
+     <pre>
+     Initialize-Single-Source(G, s)
+     1 for each vertex v 2 G.V
+     2    v.d = 1
+     3    v.π = nil
+     4 s.d = 0
+     </pre>
+   - Slakkingsalgoritme, init:
+     <pre>
+     Relax(u, v, w)
+     1 if v.d > u.d + w(u, v)
+     2    v.d = u.d + w(u, v)
+     3    v.π = u
+     </pre>
 
 ### Forelesning 11 - Korteste vei fra alle til alle
  - [ ] Forstå forgjengerstrukturen for alle-til-alle-varianten av korteste vei-problemet
