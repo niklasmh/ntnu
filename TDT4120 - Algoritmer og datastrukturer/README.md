@@ -471,7 +471,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      - **Three edges:** Første oppdagelse. → **Ref. Forelesning 9.**
      - **Back edges:** En sykel.
      - **Forward edges:** Ikke en three edge. Hvis u er forgjenger av v.
-     - **Cross edfes:** Alle andre kanter.
+     - **Cross edges:** Alle andre kanter.
  - [x] Forstå Topological-Sort
    - Def.: Hvilken rekkefølge som er lov.
    - Eks: Grunnmur.
@@ -619,23 +619,30 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      10            v.pi = u
      11            v.key = w(u, v)
      </pre>
+   - Kjøretid:
+     Operasjon Antall   Kjøretid
+     **Build-Min-Heap**    1 O(V )
+     **Extract-Min**       V O(lg V )
+     **Decrease-Key**      E O(lg V )
+     **Totalt**: O(E lg V )
+     Dette gjelder om vi bruker en binærhaug
    - I det følgende: Farging som for BFS
    - Kanter mellom svarte noder er endelige
    - Beste kanter for grå noder også uthevet
    - Boka uthever bare kantene i spenntreet
 
 ### Forelesning 10 - Korteste vei fra én til alle
- - [ ] Forstå ulike varianter av korteste-vei- eller korteste-sti-problemet
- - [ ] Forstå strukturen til korteste-vei-problemet
- - [ ] Forstå at negative sykler gir mening for korteste enkle vei (simple path) ∗
- - [ ] Forstå at korteste enkle vei er ekvivalent med lengste enkle vei ∗
- - [ ] Forstå hvordan man kan representere et korteste-vei-tre
- - [ ] Forstå kant-slakking (edge relaxation) og Relax
- - [ ] Forstå ulike egenskaper ved korteste veier og slakking
- - [ ] Forstå Bellman-Ford
- - [ ] Forstå Dag-Shortest-Path
- - [ ] Forstå kobling mellom Dag-Shortest-Path og dynamisk programmering∗
- - [ ] Forstå Dijkstra 
+ - [x] Forstå ulike varianter av korteste-vei- eller korteste-sti-problemet
+ - [x] Forstå strukturen til korteste-vei-problemet
+ - [x] Forstå at negative sykler gir mening for korteste enkle vei (simple path) ∗
+ - [x] Forstå at korteste enkle vei er ekvivalent med lengste enkle vei ∗
+ - [x] Forstå hvordan man kan representere et korteste-vei-tre
+ - [x] Forstå kant-slakking (edge relaxation) og Relax
+ - [x] Forstå ulike egenskaper ved korteste veier og slakking
+ - [x] Forstå Bellman-Ford
+ - [x] Forstå Dag-Shortest-Path
+ - [x] Forstå kobling mellom Dag-Shortest-Path og dynamisk programmering∗
+ - [x] Forstå Dijkstra
 
 ### Forelesning 11 - Korteste vei fra alle til alle
  - [ ] Forstå forgjengerstrukturen for alle-til-alle-varianten av korteste vei-problemet
