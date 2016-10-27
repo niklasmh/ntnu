@@ -620,6 +620,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      11            v.key = w(u, v)
      </pre>
    - Kjøretid:
+     <pre>
      Operasjon        Antall   Kjøretid
      **Build-Min-Heap**    1       O(V )
      **Extract-Min**       V       O(lg V )
@@ -627,6 +628,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      **Totalt**: O(E lgV)
      **Dette gjelder om vi bruker en binærhaug**
      **Kan forbedres til O(E + V lgV) med Fibonacci-haug**
+     </pre>
    - I det følgende: Farging som for BFS
    - Kanter mellom svarte noder er endelige
    - Beste kanter for grå noder også uthevet
@@ -646,9 +648,47 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Forstå kant-slakking (edge relaxation) og Relax
  - [x] Forstå ulike egenskaper ved korteste veier og slakking
  - [x] Forstå Bellman-Ford
+   - Gå gjennom alle kanter en gang.
+   - Vi vet da at vi må ha vært innom en av nodene en gang.
+   - Hvis vi har slakket alle alle kantene k ganger.
+   - V - 1 antall ganger.
+   - Algoritme:
+     <pre>
+     Bellman-Ford(G, w, s)
+     1 Initialize-Single-Source(G, s)
+     2 <b>for</b> i = 1 <b>to</b> |G.V| - 1
+     3    <b>for</b> each edge (u, v) ∈ G.E
+     4        Relax(u, v, w)
+     5 <b>for</b> each edge (u, v) ∈ G.E
+     6    <b>if</b> v.d > u.d + w(u, v)
+     7        <b>return</b> false
+     8 <b>return</b> true
+     </pre>
  - [x] Forstå Dag-Shortest-Path
+   - Algoritme:
+     <pre>
+     Dag-Shortest-Path(G, w, s)
+     1 topologically sort the vertices of G
+     2 Initialize-Single-Source(G, s)
+     3 for each vertex u, in topsort order
+     4 for each vertex v 2 G.Adj[u]
+     5 Relax(u, v, w)
+     </pre>
+   - Kjøretid:
+     <pre>
+     Operasjon            Antall    Kjøretid
+     <b>Topologisk sortering</b>   1       Θ(V + E)
+     <b>Initialisering</b>         1       Θ(V)
+     <b>Relax</b>                  E       Θ(1)
+     Totalt: Θ(V + E)
+     </pre>
  - [x] Forstå kobling mellom Dag-Shortest-Path og dynamisk programmering∗
  - [x] Forstå Dijkstra
+   - Forklaring:
+     - Om vi har sykler, kan vi ikke få til topologisk sortering
+     - Alternativ: Besøke nodene i stigende avstandsrekkefølge
+     - Alle korteste stier får da fortsatt sine kanter slakket i riktig rekkefølge
+     - Men vi kjenner jo ikke avstandsrekkefølgen!
  - Notater:
    - **Sti-slakkings-egenskapen:**
      - Om p er en kortest vei fra s til v og vi slakker
