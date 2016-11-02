@@ -1,4 +1,4 @@
-# Teorioppgaver øving 7
+# Teorioppgaver øving 9
 ## Oppgave 1:
  - a) **Gitt at |V|=|E||V|=|E|. Hvordan kan grafen GG lagres mest plasseffektivt i denne situasjonen? (7.1 %)**
   - Nabolister

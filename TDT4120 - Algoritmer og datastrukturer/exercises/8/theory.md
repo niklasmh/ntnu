@@ -1,4 +1,4 @@
-# Teorioppgaver øving 7
+# Teorioppgaver øving 8
 ## Oppgave 1:
  - a) **Grådige algoritmer brukes til å løse optimaliseringsproblemer. Sant eller usant? (2.4 %)**
   - Sant
