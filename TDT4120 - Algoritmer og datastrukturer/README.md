@@ -713,9 +713,54 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      </pre>
 
 ### Forelesning 11 - Korteste vei fra alle til alle
- - [ ] Forstå forgjengerstrukturen for alle-til-alle-varianten av korteste vei-problemet
- - [ ] Forstå Floyd-Warshall
- - [ ] Forstå Transitive-Closure
+ - [x] Forstå forgjengerstrukturen for alle-til-alle-varianten av korteste vei-problemet
+   - **Fungerer oftest ikke med negative sykler.**
+   - BFS:
+     - Kjøretid = O(V² + VE)
+   - Dijkstra:
+     - Kjøretid:
+       - Min-prioritets kø: O(V² + VE) = O(V³)
+       - Binær "min-heap": O(VE lg V)
+       - Fibonacci heap: O(V² lg V + VE)
+   - DAG:
+     - Kjøretid = Θ(V² + VE)
+     - Rettet asyklisk graf. **Kan ha negative sykler.**
+   - Bellman Ford:
+     - Kjøretid = Θ(V²E)
+ - [x] Forstå Floyd-Warshall
+   - Den oppdager negative sykler.
+   - Eksempel (med rettet graf):
+     <pre>
+     W =
+     D^(0) =
+     [0 i 6 4]
+     [2 0 3 i]
+     [i-2 0 i]
+     [i-2 4 0]
+
+     D^(1) =
+     [0 i 6 4]
+     [2 0 3 6]
+     [i-2 0 i]
+     [i-2 4 0]
+
+     PI^(0) =
+     [- - 1 1]
+     [2 - 2 -]
+     [- 3 - -]
+     [- 4 4 -]
+
+     PI^(4) =
+     [- 4 2 1]
+     [2 - 2 1]
+     [2 2 - 1]
+     [2 4 2 -]
+     </pre>
+ - [x] Forstå Transitive-Closure
+   - Du har en graf som 
+ - Noteter
+   - **Intermediate vertex:**
+     - xvvvvx - Alle nodene utenom start og slutt i en sti.
 
 ### Forelesning 12 - Maksimal flyt
  - [ ] Kunne definere flytnettverk, flyt og maks-flyt-problemet
