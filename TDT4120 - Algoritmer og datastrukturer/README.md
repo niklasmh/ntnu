@@ -757,7 +757,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      [2 4 2 -]
      </pre>
  - [x] Forstå Transitive-Closure
-   - Du har en graf som 
+   - Du har en graf som ...
  - Noteter
    - **Intermediate vertex:**
      - xvvvvx - Alle nodene utenom start og slutt i en sti.
