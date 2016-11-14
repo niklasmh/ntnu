@@ -35,16 +35,16 @@ struct gpio_port_t {
 volatile struct gpio_t {
 	struct gpio_port_t ports[6];
 	word __unused[10];
-	word EXTIPSELL ;
-	word EXTIPSELH ;
-	word EXTIRISE ;
-	word EXTIFALL ;
-	word IEN ;
-	word IF ;
-	word IFS ;
-	word IFC ;
+	word EXTIPSELL;
+	word EXTIPSELH;
+	word EXTIRISE;
+	word EXTIFALL;
+	word IEN;
+	word IF;
+	word IFS;
+	word IFC;
 	word ROUTE;
-	word INSENSE ;
+	word INSENSE;
 	word LOCK;
 	word CTRL;
 	word CMD;
