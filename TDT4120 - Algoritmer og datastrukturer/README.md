@@ -817,8 +817,8 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      - Kjøretid:
        <pre>
        <b>Operasjon</b>            <b>Antall</b>     <b>Kjøretid</b>
-       Finn økende sti    O(|f*|)      O(E)
-       <b>Totalt: O(E|f*|)</b>
+       Finn økende sti    O(|f\*|)      O(E)
+       <b>Totalt: O(E|f|)</b>
        </pre>
  - [x] Vite at Ford-Fulkerson med BFS kalles Edmonds-Karp-algoritmen
    - Alternativ: «Flett inn» BFS
