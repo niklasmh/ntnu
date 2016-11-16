@@ -763,17 +763,95 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      - xvvvvx - Alle nodene utenom start og slutt i en sti.
 
 ### Forelesning 12 - Maksimal flyt
- - [ ] Kunne definere flytnettverk, flyt og maks-flyt-problemet
- - [ ] Kunne håndtere antiparallelle kanter og flere kilder og sluk
- - [ ] Kunne definere residualnettverket til et nettverk med en gitt flyt
- - [ ] Forstå hvordan man kan oppheve (cancel) flyt
- - [ ] Forstå hva en forøkende sti (augmenting path) er
- - [ ] Forstå hva snitt, snitt-kapasitet og minimalt snitt er
- - [ ] Forstå maks-flyt/min-snitt-teoremet
- - [ ] Forstå Ford-Fulkerson
- - [ ] Vite at Ford-Fulkerson med BFS kalles Edmonds-Karp-algoritmen
- - [ ] Forstå hvordan maks-flyt kan finne en maksimum bipartitt matching
- - [ ] Forstå heltallsteoremet
+ - [x] Kunne definere flytnettverk, flyt og maks-flyt-problemet
+   - Flyt:
+     - Som en strøm. Kirchoffs lover må fylles fullt ut.
+       <pre>
+       f(u, v) <= c(u, v) for alle u, v ∈ V
+       ∑ᵥ∈V f(u, v) = 0 for alle u, v ∈ V - {s, t}
+       </pre>
+   - Kapasitet:
+     - `c(u, v)`
+   - Residualkapasitet:
+     - `cₐ(u, v) = c(c, v) - a(u, v)`
+   - Flytforøkende sti (augmented path):
+     - Sti fra s til t der residualkapasiteten til alle kantene er større enn 0.
+   - Maks flyt:
+     - Maksimer flyt fra s til t!
+ - [x] Kunne håndtere antiparallelle kanter og flere kilder og sluk
+ - [x] Kunne definere residualnettverket til et nettverk med en gitt flyt
+ - [x] Forstå hvordan man kan oppheve (cancel) flyt
+ - [x] Forstå hva en forøkende sti (augmenting path) er
+ - [x] Forstå hva snitt, snitt-kapasitet og minimalt snitt er
+ - [x] Forstå maks-flyt/min-snitt-teoremet
+ - [x] Forstå Ford-Fulkerson
+   - Finn økende stier så lenge det går.
+   - Deretter er flyten maksimal.
+   - Generell metode, ikke en algoritme.
+   - Om vi bruker BFS: «Edmonds-Karp».
+   - Normalt implementasjon:
+     - Finn økende sti først
+     - Finn så flaskehalsen i stien
+     - Oppdater flyt langs stien med denne verdien
+   - Algoritmer:
+     - Metode:
+       <pre>
+       Ford-Fulkerson-Method(G, s, t)
+       1 initialize flow f to 0
+       2 <b>while</b> there is an augm. path p in Gf
+       3    augment flow f along p
+       4 <b>return</b> f
+       </pre>
+     - Dypere:
+       <pre>
+       Ford-Fulkerson(G, s, t)
+       1 <b>for</b> each edge (u, v) 2 G.E
+       2    (u, v).f = 0
+       3 <b>while</b> there is a path p from s to t in Gf
+       4    cf (p) = min {cf (u, v):(u, v) is in p}
+       5    <b>for</b> each edge (u, v) in p
+       6       <b>if</b> (u, v) 2 E
+       7           (u, v).f = (u, v).f + cf (p)
+       8       <b>else</b> (v, u).f = (v, u).f " cf (p)
+       </pre>
+ - [x] Vite at Ford-Fulkerson med BFS kalles Edmonds-Karp-algoritmen
+   - Alternativ: «Flett inn» BFS
+     - Finn flaskehalser underveis!
+     - Hold styr på hvor mye flyt vi får frem til hver node
+     - Traverser bare noder vi ikke har nådd frem til ennå
+   - Denne «implementasjonen» står ikke i boka
+   - Edmnfs-Karp algoritme:
+     <pre>
+     Edmonds-Karp(G, s, t)
+     1 <b>for</b> each edge (u, v) ∈ G.E
+     2     (u, v).f = 0
+     3 <b>repeat</b>
+     4     <b>for</b> each vertex u ∈ G.V
+     5         u.f' = 0 # residual flow reaching u
+     6         u.π = NIL
+     7     s.f' = 1
+     8     Q = Ø
+     9     Enqueue(Q, s)
+     10    <b>while</b> t.f' == 0 and Q != Ø
+     11        u = Dequeue(Q)
+     12        <b>for</b> all edges (u, v),(v, u) ∈ G.E
+     13            <b>if</b> (u, v) ∈ G.E
+     14                c_f(u, v) = c(u, v) % (u, v).f
+     15            <b>else</b> c_f(u, v)=(v, u).f
+     16            <b>if</b> c_f(u, v) > 0 and v.f' == 0
+     17                v.f' = min(u.f', c_f(u, v))
+     18                v.π = u
+     19    Enqueue(Q, v)
+     20    u, v = t.π, t # at this point, t.f' = c_f(p)
+     21    <b>while</b> u != NIL
+     22        <b>if</b> (u, v) ∈ G.E
+     23            (u, v).f = (u, v).f + t.f'
+     24        <b>else</b> (v, u).f = (v, u).f - t.f'
+     25        u, v = u.π, u
+     26 <b>until</b> t.f' == 0
+     </pre>
+ - [x] Forstå hvordan maks-flyt kan finne en maksimum bipartitt matching
+ - [x] Forstå heltallsteoremet
 
 ### Forelesning 13 - NP-kompletthet
  - [ ] Forstå sammenhengen mellom optimerings- og beslutnings-problemer
