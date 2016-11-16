@@ -1,0 +1,22 @@
+# Teorioppgaver øving 10
+## Oppgave 1:
+ - a) **Et lite land langt, langt borte består av en mengde øyer. Innbyggerne har lenge samlet inn penger for å få veiforbindelse i mellom alle øyene. Prislappen på broene er kun avhengig av broenes lengder og de ønsker derfor å binde i sammen broene med kortest mulig samlet brolengde. Hvor mange broer vil du trenge dersom det er n øyer? (10 %)**
+  - n-1
+ - b) **Gitt en urettet, vektet, sammenhengende graf G = (V,E). Hvordan skal vi gå frem for å finne et spenntre som minimerer vekten på den dyreste kanten i treet? (Treets totale vekt er uvesentlig.) (10 %)**
+  - Begge deler fungerer
+ - c) **Hvis kanten E er den kanten med lavest vekt i en sammenhengende graf, så er E med i ett og bare ett minimalt spenntre i grafen. (10 %)**
+  - Usant
+ - d) **Hvis kanten E har lavere vekt enn alle de andre kantene i en sammenhengende graf, så er E med i alle minimale spenntrær i grafen. (10 %)**
+  - Sant
+ - e) **Hvis alle kantene i en sammenhengende graf har forskjellige vekter, vil grafen kun ha ett minimalt spenntre. (10 %)**
+  - Sant
+ - f) **Dersom kantene i en sammenhengende graf ikke har forskjellige vekter, vil denne grafen nødvendigvis ha flere minimale spenntrær. (10 %)**
+  - Usant
+ - g) **Bruk figuren over for å svare på resten av spørsmålene. Hvis du under kjøring av Prims eller Kruskals algoritme kan velge mellom to eller flere kanter med lik vekt skal du velge den som er mellom noder av lavest leksikalsk verdi (det som kommer først i alfabetet). Det minimale spenntreet for grafen består av kantene? (10 %)**
+  - (i,j),(h,j),(c,h),(c,e),(c,b),(a,f),(a,d),(b,d),(d,g)
+ - h) **Tegn et minimalt spenntre for denne grafen. Hvilke kantvekter inneholder det minimale spenntreet? (10 %)**
+  - 1, 2, 3, 4, 6, 8
+ - i) **Hvis man bruker Prims algoritme med startnode j, da velges (d,b) som kant nummer ? (10 %)**
+  - 6
+ - j) **Hvis man bruker Kruskals algoritme, hvilken kant blir lagt til etter (a,d)? (10 %)**
+  - (b,c)
