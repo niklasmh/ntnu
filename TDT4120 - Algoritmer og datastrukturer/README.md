@@ -13,11 +13,11 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
     - 
  - [x] Forstå ideen bak divide-or-conquer
  - [x] Forstå Merge-Sort
- - [x] Kunne definere asymptotisk notasjon, O, Ω, Θ, o og ω.
+ - [x] Kunne definere asymptotisk notasjon, O, Ω, Θ, o og ω.
     - Huskeregel:
       <pre>
       ω >
-      Ω ≧
+      Ω ≧
       Θ =
       O ≦
       o <
@@ -93,7 +93,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      - `2^log₃(n) = n^log₃(2)`
 
 ### Forelesning 4 - Rangering i lineær tid
- - [x] Forstå hvorfor sammenligningsbasert sortering har en worst-case på Ω(n lg n)
+ - [x] Forstå hvorfor sammenligningsbasert sortering har en worst-case på Ω(n lg n)
  - [x] Vite hva en stabil sorteringsalgoritme er
  - [x] Forstå Counting-Sort, og hvorfor den er stabil
  - [x] Forstå Radix-Sort, og hvorfor den trenger en stabil subrutine
@@ -489,11 +489,11 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
    - Ex:
      <pre>
 . . . . +------------+. . . . . . .+------------+ . . . .
-. .9/10 | .Klokke . .|. . . . . . .|. .Sokker . | 17/18 .
+. .9/10 | . Klokke. .|. . . . . . .|. .Sokker . | 17/18 .
 . . . . +------------+. . . . . . .+------+-----+ . . . .
 . . . . . . . . . . . . . . . . . . . . . v . . . . . . .
 . . . . +------------+.+--------->.+------+-----+ . . . .
-. 11/16 | .Truse. . .|. . . . . . .|. Sko . . . | 13/14 .
+. 11/16 | . Truse . .|. . . . . . .|. .Sko. . . | 13/14 .
 . . . . +-----+------+.+--------->.+------------+ . . . .
 . . . . . . . v . . . .|. . . . . . . . . . . . . . . . .
 . . . . +-----+------+.|. . . . . .+------------+ . . . .
@@ -689,7 +689,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      - Alternativ: Besøke nodene i stigende avstandsrekkefølge
      - Alle korteste stier får da fortsatt sine kanter slakket i riktig rekkefølge
      - Men vi kjenner jo ikke avstandsrekkefølgen!
- - Notater:
+ - Notater
    - **Sti-slakkings-egenskapen:**
      - Om p er en kortest vei fra s til v og vi slakker
      - kantene til p i rekkefølge, så vil v få riktig avstandsestimat.
