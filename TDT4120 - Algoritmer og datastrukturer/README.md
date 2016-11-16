@@ -856,6 +856,12 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      25        u, v = u.π, u
      26 <b>until</b> t.f' == 0
      </pre>
+   - Kjøretid:
+     <pre>
+     <b>Operasjon</b>          <b>Antall</b>      <b>Kjøretid</b>
+     Finn økende sti     O(VE)        O(E)
+     <b>Totalt: O(VE²)</b>
+     </pre>
  - [x] Forstå hvordan maks-flyt kan finne en maksimum bipartitt matching
  - [x] Forstå heltallsteoremet
 
