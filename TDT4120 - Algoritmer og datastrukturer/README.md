@@ -814,6 +814,12 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
        7           (u, v).f = (u, v).f + cf (p)
        8       <b>else</b> (v, u).f = (v, u).f " cf (p)
        </pre>
+     - Kjøretid:
+       <pre>
+       <b>Operasjon</b>            <b>Antall</b>     <b>Kjøretid</b>
+       Finn økende sti    O(|f*|)      O(E)
+       <b>Totalt: O(E|f*|)</b>
+       </pre>
  - [x] Vite at Ford-Fulkerson med BFS kalles Edmonds-Karp-algoritmen
    - Alternativ: «Flett inn» BFS
      - Finn flaskehalser underveis!
