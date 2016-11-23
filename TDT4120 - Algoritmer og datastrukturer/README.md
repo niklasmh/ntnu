@@ -866,17 +866,50 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Forstå heltallsteoremet
 
 ### Forelesning 13 - NP-kompletthet
- - [ ] Forstå sammenhengen mellom optimerings- og beslutnings-problemer
- - [ ] Forstå koding (encoding) av en instans
- - [ ] Forstå hvorfor løsningen vår på 0-1-ryggsekkproblemet ikke er polynomisk
- - [ ] Forstå forskjellen på konkrete og abstrakte problemer
- - [ ] Forstå representasjonen av beslutningsproblemer som formelle språk
- - [ ] Forstå definisjonen av klassen P
- - [ ] Forstå definisjonen av klassene NP og co-NP
- - [ ] Forstå redusibilitets-relasjonen ≤P
- - [ ] Forstå definisjonen av NP-hardhet og NP-kompletthet
- - [ ] Forstå den konvensjonelle hypotesen om forholdet mellom P, NP og NPC
- - [ ] Forstå hvorfor CIRCUIT-SAT er NP-komplett 
+ - [x] Forstå sammenhengen mellom optimerings- og beslutnings-problemer
+ - [x] Forstå koding (encoding) av en instans
+ - [x] Forstå hvorfor løsningen vår på 0-1-ryggsekkproblemet ikke er polynomisk
+ - [x] Forstå forskjellen på konkrete og abstrakte problemer
+ - [x] Forstå representasjonen av beslutningsproblemer som formelle språk
+ - [x] Forstå definisjonen av klassen P
+ - [x] Forstå definisjonen av klassene NP og co-NP
+ - [x] Forstå redusibilitets-relasjonen ≤P
+ - [x] Forstå definisjonen av NP-hardhet og NP-kompletthet
+ - [x] Forstå den konvensjonelle hypotesen om forholdet mellom P, NP og NPC
+ - [x] Forstå hvorfor CIRCUIT-SAT er NP-komplett 
+ - Notater:
+   - Problem:
+     - Generelt. Ex: Korstete vei.
+   - Problemistans:
+     - Instans av korsteste veien i Google Maps.
+   - Hva er et beslutningsproblem:
+     - Ja/Nei-svar.
+     - Ex:
+       - Spenntrær: Finnes det et spenntr i en gitt gra G som har vekt mindre enn eller like et gitt heltall K?
+       - Korsteste vei: Finnes det en korsteste vei mellom to gitte node i en graf G som har vekt/avstand mindre enn eller like et gitt heltall K?
+       - Travellting Salesman: Gitt en vektet graf G og et heltall K. Finnes det en sukel som besøker alle noder en gang og har total vekt mindre enn ...
+   - Problemklasser:
+     - Beslutningsproblemer som kan løses i polynomisk tid sier vi at tilhører P.
+     - Polynomisk tid: O()
+     - Beslutningsproblemer hvor en gikk løsning kan verifiseres i polynomisk tid sier vi at tilhører **NP**:
+     - Verifisere: A sjekke om en gitt lønsning på et problem er en gyldig løsning av problemet.
+     - Det store spm: Er elle problemene i NP også i P?
+       - NP eksempel:
+         - Vertex Cover
+     - Uformelt sier vi at et gitt problem A er i klassen NPC hvis vi ved å løse A også kan løse alle andre problem i NP, samtidig som A selv er i NP.
+     - Gitt et problem A i NP. Hvordan kan vi vise at A er i NPC?
+       - Se fordet at vi har et annet problem B som vi **vet** er i NPC. Hvis vi klarer å vise at A er like vanskelig eller vanskeligere enn B, så vet vi at A også er i NPC.
+       - Formelt betyr dette at om vi finner en polynomisk tid reduksjon fra B til A så har vi vist at A er i NPC
+   - Problemet er i NP
+   - Alle andre problem i NP kan reduseres til dette probleme i polynomisk tid.
+   - Fra Clique til Independent Set.
+     - Clique: Gitt en graf G og et heltall K. Finnes det en delmengde med noder i G av størrelse K hvor alle nodene er naboer?
+     - Independent Set: Gitt en graf G og et heltall K. Finnes det en delmende med noder i G av størrelse K hvor ingen av nodene er naboer?
+     - Vi vet: Clique er i NPC
+     - Vi ønsker å finne ut: Er Independent Set i NPC?
+       - Er Independent Set i NP?
+       - Kan vi redusere Clique til Independent Set i polynomisk tid?
+
 
 ### Forelesning 14 - NP-komplette problemer
  - [ ] Forstå hvordan NP-kompletthet kan bevises ved ´en reduksjon
