@@ -912,12 +912,63 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
 
 
 ### Forelesning 14 - NP-komplette problemer
- - [ ] Forstå hvordan NP-kompletthet kan bevises ved ´en reduksjon
- - [ ] Kjenne de NP-komplette problemene CIRCUIT-SAT, SAT, 3-CNF-SAT, CLIQUE, VERTEX-COVER, HAM-CYCLE, TSP og SUBSET-SUM
- - [ ] Forstå NP-kompletthetsbevisene for disse problemene
- - [ ] Forstå at 0-1-ryggsekkproblemet er NP-hardt
- - [ ] Forstå at lengste enkle-vei-problemet er NP-hardt
- - [ ] Være i stand til å konstruere enkle NP-kompletthetsbevis 
+ - [x] Forstå hvordan NP-kompletthet kan bevises ved én reduksjon
+ - [x] Kjenne de NP-komplette problemene CIRCUIT-SAT, SAT, 3-CNF-SAT, CLIQUE, VERTEX-COVER, HAM-CYCLE, TSP og SUBSET-SUM
+   - *SUBSET SUM*
+   - CIRCUIT-SAT
+     - **Instans:** En krets med logiske porter og én utverdi
+     - **Spørsmål:** Kan utverdien bli 1?
+     - Vi har et vilkårlig språk/problem L ∈ NP
+     - Vi vil redusere dette til CIRCUIT-SAT
+     - Det eneste vi vet er at x ∈ L kan verifiseres i polynomisk tid
+     - Vi simulerer trinnene i verifikasjonsalgoritmen A med kretser!
+     - **Spørsmålet blir:** Kan A (for et eller annet sertifikat) svare/få en output på 1?
+     - Eksempel:
+       <pre>
+       x ∈ {0, 1}* => L er i NP, så ...
+       Det finnes en pol. alg. A, som er slikat x ∈ L nøyaktig når minst én y ∈ {0, 1}* gir A(x, y) = 1, der |y| = O(|x|ᶜ), for en eller annen c
+
+       * ---> * (A ---> B => Reduksjon <=> A? Da kan du jo bare B.)
+
+       ...
+
+       Er x med i språket L? <----> Kan utverdien bli 1?
+       </pre>
+   - SAT
+     - **Instans:** En logisk formel
+     - **Spørsmål:** Kan formelen være sann?
+     - Direkte oversettelse av logisk krets?
+     - Kan gi eksponentielt stor formel!
+     - Eksempel:
+       <pre>
+       x1---------x5---|
+       x2-------| . . .|--x8--|
+       . . . . .|-x6>o-| . . .|
+       . . . . .| . . .|--x9--|-x10-...
+       x3--x4>o-|--x7--|------|
+
+       * ----> *
+
+       Ø = x10 ^ (x4 ⇔ ¬x3)
+       . . . . ^ (x5 ⇔ (x1 v x2))
+       . . . . ^ (x6 ⇔ ¬x4)
+       . . . . ^ (x7 ⇔ (x1 ^ x2 ^ x4))
+       . . . . ^ (x8 ⇔ (x5 v x6))
+       . . . . ^ (x9 ⇔ (x6 v x7))
+       . . . . ^ (x10 ⇔ (x7 ^ x8 ^ x9))
+
+       Kan utverdien bli 1? <----> Kan Ø være sann?
+       </pre>
+   - 3-CNF-SAT
+     - 
+   - CLIQUE
+   - VERTEX-COVER
+   - HAM-CYCLE
+   - TSP
+ - [x] Forstå NP-kompletthetsbevisene for disse problemene
+ - [x] Forstå at 0-1-ryggsekkproblemet er NP-hardt
+ - [x] Forstå at lengste enkle-vei-problemet er NP-hardt
+ - [x] Være i stand til å konstruere enkle NP-kompletthetsbevis 
 
 ## Appendix A
  - [x] Setningslogikk
