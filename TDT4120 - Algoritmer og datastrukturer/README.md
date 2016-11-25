@@ -925,13 +925,13 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      - **Spørsmålet blir:** Kan A (for et eller annet sertifikat) svare/få en output på 1?
      - Eksempel:
        <pre>
-       x ∈ {0, 1}* => L er i NP, så ...
-       Det finnes en pol. alg. A, som er slikat x ∈ L nøyaktig når minst én y ∈ {0, 1}* gir A(x, y) = 1, der |y| = O(|x|ᶜ), for en eller annen c
-
-       * ---> * (A ---> B => Reduksjon <=> A? Da kan du jo bare B.)
-
+       x ∈ {0, 1}\* => L er i NP, så ...
+       Det finnes en pol. alg. A, som er slikat x ∈ L nøyaktig når minst én y ∈ {0, 1}\* gir A(x, y) = 1, der |y| = O(|x|ᶜ), for en eller annen c
+       .
+       \* ---> \* (A ---> B => Reduksjon <=> A? Da kan du jo bare B.)
+       .
        ...
-
+       .
        Er x med i språket L? <----> Kan utverdien bli 1?
        </pre>
    - SAT
@@ -946,9 +946,9 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
        . . . . .|-x6>o-| . . .|
        . . . . .| . . .|--x9--|-x10-...
        x3--x4>o-|--x7--|------|
-
-       * ----> *
-
+       .
+       \* ----> \*
+       .
        Ø = x10 ^ (x4 ⇔ ¬x3)
        . . . . ^ (x5 ⇔ (x1 v x2))
        . . . . ^ (x6 ⇔ ¬x4)
@@ -956,7 +956,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
        . . . . ^ (x8 ⇔ (x5 v x6))
        . . . . ^ (x9 ⇔ (x6 v x7))
        . . . . ^ (x10 ⇔ (x7 ^ x8 ^ x9))
-
+       .
        Kan utverdien bli 1? <----> Kan Ø være sann?
        </pre>
    - 3-CNF-SAT
@@ -980,7 +980,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
        . . . . ^ (y6 ⇔ (¬x1 ⇔ x3))
        Ø'' = CNF, vha. sannhetstabeller
        Ø''' = 3-CNF, vha. dummy-variable
-
+       .
        Kan Ø være sann? <----> Kan Ø''' være sann?
        </pre>
    - CLIQUE
@@ -996,9 +996,9 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
        Ø = ( x1 v¬x2 v¬x3 ) ^
        . . (¬x1 v x2 v x3 ) ^
        . . ( x1 v x2 v x3 )
-
+       .
        Tilsvarer: x1, x2, x3 = -, 0, 1
-
+       .
        Kan Ø være sann? <----> Finnes en k-klikk?
        </pre>
    - VERTEX-COVER
