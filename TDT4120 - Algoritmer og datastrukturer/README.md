@@ -994,8 +994,8 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      - Eksempel:
        <pre>
        Ø = ( x1 v¬x2 v¬x3 ) ^
-           (¬x1 v x2 v x3 ) ^
-           ( x1 v x2 v x3 )
+       . . (¬x1 v x2 v x3 ) ^
+       . . ( x1 v x2 v x3 )
 
        Tilsvarer: x1, x2, x3 = -, 0, 1
 
