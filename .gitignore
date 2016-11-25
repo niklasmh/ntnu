@@ -53,6 +53,7 @@ TDT4110*/*
 # Datamaskiner og Digitalteknikk
 TDT4160*/*
 !TDT4160*/exercises/
+!TDT4160*/exam-notes.md
 
 # Fysikk
 TFY4125*/
