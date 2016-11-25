@@ -926,8 +926,8 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
      - Eksempel:
        <pre>
        x ∈ {0, 1}\* => L er i NP, så ...
-       Det finnes en pol. alg. A, som er slikat x ∈ L nøyaktig når minst én y ∈ {0, 1}\* gir A(x, y) = 1, der |y| = O(|x|ᶜ), for en eller annen c
-       .
+       Det finnes en pol. alg. A, som er slik at x ∈ L nøyaktig når minst én y ∈ {0, 1}\* gir A(x, y) = 1, der |y| = O(|x|ᶜ), for en eller annen c
+
        \* ---> \* (A ---> B => Reduksjon <=> A? Da kan du jo bare B.)
        .
        ...
