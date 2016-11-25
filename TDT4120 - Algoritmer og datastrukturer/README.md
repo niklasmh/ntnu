@@ -960,15 +960,67 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
        Kan utverdien bli 1? <----> Kan Ø være sann?
        </pre>
    - 3-CNF-SAT
-     - 
+     - **Instans:** En logisk formel på 3-CNF-form
+     - F.eks.: Ø = (x1 v ¬x2 v x4) ^ ··· ^ (¬x7 v x8 v x9)
+     - **Spørsmål:** Kan formelen være sann?
+     - Vi kan bruke ca. samme reduksjon, på syntakstreet til Ø!
+     - Vi får da en formel Ø' av pol. størrelse
+     - Ø' er en konjunksjon av termer, hver med maks 3 literaler
+     - Dvs.: de to argumentene, samt resultatet av operatoren
+     - Hver term gjøres om til CNF vha. en sannhetstabell
+     - (x v y) gjøres om til (x v y v z) ^ (x v y v ¬z)
+     - Tilsv. blir (x) til fire nye termer
+     - Eksempel:
+       <pre>
+       Ø' = y1 ^ (y1 ⇔ (y2 ^ ¬x2))
+       . . . . ^ (y2 ⇔ (y3 v y4))
+       . . . . ^ (y3 ⇔ (x1 ! x2))
+       . . . . ^ (y4 ⇔ ¬y5)
+       . . . . ^ (y5 ⇔ (y6 v x4))
+       . . . . ^ (y6 ⇔ (¬x1 ⇔ x3))
+       Ø'' = CNF, vha. sannhetstabeller
+       Ø''' = 3-CNF, vha. dummy-variable
+
+       Kan Ø være sann? <----> Kan Ø''' være sann?
+       </pre>
    - CLIQUE
+     - **Instans:** En urettet graf G og et heltall k
+     - **Spørsmål:** Har G en en komplett delgraf med k noder?
+     - Vi vil redusere fra 3-CNF-SAT
+     - Lag én node i G for hver literal i formelen
+     - Ingen kanter mellom noder fra samme term
+     - Ellers: Kanter mellom literaler som kan være sanne samtidig
+     - La k være antall termer
+     - Eksempel:
+       <pre>
+       Ø = ( x1 v¬x2 v¬x3 ) ^
+           (¬x1 v x2 v x3 ) ^
+           ( x1 v x2 v x3 )
+
+       Tilsvarer: x1, x2, x3 = -, 0, 1
+
+       Kan Ø være sann? <----> Finnes en k-klikk?
+       </pre>
    - VERTEX-COVER
+     - **Instans:** En urettet graf G og et heltall k
+     - **Spørsmål:** Har G en et nodedekke med k noder? Dvs., k noder som tilsammen ligger inntil alle kantene
+     - En klikk er en komplett delgraf
+     - Tilsvarer en uavhengig mengde (kantfri delgraf) i komplementet !G = (V, !E)
+     - Nodene utenfor en uavhengig mengde utgjør et nodedekke
+     - Hvis G har en k-klikk . . .
+     - . . . så har !G = (V, !E) en uavh. mengde med k noder ...
+     - . . . og dermed også et (|V| - k)-nodedekke
+     - Samme resonnement holder i motsatt retning
    - HAM-CYCLE
    - TSP
  - [x] Forstå NP-kompletthetsbevisene for disse problemene
  - [x] Forstå at 0-1-ryggsekkproblemet er NP-hardt
  - [x] Forstå at lengste enkle-vei-problemet er NP-hardt
  - [x] Være i stand til å konstruere enkle NP-kompletthetsbevis 
+ - Notater:
+   - Q ∈ NPC ⇔
+     - 1. ∀ L ∈ NP ⇒ **NP-hard (NPH)**
+     - 2. Q ∈ NP
 
 ## Appendix A
  - [x] Setningslogikk
