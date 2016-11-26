@@ -1,18 +1,18 @@
 # Øving til eksamen i TDT4160
 
 ### Forkortelser og forklaringer
- - IJVM .- .(Integer Java Virtual Machine)
- - ALU . - .(Arithmetic Logic Unit)
- - MPC . - .(Micro Program Counter)
- - PROM .- .(Programmable Read Only Memory)
- - EPROM - .(Eraseable Programmable Read Only Memory)
- - ISA (Instruction Set Architecture)
-   - RISC .- .(Reduced Instruction Set Computing)
+ - `IJVM .- .(Integer Java Virtual Machine)`
+ - `ALU . - .(Arithmetic Logic Unit)`
+ - `MPC . - .(Micro Program Counter)`
+ - `PROM .- .(Programmable Read Only Memory)`
+ - `EPROM - .(Eraseable Programmable Read Only Memory)`
+ - `ISA (Instruction Set Architecture)`
+   - `RISC .- .(Reduced Instruction Set Computing)`
      - **Instruksjonsstørrelse:** Et ord eller to "bytes"
      - **Utføringstid:** En sykel per instruksjon.
      - **Arbeid gjort:** Mindre arbeid per instruksjon.
      - **Instruksjoner per program:** Mange.
-   - CISC .- .(Complex) Instruction Set Computing)
+   - `CISC .- .(Complex) Instruction Set Computing)`
      - **Instruksjonsstørrelse:** Multiple Words
      - **Utføringstid:** Antall sykler per instruksjon kan bestå av flere 1ere og 10ere.
      - **Arbeid gjort:** Mye arbeid per instruksjon.
