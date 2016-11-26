@@ -1,18 +1,18 @@
 # Øving til eksamen i TDT4160
 
 ### Forkortelser og forklaringer
- - `IJVM .- (Integer Java Virtual Machine)`
- - `ALU . - (Arithmetic Logic Unit)`
- - `MPC . - (Micro Program Counter)`
- - `PROM .- (Programmable Read Only Memory)`
- - `EPROM - (Eraseable Programmable Read Only Memory)`
- - `ISA (Instruction Set Architecture)`
-   - `RISC - (Reduced Instruction Set Computing)`
+ - IJVM  -  (Integer Java Virtual Machine)
+ - ALU   -  (Arithmetic Logic Unit)
+ - MPC   -  (Micro Program Counter)
+ - PROM  -  (Programmable Read Only Memory)
+ - EPROM -  (Eraseable Programmable Read Only Memory)
+ - ISA (Instruction Set Architecture)
+   - RISC  -  (Reduced Instruction Set Computing)
      - **Instruksjonsstørrelse:** Et ord eller to "bytes"
      - **Utføringstid:** En sykel per instruksjon.
      - **Arbeid gjort:** Mindre arbeid per instruksjon.
      - **Instruksjoner per program:** Mange.
-   - `CISC - (Complex) Instruction Set Computing)`
+   - CISC  -  (Complex) Instruction Set Computing)
      - **Instruksjonsstørrelse:** Multiple Words
      - **Utføringstid:** Antall sykler per instruksjon kan bestå av flere 1ere og 10ere.
      - **Arbeid gjort:** Mye arbeid per instruksjon.
@@ -44,33 +44,33 @@
  - Micro**controller**
    - ISA + Microarchitecture + Hardware Components
  - MIR (Micro Instruction Register)
-   - `Addr .- .(Address) . . . . . . . .peker på neste mikroinstruksjon i instruksjonen.`
-   - `J . . - .(Jam) . . . . . . . . . .sier ifra om ALU har flagget neste mikroinstruksjon eller om det kommer hopp (betinget hopp).`
-   - `ALU . - .(Aritmethic Logic Unit) .bestemmer hvilken funksjon ALU skal gjennomføre.`
-   - `C . . - .(C-bus) . . . . . . . . .inneholder adressen til C-bussen, som blir det samme som adressen til registeret det skal skrives til.`
-   - `Mem . - .(Memory) . . . . . . . . sier ifra om det skal gjøres noe med minne.`
-   - `B . . - .(B-bus) . . . . . . . . .inneholder adressen til B-bussen, som blir det samme som adressen til registeret det skal leses fra.`
+   - Addr  -  (Address)                peker på neste mikroinstruksjon i instruksjonen.
+   - J     -  (Jam)                    sier ifra om ALU har flagget neste mikroinstruksjon eller om det kommer hopp (betinget hopp).
+   - ALU   -  (Aritmethic Logic Unit)  bestemmer hvilken funksjon ALU skal gjennomføre.
+   - C     -  (C-bus)                  inneholder adressen til C-bussen, som blir det samme som adressen til registeret det skal skrives til.
+   - Mem   -  (Memory)                 sier ifra om det skal gjøres noe med minne.
+   - B     -  (B-bus)                  inneholder adressen til B-bussen, som blir det samme som adressen til registeret det skal leses fra.
  - Dataavhengigheter:
-   - `RAW .- .(Read-After-Write) . (sanne dataavhengigheter) er når f.eks. instruksjon 1 skriver til et register og instruksjon 2 skal lese fra det samme registeret.`
-   - `WAW .- .(Write-After-Write) .(utavhengigheter) er når f.eks. instruksjon 3 skriver til register 1 og instruksjon 1 skriver til register 1.`
-   - `WAR .- .(Write-After-Read) . (antiavhengigheter) er når f.eks. instruksjon 3 skriver til register 1 og instruksjon 2 leser fra R1.`
+   - RAW  -  (Read-After-Write)   (sanne dataavhengigheter) er når f.eks. instruksjon 1 skriver til et register og instruksjon 2 skal lese fra det samme registeret.
+   - WAW  -  (Write-After-Write)  (utavhengigheter) er når f.eks. instruksjon 3 skriver til register 1 og instruksjon 1 skriver til register 1.
+   - WAR  -  (Write-After-Read)   (antiavhengigheter) er når f.eks. instruksjon 3 skriver til register 1 og instruksjon 2 leser fra R1.
  - RAM
-   - `SRAM . - (Statisk RAM) . . . . . . er raskt og trenger ikke oppdateres. Brukes ofte i hurtigbuffere.`
-   - `DRAM . - (Dynamisk RAM) . . . . . .må friskes opp jevnlig. Det tar mindre plass en SRAM (2 vs. 6 transistorer).`
-   - `SDRAM .- (Synkront Dynamisk RAM) . betyr at data blir overført til/fra RAM synkront med klokka (og systembussen).`
+   - SRAM   - (Statisk RAM)             er raskt og trenger ikke oppdateres. Brukes ofte i hurtigbuffere.
+   - DRAM   - (Dynamisk RAM)            må friskes opp jevnlig. Det tar mindre plass en SRAM (2 vs. 6 transistorer).
+   - SDRAM  - (Synkront Dynamisk RAM)   betyr at data blir overført til/fra RAM synkront med klokka (og systembussen).
 
 ### Register forkortelser ([http://datagk.stianj.com/](http://datagk.stianj.com/))
- - `PC .- (Program Counter) . . . . . inneholder adressen til instruksjonen som utføres, eller neste instruksjon som skal utføres. (avhengig av måten maskinen er bygd).`
- - `IR .- (Instruction Register) . . .er der kontrollenheten lagrer instruksjonen som blir gjennomført nå. Den ligger her mens instruksjonen blir dekodet, startet og gjennomført.`
- - `MAR - (Memory Address Register) . inneholder adresse til neste minnelokasjon der vi finner neste instruksjon.`
- - `MDR - (Memory Data Register) . . .inneholder data som skal bli lagret i hovedminne (RAM), eller data som har blitt hentet fra minne. Virker som en buffer så data er klar for prosessor.`
- - `MBR - (Memory Buffer Register) . .er et bufferregister mellom minne og prosessor.`
- - `LV .- (Local Variable) . . . . . .inneholder pekerverdi.`
- - `SP .- (Stack Pointer) . . . . . . inneholder pekerverdi.`
- - `CPP - (Constant Pool Pointer) . . inneholder pekerverdi.`
- - `TOS - (Top Of Stack) . . . . . . .skal alltid inneholde ordet på toppen av stakken.`
- - `OPC - (OpCode || Operation Code) .register kan fritt brukes. Ex: MOV, ADD, LOAD.`
- - `H . - (Holding Register) . . . . .inneholder verdien som skal inn i A-inngangen til ALU.`
+ - PC    -  (Program Counter)            inneholder adressen til instruksjonen som utføres, eller neste instruksjon som skal utføres. (avhengig av måten maskinen er bygd).
+ - IR    -  (Instruction Register)       er der kontrollenheten lagrer instruksjonen som blir gjennomført nå. Den ligger her mens instruksjonen blir dekodet, startet og gjennomført.
+ - MAR   -  (Memory Address Register)    inneholder adresse til neste minnelokasjon der vi finner neste instruksjon.
+ - MDR   -  (Memory Data Register)       inneholder data som skal bli lagret i hovedminne (RAM), eller data som har blitt hentet fra minne. Virker som en buffer så data er klar for prosessor.
+ - MBR   -  (Memory Buffer Register)     er et bufferregister mellom minne og prosessor.
+ - LV    -  (Local Variable)             inneholder pekerverdi.
+ - SP    -  (Stack Pointer)              inneholder pekerverdi.
+ - CPP   -  (Constant Pool Pointer)      inneholder pekerverdi.
+ - TOS   -  (Top Of Stack)               skal alltid inneholde ordet på toppen av stakken.
+ - OPC   -  (OpCode || Operation Code)   register kan fritt brukes. Ex: MOV, ADD, LOAD.
+ - H     -  (Holding Register)           inneholder verdien som skal inn i A-inngangen til ALU.
 
 ### ALU-flagg ([http://datagk.stianj.com/](http://datagk.stianj.com/))
  - N - settes når svaret fra ALU er negativt
@@ -83,7 +83,7 @@
 . MPC
 0000 0 0100
 . . . . . . . .Shift ALU . . C buss . mem B buss
-1: H .← . . TOS: 00 010100 1000000000 000 0111
+1: H  ← . . TOS: 00 010100 1000000000 000 0111
 2: SP ← H + OPC: 00 111100 . 00001000 000 1000
 </pre>
 
@@ -101,15 +101,3 @@
 
 # Kilder
 [http://datagk.stianj.com/](http://datagk.stianj.com/)
-
-# Regex to create dots for spaces
-Markdown in HTML has a side effect to trim double or more spaces. Follow the instructions to add a sign every odd or even space.
-```
-// First run this to add dots to every second space:
-Find: /\s\s/
-Replace with: " ."
-
-// Then run this until it is done removing dots before bullets:
-Find: /^(\s+)\./
-Replace with: "$1 "
-```
