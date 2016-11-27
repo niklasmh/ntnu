@@ -58,6 +58,7 @@
    - **SRAM**   - (Statisk RAM)             er raskt og trenger ikke oppdateres. Brukes ofte i hurtigbuffere.
    - **DRAM**   - (Dynamisk RAM)            må friskes opp jevnlig. Det tar mindre plass en SRAM (2 vs. 6 transistorer).
    - **SDRAM**  - (Synkront Dynamisk RAM)   betyr at data blir overført til/fra RAM synkront med klokka (og systembussen).
+ - **IC** (Integrated Circut)
 
 ### Register forkortelser ([http://datagk.stianj.com/](http://datagk.stianj.com/))
  - **PC**    -  (Program Counter)            inneholder adressen til instruksjonen som utføres, eller neste instruksjon som skal utføres. (avhengig av måten maskinen er bygd).
