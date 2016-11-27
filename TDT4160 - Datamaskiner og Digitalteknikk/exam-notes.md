@@ -59,6 +59,8 @@
    - **DRAM**   - (Dynamisk RAM)            må friskes opp jevnlig. Det tar mindre plass en SRAM (2 vs. 6 transistorer).
    - **SDRAM**  - (Synkront Dynamisk RAM)   betyr at data blir overført til/fra RAM synkront med klokka (og systembussen).
  - **IC** (Integrated Circut)
+ - **Multiplex** - **2ⁿ** data inputs, **1** data output og n kontroll input.
+ - **Demultiplex** - **1** data input, **2ⁿ** data output og n kontroll input.
 
 ### Register forkortelser ([http://datagk.stianj.com/](http://datagk.stianj.com/))
  - **PC**    -  (Program Counter)            inneholder adressen til instruksjonen som utføres, eller neste instruksjon som skal utføres. (avhengig av måten maskinen er bygd).
