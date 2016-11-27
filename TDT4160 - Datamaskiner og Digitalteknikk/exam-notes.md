@@ -61,6 +61,13 @@
  - **IC** (Integrated Circut)
  - **Multiplex** - **2ⁿ** data inputs, **1** data output og n kontroll input.
  - **Demultiplex** - **1** data input, **2ⁿ** data output og n kontroll input.
+ - **Half-adder** - A + B = sum + carry.
+ - **Full-adder** - 2 Half-adders.
+ - **Klokkepuls**
+   - Valigvis: 100Mhz - 4GHz.
+   - Verdier: 0 og 1.
+   - Den er asymmetrisk.
+   - Den utfører operasjoner på 0, derfor er 0 lengre enn 1.
 
 ### Register forkortelser ([http://datagk.stianj.com/](http://datagk.stianj.com/))
  - **PC**    -  (Program Counter)            inneholder adressen til instruksjonen som utføres, eller neste instruksjon som skal utføres. (avhengig av måten maskinen er bygd).
