@@ -69,6 +69,7 @@
    - Verdier: 0 og 1.
    - Den er asymmetrisk.
    - Den utfører operasjoner på 0, derfor er 0 lengre enn 1.
+ - **Latency hiding** - Cache brukes til dette for å øke ytelse.
 
 ### Register forkortelser ([http://datagk.stianj.com/](http://datagk.stianj.com/))
  - **PC**    -  (Program Counter)            inneholder adressen til instruksjonen som utføres, eller neste instruksjon som skal utføres. (avhengig av måten maskinen er bygd).
