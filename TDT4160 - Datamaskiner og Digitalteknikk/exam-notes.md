@@ -5,7 +5,8 @@
  - **ALU**   -  (Arithmetic Logic Unit)
  - **MPC**   -  (Micro Program Counter)
  - **PROM**  -  (Programmable Read Only Memory)
- - **EPROM** -  (Eraseable Programmable Read Only Memory)
+ - **EPROM** -  (Eraseable Programmable Read Only Memory) Sletter minneverdier med UV-lys.
+ - **EEPROM** -  (Electrical Eraseable Programmable Read Only Memory) Kan omprogrammeres.
  - **ISA** (Instruction Set Architecture)
    - **RISC**  -  (Reduced Instruction Set Computing)
      - **Instruksjonsstørrelse:** Et ord eller to "bytes"
