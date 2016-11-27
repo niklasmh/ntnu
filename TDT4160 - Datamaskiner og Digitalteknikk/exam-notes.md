@@ -70,6 +70,9 @@
    - Den er asymmetrisk.
    - Den utfører operasjoner på 0, derfor er 0 lengre enn 1.
  - **Latency hiding** - Cache brukes til dette for å øke ytelse.
+ - **Lokalitet**
+   - Rom: Kommer sannsylingvis til å lese fra naboaddressen om vi leste fra en addresse.
+   - Tid: Kommer sannsylingvis til å lese samme data om igjen.
 
 ### Register forkortelser ([http://datagk.stianj.com/](http://datagk.stianj.com/))
  - **PC**    -  (Program Counter)            inneholder adressen til instruksjonen som utføres, eller neste instruksjon som skal utføres. (avhengig av måten maskinen er bygd).
