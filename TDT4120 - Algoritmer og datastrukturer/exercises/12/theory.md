@@ -1,4 +1,4 @@
-# Teorioppgaver øving 11
+# Teorioppgaver øving 12
 ## Oppgave 1:
  - a) **Hvilken kjøretid (asymptotisk) har Floyd-Warshall implementasjon vi finner i Cormen (s. 695)? (4 %)**
   - Θ(V3)Θ(V3)
