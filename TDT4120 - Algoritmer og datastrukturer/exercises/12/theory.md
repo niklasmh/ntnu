@@ -26,6 +26,9 @@
   - Ja
 
 ## Oppgave 4:
+Hva er teoretisk raskeste algoritme (best O) for "korteste vei, **alle til alle**" - problemet i følgende grafer?
+
+Merk: For Dijkstras regner vi med at Extract-Min-operasjonen tar O(V) tid.
  - a) **En rettet graf uten sykler og uten negative kanter. (8 %)**
   - Dag-Shortest-path, kjørt V ganger
  - b) **Assymptotisk strammeste kjøretid for de(n) raskeste algoritmen(e) i a) er? (4 %)**
