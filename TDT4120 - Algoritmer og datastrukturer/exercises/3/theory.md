@@ -1,5 +1,6 @@
 # Teorioppgaver øving 3
 ## Oppgave 1:
+Anta du har en kø Q = <4,7,32,72,3> hvor det bakerste elementet representerer hodet til køen.
  - a) **Hvordan vil køen se ut etter å ha kjørt ENQUEUE(Q,3)? (5 %)**
    - <3,4,7,32,72,3>
  - b) **Hvordan vil køen se ut etter å ha kjørt DEQUEUE(Q)? (5 %)**
@@ -8,6 +9,7 @@
    - 1
 
 ## Oppgave 2:
+Anta du har en stakk S = <4,7,32,72,3> hvor det bakerste elementet representerer toppen av stakken.
  - a) **Hvordan vil stakken se ut etter å ha kjørt PUSH(S,3)? (5 %)**
    - <4,7,32,72,3,3>
  - b) **Hvordan vil stakken se ut etter å ha kjørt POP(S)? (5 %)**
@@ -16,6 +18,7 @@
    - 11
 
 ## Oppgave 3:
+Anta at du har en sirkulær dobbel lenket liste L = <4,7,32,72,3> hvor HEAD peker på 4-tallet.
  - a) **Hvordan vil listen se ut etter LIST-SEARCH(L,4)? (5 %)**
    - <4,7,32,72,3>
  - b) **Hvordan vil listen se ut etter LIST-INSERT(L,3)? (5 %)**

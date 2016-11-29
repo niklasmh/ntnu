@@ -1,5 +1,6 @@
 # Teorioppgaver øving 4
 ## Oppgave 1:
+Denne oppgaven handler om sorteringsalgoritmer.
  - a) **Vi har en usortert liste med nn elementer, og vi ønsker å finne ut om alle elementene i listen er unike. Etter algoritmene vi har lært så langt, hva er raskeste kjøretiden vi kan få når vi løser denne oppgaven? (5 %)**
    - Θ(nlog(n))Θ(nlog⁡(n))
  - b) **Vi ønsker å sortere en liste med lavest mulig minneforbruk. Hvilken algoritme er best? (5 %)**
@@ -12,6 +13,17 @@
    - Sant
 
 ## Oppgave 2:
+Denne oppgaven tar for seg substitusjonsmetoden for å løse rekurrenser.
+
+Gitt rekurrensen:
+
+*T(n)=2401T(n/7)+n3*
+
+*T(1)=1*
+
+Dersom vi skulle benyttet oss av substitusjonsmetoden og antatt at:
+
+*T(n/2)≤c⋅n24⋅log⁡(n/2)*
  - a) **Hva håper vi på å kunne bevise? (5 %)**
    - At T(n)≤c⋅n2⋅log(n)T(n)≤c⋅n2⋅log⁡(n)
  - b) **Hvis du anvender master-teoremet på denne rekurrensen, hvilket tilfelle tilhører den? (5 %)**
@@ -22,14 +34,17 @@
    - Case 3
 
 ## Oppgave 3:
+Løs denne oppgaven ved hjelp av variabelskifte. Husk at *n^½=sqrt(n)*.
  - a) **Løs rekurrensen gitt ved: T(n)=T(n12)+1T(n)=T(n12)+1 (5 %)**
    - Θ(lglgn)Θ(lg⁡lg⁡n)
 
 ## Oppgave 4:
+Løs denne oppgaven ved hjelp av rekursjonstrær.
  - a) **Vi har en rekurrens T(n)=T(n/3)+T(n/2)+nT(n)=T(n/3)+T(n/2)+n, T(1)=1T(1)=1. Hva er høyden til rekursjonstreet? (10 %)**
    - Θ(log(n))Θ(log⁡(n))
 
 ## Oppgave 5:
+Denne oppgaven handler om kjøretidsanalyse.
  - a)
 Funksjonen gjørNoe() har kjøretid Θ(1).
 
