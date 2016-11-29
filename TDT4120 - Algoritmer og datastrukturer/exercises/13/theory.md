@@ -38,10 +38,14 @@
   - usant
 
 ## Oppgave 4:
+Du får oppgitt et problem X, og ønsker å finne ut hvilken kompleksitetsklasse problemet tilhører. Hvilke utsagn er sanne?
  - a) **Du sammenlikner XX med problemet YY, som kan løses i polynomisk tid. (4.8 %)**
   - Hvis du kan transformere alle instanser xx av XX til tilsvarende instanser yy av YY i polynomisk tid, og vet at løsningen på yy alltid kan transformeres til løsningen på xx, kan du si at XX tilhører klassen P.
  - b) **Du sammenlikner XX med problemet ZZ, som er NP-komplett. (4.8 %)**
   - Hvis du kan transformere alle instanser zz av ZZ til tilsvarende instanser xx av XX i polynomisk tid, og vet at løsningen på xx alltid kan transformeres til løsningen på zz, kan du si at XX tilhører klassen NPC.
+
+## Oppgave 5:
+Du har problemene A, B og C. Alle tre er i NP. Du vet at A er i P og B er i NPC. I denne oppgaven menes det med "reduksjon" en reduksjon i polynomisk tid.
  - a) **Hvilken av følgende reduksjoner viser at C er i P? (4.8 %)**
   - Reduser CC til AA
  - b) **Hvilken av følgende reduksjoner viser at C er i NPC? (4.8 %)**
