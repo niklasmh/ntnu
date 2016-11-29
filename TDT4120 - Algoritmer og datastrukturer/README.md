@@ -16,11 +16,11 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Kunne definere asymptotisk notasjon, O, Ω, Θ, o og ω.
     - Huskeregel:
       <pre>
-      ω >
-      Ω ≧
-      Θ =
-      O ≦
-      o <
+      ω > (Small Omega)
+      Ω ≧ (Big Omega)
+      Θ = (Big Theta)
+      O ≦ (Big O)
+      o < (Small o)
       </pre>
     - Kompleksitetsregler:
       <pre>
