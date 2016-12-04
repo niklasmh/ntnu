@@ -185,7 +185,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
  - [x] Vite at forventet høyde for et tilfeldig binært søketre er Θ(lg n)
  - [x] Vite at det finnes søketrær med garantert høyde på Θ(lg n)
  - Kjøretider for binære søketre:
-   <pre>
+ - <pre>
    <b>Algoritme</b>          <b>Kjøretid</b>
    Inorder-Tree-Walk  Θ(n)
    Tree-Search        O(n)
@@ -194,6 +194,7 @@ Her er alle mine øvinger og noen av notatene mine fra faget.
    Tree-Insert        O(n)
    Tree-Delete        O(n)
    </pre>
+
 ### Forelesning 6 - Dynamisk programmering
  - [x] Forstå ideen om en delproblemrelasjon eller delproblemgraf
  - [x] Forstå induksjon over velfunderte relasjoner ∗
