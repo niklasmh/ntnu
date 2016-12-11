@@ -36,11 +36,7 @@ Med notater fra forelesninger og eksamensperiode
       </pre>
     - Kompleksitetsregler:
       <pre>
-      1
-      n
-      nᵏ
-      ...
-      1 < ln(n) < n < n² < 2ⁿ < n! < nⁿ
+      1 < ln(n) < n < nᵏ < kⁿ < n! < nⁿ | k = en konstant
       </pre>
 
 ### Forelesning 2 - Datastrukturer
