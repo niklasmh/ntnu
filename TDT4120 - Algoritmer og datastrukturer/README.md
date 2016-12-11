@@ -52,15 +52,54 @@ Med notater fra forelesninger og eksamensperiode
 
 ### Forelesning 2 - Datastrukturer
  - [x] Forstå hvordan stakker og køer fungerer
+   - Stakker:
+     - Som elementer i en boks. Øverste først inn, og elementer kan bare legges øverst.
+     - Push: Legge til element på toppen.
+     - Pop: Fjerne øverste elementet.
+   - Køer:
+     - Putter elementer inn og henter ut elementer i andre enden.
+     - Enqueue: Legge til element i starten.
+     - Dequeue: Hente ut element fra slutten.
  - [x] Forstå hvordan lenkede lister fungerer
+   - Elementer som har elementer i seg. (Peker til neste element)
+   - `x = (1,(2,(3,...))) => x[1][1][0] = 3`
  - [x] Forstå hvordan pekere og objekter kan implementeres
+   - Omtrent som lenkede lister. Peker mot en addresse i minnet som om det var et annet objekt i den addressen.
  - [x] Forstå hvordan rotfaste trær kan implementeres
+   - Binære (binær = 2):
+     - Tre med maks 2 armer per gren.
+     - Kan ha 2 pekere til hver sin grennode.
+   - Generelt om trær:
+     - En toppnode med masse barn som har barn osv.
+     - En node kan ikke nå et barnebarn.
  - [x] Forstå hvordan direkte adressering og hashtabeller fungerer
+   - Direkte adressering:
+     - Bruke nøkkel direkte som indeks. Triviell form for hashing.
+   - Hashtabeller:
+     - Genererer en indeks fra nøkkelverdien.
+     - Enveisfunksjon! Går ikke tilbake.
+     - Lengde kan være en funksjon. Da er:
+       - 1 = 1
+       - 2 = 1
+       - 10 = 2
+       - ...
+       - n = len(n)
  - [x] Forstå konfliktløsing ved kjeding (chaining)
+   - Kan brukes i hashing. Bare en bedre system for å bruke det.
+   - Som bucket sort. Plasserer alle i samme "bøtte" om de får samme genererte indeks.
+   - Kolliderer de, som at lengden (forrige eksempel) er lik, plasseres de i samme kjede.
+     - Dette blir en lenket liste for hver av indeksene (lengdene).
  - [x] Kjenne til grunnleggende hashfunksjoner
+   - Lengde, ASCII-verdier <- Sortering.
+   - RSA, DSA <- Kryptografi.
  - [x] Vite at man for statiske datasett kan ha worst-case O(1) for søk
+   - Bare å lage en hashfunksjon selv og se.
+   - Enklere for en datamaskin å hente ut en hashverdi fra et sted den vet hvor er i minnet.
  - [x] Kunne definere amortisert analyse
- - [x] Forstå hvordan dynamiske tabeller fungerer 
+ - [x] Forstå hvordan dynamiske tabeller fungerer
+   - Brukes blant annet i python:
+     - `objekt.attr = objekt[attr]`
+   - Ikke effektivt, men fleksibelt.
 
 ### Forelesning 3 - Splitt og hersk
  - [x] Forstå strukturell induksjon∗
