@@ -28,11 +28,11 @@ Med notater fra forelesninger og eksamensperiode
  - [x] Kunne definere asymptotisk notasjon, O, Ω, Θ, o og ω.
     - Huskeregel:
       <pre>
-      ω > (Small Omega)
-      Ω ≧ (Big Omega)
-      Θ = (Big Theta)
-      O ≦ (Big O)
-      o < (Small o)
+      ω > Θ(f(n)) (Small Omega)
+      Ω ≧ Θ(f(n)) (Big Omega)
+      Θ = Θ(f(n)) (Big Theta)
+      O ≦ Θ(f(n)) (Big O)
+      o < Θ(f(n)) (Small o)
       </pre>
     - Kompleksitetsregler:
       <pre>
