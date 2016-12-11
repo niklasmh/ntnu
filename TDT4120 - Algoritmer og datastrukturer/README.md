@@ -14,6 +14,11 @@ Med notater fra forelesninger og eksamensperiode
    - Problemstørrelse:
      - Lagringsplass som trengs for en instans.
  - [x] Forstå løkkeinvarianter og naturlig induksjon
+   - Løkkeinvarianter
+     - Brukes til bevis for løkker.
+     - Init: Før start.
+     - Vedlikehold: Holder den før/etter en iterasjon.
+     - Terminering: Løkken sier noe nyttig.
  - [x] Forstå bokas pseudokode-konvensjoner
    - En måte å spesifisere algoritmer på, uavhengig av programmeringsspråk.
  - [x] Kjenne egenskapene til random-access machine-modellen
@@ -24,7 +29,13 @@ Med notater fra forelesninger og eksamensperiode
    - Average-case: Forventet, gitt en sannsynlighetsfordeling.
    - Worst-case: Verste mulige. **Brukes mest**
  - [x] Forstå ideen bak divide-or-conquer
+   - Splitt og hersk: Del opp i mindre problemer, så få kontroll.
  - [x] Forstå Merge-Sort
+   - Kjøretid: Θ(n lg(n)) -> Både best, avg. og worst!
+   - Tar å deler opp i 2 for hver bit. Så når hver bit er 2 i størrelse (eller 1)
+     - Så sorterer man de små bitene. Så {7,2} => {2,7}. Trengs bare en gang.
+     - Merger de 2 og to, så det går fra f.eks. 8 til 4 biter, så 4 til 2.
+       - De sorteres når de merges.
  - [x] Kunne definere asymptotisk notasjon, O, Ω, Θ, o og ω.
     - Huskeregel:
       <pre>
