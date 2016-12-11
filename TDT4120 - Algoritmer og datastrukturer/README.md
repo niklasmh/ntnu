@@ -2,6 +2,7 @@
 Her er alle mine øvinger og noen av notatene mine fra faget.
 
 ## Forelesningsplan
+Med notater fra forelesninger og eksamensperiode
 
 ### Forelesning 1 - Problemer og algoritmer
  - [x] Kunne definere problem, instans og problemstørrelse
