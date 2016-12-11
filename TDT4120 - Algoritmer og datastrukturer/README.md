@@ -6,12 +6,23 @@ Med notater fra forelesninger og eksamensperiode
 
 ### Forelesning 1 - Problemer og algoritmer
  - [x] Kunne definere problem, instans og problemstørrelse
+   - Problem:
+     - Relasjon mellom input og output.
+   - Instans av et problem:
+     - En sub-klasse av problemet.
+     - En bestemt input.
+   - Problemstørrelse:
+     - Lagringsplass som trengs for en instans.
  - [x] Forstå løkkeinvarianter og naturlig induksjon
  - [x] Forstå bokas pseudokode-konvensjoner
+   - En måte å spesifisere algoritmer på, uavhengig av programmeringsspråk.
  - [x] Kjenne egenskapene til random-access machine-modellen
  - [x] Forstå Insertion-Sort
  - [x] Kunne definere best-case, average-case og worst-case
-    - 
+   - Kjøretid: Funksjon av problemstørrelse -> f(problemstørrelse)
+   - Best-case: Beste mulige kjøretid for en gitt størrelse.
+   - Average-case: Forventet, gitt en sannsynlighetsfordeling.
+   - Worst-case: Verste mulige. **Brukes mest**
  - [x] Forstå ideen bak divide-or-conquer
  - [x] Forstå Merge-Sort
  - [x] Kunne definere asymptotisk notasjon, O, Ω, Θ, o og ω.
