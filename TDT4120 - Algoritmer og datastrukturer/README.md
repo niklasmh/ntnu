@@ -79,13 +79,13 @@ Med notater fra forelesninger og eksamensperiode
      - Genererer en indeks fra nøkkelverdien.
      - Enveisfunksjon! Går ikke tilbake.
      - Lengde kan være en funksjon. Da er:
-       - ```
-         1 = 1
-         2 = 1
-         10 = 2
-         ...
-         n = len(n)
-         ```
+       ```
+       1 = 1
+       2 = 1
+       10 = 2
+       ...
+       n = len(n)
+       ```
  - [x] Forstå konfliktløsing ved kjeding (chaining)
    - Kan brukes i hashing. Bare en bedre system for å bruke det.
    - Som bucket sort. Plasserer alle i samme "bøtte" om de får samme genererte indeks.
