@@ -138,14 +138,14 @@ Med notater fra forelesninger og eksamensperiode
    - Merge sort:
      <pre>
      Merge(A, p, q, r)
-       1 Copier L til R
-       2 <b>for</b> k = p <b>til</b> r
-       3       <b>if</b> L[i] <= R[j]
-       4             A[k] = L[i]
-       5             i++
-       6       <b>else</b> A[k] = R[j]
-       7            j++
-       </pre>
+     1 Copier L til R
+     2 <b>for</b> k = p <b>til</b> r
+     3       <b>if</b> L[i] <= R[j]
+     4           A[k] = L[i]
+     5           i++
+     6       <b>else</b> A[k] = R[j]
+     7           j++
+     </pre>
    - Litt grunnleggende:
      - `log(x^(log(y))) = log(y^(log(x)))`
      - `2^log₃(n) = n^log₃(2)`
