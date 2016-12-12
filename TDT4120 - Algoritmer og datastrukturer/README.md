@@ -153,10 +153,53 @@ Med notater fra forelesninger og eksamensperiode
 ### Forelesning 4 - Rangering i lineær tid
  - [x] Forstå hvorfor sammenligningsbasert sortering har en worst-case på Ω(n lg n)
  - [x] Vite hva en stabil sorteringsalgoritme er
+   - Det er en algoritme som bevarer rekkefølgen basert på et sorteringskriterie.
+   - Eks:
+     - { (B, 2), (C, 2), (A, 1), (B, 1) }
+     - => (sorterer på **første** nøkkel-verdi)
+     - { (A, 1), (B, 2), (B, 1), (C, 2) }
  - [x] Forstå Counting-Sort, og hvorfor den er stabil
+   - Eksempel:
+     - `list = [ 0a, 4a, 1a, 2a, 4b, 1b ]`
+     - Lager først en liste fra max til min verdier som forekommer.
+     - `min = 0, max = 4`
+     - `countings = [0] * (max - min)`
+     - Så teller den forekomster i den nye listen. Indeksen er tallene.
+     - `countings = [ 1, 2, 1, 0, 2 ]`
+     - Denne listen med countings viser nå plasseringer relativt til hverandre.
+     - Vi vil ha absolutt verdier, så vi ikke er avhengig av tidligere, så vi oppdaterer den slik:
+     - `countings = [ 1, 3, 4, 4, 6 ]`
+     - Lager en liste med lik lengde som `list`. Her skal den ferdige listen lages.
+     - `new_list = [null] * (max - min)`
+     - Så for hvert element i `list`, går vi enkelt i `countings` og finner posisjonen:
+     - `1b ligger i countings[1]. countings[1] = 3 - ergo er 1b i posisjon 3`
+     - `countings[1] -= 1`
+     - `4b ligger i countings[4]. countings[4] = 6 - ergo er 1b i posisjon 3`
+     - `countings[3] -= 1`
+     - Etter å legge inn de 2 bakerste elementene er `countings` listen slik:
+     - `countings = [ 1, 2, 4, 4, 5 ]`
+     - Vi itererer gjennom hele og ender opp med:
+     - `list = [ 0a, 4a, 1a, 2a, 4b, 1b ]`
+     - `new_list = [ 0a, 1a, 1b, 2a, 4a, 4b ]`
+     - `countings = [ 0, 1, 3, 4, 4 ]`
+   - Eksempelet viser også at algoritmen er stabil.
+     - Viktig å gå bakover når man skal plukke ut elementer til den nye listen, eller blir den ustabil.
  - [x] Forstå Radix-Sort, og hvorfor den trenger en stabil subrutine
+   - Den sorterer på f.eks. først enere, så tiere osv.
+   - Den sorterer like mange ganger som det er nøkler å basere seg på.
+     - Altså er det tall, som det i dette faget er, blir dette antall siffere på det høyeste tallet.
+   - Om den ikke er stabil vil alle de tidligere sorteringene feile. Den er avhengig av tidligere sorteringer.
  - [x] Forstå Bucket-Sort
+   - Eksempel:
+     - Du har 10 bøtter.
+     - Du vet du skal sortere tall mellom 1 og 10.
+     - Du kan så putte elementene i hver sin bøtte
+     - Så bygge opp resultatet ved å ta ut tallene fra bøttene i riktig rekkeføge.
+   - Vil ikke sortere grunntigere enn bøttene.
+   - Krever en del RAM (Minne), pga antall bøtter kan bli ganske mange.
+   - Er stabil. Den bygger en stack i hver bøtte. Så først inn - sist ut.
  - [x] Forstå Randomized-Select
+   - 
  - [x] Forstå Select
    - Notater:
      <pre>
