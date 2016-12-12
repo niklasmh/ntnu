@@ -24,23 +24,28 @@
    - 1023 merge-operasjoner
 
 ## Oppgave 3:
- - a) **Uttrykket 65n4 + 3n3 + 43n2 + 23n + 45 er: (5 %)**
-   - Alle alternativene over
- - b) **Uttrykket n3 + logn er: (5 %)**
-   - Ingen av alternativene over
- - c) **Uttrykket 15n er: (5 %)**
+ - a) **Uttrykket 65n⁴ + 3n³ + 43n² + 23n + 45 er: (5 %)**
+   - *O(n⁴)*
+   - *Θ(n⁴)*
+   - *Ω(n⁴)*
+   - Alle alternativene over ✓
+ - b) **Uttrykket n³ + logn er: (5 %)**
+   - *o(n³)*
+   - *ω(n³)*
+   - Ingen av alternativene over ✓
+ - c) **Uttrykket 15ⁿ er: (5 %)**
    - O((log n)n)
- - d) **Uttrykket 6(n/2)4 + sqrt(n)logn + 1 (sqrt = kvadratrot) er: (5 %)**
-   - Θ(n4)
- - e) **Uttrykket 3nlog3n er: (5 %)**
-   - Θ(nlog2n)
- - f) **Uttrykket n1+sin(n) er: (5 %)**
-   - Bare O(n2)
+ - d) **Uttrykket 6(n/2)⁴ + sqrt(n)logn + 1 (sqrt = kvadratrot) er: (5 %)**
+   - Θ(n⁴)
+ - e) **Uttrykket 3nlog₃n er: (5 %)**
+   - Θ(nlog₂n)
+ - f) **Uttrykket n^(1+sin(n)) er: (5 %)**
+   - Bare O(n²)
  - g) **Hvilket av uttrykkene stiger raskest? (5 %)**
    - n!
 
 ## Oppgave 4:
-gjørNoe(n) har kjøretid Θ(n2) for alle oppgavene.
+gjørNoe(n) har kjøretid Θ(n²) for alle oppgavene.
 
 ```python
 def function1(n):
@@ -62,8 +67,8 @@ def function3(n):
 ```
 
  - a) **Hva er kjøretiden til function1(n)? (5 %)**
-   - Θ(n5)
+   - Θ(n⁵)
  - b) **Hva er kjøretiden til function2(n)? (5 %)**
-   - Θ(n3)
+   - Θ(n³)
  - c) **Hva er kjøretiden til function3? (5 %)**
    - Den vil aldri stoppe
