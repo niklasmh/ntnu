@@ -934,8 +934,16 @@ Med notater fra forelesninger og eksamensperiode
      - Maksimer flyt fra s til t!
  - [x] Kunne håndtere antiparallelle kanter og flere kilder og sluk
  - [x] Kunne definere residualnettverket til et nettverk med en gitt flyt
+   - Residualnettverket:
+     - Fremoverkant ved ledig kapasitet.
+     - Bakoverlent ved flyt.
  - [x] Forstå hvordan man kan oppheve (cancel) flyt
+   - Vi kan sende flyt baklengs langs kanter der det alt går flyt.
+   - Vi opphever da flyten, så den omdirigeres til et annet sted.
+   - Det er dette bakoverkantene i residualnettverket representerer.
  - [x] Forstå hva en forøkende sti (augmenting path) er
+   - Flytforøkende sti er når det er mer flyt igjen i nettverket.
+   - **Hetland def: En sti i residualnettverket der vi kan sende mer flyt.**
  - [x] Forstå hva snitt, snitt-kapasitet og minimalt snitt er
  - [x] Forstå maks-flyt/min-snitt-teoremet
  - [x] Forstå Ford-Fulkerson
