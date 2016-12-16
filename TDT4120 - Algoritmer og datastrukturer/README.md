@@ -945,12 +945,16 @@ Med notater fra forelesninger og eksamensperiode
    - Flytforøkende sti er når det er mer flyt igjen i nettverket.
    - **Hetland def: En sti i residualnettverket der vi kan sende mer flyt.**
  - [x] Forstå hva snitt, snitt-kapasitet og minimalt snitt er
+   - Deler opp nettverket. Gjerne for å se hvor flaskehalsene ligger.
+   - Summen av alle kanter som går fra S til T er kapasiteten til nettverket hittil.
+   - Netto flyt i nettverket i et snitt er S til T flyt minus T til S flyt.
  - [x] Forstå maks-flyt/min-snitt-teoremet
  - [x] Forstå Ford-Fulkerson
    - Finn økende stier så lenge det går.
+   - Kan ikke ha negative sykler.
    - Deretter er flyten maksimal.
    - Generell metode, ikke en algoritme.
-   - Om vi bruker BFS: «Edmonds-Karp».
+   - Om vi bruker BFS: «Edmonds-Karp» - som ikke kan ha negative kanter.
    - Normalt implementasjon:
      - Finn økende sti først
      - Finn så flaskehalsen i stien
@@ -1025,7 +1029,15 @@ Med notater fra forelesninger og eksamensperiode
      <b>Totalt: O(VE²)</b>
      </pre>
  - [x] Forstå hvordan maks-flyt kan finne en maksimum bipartitt matching
+   - Matching: Delmengde M ⊆ E for en urettet graf *G = (V, E)*
+     - Ingen av kantene i M deler noder.
+     - Bipartitt matching: M matcher partisjonene.
  - [x] Forstå heltallsteoremet
+   - For heltallskapasiteter gir Ford-Fulkerson heltallsflyt.
+   - Anvendelse i bipartitt matching:
+     - Nyreeksempel.
+     - Kanter for kapasitet 1.
+     - Donoer er kilder og resipienter er sluk.
 
 ### Forelesning 13 - NP-kompletthet
  - [x] Forstå sammenhengen mellom optimerings- og beslutnings-problemer
