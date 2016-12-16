@@ -466,6 +466,11 @@ Med notater fra forelesninger og eksamensperiode
      - `000 001 001 000 001 01 001 1 (uten mellomrom)`
      - Prefix hindrer lesing fra å kunne kombineres med andre tegn.
  - [x] Forstå bevismetoden bevis ved fortrinn (exchange arguments) ∗
+   - Exchange arguments.
+   - Betrakt en vilkårlig løsning og gradvis tranformer den til en gårdig enn, uten å miste kvaliteten.
+     - Den grådige blir nå minst like god som alle andre.
+   - Prøv selv med aktiviteter med varighet og dealine hvor du alltid velger den som slutter tidligst.
+     - Eksempel i "Notater" (2 linjer under denne).
  - [x] Forstå bevismetoden bevis ved forsprang (staying ahead) ∗
  - Notater:
    - Aktivitetsutvalg (tabell), start på første slutt (her: 0-**2**):
