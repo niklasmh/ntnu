@@ -452,6 +452,7 @@ Med notater fra forelesninger og eksamensperiode
  - [x] Forstå grådighetsegenskapen (the greedy-choice property)
    - Grådighetsegenskapen:
      - Vi kan velge det som ser best ut, her og nå.
+     - **Vi kan finne en global optimal løsning ved å ta lokalt optimale valg.**
    - Optimal substruktur:
      - En optimal løsning bygges av optimale delløsninger.
    - `Grådig valg + optimal delløsning => optimal løsning`
@@ -631,7 +632,7 @@ Med notater fra forelesninger og eksamensperiode
    - Gir nodene en rekkefølge.
    - Foreldre før barn.
    - Evt.: Alle kommer etter avhengigheter.
-   - Krevevr DAG (dvs. velfundert)!
+   - Krevevr DAG (dvs. velfundert)! (Directed Acyclic Graph)
    - Ex:
      <pre>
 . . . . +------------+. . . . . . .+------------+ . . . .
@@ -655,6 +656,7 @@ Med notater fra forelesninger og eksamensperiode
 . . . . . . . . . . . . . . . . . .+------------+ . . . .
      </pre>
  - [x] Forstå hvordan DFS kan implementeres med en stakk ∗
+   - Stack <=> Rekursjon. Implementeres med en callstack.
  - [x] Forstå hva traverseringstrær (som bredde-først- og dybde-først-trær) er
  - [x] Forstå traversering med vilkårlig prioritetskø ∗ 
 
