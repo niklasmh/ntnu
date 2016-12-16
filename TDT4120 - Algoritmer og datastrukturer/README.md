@@ -447,7 +447,18 @@ Med notater fra forelesninger og eksamensperiode
 
 ### Forelesning 7 - Grådige algoritmer
  - [x] Forstå designmetoden grådighet
+   - Løs det mest lovende delproblemet rekursivt.
+   - Bygg løsningen på denne delløsningen.
  - [x] Forstå grådighetsegenskapen (the greedy-choice property)
+   - Grådighetsegenskapen:
+     - Vi kan velge det som ser best ut, her og nå.
+   - Optimal substruktur:
+     - En optimal løsning bygges av optimale delløsninger.
+   - `Grådig valg + optimal delløsning => optimal løsning`
+   - Trinn for å identifisere.
+     1. Globalt opmalitetskriterium.
+     2. Lokalt opmalitetskriterium.
+     3. Kontruksjontrinn. Ny lokalt optimum i hvert trinn. Det skal lede til et globalt et.
  - [x] Forstå eksemplene aktivitet-utvelgelse og det fraksjonelle ryggsekkproblemet
  - [x] Forstå Huffman og Huffman-koder
    - `abbabcad` i bits
