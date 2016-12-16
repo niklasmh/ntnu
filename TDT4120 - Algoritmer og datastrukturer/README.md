@@ -1262,15 +1262,15 @@ Antar den bruker counting-sort. Så den bruker counting-sort-algoritmen like man
 ## Kjøretider
 <pre>
 Algoritme . . . . . . . Best case . Average case . Worst case
-<b>Insertion sort</b>. . . . . O(n). . . . O(n²). . . . . O(n²)
+<b>Insertion sort</b>. . . . . Θ(n). . . . Θ(n²). . . . . Θ(n²)
 <b>Selection sort</b>. . . . . O(n²) . . . O(n²). . . . . O(n²)
-<b>Merge sort</b>. . . . . . . O(nlgn) . . O(nlgn). . . . O(nlgn)
-<b>Heapsort</b>. . . . . . . . O(nlgn) . . O(nlgn). . . . O(nlgn)
-<b>Quicksort</b> . . . . . . . O(nlgn) . . O(nlgn). . . . O(n²)
+<b>Merge sort</b>. . . . . . . Θ(nlg(n)) . Θ(nlg(n)). . . Θ(nlg(n))
+<b>Heapsort</b>. . . . . . . . O(nlg(n)) . O(nlg(n)). . . O(nlg(n))
+<b>Quicksort</b> . . . . . . . Θ(nlg(n)) . Θ(nlg(n)). . . Θ(n²)
 <b>Bubble sort</b> . . . . . . O(n). . . . O(n²). . . . . O(n²)
-<b>Bucket sort</b> . . . . . . O(n+k). . . O(n+k) . . . . O(n²)
-<b>Counting sort</b> . . . . . O(n+k). . . O(n+k) . . . . O(n+k)
-<b>Radix sort</b>. . . . . . . O(d(n+k)) . O(d(n+k)). . . O(d(n+k))
+<b>Bucket sort</b> . . . . . . Θ(n+k). . . Θ(n+k) . . . . Θ(n²)
+<b>Counting sort</b> . . . . . Θ(n+k). . . Θ(n+k) . . . . Θ(n+k)
+<b>Radix sort</b>. . . . . . . Θ(d(n+k)) . Θ(d(n+k)). . . Θ(d(n+k))
 <b>Select</b>. . . . . . . . . O(n). . . . O(n) . . . . . O(n)
 <b>Randomized select</b> . . . O(n). . . . O(n) . . . . . O(n²)
 </pre>
