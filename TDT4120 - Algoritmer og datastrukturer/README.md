@@ -1222,7 +1222,11 @@ Med notater fra forelesninger og eksamensperiode
      - . . . og dermed også et (|V| - k)-nodedekke
      - Samme resonnement holder i motsatt retning
    - HAM-CYCLE
+     - Vi reduserer VERTEX-COVER ≤ₚ HAM-CYCLE.
+     - VERTEX-COVER dekker problemene HAM-CYCLE møter på da den skal bestemme den ene veien gjennom alle nodene.
    - TSP
+     - Vi kan redusere HAM-CYCLE ≤ₚ TSP.
+     - TSP er? korteste HAM-CYCLE.
  - [x] Forstå NP-kompletthetsbevisene for disse problemene
  - [x] Forstå at 0-1-ryggsekkproblemet er NP-hardt
  - [x] Forstå at lengste enkle-vei-problemet er NP-hardt
