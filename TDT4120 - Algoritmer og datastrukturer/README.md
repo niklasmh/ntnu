@@ -251,6 +251,14 @@ Med notater fra forelesninger og eksamensperiode
      6     y = y.p
      7     return y
      </pre>
+   - Traversering
+     <pre>
+     Inorder-Walk(x)
+     1 if x != NIL
+     2      Inorder-Walk(x.left)
+     3      print x.key
+     4      Inorder-Walk(x.right)
+     </pre>
  - [x] Forstå flere ulike operasjoner på binære søketrær, ut over bare søk
    - Insetting
      <pre>
