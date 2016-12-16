@@ -1171,6 +1171,7 @@ Med notater fra forelesninger og eksamensperiode
 # Sorteringsalgoritmer i pensum
 
 **In-place:** Bruker eksisterende struktur uten å lage en ny kopi.
+
 **Stabil:** Like elementer blir "samlet" i samme rekkefølge som før sortering.
 
 ### Insertion sort
