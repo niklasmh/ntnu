@@ -824,8 +824,8 @@ Med notater fra forelesninger og eksamensperiode
      1 topologically sort the vertices of G
      2 Initialize-Single-Source(G, s)
      3 for each vertex u, in topsort order
-     4 for each vertex v 2 G.Adj[u]
-     5 Relax(u, v, w)
+     4     for each vertex v 2 G.Adj[u]
+     5         Relax(u, v, w)
      </pre>
    - Kjøretid:
      <pre>
@@ -881,6 +881,7 @@ Med notater fra forelesninger og eksamensperiode
    - Bellman Ford:
      - Kjøretid = Θ(V²E)
  - [x] Forstå Floyd-Warshall
+   - Kjøretid: Θ(n³)
    - Den oppdager negative sykler.
    - Eksempel (med rettet graf):
      <pre>
@@ -897,13 +898,13 @@ Med notater fra forelesninger og eksamensperiode
      [i-2 0 i]
      [i-2 4 0]
 
-     PI^(0) =
+     π^(0) =
      [- - 1 1]
      [2 - 2 -]
      [- 3 - -]
      [- 4 4 -]
 
-     PI^(4) =
+     π^(4) =
      [- 4 2 1]
      [2 - 2 1]
      [2 2 - 1]
