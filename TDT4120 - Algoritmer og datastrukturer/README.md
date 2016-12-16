@@ -203,6 +203,7 @@ Med notater fra forelesninger og eksamensperiode
    - Er stabil. Den bygger en stack i hver bøtte. Så først inn - sist ut.
  - [x] Forstå Randomized-Select
    - Velger heller en random pivot for å unngå worst-case O(n²).
+   - En hybrid av Quicksort og binærsøk.
  - [x] Forstå Select
    - Notater:
      <pre>
@@ -229,8 +230,17 @@ Med notater fra forelesninger og eksamensperiode
 
 ### Forelesning 5 - Rotfaste trestrukturer
  - [x] Forstå hvordan heaps fungerer, og hvordan de kan brukes som prioritetskøer
+   - Trestruktur slik at man kan akksessere elementene i O(lg(n)) tid.
  - [x] Forstå Heapsort
+   - Steg
+     - Build-max-heap O(n)
+     - Extract-max O(log(n)) - fordi trestrukturen.
+     - Max-heapify O(log(n))
+     - Max-heap-insert O(log(n))
+     - Heap-increase-key O(log(n))
+     - Heap-maximum Θ(1) - Velger bare den første noden (rotnoden, som også er først i stacken).
  - [x] Forstå hvordan binære søketrær fungerer
+   - Fungerer ofte rekursivt mtp. hvordan trærene kan enkelt deles opp i to.
      <pre>
      Successor(x)
      1 if x.right != NIL
