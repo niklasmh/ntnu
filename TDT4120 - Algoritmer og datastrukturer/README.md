@@ -669,13 +669,15 @@ Med notater fra forelesninger og eksamensperiode
      - Topologisk sortering
    - Minimale:
      - Disjunkte mengder
-     - Generisk MST
+     - Generisk MST (Minimal Spanning Tree)
      - Kruskals algoritme
      - Prims algoritme
    - Spenntrær:
-     - 
+     - Sammenhengene spennskog.
+       - Spennskog: Dekkende skog eller asyklisk spenngraf.
    - Disjunkte mengder:
-     - Union by rank
+     - Union by rank-keuristikk
+       - Rang er øvre grense for node høyde.
      - m operasjoner: O(m*a(n))
      - Sette varablene
        <pre>
@@ -704,7 +706,8 @@ Med notater fra forelesninger og eksamensperiode
        3 <b>return</b> x.p
        </pre>
  - [x] Forstå Generic-MST
-   - ###
+   - Knytter sammen nodene i en graf på billigs mulig måte.
+   - Kan ha negative kanter, men krever at "MST" blir asyklisk.
  - [z] Forstå hvorfor lette kanter er trygge kanter
    - Kantklassifiseringer:
      - Tre-kanter
@@ -723,6 +726,7 @@ Med notater fra forelesninger og eksamensperiode
    - Møter en svart node:
      - Forover- eller krysskant
  - [x] Forstå MST-Kruskal
+   - En kant med minimal vekt blant de gjenværende er trygg så lenge den ikke danner sykler.
    - Algoritme:
      <pre>
      MST-Kruskal(G, w)
@@ -747,6 +751,7 @@ Med notater fra forelesninger og eksamensperiode
      |E| < |V|² => lg|E| < 2 lg|V| => lgE = O(lgV)
      </pre>
  - [x] Forstå MST-Prim
+   - Bygger et tre gradvis; en lett kant over snittet rundt treet er alltid trygg.
    - Hva det er:
      - Kan implementeres vha. traversering
      - Der BFS bruker FIFO og DFS bruker LIFO, så bruker Prim en min-prioritets-kø
