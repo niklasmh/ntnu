@@ -1223,3 +1223,19 @@ Antar den bruker counting-sort. Så den bruker counting-sort-algoritmen like man
    - Må lage nye "bøtter" som blir en ny datastruktur i minnet.
  - [x] Stabil.
    - Njæææ, både og, ikke opplagt. Øvingsfoiler sier ja. Kan basere oss på det siden boka også sier den bruker insertion-sort på hver bøtte - som også er stabil. En del YouTube-videoer sier også at den er stabil.
+
+## Kjøretider
+<pre>
+Algoritme . . . . . . . Best case . Average case . Worst case
+<b>Insertion sort</b>. . . . . O(n). . . . O(n²). . . . . O(n²)
+<b>Selection sort</b>. . . . . O(n²) . . . O(n²). . . . . O(n²)
+<b>Merge sort</b>. . . . . . . O(nlgn) . . O(nlgn). . . . O(nlgn)
+<b>Heapsort</b>. . . . . . . . O(nlgn) . . O(nlgn). . . . O(nlgn)
+<b>Quicksort</b> . . . . . . . O(nlgn) . . O(nlgn). . . . O(n²)
+<b>Bubble sort</b> . . . . . . O(n). . . . O(n²). . . . . O(n²)
+<b>Bucket sort</b> . . . . . . O(n+k). . . O(n+k) . . . . O(n²)
+<b>Counting sort</b> . . . . . O(n+k). . . O(n+k) . . . . O(n+k)
+<b>Radix sort</b>. . . . . . . O(d(n+k)) . O(d(n+k)). . . O(d(n+k))
+<b>Select</b>. . . . . . . . . O(n). . . . O(n) . . . . . O(n)
+<b>Randomized select</b> . . . O(n). . . . O(n) . . . . . O(n²)
+</pre>
