@@ -1266,13 +1266,13 @@ Med notater fra forelesninger og eksamensperiode
    - Tar ikke hensyn til rekkefølge ettersom den baserer seg på en heap.
 
 ### Radix sort
-Antar den bruker counting-sort. Så den bruker counting-sort-algoritmen like mange ganger som siffer. Tar inn n elementer med d siffer.
+Antar den bruker counting-sort eller merge-sort. Så den bruker counting-sort/merge-sort-algoritmen like mange ganger som siffer. Tar inn n elementer med d siffer innenfor et k intervall.
  - [ ] Sammenligningsbasert.
  - [ ] Split og hersk.
  - [ ] In-place.
    - Bruker counting-sort.
  - [x] Stabil.
-   - Fordi counting-sort er stabil. Feiler om counting-sort ikke er stabil.
+   - Fordi counting-sort og merge-sort er stabil. Feiler om counting-sort eller merge-sort ikke er stabil.
 
 ## Kjøretider
 <pre>
