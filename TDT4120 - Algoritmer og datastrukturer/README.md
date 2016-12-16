@@ -1167,3 +1167,58 @@ Med notater fra forelesninger og eksamensperiode
             - ∃xP(x) | P(y)
         - E!xP(x):
             - xP(x)  ∀x∀y((P(x) ∧ P(y)) ⇒ x = y)
+
+# Sorteringsalgoritmer i pensum
+
+**In-place:** Bruker eksisterende struktur uten å lage en ny kopi.
+**Stabil:** Like elementer blir "samlet" i samme rekkefølge som før sortering.
+
+### Insertion sort
+ - [x] In-place.
+   - Bytter på to og to elementer.
+ - [x] Stabil.
+   - Vil aldri flytte to like elementer forbi hverandre, uansett om man starter foran eller bak.
+
+### Merge sort
+
+ - [ ] In-place.
+   - Pensum diskuterer ikke hvordan man kan gjøre den in-place.
+ - [x] Stabil.
+   - Bare hvis den alltid velger element fra venstre halvdel om elementene er like.
+
+### Heapsort
+
+ - [x] In-place.
+   - Bruker eksisterende tre til å swappe elementer.
+ - [ ] Stabil.
+   - Tar ikke hensyn til rekkefølge ettersom den baserer seg på en heap.
+
+### Quicksort
+
+Sammenligningsbasert sorteringsalgoritme, bruker split og hersk.
+ - [x] In-place.
+   - Den er rekursiv og "møblerer" om på elementene i returneringsfasen av algoritmen.
+ - [ ] Stabil.
+   - Kan gjøres stabil, men mer effektiv uten.
+
+### Counting sort
+
+ - [ ] In-place.
+   - Den lager en ny tabell med linker til de nye elementene som "injectes" på riktig plass i telle-tanke-systemet.
+ - [x] Stabil.
+   - Ifølge boka, som også er pensum. Må være stabil for å brukes i radix-sort.
+
+### Radix sort
+
+Antar den bruker counting-sort. Så den bruker counting-sort-algoritmen like mange ganger som siffer.
+ - [ ] In-place.
+   - Bruker counting-sort.
+ - [x] Stabil.
+   - Fordi counting-sort er stabil. Feiler om counting-sort ikke er stabil.
+
+### Bucket sort
+
+ - [x] In-place.
+   - Må lage nye "bøtter" som blir en ny datastruktur i minnet.
+ - [x] Stabil.
+   - Njæææ, både og, ikke opplagt. Øvingsfoiler sier ja. Kan basere oss på det siden boka også sier den bruker insertion-sort på hver bøtte - som også er stabil. En del YouTube-videoer sier også at den er stabil.
