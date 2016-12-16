@@ -1196,7 +1196,7 @@ Med notater fra forelesninger og eksamensperiode
 
 # Sorteringsalgoritmer i pensum
 
-**Sammenligningsbasert:** Sammenligner to elementer for å se hvem som skal stå først i sekvensen. Her er algoritmene begrenset av O(nlgn) som nedre kjøretid.
+**Sammenligningsbasert:** Sammenligner to elementer for å se hvem som skal stå først i sekvensen. Her er algoritmene begrenset av Ω(nlgn) som nedre kjøretid.
 
 **Split og hersk:** Deler opp sekvensen i mindre biter for å få kontroll over listen.
 
