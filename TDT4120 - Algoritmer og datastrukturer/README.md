@@ -262,7 +262,7 @@ Med notater fra forelesninger og eksamensperiode
  - [x] Forstå flere ulike operasjoner på binære søketrær, ut over bare søk
    - Insetting
      <pre>
-     Insert(T, z)
+     Tree-Insert(T, z)
      1 y = NIL
      2 x = T.root
      3 <b>while</b> x != NIL
@@ -277,9 +277,9 @@ Med notater fra forelesninger og eksamensperiode
      12    y.left = z
      13 <b>else</b> y.right = z
      </pre>
-   - Transplant - brukes i ved sletting
+   - Transplant - brukes ved sletting
    - <pre>
-     Transplant(T, u, v)
+     Tree-Transplant(T, u, v)
      1 <b>if</b> u.p == NIL
      2     T.root = v
      3 <b>elseif</b> u == u.p.left
@@ -290,7 +290,7 @@ Med notater fra forelesninger og eksamensperiode
      </pre>
    - Sletting
    - <pre>
-     Delete(T,z)
+     Tree-Delete(T,z)
      1 <b>if</b> z.left == NIL
      2     Transp(T, z, z.right)
      3 <b>elseif</b> z.right == NIL
@@ -310,11 +310,11 @@ Med notater fra forelesninger og eksamensperiode
  - <pre>
    <b>Algoritme</b>          <b>Kjøretid</b>
    Inorder-Tree-Walk  Θ(n)
-   Tree-Search        O(n)
-   Tree-Minimum       O(n)
-   Tree-Successor     O(n)
-   Tree-Insert        O(n)
-   Tree-Delete        O(n)
+   Tree-Search        O(h)
+   Tree-Minimum       O(h)
+   Tree-Successor     O(h)
+   Tree-Insert        O(h)
+   Tree-Delete        O(h)
    </pre>
 
 ### Forelesning 6 - Dynamisk programmering
