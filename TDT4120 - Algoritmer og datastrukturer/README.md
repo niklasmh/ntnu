@@ -1048,12 +1048,44 @@ Med notater fra forelesninger og eksamensperiode
      - x ∉ L → A(x) = 1
  - [x] Forstå koding (encoding) av en instans
  - [x] Forstå hvorfor løsningen vår på 0-1-ryggsekkproblemet ikke er polynomisk
+   - DP-løsning har kjøretid *T(n, T) = Θ(nW)*
+   - Encoding:
+     - For enkelthetskyld, la oss si vi bruker Θ(n) bits på objektene. En rimelig encoding vil bruke Θ(m) bits på kapasiteten, *der m = lgW*
+   - Polynomisk? **Nei!** Den må kunne skrives som *T(n, m) = Θ(n2ᵐ)*
  - [x] Forstå forskjellen på konkrete og abstrakte problemer
  - [x] Forstå representasjonen av beslutningsproblemer som formelle språk
  - [x] Forstå definisjonen av klassen P
+   - Dette er språkene som kan avgøres i polynomisk tid.
+   - Det er disse problemene vi kan løse i praksis. (Cobham's tese.)
  - [x] Forstå definisjonen av klassene NP og co-NP
- - [x] Forstå redusibilitets-relasjonen ≤P
+   - Nondeterministic Polynomial Time
+   - NP: Språkene som kan **verifiseres** i polynomisk tid.
+     - HAM-CYCLE:
+       - Språket for Hamilton-sykel-problemet.
+       - HAM-CYCLE ∈ **NP**
+       - Lett å verifisere i polynomisk tid. Ikke alltid like lett å falsifisere.
+   - co-NP: Språkene som kan *falsifiseres* i polynomisk tid.
+     - L ∈ **co-NP** ↔ L(overline) ∈ **NP**
+     - Tautologi!
+ - [x] Forstå redusibilitets-relasjonen ≤ₚ
+   - Pensum ser på many-one-reduksjoner (Karp-reduksjoner).
+   - Hvis A kan reduseres til B, skriver vi: `A ≤ₚ B`
+   - `≤ₚ` er en preordning.
+   - Hardhetsbevis:
+     - Vise at B er vanskelig => Reduser fra et vanskelig prblem A => etabler `A ≤ₚ B`.
  - [x] Forstå definisjonen av NP-hardhet og NP-kompletthet
+   - Kompletthet:
+     - Et problem er komplett for en gitt klasse og en gitt type reduksjoner dersom det er maksimalt for redusibilitetsrelasjonen.
+     - Dette er altså de vanskeligste i klassen **NP**.
+   - Maksimalitet:
+     - Et element er maksimalt dersom alle andre mindre eller lik.
+     - For reduksjoner: Q er maksimalt dersom alle problemer i klassen kan reduserer til Q.
+   - NPC:
+     - De komplette språkene i NP, under polynomiske reduksjoner.
+   - NP-hardhet:
+     - Et problem Q er NP-hardt dersom alle problemer i NP kan reduseres til det.
+     - Alle i NP-hard er altså way over alle i NP - og er ikke i NP.
+     - NP-komplett (NPC) er samme problemer, men som finnes i NP.
  - [x] Forstå den konvensjonelle hypotesen om forholdet mellom P, NP og NPC
  - [x] Forstå hvorfor CIRCUIT-SAT er NP-komplett 
  - Notater:
@@ -1069,7 +1101,7 @@ Med notater fra forelesninger og eksamensperiode
        - Travellting Salesman: Gitt en vektet graf G og et heltall K. Finnes det en sukel som besøker alle noder en gang og har total vekt mindre enn ...
    - Problemklasser:
      - Beslutningsproblemer som kan løses i polynomisk tid sier vi at tilhører P.
-     - Polynomisk tid: O()
+     - Polynomisk tid: O(n2ᵐ)
      - Beslutningsproblemer hvor en gikk løsning kan verifiseres i polynomisk tid sier vi at tilhører **NP**:
      - Verifisere: A sjekke om en gitt lønsning på et problem er en gyldig løsning av problemet.
      - Det store spm: Er elle problemene i NP også i P?
@@ -1080,7 +1112,7 @@ Med notater fra forelesninger og eksamensperiode
        - Se fordet at vi har et annet problem B som vi **vet** er i NPC. Hvis vi klarer å vise at A er like vanskelig eller vanskeligere enn B, så vet vi at A også er i NPC.
        - Formelt betyr dette at om vi finner en polynomisk tid reduksjon fra B til A så har vi vist at A er i NPC
    - Problemet er i NP
-   - Alle andre problem i NP kan reduseres til dette probleme i polynomisk tid.
+   - Alle andre problem i NP kan reduseres til disse problemene i polynomisk tid.
    - Fra Clique til Independent Set.
      - Clique: Gitt en graf G og et heltall K. Finnes det en delmengde med noder i G av størrelse K hvor alle nodene er naboer?
      - Independent Set: Gitt en graf G og et heltall K. Finnes det en delmende med noder i G av størrelse K hvor ingen av nodene er naboer?
@@ -1088,7 +1120,6 @@ Med notater fra forelesninger og eksamensperiode
      - Vi ønsker å finne ut: Er Independent Set i NPC?
        - Er Independent Set i NP?
        - Kan vi redusere Clique til Independent Set i polynomisk tid?
-
 
 ### Forelesning 14 - NP-komplette problemer
  - [x] Forstå hvordan NP-kompletthet kan bevises ved én reduksjon
