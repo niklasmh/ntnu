@@ -1041,6 +1041,11 @@ Med notater fra forelesninger og eksamensperiode
 
 ### Forelesning 13 - NP-kompletthet
  - [x] Forstå sammenhengen mellom optimerings- og beslutnings-problemer
+   - Selv om L er språket som aksepteres av A, så trenger ikke A avgjøre L, siden den kan la være a svare for nei-instanser (ved å aldri terminere)
+   - Den avviser x dersom A(x) = 0
+   - Den avgjør et språk L dersom:
+     - x ∈ L → A(x) = 1
+     - x ∉ L → A(x) = 1
  - [x] Forstå koding (encoding) av en instans
  - [x] Forstå hvorfor løsningen vår på 0-1-ryggsekkproblemet ikke er polynomisk
  - [x] Forstå forskjellen på konkrete og abstrakte problemer
