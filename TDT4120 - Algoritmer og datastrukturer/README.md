@@ -319,18 +319,20 @@ Med notater fra forelesninger og eksamensperiode
 
 ### Forelesning 6 - Dynamisk programmering
  - [x] Forstå ideen om en delproblemrelasjon eller delproblemgraf
+   - DP er nytting om man har overlappende delproblemer.
+   - Korrekt om man har optimal substruktur.
  - [x] Forstå induksjon over velfunderte relasjoner ∗
  - [x] Forstå designmetoden dynamisk programmering
    - Hva er <b>DP</b>?
-     - Karakterisere strukturen ...
-     - Rekursivt definere verdi ...
-     - Kalkuler verdi ...
-     - Konstruktør ...
+     1. **Karakterisere strukturen** av en optimal løsning.
+     2. **Rekursivt definere verdi** av den optimale løsningen.
+     3. **Kalkuler verdien** av en optimal løsning.
+     4. **Konstruer** en optimal løsning fra beregnet informasjon.
    - Oppskrift, <b>Sniedivich</b>
-     1. Embed your problem in a family of related problems
-     2. Derive a relationship between the solutions to these problems
-     3. Solve this relationship
-     4. Recover a solution to your problem from this relationship
+     1. **Embed** your problem in a family of related problems.
+     2. **Derive** a relationship between the solutions to these problems.
+     3. **Solve** this relationship.
+     4. **Recover** a solution to your problem from this relationship.
  - [x] Forstå løsning ved memoisering (top-down)
    - Nyttig når vi har overlappende løsninger.
    - Korrekt når vi har optimal substruktur.
@@ -437,6 +439,11 @@ Med notater fra forelesninger og eksamensperiode
        <b>t</b> | 8 | 0 | ↑ ↖ ↑ ↑ ↑ ↑ ↑ ↑ ⇖
        </pre>
  - [x] Forstå løsningen på 0-1-ryggsekkproblemet
+ - Eksempler på DP-problemer:
+   - Stavkutting.
+   - LCS (Longest Common Subsequence).
+   - Ryggsekk.
+   - Matrisekjede.
 
 ### Forelesning 7 - Grådige algoritmer
  - [x] Forstå designmetoden grådighet
