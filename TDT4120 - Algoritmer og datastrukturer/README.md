@@ -154,6 +154,7 @@ Med notater fra forelesninger og eksamensperiode
 
 ### Forelesning 4 - Rangering i lineær tid
  - [x] Forstå hvorfor sammenligningsbasert sortering har en worst-case på Ω(n lg n)
+   - De sammenligner to og to elementer.
  - [x] Vite hva en stabil sorteringsalgoritme er
    - Det er en algoritme som bevarer rekkefølgen basert på et sorteringskriterie.
    - Eks:
@@ -201,7 +202,7 @@ Med notater fra forelesninger og eksamensperiode
    - Krever en del RAM (Minne), pga antall bøtter kan bli ganske mange.
    - Er stabil. Den bygger en stack i hver bøtte. Så først inn - sist ut.
  - [x] Forstå Randomized-Select
-   - 
+   - Velger heller en random pivot for å unngå worst-case O(n²).
  - [x] Forstå Select
    - Notater:
      <pre>
