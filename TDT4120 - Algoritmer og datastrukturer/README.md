@@ -1217,6 +1217,7 @@ Med notater fra forelesninger og eksamensperiode
 ### Bucket sort
  - [ ] Sammenligningsbasert.
  - [ ] Split og hersk.
+   - Den er ikke rekursiv og splittes bare opp til to nivåer.
  - [x] In-place.
    - Må lage nye "bøtter" som blir en ny datastruktur i minnet.
  - [x] Stabil.
