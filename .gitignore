@@ -50,6 +50,10 @@ TDT4110*/*
 !TDT4110*/Code/
 !TDT4110*/Øvinger/
 
+# Programvareutvikling
+TDT4140*/*
+!TDT4140*/README.md
+
 # Databasemodellering og databasesystemer
 TDT4145*/*
 !TDT4145*/README.md
