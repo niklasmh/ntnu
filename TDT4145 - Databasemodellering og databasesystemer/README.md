@@ -1,6 +1,12 @@
 # Første del (Roger Midtstraum)
 ### Forelesning 1: (uke 2) – 9/1 Introduksjon til faget og databaser. . . . kap. 1 og 2
+ - Database:
+   - En samling av data.
+   - Erstatning for filer. Bygger på de mest brukte metodene man brukte for å lagre i filer; Søk, legge til, slette og oppdatere (CRUD).
 ### Forelesning 2: (uke 2) – 10/1 Datamodellering . . . . . . . . . . . . . kap. 3 og 4
+ - ER-modell (Entity Relationship Model):
+   - Beskriver datastrukturen og organiseringen av data som skal bygge en database.
+   - Kan bruke et ER-diagram for å beskrive relasjoner, fremmednøkler og primærnøkler, samt kolonner i tabeller.
 ### Forelesning 3: (uke 3) – 16/1 Datamodellering . . . . . . . . . . . . . kap. 3 og 4
 ### Forelesning 4: (uke 3) – 17/1 Relasjonsmodellen . . . . . . . . . . . . kap. 5
 ### Forelesning 5: (uke 4) – 23/1 Modelloversetting og Relasjonsalgebra . . kap. 9 og 8
