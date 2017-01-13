@@ -1,0 +1,32 @@
+# TDT4180 - Menneske-maskin interaksjon
+
+### Forelesning 1:
+ - Brukskvalitet (Også omtalt som brukervennelighet):
+   - Kvalitet:
+     - Evalueringkriterier - hvordan vurdere kvalitet.
+       - 4 C'er for diamanter:
+         - Cut
+         - Carat
+         - Color
+         - Clarity
+       - Skihopper:
+         - Lengde
+         - Stil
+       - Dataspill:
+         - Sjanger
+         - Historie
+         - Kontroll
+         - ...
+   - Eksempelvis vurderes mange mobiler ut ifra brukervennelighet.
+   - ISO 9241-11 (1998):
+     - Anvendbarhet:
+       - Grad av nøyaktighet og kompletthet.
+       - Klarer brukeren å løse oppgaven?
+     - Effektivitet:
+       - Ressursforbruk i forhold til kompletthet.
+       - Hvor mye tid brukes for å fremstille løsningen?
+     - Tilfredstillelse:
+       - Subjektiv opplevelse av designløsnngens egenhet.
+       - Hvordan oppleves designet av brukerene?
+   - Jacob Nielsen (1993):
+     - Grunnlagt mye teori bak brukskvalitet.
