@@ -83,6 +83,24 @@
      - Her er det også mulig å legge til en relasjon mellom Emne, Veileder og StudGruppe som heter VeilederGruppeEmne.
      - `{ (SGID, EID, VID), ... }`
      - Finnes ikke relasjoner som har relasjoner i dette faget.
+ - Svake entitetsklasse:
+   - Mangler "naturlig" nøkkel.
+   - Kan av og til identifisere gjennom relasjon til annen e-klasse.
+   - Eksempel:
+     <pre>
+. . . . . . . +-----+knr. . . . . . . . . . .
+. +-----------+ . . . . . . . . . . . . . . .
+. |Kommune. . | . . . . . . . . . . . . . . .
+. +-----------+ . . . . . . . . . . . . . . .
+. .(0,n)| . . | . . . . . . . . . . . . . . .
+. . . . | . . +-----+navn . . . . . . . . . .
+. . .HarGate. . . . . . . . . . . . . . . . .
+. . . . | . . . . . . . . . . . . . . . . . .
+. .(1,1)| . . . . . . . .*Unik.i.en kommune .
+. .+==========+ . . . . . . . . . . . . . . .
+. .|.Gate . . +----+_n_a_v_n_* . . . . . . . . . .
+. .+==========+ . . . . . . . . . . . . . . .
+     </pre>
 ### Forelesning 4: (uke 3) – 17/1 Relasjonsmodellen . . . . . . . . . . . . kap. 5
 ### Forelesning 5: (uke 4) – 23/1 Modelloversetting og Relasjonsalgebra . . kap. 9 og 8
 ### Forelesning 6: (uke 4) – 24/1 Relasjonsalgebra og SQL . . . . . . . . . kap. 6 og 8
