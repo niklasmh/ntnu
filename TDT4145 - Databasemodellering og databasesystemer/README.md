@@ -111,6 +111,7 @@
    7. e-klasse -> attr, rel.
    8. r-klasse spille slå sammen.
    9. attr. -> e-klasse/rel.
+
 ### Forelesning 4: (uke 3) – 17/1 Relasjonsmodellen . . . . . . . . . . . . kap. 5
 ### Forelesning 5: (uke 4) – 23/1 Modelloversetting og Relasjonsalgebra . . kap. 9 og 8
 ### Forelesning 6: (uke 4) – 24/1 Relasjonsalgebra og SQL . . . . . . . . . kap. 6 og 8
