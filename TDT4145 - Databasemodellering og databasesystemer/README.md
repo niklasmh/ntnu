@@ -57,7 +57,32 @@
      - Person = { Harald, Sonja, Erna, Siv, Børge }
      - Forhold = { (Harald, Sonja) }
      - Sjef = { (Harald, Erna), (Erna, Siv), (Erna, Børge) }
-
+ - Relasjoner av grad > 2:
+   - Eksempel:
+     <pre>
+. . . . . . . . . . . . . . . . +---------+ . . . . .
+. . . . . . . . . . . . . . . . | Student | . . . . .
+. . . . . . . . . . . . . . . . +---------+ . . . . .
+. . . . . . . . . . . . . . . . . . . |(0,n). . . . .
+. .+--------+ . . . . . . . . . . . . | . . . . . . .
+. .|Emne. . | . . . . . . . . . . . .DeltarIGruppe. .
+. .+--------+ . . . . . . . . . . . . | . . . . . . .
+. (0,n)|. . |(0,n). . . . . . . . . . | . . . . . . .
+. . . .|. . | . . . . . . . . . . . . | . . . . . . .
+. . . .|. .EmneBrukerGruppe . . . . . |(1,n). . . . .
+. . . .|. . | . . . . . . . . . . .+-----------+. . .
+. . . .|. . +----------------------+StudGruppe.|. . .
+. . . .|. . . . . . . . . . .(0,n).+-----------+. . .
+. . HarVeileder . . . . . . . . . . . . . . . . . . .
+. . . .|. . . . . . . . . . . . . . . . . . . . . . .
+. . . .|. . . . . . . . . . . . . . . . . . . . . . .
+. . . .|. +------------+. . . . . . . . . . . . . . .
+. . . .+--+ .Veileder .|. . . . . . . . . . . . . . .
+. . .(1,n)+------------+. . . . . . . . . . . . . . .
+     </pre>
+     - Her er det også mulig å legge til en relasjon mellom Emne, Veileder og StudGruppe som heter VeilederGruppeEmne.
+     - `{ (SGID, EID, VID), ... }`
+     - Finnes ikke relasjoner som har relasjoner i dette faget.
 ### Forelesning 4: (uke 3) – 17/1 Relasjonsmodellen . . . . . . . . . . . . kap. 5
 ### Forelesning 5: (uke 4) – 23/1 Modelloversetting og Relasjonsalgebra . . kap. 9 og 8
 ### Forelesning 6: (uke 4) – 24/1 Relasjonsalgebra og SQL . . . . . . . . . kap. 6 og 8
