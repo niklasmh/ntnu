@@ -71,17 +71,56 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
 
 ### Forelesning 2: (18.01)
 
- - Representasjon av GUI-innhold 
+ - Representasjon av GUI-innhold
+   - MVC
+     - Model
+       - Datastrukturen som brukes i bakgrunnen av applikasjoner. Gjerne som en database.
+     - View
+       - Visningen av data på et display. Mye utregning med matriser før det vises her.
+     - Controller
+       - Den delen som styrer hva som skal vises hvor i View fra Modell.
+   - 3 lags:
+     - UI
+       - View og Controller.
+     - Modell
+       - Fungerer som et lim.
+     - Persistent
  - Scene graph-konseptet og grafikk i JavaFX og FXML
+   - Ligner på web-programmering. HTML <=> FXML. CSS <=> CSS i JavaFX.
+   - Veldig populært blant designere å bruke komponenter for å tegne grafikk.
 
 ### Forelesning 2.5: (20.01)
 
  - MMI-historikk
+   - Mainframes (1960 - 1985) - First wave
+     - Mange brukere, en datamaskin.
+   - Personal computing (1985 - 2000) - Second wave
+     - En bruker, en datamaskin.
+   - Ubiquitous computing (2000 - ) - Third wave
+     - En bruker, mange datamaskiner.
+   - Historie:
+     - ENIAC, UNIVAC.
+       - Nye yrkesgrupper.
+         - Programmerere, elektronikkeksperter og matematikere.
+     - 1973
+       - Alto, med grafikk, tastatur, skjerm.
+     - 1980
+       - Xerox Star. Navn som skrivebord, mapper, ikon.
+         - Nye yrkesgrupper.
+           - Programmerere, psykologer og designere.
+       - Lite brukerfokus.
+     - 1984
+       - Apple: Macintosh. og MS med PC.
  - Anvendelse av GUI komponenter
+   - 
 
 ### Forelesning 3: (25.01)
 
  - Interaktivitet med JavaFX og FXML og SceneBuilder
+   - UI
+     - Sammenlignbart med
+       - at U går gjennom V -> C -> M -> C -> V
+       - og I går gjennom V -> C -> V
  - Controller-klasser
 
 ### Forelesning 3.5: (27.01)
