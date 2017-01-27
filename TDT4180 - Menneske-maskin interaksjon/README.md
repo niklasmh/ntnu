@@ -126,6 +126,75 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
 ### Forelesning 3.5: (27.01)
 
  - Designretningslinjer
+   - Nødvendig å teste om man følger retningelinjene? JA! De er bare en kravspekk. Den er ikke spesialiser for alle.
+   - Prinsipper:
+     - Don Normans's "Design of everyday things"
+       - **Visibility** - Kan jeg se det?
+         - Mer synlig funksjon => Enklere vil brukeren bruke funksjonen. Lettere mål til aksjon. Lettere å se tilstand.
+         - Eksempel:
+           - Automatisk vannkran.
+             - Hvor skal man putte hendene?
+             - Hvordan slå på vannet?
+       - **Affordable** - Hvordan kan jeg bruke det?
+         - Hvilken handling en gjenstand signaliserer. Hva forteller formen?
+         - Kommer fra psykologi (1977).
+         - Mulige aksjonen en omgivelse tilbyr en aktør.
+         - Perceived affordance (hva oppfatter en aktør at han skal gjøre):
+           - Grafiske grensesnitt har ikke "real affordance" - de er visuelle.
+           - Viktig at GUI har aksjoner som kan kobles til den virkelige verden.
+         - False affordance (feller):
+           - Labels som ser ut som knapper.
+         - Matrise:
+           <pre>
+           P | A |
+           1 | 1 | False affordance
+           1 | 0 | Perceived affordance
+           0 | 1 | Correct Rejection
+           0 | 0 | Hidden affordance
+           </pre>
+         - Eksempel:
+           - En hanske.
+           - Ser at man skal putte hånda i den.
+       - **Constraints** - Hvorfor kan jeg ikke gjøre slik?
+         - Signaliserer begrensninger i forhold til handlinger.
+         - Henger sammen med affordance. Affordance tilbyr ulike måter å bruke det. Constraints tilbyr litt mer hva vi gjør til vanlig pga. kultur eller noe.
+           - F.eks: Noe blir rødt. Forbinder det med stopp eller fare.
+           - Å snakke i mobil i forelesning.
+           - Henger sammen med f.eks. en dør som er flat og bare kan pushes fra den ene siden. På den andre siden kan den pulles. Det sier både hva den må fungere og har en begrensning.
+           - Trinnbasert oppsett av mail.
+             - Kan ikke gå videre om man har gjort noe feil eller mangler noe.
+       - **Feedback** - Hva skjer nå?
+         - Info til brukeren om hvilke handlinger som har blitt utført.
+         - Forteller også om hvilken tilstand systemet har.
+         - Gyldige handlinger skal alltid gi feedback. (Mener personlig at også ikke godkjente skal gi feedback).
+         - Eksempeler:
+           - Knapper forandrer ramme.
+           - Ratt gir motstand om man svinger.
+           - Knapper lager lyd.
+         - Ulike typer:
+           - Visuell.
+           - Auditiv.
+           - Taktil. Mostand eller vibrasjon.
+           - Kombinasjon av de over.
+       - **Mapping** - Er det en naturlig sammenheng mellom kontrollen og effekt?
+         - Overføring av design til den virkelige verden.
+         - Eksempel:
+           - Volumkontroll med vri-knapp:
+             - Med klokken -> Høyere volum
+             - Mot klokken -> Mindre volum
+         - Natual mapping:
+           - Layout på kontroll tilsvarer layout på apparat.
+           - Sammenheng mellom interaksjon og effekt.
+         - Omvendt av natural:
+           - Volumknapp med + neders og - øverst.
+         - Poor mapping:
+           - Stekeplater:
+             - Kan legge knapper på en linje med like lang avstand.
+             - Bedre med å samle 2 av de for å se hvilken side de tilhører.
+             - Beste er å legge de i samme form som platene (i en miniversjon).
+               - Det blir nå natual mapping.
+       - **Consistency** - Har jeg ikke sett dette før?
+         - Elementer som ser like ut bør ha samme funksjon.
 
  - **Øvinger:**
    - Øving 1
