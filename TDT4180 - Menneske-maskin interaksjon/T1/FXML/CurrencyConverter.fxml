@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="560.0" prefWidth="380.0"
+      style="-fx-background-color: rgb(200, 174, 150); -fx-font-size: 40px;"
+      xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox style="-fx-background-color: rgb(218, 194, 170); -fx-pref-width: 380px; -fx-pref-height: 140px; -fx-border-color: rgb(190, 160, 140); -fx-padding: 40px;">
+          <children>
+            <Label style="-fx-background-color: #333; -fx-pref-width: 56px; -fx-pref-height: 50px"></Label>
+            <Label style="-fx-text-fill: #876; -fx-font-size: 22px; -fx-padding: 12px;" alignment="center" text="USD"></Label>
+            <Pane HBox.hgrow="ALWAYS" />
+            <Label textAlignment="right" alignment="center" text="10,000" textFill="#d44"></Label>
+          </children>
+      </HBox>
+      <HBox style="-fx-background-color: rgb(210, 180, 160); -fx-pref-width: 380px; -fx-pref-height: 140px; -fx-border-color: rgb(190, 160, 140); -fx-padding: 40px;">
+          <children>
+            <Label style="-fx-background-color: #333; -fx-pref-width: 56px; -fx-pref-height: 50px"></Label>
+            <Label style="-fx-text-fill: #876; -fx-font-size: 22px; -fx-padding: 12px;" alignment="center" text="JPY"></Label>
+            <Pane HBox.hgrow="ALWAYS" />
+            <Label textAlignment="right" alignment="center" text="992,815"></Label>
+          </children>
+      </HBox>
+      <HBox style="-fx-background-color: rgb(210, 180, 160); -fx-pref-width: 380px; -fx-pref-height: 140px; -fx-border-color: rgb(190, 160, 140); -fx-padding: 40px;">
+          <children>
+            <Label style="-fx-background-color: #333; -fx-pref-width: 56px; -fx-pref-height: 50px"></Label>
+            <Label style="-fx-text-fill: #876; -fx-font-size: 22px; -fx-padding: 12px;" alignment="center" text="EUR"></Label>
+            <Pane HBox.hgrow="ALWAYS" />
+            <Label textAlignment="right" alignment="center" text="7,694"></Label>
+          </children>
+      </HBox>
+      <HBox style="-fx-background-color: rgb(210, 180, 160); -fx-pref-width: 380px; -fx-pref-height: 140px; -fx-border-color: rgb(190, 160, 140); -fx-padding: 40px;">
+          <children>
+            <Label style="-fx-background-color: #333; -fx-pref-width: 56px; -fx-pref-height: 50px"></Label>
+            <Label style="-fx-text-fill: #876; -fx-font-size: 22px; -fx-padding: 12px;" alignment="center" text="GBP"></Label>
+            <Pane HBox.hgrow="ALWAYS" />
+            <Label textAlignment="right" alignment="center" text="6,559"></Label>
+          </children>
+      </HBox>
+   </children>
+</VBox>
