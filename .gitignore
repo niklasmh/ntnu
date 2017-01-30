@@ -65,6 +65,7 @@ TDT4160*/*
 
 # Menneske-maskin interaksjon
 TDT4180*/*
+!TDT4180*/T*
 !TDT4180*/README.md
 
 # Fysikk
