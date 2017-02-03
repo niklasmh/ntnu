@@ -208,6 +208,24 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
 ### Forelesning 4.5: (03.02)
 
  - Gestalt
+   - Meningsfull helhet.
+   - Prinsipper:
+     - Likhet. 
+       - Like former sees sammen.
+       - Like farger sees sammen.
+     - Nærhet.
+       - Elementer som står nær hverandre oppfattes som samhørende.
+       - I GUI kan dette være formelementer som grupperes slik at de omhandler den samme informasjonen.
+     - Mental komplettering.
+       - Vi oppfetter lukkede eller sluttede former. Slik som når 2 streker fullfører et hjørne - som om hjørnet ikke er synlig.
+       - I GUI pleier man å lage silhuetter slik at man danner former med det tomme rom.
+     - Kontinuitet.
+       - Linjer fortsetter i den retningen de avbrytes. Er nesten det samme som mental komplettering.
+       - Om du har en halv-sirkel vet du at den vil fullføre en sirkel.
+     - Helhet. Forgrunn/bakgrunn.
+       - Vi oppfatter raskt om noe er forgrunn eller bakgrunn.
+       - Farge, kontrast, rammer, størrelse og perspektiv påvirker hva som er bakgrunn og forgrunn.
+       - I GUI kan det være vindu-prinsippet til Windows og forsåvidt alle andre OS. Legger på skygge for å heve ut.
  - Konseptuelle- og mentale modeller
  - Metaforer
 
