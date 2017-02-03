@@ -227,7 +227,25 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
        - Farge, kontrast, rammer, størrelse og perspektiv påvirker hva som er bakgrunn og forgrunn.
        - I GUI kan det være vindu-prinsippet til Windows og forsåvidt alle andre OS. Legger på skygge for å heve ut.
  - Konseptuelle- og mentale modeller
+   - 3 modeller
+     - Design Modell: Designer
+     - Bruker Modell: Bruker
+     - System Modell: Systembilde
+   - Elementer:
+     - **Design metaforen** som benyttes evt.
+     - **Konsepter** brukeres må forholde seg til når h*n bruker systemet.
+     - **Relasjonene** mellom konseptene.
+     - **Overførbarhet (mapping)** mellom konseptene ...
+   - Eksempel:
+     - AtB Mobillett:
+       - Velg antall og type.
+       - Betal.
+       - Motta.
+       - Vise.
  - Metaforer
+   - Kan gå ut på dato slik som en diskett for å lagre.
+   - Skalerer ikke. Skrivebord er som den fysiske verden - kan ikke bli noe mer.
+   - Forsikre om at metaforen ikke sender ut feil signaler. F.eks. et skrivespill for barn burde ikke inneholder zombier og masse andre elementer.
 
 Relevant litteratur: Johnson& Henderson 2002, læreboka kap. 2.
 
