@@ -129,13 +129,13 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
    - Nødvendig å teste om man følger retningelinjene? JA! De er bare en kravspekk. Den er ikke spesialiser for alle.
    - Prinsipper:
      - Don Normans's "Design of everyday things"
-       - **Visibility** - Kan jeg se det?
+       - **Visibility** => Kan jeg se det?
          - Mer synlig funksjon => Enklere vil brukeren bruke funksjonen. Lettere mål til aksjon. Lettere å se tilstand.
          - Eksempel:
            - Automatisk vannkran.
              - Hvor skal man putte hendene?
              - Hvordan slå på vannet?
-       - **Affordable** - Hvordan kan jeg bruke det?
+       - **Affordable** => Hvordan kan jeg bruke det?
          - Hvilken handling en gjenstand signaliserer. Hva forteller formen?
          - Kommer fra psykologi (1977).
          - Mulige aksjonen en omgivelse tilbyr en aktør.
@@ -155,7 +155,7 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
          - Eksempel:
            - En hanske.
            - Ser at man skal putte hånda i den.
-       - **Constraints** - Hvorfor kan jeg ikke gjøre slik?
+       - **Constraints** => Hvorfor kan jeg ikke gjøre slik?
          - Signaliserer begrensninger i forhold til handlinger.
          - Henger sammen med affordance. Affordance tilbyr ulike måter å bruke det. Constraints tilbyr litt mer hva vi gjør til vanlig pga. kultur eller noe.
            - F.eks: Noe blir rødt. Forbinder det med stopp eller fare.
@@ -163,7 +163,7 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
            - Henger sammen med f.eks. en dør som er flat og bare kan pushes fra den ene siden. På den andre siden kan den pulles. Det sier både hva den må fungere og har en begrensning.
            - Trinnbasert oppsett av mail.
              - Kan ikke gå videre om man har gjort noe feil eller mangler noe.
-       - **Feedback** - Hva skjer nå?
+       - **Feedback** => Hva skjer nå?
          - Info til brukeren om hvilke handlinger som har blitt utført.
          - Forteller også om hvilken tilstand systemet har.
          - Gyldige handlinger skal alltid gi feedback. (Mener personlig at også ikke godkjente skal gi feedback).
@@ -176,7 +176,7 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
            - Auditiv.
            - Taktil. Mostand eller vibrasjon.
            - Kombinasjon av de over.
-       - **Mapping** - Er det en naturlig sammenheng mellom kontrollen og effekt?
+       - **Mapping** => Er det en naturlig sammenheng mellom kontrollen og effekt?
          - Overføring av design til den virkelige verden.
          - Eksempel:
            - Volumkontroll med vri-knapp:
@@ -193,7 +193,7 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
              - Bedre med å samle 2 av de for å se hvilken side de tilhører.
              - Beste er å legge de i samme form som platene (i en miniversjon).
                - Det blir nå natual mapping.
-       - **Consistency** - Har jeg ikke sett dette før?
+       - **Consistency** => Har jeg ikke sett dette før?
          - Elementer som ser like ut bør ha samme funksjon.
 
  - **Øvinger:**
