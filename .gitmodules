@@ -10,3 +10,6 @@
 [submodule "IT2810 - Webutvikling/it2810-04-oppgave-3"]
 	path = IT2810 - Webutvikling/it2810-04-oppgave-3
 	url = git@bitbucket.org:trondaal/it2810-04-oppgave-3.git
+[submodule "TDT4140 - Programvareutvikling/tdt4140-bot-project"]
+	path = TDT4140 - Programvareutvikling/tdt4140-bot-project
+	url = git@github.com:niklasmh/tdt4140-bot-project.git

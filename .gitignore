@@ -52,6 +52,7 @@ TDT4110*/*
 
 # Programvareutvikling
 TDT4140*/*
+!TDT4140*/tdt4140-bot-project
 !TDT4140*/README.md
 
 # Databasemodellering og databasesystemer
