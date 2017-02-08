@@ -17,6 +17,6 @@ wordfeud:;@make -s run cp=JavaFx class=Wordfeud
 
 run:
 	@echo Compiling ${class}.java...
-	@javac ${cp}\${class}.java
+	@javac ${cp}/${class}.java
 	@echo Running ${class}.java...
 	@java -cp ${cp} ${class}
