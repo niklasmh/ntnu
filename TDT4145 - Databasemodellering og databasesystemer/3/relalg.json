@@ -1,0 +1,540 @@
+{
+  "database": {
+    "port": -1,
+    "dbName": "bokbase",
+    "host": "",
+    "user": "student"
+  },
+  "algebra": [
+    {
+      "node": "Relvar",
+      "x": 96,
+      "y": 48,
+      "properties": {
+        "name": "BOK",
+        "attributes": [
+          "BOKID",
+          "TITTEL",
+          "UTGITTÅR",
+          "FORLAGID"
+        ]
+      }
+    },
+    {
+      "node": "Project",
+      "input": [{
+        "node": "Relvar",
+        "x": 260,
+        "y": 48,
+        "properties": {
+          "name": "FORFATTER",
+          "attributes": [
+            "FORFATTERID",
+            "FORNAVN",
+            "ETTERNAVN",
+            "FØDEÅR",
+            "DØDÅR",
+            "NASJONALITET"
+          ]
+        }
+      }],
+      "x": 260,
+      "y": 128,
+      "properties": {"attributes": [
+        "FORFATTERID",
+        "FORNAVN",
+        "ETTERNAVN",
+        "FØDEÅR",
+        "DØDÅR",
+        "NASJONALITET"
+      ]}
+    },
+    {
+      "node": "Project",
+      "input": [{
+        "node": "Select",
+        "input": [{
+          "node": "Relvar",
+          "x": 440,
+          "y": 48,
+          "properties": {
+            "name": "FORLAG",
+            "attributes": [
+              "FORLAGID",
+              "FORLAGNAVN",
+              "ADRESSE",
+              "TELEFON"
+            ]
+          }
+        }],
+        "x": 440,
+        "y": 112,
+        "properties": {"condition": "ADRESSE='Oslo'"}
+      }],
+      "x": 440,
+      "y": 184,
+      "properties": {"attributes": [
+        "TELEFON",
+        "FORLAGNAVN"
+      ]}
+    },
+    {
+      "node": "Project",
+      "input": [{
+        "node": "Join",
+        "input": [
+          {
+            "node": "Relvar",
+            "x": 88,
+            "y": 256,
+            "properties": {
+              "name": "BOK",
+              "attributes": [
+                "BOKID",
+                "TITTEL",
+                "UTGITTÅR",
+                "FORLAGID"
+              ]
+            }
+          },
+          {
+            "node": "Relvar",
+            "x": 196,
+            "y": 256,
+            "properties": {
+              "name": "FORLAG",
+              "attributes": [
+                "FORLAGID",
+                "FORLAGNAVN",
+                "ADRESSE",
+                "TELEFON"
+              ]
+            }
+          }
+        ],
+        "x": 136,
+        "y": 328
+      }],
+      "x": 136,
+      "y": 396,
+      "properties": {"attributes": [
+        "TITTEL",
+        "FORLAGNAVN"
+      ]}
+    },
+    {
+      "node": "Project",
+      "input": [{
+        "node": "Join",
+        "input": [
+          {
+            "node": "Select",
+            "input": [{
+              "node": "Relvar",
+              "x": 468,
+              "y": 308,
+              "properties": {
+                "name": "FORLAG",
+                "attributes": [
+                  "FORLAGID",
+                  "FORLAGNAVN",
+                  "ADRESSE",
+                  "TELEFON"
+                ]
+              }
+            }],
+            "x": 456,
+            "y": 364,
+            "properties": {"condition": "FORLAGNAVN='Gyldendal'"}
+          },
+          {
+            "node": "Relvar",
+            "x": 328,
+            "y": 308,
+            "properties": {
+              "name": "BOK",
+              "attributes": [
+                "BOKID",
+                "TITTEL",
+                "UTGITTÅR",
+                "FORLAGID"
+              ]
+            }
+          }
+        ],
+        "x": 396,
+        "y": 380
+      }],
+      "x": 400,
+      "y": 440,
+      "properties": {"attributes": ["TITTEL"]}
+    },
+    {
+      "node": "Project",
+      "input": [{
+        "node": "Join",
+        "input": [
+          {
+            "node": "Join",
+            "input": [
+              {
+                "node": "Relvar",
+                "x": 704,
+                "y": 268,
+                "properties": {
+                  "name": "BOKFORFATTER",
+                  "attributes": [
+                    "BOKID",
+                    "FORFATTERID"
+                  ]
+                }
+              },
+              {
+                "node": "Relvar",
+                "x": 792,
+                "y": 304,
+                "properties": {
+                  "name": "BOK",
+                  "attributes": [
+                    "BOKID",
+                    "TITTEL",
+                    "UTGITTÅR",
+                    "FORLAGID"
+                  ]
+                }
+              }
+            ],
+            "x": 704,
+            "y": 344
+          },
+          {
+            "node": "Select",
+            "input": [{
+              "node": "Relvar",
+              "x": 828,
+              "y": 360,
+              "properties": {
+                "name": "FORFATTER",
+                "attributes": [
+                  "FORFATTERID",
+                  "FORNAVN",
+                  "ETTERNAVN",
+                  "FØDEÅR",
+                  "DØDÅR",
+                  "NASJONALITET"
+                ]
+              }
+            }],
+            "x": 752,
+            "y": 384,
+            "properties": {"condition": "FORNAVN='Knut' AND\nETTERNAVN='Hamsun'"}
+          }
+        ],
+        "x": 704,
+        "y": 420
+      }],
+      "x": 704,
+      "y": 476,
+      "properties": {"attributes": [
+        "TITTEL",
+        "UTGITTÅR"
+      ]}
+    },
+    {
+      "node": "Project",
+      "input": [{
+        "node": "Join",
+        "input": [
+          {
+            "node": "Join",
+            "input": [
+              {
+                "node": "Relvar",
+                "x": 92,
+                "y": 552,
+                "properties": {
+                  "name": "BOKFORFATTER",
+                  "attributes": [
+                    "BOKID",
+                    "FORFATTERID"
+                  ]
+                }
+              },
+              {
+                "node": "Select",
+                "input": [{
+                  "node": "Relvar",
+                  "x": 264,
+                  "y": 552,
+                  "properties": {
+                    "name": "BOK",
+                    "attributes": [
+                      "BOKID",
+                      "TITTEL",
+                      "UTGITTÅR",
+                      "FORLAGID"
+                    ]
+                  }
+                }],
+                "x": 208,
+                "y": 596,
+                "properties": {"condition": "UTGITTÅR<2000 AND\nUTGITTÅR>1989"}
+              }
+            ],
+            "x": 156,
+            "y": 644
+          },
+          {
+            "node": "Relvar",
+            "x": 72,
+            "y": 656,
+            "properties": {
+              "name": "FORFATTER",
+              "attributes": [
+                "FORFATTERID",
+                "FORNAVN",
+                "ETTERNAVN",
+                "FØDEÅR",
+                "DØDÅR",
+                "NASJONALITET"
+              ]
+            }
+          }
+        ],
+        "x": 152,
+        "y": 708
+      }],
+      "x": 148,
+      "y": 772,
+      "properties": {"attributes": [
+        "TITTEL",
+        "FORNAVN",
+        "ETTERNAVN"
+      ]}
+    },
+    {
+      "node": "Project",
+      "input": [{
+        "node": "Join",
+        "input": [
+          {
+            "node": "Relvar",
+            "x": 656,
+            "y": 596,
+            "properties": {
+              "name": "FORFATTER",
+              "attributes": [
+                "FORFATTERID",
+                "FORNAVN",
+                "ETTERNAVN",
+                "FØDEÅR",
+                "DØDÅR",
+                "NASJONALITET"
+              ]
+            }
+          },
+          {
+            "node": "Join",
+            "input": [
+              {
+                "node": "Relvar",
+                "x": 556,
+                "y": 584,
+                "properties": {
+                  "name": "BOKFORFATTER",
+                  "attributes": [
+                    "BOKID",
+                    "FORFATTERID"
+                  ]
+                }
+              },
+              {
+                "node": "Join",
+                "input": [
+                  {
+                    "node": "Relvar",
+                    "x": 456,
+                    "y": 576,
+                    "properties": {
+                      "name": "BOK",
+                      "attributes": [
+                        "BOKID",
+                        "TITTEL",
+                        "UTGITTÅR",
+                        "FORLAGID"
+                      ]
+                    }
+                  },
+                  {
+                    "node": "Relvar",
+                    "x": 392,
+                    "y": 620,
+                    "properties": {
+                      "name": "FORLAG",
+                      "attributes": [
+                        "FORLAGID",
+                        "FORLAGNAVN",
+                        "ADRESSE",
+                        "TELEFON"
+                      ]
+                    }
+                  }
+                ],
+                "x": 456,
+                "y": 656
+              }
+            ],
+            "x": 552,
+            "y": 696
+          }
+        ],
+        "x": 648,
+        "y": 756
+      }],
+      "x": 544,
+      "y": 788,
+      "properties": {"attributes": [
+        "FORNAVN",
+        "ETTERNAVN",
+        "TITTEL",
+        "FORLAGNAVN"
+      ]}
+    },
+    {
+      "node": "Project",
+      "input": [{
+        "node": "Function",
+        "input": [{
+          "node": "Join",
+          "input": [
+            {
+              "node": "Relvar",
+              "x": 72,
+              "y": 920,
+              "properties": {
+                "name": "FORLAG",
+                "attributes": [
+                  "FORLAGID",
+                  "FORLAGNAVN",
+                  "ADRESSE",
+                  "TELEFON"
+                ]
+              }
+            },
+            {
+              "node": "Relvar",
+              "x": 192,
+              "y": 904,
+              "properties": {
+                "name": "BOK",
+                "attributes": [
+                  "BOKID",
+                  "TITTEL",
+                  "UTGITTÅR",
+                  "FORLAGID"
+                ]
+              }
+            }
+          ],
+          "x": 136,
+          "y": 980
+        }],
+        "x": 136,
+        "y": 1060,
+        "properties": {
+          "groupAttrs": [
+            "FORLAGID",
+            "FORLAGNAVN"
+          ],
+          "funcInvocs": [{
+            "argument": "UTGITTÅR",
+            "function": "AVG",
+            "attribute": "AVG_UTGITTÅR"
+          }]
+        }
+      }],
+      "x": 136,
+      "y": 1128,
+      "properties": {"attributes": [
+        "FORLAGNAVN",
+        "AVG_UTGITTÅR"
+      ]}
+    },
+    {
+      "node": "Antijoin",
+      "input": [
+        {
+          "node": "Relvar",
+          "x": 92,
+          "y": 1276,
+          "properties": {
+            "name": "FORLAG",
+            "attributes": [
+              "FORLAGID",
+              "FORLAGNAVN",
+              "ADRESSE",
+              "TELEFON"
+            ]
+          }
+        },
+        {
+          "node": "Relvar",
+          "x": 204,
+          "y": 1280,
+          "properties": {
+            "name": "BOK",
+            "attributes": [
+              "BOKID",
+              "TITTEL",
+              "UTGITTÅR",
+              "FORLAGID"
+            ]
+          }
+        }
+      ],
+      "x": 148,
+      "y": 1344
+    },
+    {
+      "node": "Relvar",
+      "x": 608,
+      "y": 928,
+      "properties": {
+        "name": "FORLAG",
+        "attributes": [
+          "FORLAGID",
+          "FORLAGNAVN",
+          "ADRESSE",
+          "TELEFON"
+        ]
+      }
+    },
+    {
+      "node": "Function",
+      "input": [{
+        "node": "Relvar",
+        "x": 428,
+        "y": 928,
+        "properties": {
+          "name": "BOK",
+          "attributes": [
+            "BOKID",
+            "TITTEL",
+            "UTGITTÅR",
+            "FORLAGID"
+          ]
+        }
+      }],
+      "x": 540,
+      "y": 1060,
+      "properties": {
+        "groupAttrs": ["FORLAGID"],
+        "funcInvocs": [{
+          "argument": "UTGITTÅR",
+          "function": "MIN",
+          "attribute": "MIN_UTGITTÅR"
+        }]
+      }
+    }
+  ]
+}
