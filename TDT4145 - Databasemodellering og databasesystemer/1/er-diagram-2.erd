@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram height="600" made_with_version="1.5" name="Default" width="800">
+<entity id="0" is_weak="false" name="Hotell" x="109" y="240">
+<attributes>
+<attribute is_hidden="false" is_key="true" name="id" type="Integer"/>
+<attribute is_hidden="false" is_key="false" name="navn" type="String"/>
+</attributes>
+</entity>
+<entity id="1" is_weak="true" name="HotellRom" x="291" y="243">
+<attributes>
+<attribute is_hidden="false" is_key="true" name="nr" type="Integer"/>
+</attributes>
+</entity>
+<entity id="2" is_weak="false" name="Type" x="523" y="230">
+<attributes>
+<attribute is_hidden="false" is_key="true" name="id" type="Integer"/>
+<attribute is_hidden="false" is_key="false" name="pris" type="Double"/>
+<attribute is_hidden="false" is_key="false" name="navn" type="String"/>
+</attributes>
+</entity>
+<entity id="9" is_weak="false" name="Booking" x="272" y="399">
+<attributes>
+<attribute is_hidden="false" is_key="true" name="id" type="Integer"/>
+<attribute is_hidden="false" is_key="false" name="ekstraseng" type="Boolean"/>
+<attribute is_hidden="false" is_key="false" name="startdato" type="Date"/>
+<attribute is_hidden="false" is_key="false" name="sluttdato" type="Date"/>
+</attributes>
+</entity>
+<entity id="13" is_weak="false" name="Rabatt" x="307" y="81">
+<attributes>
+<attribute is_hidden="false" is_key="true" name="type" type=""/>
+<attribute is_hidden="false" is_key="true" name="hotell" type=""/>
+<attribute is_hidden="false" is_key="false" name="" type=""/>
+</attributes>
+</entity>
+<diamond id="3" is_weak="true" name="HarRom" x="207" y="255">
+<attributes/>
+</diamond>
+<diamond id="4" is_weak="false" name="HarType" x="420" y="256">
+<attributes/>
+</diamond>
+<diamond id="10" is_weak="false" name="HarBooking" x="311" y="323">
+<attributes>
+<attribute name="registrert" type="Date"/>
+</attributes>
+</diamond>
+<diamond id="15" is_weak="false" name="HarRabatt" x="121" y="100">
+<attributes/>
+</diamond>
+<diamond id="16" is_weak="false" name="HarRabatt" x="528" y="103">
+<attributes/>
+</diamond>
+<line cardinality_string="(1,n)" has_u="false" id="5" is_weak="false" role="" style="0" turned="false">
+<connection connection_side="2" direction="0" object_id="0" relation_point_x="159" relation_point_y="270"/>
+<connection connection_side="0" direction="0" object_id="3" relation_point_x="207" relation_point_y="271"/>
+</line>
+<line cardinality_string="(1,1)" has_u="false" id="6" is_weak="false" role="" style="0" turned="false">
+<connection connection_side="0" direction="0" object_id="1" relation_point_x="291" relation_point_y="270"/>
+<connection connection_side="2" direction="0" object_id="3" relation_point_x="239" relation_point_y="271"/>
+</line>
+<line cardinality_string="(1,1)" has_u="false" id="7" is_weak="false" role="" style="0" turned="false">
+<connection connection_side="2" direction="0" object_id="1" relation_point_x="380" relation_point_y="270"/>
+<connection connection_side="0" direction="0" object_id="4" relation_point_x="420" relation_point_y="272"/>
+</line>
+<line cardinality_string="(0,n)" has_u="false" id="8" is_weak="false" role="" style="0" turned="false">
+<connection connection_side="0" direction="0" object_id="2" relation_point_x="523" relation_point_y="268"/>
+<connection connection_side="2" direction="0" object_id="4" relation_point_x="452" relation_point_y="272"/>
+</line>
+<line cardinality_string="(0,n)" has_u="false" id="11" is_weak="false" role="" style="0" turned="false">
+<connection connection_side="3" direction="1" object_id="1" relation_point_x="336" relation_point_y="296"/>
+<connection connection_side="1" direction="1" object_id="10" relation_point_x="327" relation_point_y="323"/>
+</line>
+<line cardinality_string="(1,n)" has_u="false" id="12" is_weak="false" role="" style="0" turned="false">
+<connection connection_side="1" direction="1" object_id="9" relation_point_x="308" relation_point_y="399"/>
+<connection connection_side="3" direction="1" object_id="10" relation_point_x="327" relation_point_y="355"/>
+</line>
+<line cardinality_string="(0,n)" has_u="false" id="17" is_weak="false" role="" style="0" turned="false">
+<connection connection_side="1" direction="1" object_id="0" relation_point_x="134" relation_point_y="240"/>
+<connection connection_side="3" direction="1" object_id="15" relation_point_x="137" relation_point_y="132"/>
+</line>
+<line cardinality_string="(1,n)" has_u="false" id="18" is_weak="false" role="" style="0" turned="false">
+<connection connection_side="0" direction="0" object_id="13" relation_point_x="307" relation_point_y="119"/>
+<connection connection_side="2" direction="0" object_id="15" relation_point_x="153" relation_point_y="116"/>
+</line>
+<line cardinality_string="(1,n)" has_u="false" id="19" is_weak="false" role="" style="0" turned="false">
+<connection connection_side="2" direction="0" object_id="13" relation_point_x="361" relation_point_y="119"/>
+<connection connection_side="0" direction="0" object_id="16" relation_point_x="528" relation_point_y="119"/>
+</line>
+<line cardinality_string="(0,n)" has_u="false" id="20" is_weak="false" role="" style="0" turned="false">
+<connection connection_side="1" direction="1" object_id="2" relation_point_x="544" relation_point_y="230"/>
+<connection connection_side="3" direction="1" object_id="16" relation_point_x="544" relation_point_y="135"/>
+</line>
+</diagram>
