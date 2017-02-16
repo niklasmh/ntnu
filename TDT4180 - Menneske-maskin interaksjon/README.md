@@ -210,7 +210,7 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
  - Gestalt
    - Meningsfull helhet.
    - Prinsipper:
-     - Likhet. 
+     - Likhet.
        - Like former sees sammen.
        - Like farger sees sammen.
      - Nærhet.
