@@ -57,6 +57,8 @@ TDT4140*/*
 
 # Databasemodellering og databasesystemer
 TDT4145*/*
+!TDT4145*/[0-9]
+TDT4145*/*.png
 !TDT4145*/README.md
 
 # Datamaskiner og Digitalteknikk
