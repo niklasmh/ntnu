@@ -57,8 +57,10 @@ TDT4140*/*
 
 # Databasemodellering og databasesystemer
 TDT4145*/*
-!TDT4145*/[0-9]
-TDT4145*/*.png
+!TDT4145*/[0-9]/
+TDT4145*/*/*.png
+TDT4145*/*/*.mwd
+TDT4145*/*/*.bak
 !TDT4145*/README.md
 
 # Datamaskiner og Digitalteknikk
@@ -102,7 +104,8 @@ TTM4100*/
 *.zip
 
 *.log
-*.sql
+*.mwb
+*.mwb.bak
 *.sqlite
 
 .vscode
