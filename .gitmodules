@@ -13,3 +13,6 @@
 [submodule "TDT4140 - Programvareutvikling/tdt4140-bot-project"]
 	path = TDT4140 - Programvareutvikling/tdt4140-bot-project
 	url = git@github.com:niklasmh/tdt4140-bot-project.git
+[submodule "IT1901 - Informatikk Prosjektarbeid 1/it1901-band-booking-project"]
+	path = IT1901 - Informatikk Prosjektarbeid 1/it1901-band-booking-project
+	url = git@github.com:niklasmh/it1901-band-booking-project.git
