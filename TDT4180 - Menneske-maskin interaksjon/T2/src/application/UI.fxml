@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TestController">
+   <children>
+      <VBox prefHeight="394.0" prefWidth="295.0">
+         <children>
+            <Label text="Formål:" />
+            <TextArea fx:id="formal" prefHeight="200.0" prefWidth="200.0" />
+            <Label layoutX="10.0" layoutY="10.0" text="Rom:" />
+            <TextField fx:id="rom" onTextChange="#handleRomChange" prefWidth="266.0" promptText="Romnavn etterfulgt av nummer"/>
+            <Label layoutX="10.0" layoutY="177.0" text="Dato:" />
+            <DatePicker fx:id="dato" prefHeight="25.0" prefWidth="284.0" promptText="dd.mm.yyy"/>
+            <HBox prefHeight="29.0" prefWidth="295.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="272.0" text="Fra:" />
+                  <Label prefHeight="17.0" prefWidth="271.0" text="Til:" />
+               </children>
+            </HBox>
+            <HBox prefHeight="37.0" prefWidth="295.0">
+               <children>
+                  <TextField fx:id="fra" promptText="08:00">
+                     <HBox.margin>
+                        <Insets right="4.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="til" layoutX="10.0" layoutY="10.0" promptText="10:00"/>
+               </children>
+            </HBox>
+            <Label layoutX="10.0" layoutY="205.0" text="Repitisjonsfrekvens" />
+            <TextField fx:id="repfrek" layoutX="10.0" layoutY="222.0" onTextChange="#rep" prefWidth="266.0" />
+            <Label layoutX="10.0" layoutY="362.0" text="Slutt dato" />
+            <DatePicker fx:id="sluttdato" disable="true" layoutX="10.0" layoutY="379.0" prefHeight="25.0" prefWidth="286.0" promptText="dd.mm.yyy" />
+            <Button fx:id="submit" onAction="#handleSubmit">Send</Button>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="7.0" right="7.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
