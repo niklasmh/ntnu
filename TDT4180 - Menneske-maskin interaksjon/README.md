@@ -4,7 +4,7 @@
  - Opplegg:
    - 5 eller 6 Øvinger (5 på planen).
      - 2 første om teknikkdel (Hallvard).
-     - Rsterende er om design-del (Yngve).
+     - Resterende er om design-del (Yngve).
    - Delt opp i Design (Pensum til eksamen) og kontruksjon (Ikke relevant, enda).
  - Brukskvalitet
    - Brukskvalitet (Også omtalt som brukervennelighet):
