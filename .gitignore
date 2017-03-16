@@ -61,6 +61,7 @@ TDT4145*/*
 TDT4145*/*/*.png
 TDT4145*/*/*.jpg
 !TDT4145*/README.md
+!TDT4145*/project
 
 # Datamaskiner og Digitalteknikk
 TDT4160*/*

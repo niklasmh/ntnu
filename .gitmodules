@@ -16,3 +16,6 @@
 [submodule "IT1901 - Informatikk Prosjektarbeid 1/it1901-band-booking-project"]
 	path = IT1901 - Informatikk Prosjektarbeid 1/it1901-band-booking-project
 	url = git@github.com:niklasmh/it1901-band-booking-project.git
+[submodule "TDT4145 - Databasemodellering og databasesystemer/project/tdt4145-training-diary-project"]
+	path = TDT4145 - Databasemodellering og databasesystemer/project/tdt4145-training-diary-project
+	url = git@github.com:niklasmh/tdt4145-training-diary-project.git
