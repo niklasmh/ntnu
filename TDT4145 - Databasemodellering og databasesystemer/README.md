@@ -18,7 +18,7 @@
    - `(1, n) <=> -|∈-`
  - Rekursive relasjonsklasser:
    - Eksempel:
-    <pre>
+<pre>
 Person
 . . . . . . . . .A. . . . . . .Underordnet. . . .
 . . . +--------------+. . +---------------+ . . .
@@ -56,10 +56,10 @@ Relasjonsky
 Person = { Harald, Sonja, Erna, Siv, Børge }
 Forhold = { (Harald, Sonja) }
 Sjef = { (Harald, Erna), (Erna, Siv), (Erna, Børge) }
-     </pre>
+</pre>
  - Relasjoner av grad > 2:
    - Eksempel:
-     <pre>
+<pre>
 . . . . . . . . . . . . . . . . +---------+ . . . . .
 . . . . . . . . . . . . . . . . | Student | . . . . .
 . . . . . . . . . . . . . . . . +---------+ . . . . .
@@ -79,7 +79,7 @@ Sjef = { (Harald, Erna), (Erna, Siv), (Erna, Børge) }
 . . . .|. +------------+. . . . . . . . . . . . . . .
 . . . .+--+ .Veileder .|. . . . . . . . . . . . . . .
 . . .(1,n)+------------+. . . . . . . . . . . . . . .
-     </pre>
+</pre>
    - Her er det også mulig å legge til en relasjon mellom Emne, Veileder og StudGruppe som heter VeilederGruppeEmne.
    - `{ (SGID, EID, VID), ... }`
    - Finnes ikke relasjoner som har relasjoner i dette faget.
@@ -87,7 +87,7 @@ Sjef = { (Harald, Erna), (Erna, Siv), (Erna, Børge) }
    - Mangler "naturlig" nøkkel.
    - Kan av og til identifisere gjennom relasjon til annen e-klasse.
    - Eksempel:
-     <pre>
+<pre>
 . . . . . . . +-----+knr. . . . . . . . . . .
 . +-----------+ . . . . . . . . . . . . . . .
 . |Kommune. . | . . . . . . . . . . . . . . .
@@ -100,7 +100,7 @@ Sjef = { (Harald, Erna), (Erna, Siv), (Erna, Børge) }
 . .+==========+ . . . . . . . . . . . . . . .
 . .|.Gate . . +----+\_navn\_\* . . . . . . . . .
 . .+==========+ . . . . . . . . . . . . . . .
-     </pre>
+</pre>
  - Prosess:
    1. En e-klasser, noen attr.
    2. Finn r-klasser med navn.
