@@ -18,8 +18,8 @@
    - `(1, n) <=> -|∈-`
  - Rekursive relasjonsklasser:
    - Eksempel:
-     - Person:
-       <pre>
+    <pre>
+Person
 . . . . . . . . .A. . . . . . .Underordnet. . . .
 . . . +--------------+. . +---------------+ . . .
 . . . | . . . . . . .|. . | . . . . . . . | . . .
@@ -36,9 +36,8 @@
 . . . .|. . . . . . . | . | . . . . . . . | . . .
 . . . .+--------------+ . +---------------+ . . .
 . . . . . . .B. . . . . . . Overordnet. . . . . .
-       </pre>
-     - Relasjonsky:
-       <pre>
+
+Relasjonsky
 . . . . . . . . Relasjoner. . . . . . . .
 . . . . . . +--------------+----------+ .
 . +------------+. . . . . .|. . . . . | .
@@ -53,10 +52,11 @@
 . | .Børge. . .|. . . . . | .Sjef . . | .
 . +------------+. . . . . | . . . . . | .
 . . . . . . . . . . . . . +-----------+ .
-       </pre>
-     - Person = { Harald, Sonja, Erna, Siv, Børge }
-     - Forhold = { (Harald, Sonja) }
-     - Sjef = { (Harald, Erna), (Erna, Siv), (Erna, Børge) }
+
+Person = { Harald, Sonja, Erna, Siv, Børge }
+Forhold = { (Harald, Sonja) }
+Sjef = { (Harald, Erna), (Erna, Siv), (Erna, Børge) }
+     </pre>
  - Relasjoner av grad > 2:
    - Eksempel:
      <pre>
@@ -80,9 +80,9 @@
 . . . .+--+ .Veileder .|. . . . . . . . . . . . . . .
 . . .(1,n)+------------+. . . . . . . . . . . . . . .
      </pre>
-     - Her er det også mulig å legge til en relasjon mellom Emne, Veileder og StudGruppe som heter VeilederGruppeEmne.
-     - `{ (SGID, EID, VID), ... }`
-     - Finnes ikke relasjoner som har relasjoner i dette faget.
+   - Her er det også mulig å legge til en relasjon mellom Emne, Veileder og StudGruppe som heter VeilederGruppeEmne.
+   - `{ (SGID, EID, VID), ... }`
+   - Finnes ikke relasjoner som har relasjoner i dette faget.
  - Svake entitetsklasse:
    - Mangler "naturlig" nøkkel.
    - Kan av og til identifisere gjennom relasjon til annen e-klasse.
