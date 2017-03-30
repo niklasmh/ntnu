@@ -64,7 +64,7 @@ Use the hash function to insert all the posts into respective blocks:
 7 | 4871, 3943, 6975
 </pre>
 
-As the blocs only supported 2 posts, we have overflow in both block 4 and 7. We solve this by chaining. When calculating average block reads, we have two blocs requiring two block assess, and thirteen requiring only one.
+As the blocks only supported 2 posts, we have overflow in both block 4 and 7. We solve this by chaining. When calculating average block reads, we have two blocks requiring two block assess, and thirteen requiring only one.
 
 Thus, we have `13/15\*1 + 2/15\*2 = 17/15` block accesses on average for accessing Part [#]
  
@@ -153,7 +153,7 @@ _Assume we are to create a B+-tree-index for a student database with 400000 stud
 - Every index will occupy 8 bytes, 4 for the identifier, and 4 for the record pointer.  
 Bases on “experience” we know that each block will usually only be about 65% full. I.e. a block of size 4096 bytes will hold `4096 / 8 * 2/3 ~ 341` posts per block.  
 To hold 400.000 students, we will need approx. `400.000 / 341 = 1173` blocks on the leaf level.  
-Total of 2 layers + root. Leaf is layer two. Layer one will have 4 blocs, and root is one.
+Total of 2 layers + root. Leaf is layer two. Layer one will have 4 blocks, and root is one.
 
 ### b)
 _If you are to insert student 400001 in the student database, how many disk accesses do you get? Explain the assumptions you make?_
@@ -192,7 +192,7 @@ _The table is also indexed through an unclustered B+-tree with the search key �
 
 _Give an explanation for each answer._
 
-1. The insert will require 3 reads of the B+ tree, and then one write. Then it will read on average 1.2 blocs and write once. Total 4.2 reads and 2 writes, 6.2 block accesses. 
+1. The insert will require 3 reads of the B+ tree, and then one write. Then it will read on average 1.2 blocks and write once. Total 4.2 reads and 2 writes, 6.2 block accesses. 
 2. Can use the hash directly, 1.2 accesses
 3. 3 reads in the B+ tree, pluss 1.2 reads per hit. Total: 3+1.2*#OfHansen
 4. WHERE salary > 100000 forces a complete search. All 1250 blocks are accessed.
