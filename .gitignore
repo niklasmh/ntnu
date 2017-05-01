@@ -78,6 +78,7 @@ TFY4125*/
 
 # Kommunikasjon - Tjenester og nett
 TTM4100*/*
+!TTM4100*/ttm4100-ktn-chat-project
 !TTM4100*/README.md
 
 #OneDrive sync error

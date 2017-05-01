@@ -19,3 +19,6 @@
 [submodule "TDT4145 - Databasemodellering og databasesystemer/project/tdt4145-training-diary-project"]
 	path = TDT4145 - Databasemodellering og databasesystemer/project/tdt4145-training-diary-project
 	url = git@github.com:niklasmh/tdt4145-training-diary-project.git
+[submodule "TTM4100 - Kommunikasjon - Tjenester og nett/ttm4100-ktn-chat-project"]
+	path = TTM4100 - Kommunikasjon - Tjenester og nett/ttm4100-ktn-chat-project
+	url = git@github.com:niklasmh/ttm4100-ktn-chat-project.git
