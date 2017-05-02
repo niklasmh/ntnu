@@ -184,7 +184,7 @@ Internet approach bottom up:
       - Broadcasts/emits message to recieve a new address.
       - Then the device will pick from the IPs available, then it can communicate.
   - The provided IP service is a **connectionless**, **best-effort** service without guarantees.
-- **Network layer**
+- **Transport layer**
     - UDP:
       - Contains:
         - Header at 32 bit
