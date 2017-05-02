@@ -282,10 +282,16 @@ Protocols:
 Functions:
 - Addressing
   - Global addresses crossing different network technologies.
-- Fragmentation and reassembly
+- Fragmentation and reassembly (deprecated in IPv6, not needed)
   - Underlying network technologies have different props.
     - MTU (Maximum Transfer Unit)
     - MaxSegmSize = Congestion Control
+  - Network links have an MTU
+    - Largest possible link-level frame.
+    - Ethernet 1500 bytes.
+  - Large IP datagram divided ("fragmented") within net
+    - One datagram becomes several datagrams.
+    - "Reassembled" only at final destination! Else much resources is used.
 - Rounting and forwarding
   - Find the route from source to destination.
   - Forward packets from input to output.
