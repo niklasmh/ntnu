@@ -10,7 +10,7 @@ What is the Internet?
   - Edge routers in providers network (From providers view)
 - Access networks
   - Wired, wireless links
-  - Fiber, copper, radio, atellite
+  - Fiber, copper, radio, satellite
 - Network core
   - Interconnected routers
   - Network og networks
