@@ -421,6 +421,21 @@ Routing protocols:
 - IPv4 addressing
   - Addressing conventions.
   - Datagram format.
+    - Most fields are unchanged from source to destination.
+    - Fields:
+      <pre>
+      Ver . . . . 4 . . | IP version (IPv4 or IPv6)
+      HLen. . . . 4 . . | Number of 32 bit words in header
+      TOS . . . . 8 . . | Service quality
+      Length. . .16 . . | Number of bytes in the datagram
+      Ident . . .16 . . | Used for fragmentation/reassembly
+      Flag/Off. .16 . . | DF, MF, Offset: in *8 bytes
+      TTL . . . . 8 . . | Time to live (remaining hops)
+      Protocol. . 8 . . | Upper layer protocol (TCP=6, UDP=17)
+      Checksum. .16 . . | Checksum for header
+      Address . .32 . . | Source and destination address
+      <b>Max IP datagram length</b> is 65535 bytes.
+      </pre>
   - Packet handling conventions.
     <pre>
     FTP-------+ . . . . . . . . .
@@ -431,6 +446,13 @@ Routing protocols:
     NV-------UDP-----+. . . . . +---NETₙ
     RTP-------+ . . . . . . . . .
     </pre>
+  - Based on datagram and "best effort" service.
+  - Makes it possible to connect a wide range of technologies.
+    - Homogenous internetwork.
+  - **Everything over IP**
+    - Higher layer transport protocols such as TCP and UDP are applied above IP in the end systems.
+  - **IP Everywhere**
+    - No reqirements un underlying networks - the protocol can run everywhere.
 - ICMP
   - Error reporting. E.g. TTL timeout.
   - Router "signaling".
