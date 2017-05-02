@@ -426,6 +426,9 @@ Routing protocols:
 - Datagram format
 - IPv4 addressing
   - Addressing conventions.
+    - Hierachical naming.
+    - Subnet/22 | host => len(host) = 2^(32-22) - 2 = 2^8 - 2
+    - Minus 2 for 0.0.0.0 (Router/Subnet) and 255.255.255.255 (Broadcast/DHCP request)
   - Datagram format.
     - Most fields are unchanged from source to destination.
     - Fields:
