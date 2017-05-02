@@ -264,7 +264,114 @@ A day in a life of a simple web page request:
 Tasks:
 
 ### Network layer
-Tasks:
+
+#### 4.1 Intro
+
+Services:
+- Network layer service modals
+- Forwarind VS. routing
+- How a router works
+- Routing (path selection)
+- Dealing with scale
+
+Protocols:
+- IP
+- ICMP (Internet Control Message Protocol)
+- Routing protocols
+
+Functions:
+- Addressing
+  - Global addresses crossing different network technologies.
+- Fragmentation and reassembly
+  - Underlying network technologies have different props.
+    - MTU (Maximum Transfer Unit)
+    - MaxSegmSize = Congestion Control
+- Rounting and forwarding
+  - Find the route from source to destination.
+  - Forward packets from input to output.
+- Network interconnect
+  - Different underlying network technologies.
+
+Exists in every node (both host and router)
+
+Routers examine header fields in all IP datagrams passing through.
+
+Sending side encapsulation segments into datagrams.
+
+#### 4.2 Virtual circuts and datagram
+
+- Best effort: datagram
+- Packet switching
+  - Store-and-forward
+  - Handles packets
+  - Statistical multiplexing
+- VC VS. IP (datagram)
+  - VC: Connection oriented
+    - Connection set-up establishment state information in network nodes.
+    - Routes connections.
+    - Packets follow the same path.
+    - Guarantee packets in sequence.
+    - Shorter headers.
+    - Each packet VC number.
+    - Delayed duplicates are avoided.
+    - Router table space per connection.
+    - Problems if subnetwork is based on datagram.
+    - RTT for connection setup.
+    - Raouter failures: VC terminated.
+  - IP datagram: Connectionless
+    - No set-up and establishment of state information.
+    - Routes packets.
+    - Packets take different ways to the destination.
+    - Robust against network failure.
+    - Congestion avoidance.
+    - No requirement on underlying network.
+    - Longer headers.
+    - Routers do not hold state information per connection.
+    - Potential for congestion.
+    - No establishing delay.
+    - Router failures: limited.
+- VC model - signaling establishes state information
+  - Connection setup packet has complete destination address.
+  - Explicit connection establishment -> possibility to reserve resources.
+    - Reserve resources: Band width. Memory and CPU capacity.
+  - RTT (Rount-trip-time) deplay before first data packet can be sent.
+  - Each data packet has a smaller identifier.
+  - If a node or link fails, connection must be reestablished.
+  - After establish connection we can send data (data flow).
+    - Going same path both ways.
+  - E.g. ATM (Asynchronous Transfer Mode).
+  - Forwarding based on VC numbers:
+    - Forwarding table in network node:
+      <pre>
+      Incoming interface | Incoming VC # | Outgoing interface | Outgoing VC #
+      . . . . 1 . . . . .| . . . 12 . . .| . . . . 3 . . . . .| . . . 22
+      </pre>
+    - Tables are created on connection establishment.
+- Datagram model - connectionless
+  - We send data at once! No connection establishment/setup.
+    - Sender has no knowledge of if receiver is alive.
+    - Do only need to know the first hop-router.
+  
+
+
+#### 4.3 What is inside a router
+
+- Input processing
+- Switching
+- Output processing
+- Queuing
+
+#### 4.4 IP: Internet protocol
+
+- Datagram format
+- IPv4 addressing
+- ICMP
+- IPv6
+
+#### 4.5 Routing algorithms
+
+- Link state VS. Distance vector
+- Hierarchical routing
 
 ### Transport layer
 ### Applikasjon layer
