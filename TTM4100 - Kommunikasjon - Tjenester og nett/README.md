@@ -183,7 +183,7 @@ Internet approach bottom up:
     - **DHCP** (Dynamic Host Configuration Protocol)
       - Broadcasts/emits message to recieve a new address.
       - Then the device will pick from the IPs available, then it can communicate.
-- The provided IP service is a **connectionless**, **best-effort** service without guarantees.
+  - The provided IP service is a **connectionless**, **best-effort** service without guarantees.
 - **Network layer**
     - UDP:
       - Contains:
@@ -245,7 +245,7 @@ Internet approach bottom up:
       Streaming multimedia . . | HTTP (YT, FB) . . . . . . . . | TCP or UDP
       Internet telephony . . . | SIP, RTP, proprietary (Skype) | Typically UDP, but TCP for FW.
       </pre>
-- The **end-to-end transport layer** adds error, flow- and congestion control.
+  - The **end-to-end transport layer** adds error, flow- and congestion control.
 - **Application layer**
   - **Domain Name System** translates between names and IP addresses.
   - Distributed applications run only in end systems and exchange data across the network.
