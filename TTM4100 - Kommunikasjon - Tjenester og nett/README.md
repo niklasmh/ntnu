@@ -58,11 +58,11 @@ Performance parameters (Ytelse):
     </pre>
   - Sources:
     1. Nodal processing
-      - Check bit errors.
-      - Determine output link.
+        - Check bit errors.
+        - Determine output link.
     2. Queueing
-      - Time waiting at output link for transmission.
-      - Depends on congestion level of router.
+        - Time waiting at output link for transmission.
+        - Depends on congestion level of router.
     3. Transmission
     4. Propagation
 - **Packet loss** - packet arriving to full queue -> Overflow => dropped.
@@ -101,24 +101,24 @@ Internet approach bottom up:
     - MAC protocol (Medium Access Protocol)
       - Tranmit into a shared broadcast channel
         1. Channel partitioning
-          - Divide channel into smaller "pieces" (time slots, frequency, code).
-          - Allocate piece to node for exclusive use.
-          - Methods: [T, M, C]DMA.
+            - Divide channel into smaller "pieces" (time slots, frequency, code).
+            - Allocate piece to node for exclusive use.
+            - Methods: [T, M, C]DMA.
         2. Random access
-          - Channel not divided, allow collisions.
-          - "Recover" from collisions.
-          - Methods
-            - Slottet ALOHA
-              - Sending at the same time. Sync clocks to know when the slots begin.
-            - ALOHA
-            - CSMA
-            - CAMA/CD
-            - CSMA/CA
+            - Channel not divided, allow collisions.
+            - "Recover" from collisions.
+            - Methods
+              - Slottet ALOHA
+                - Sending at the same time. Sync clocks to know when the slots begin.
+              - ALOHA
+              - CSMA
+              - CAMA/CD
+              - CSMA/CA
         3. Taking turns
-          - Nodes take turns, but nodes with more to send can take longer turns.
-          - Methods
-            - Polling (take the one who reaches its hand)
-            - Token passing (passing a mic to speaker)
+            - Nodes take turns, but nodes with more to send can take longer turns.
+            - Methods
+              - Polling (take the one who reaches its hand)
+              - Token passing (passing a mic to speaker)
       - Wireless VS. wired
         - Much easier with wired as wireless has unguided media.
         - Wireless downsides
@@ -316,7 +316,7 @@ Sending side encapsulation segments into datagrams.
     - Delayed duplicates are avoided.
     - Router table space per connection.
     - Problems if subnetwork is based on datagram.
-    - RTT for connection setup.
+    - RTT for connection setup. Then TCP => 2 trips for sending data.
     - Raouter failures: VC terminated.
   - IP datagram: Connectionless
     - No set-up and establishment of state information.
@@ -351,15 +351,58 @@ Sending side encapsulation segments into datagrams.
   - We send data at once! No connection establishment/setup.
     - Sender has no knowledge of if receiver is alive.
     - Do only need to know the first hop-router.
-  
-
 
 #### 4.3 What is inside a router
 
-- Input processing
-- Switching
-- Output processing
-- Queuing
+Functions:
+- Routing algorithm.
+- Forward datagrams.
+
+Sequence:
+1. Queuing on input port if datagrams arrive faster than forwarding rate into switch fabric
+    - Physical layer: Bit level reception
+      - Line termination.
+    - Data link layer: e.g. Ethernet, IEEE802.3
+      - Data link processing (protocol, decapsulation).
+    - Decentralized switching: complete input port processing at 'line speed'
+      - Lookup, forwarding.
+        - Given datagram destination, lookup output port using forwarding table in input port memory.
+      - Queueing.
+2. Switching fabric
+    - Transfer packet from input buffer to appropriate output buffer.
+    - Switching rate: rate at which packets can be tranferred from inputs to outputs.
+      - Often measured as multiple of input/output line rate.
+      - N inputs: switching rate N times line rate desirable.
+    - 3 options:
+      - Memory - Old - CPU controls.
+        - Packet copied to systems memory
+        - One packet at a time.
+        - Speed limited by memory bandwidth (2 bus crossing per datagram).
+        - First generation routers: traditional computers with switching under control of CPU.
+      - Bus - Old
+        - Datagram from input port memory to output port memory via shared bus.
+        - One packet at a time. Like ethernet.
+        - Bus contention: switching speed limited by bus bandwidth.
+      - Crossbar - Today, beause we have much larger matrices.
+        - Interconnection network.
+        - Overcome bus bandwidth limitations.
+        - Forwards multiple packets in parallel.
+        - Switching via interconnection network
+          - Banyan networks, crossbar, other interconnection nets initially developed to connect processors in multiprocessor.
+          - When packet from port A needs to forward to port Y, controller closes cross point at intersection of two buses.
+        - Advanced design: fragmenting datagram into fixed length cells, switch cells through the fabric.
+    - Performance on router: Packets per sec [PPS]
+3. Output port - queuing and loss when packets arrive from fabric faster than output line speed
+    - Buffers required to queue packets
+      - Buffering rule of thumb: average buffering equal to "typical" RTT * C_link
+        - E.g.: R = 250 ms, C_link = 10 Gps -> 2.5 Gbit buffer.
+    - Recent recommendation: with N flows, buffering equal to RTT * C_link / sqrt(N)
+      - Based on experience.
+    - Scheduling discipline chooses among queued datagrams for transmission.
+    - Steps:
+      - Queuing buffer management.
+      - -> Data link processing (protocol, decapsulation).
+      - -> Line termination.
 
 #### 4.4 IP: Internet protocol
 
