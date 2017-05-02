@@ -48,14 +48,14 @@ Performance parameters (Ytelse):
   - End-to-end througput cannot exceed bottleneck link.
 - **Packet delay**, or variation in delay.
   - Calculation:
-<pre>
-R = link bandwidth (bit/s)
-L = packet length (bits)
-time to send bits into link = `L / R`
-d = length of physical link
-s = propagation speed in medium (-2x10⁴ m/sec)
-propagation delay = d/s
-</pre>
+    <pre>
+    R = link bandwidth (bit/s)
+    L = packet length (bits)
+    time to send bits into link = `L / R`
+    d = length of physical link
+    s = propagation speed in medium (-2x10⁴ m/sec)
+    propagation delay = d/s
+    </pre>
   - Sources:
     1. Nodal processing
       - Check bit errors.
@@ -167,13 +167,13 @@ Internet approach bottom up:
     - Each router has a [memory, bus, switch matrix] with in- and output.
     - Routing algorithm
       - Local forwarding table:
-<pre>
-Header val | Output link
-. . . 0100 | 3
-. . . 0101 | 2
-. . . 0111 | 2
-. . . 1001 | 1
-</pre>
+        <pre>
+        Header val | Output link
+        . . . 0100 | 3
+        . . . 0101 | 2
+        . . . 0111 | 2
+        . . . 1001 | 1
+        </pre>
     - **CIDR** (Classless InterDomain Routing)
       - Address format: a.b.c.d/x, where X is # bits in subnet portion of address.
       - 123.45.67.0/23 <-------- subnet part --------> <-- host part -->
@@ -236,15 +236,15 @@ Header val | Output link
         - Retransmission on timeout
         - Own variable for congestion window -> If too many packets are sent and we need to slow down
     - Well known port numbers:
-<pre>
-Application. . . . . . . | Port - App. layer protocol. . | Underlying transport protocol
-Email. . . . . . . . . . | 25 - SMTP . . . . . . . . . . | TCP
-Remote terminal access . | 23 - Telnet . . . . . . . . . | TCP
-Web. . . . . . . . . . . | 80 - HTTP . . . . . . . . . . | TCP
-File transfer. . . . . . | 20, 21 - FTP. . . . . . . . . | TCP
-Streaming multimedia . . | HTTP (YT, FB) . . . . . . . . | TCP or UDP
-Internet telephony . . . | SIP, RTP, proprietary (Skype) | Typically UDP, but TCP for FW.
-</pre>
+      <pre>
+      Application. . . . . . . | Port - App. layer protocol. . | Underlying transport protocol
+      Email. . . . . . . . . . | 25 - SMTP . . . . . . . . . . | TCP
+      Remote terminal access . | 23 - Telnet . . . . . . . . . | TCP
+      Web. . . . . . . . . . . | 80 - HTTP . . . . . . . . . . | TCP
+      File transfer. . . . . . | 20, 21 - FTP. . . . . . . . . | TCP
+      Streaming multimedia . . | HTTP (YT, FB) . . . . . . . . | TCP or UDP
+      Internet telephony . . . | SIP, RTP, proprietary (Skype) | Typically UDP, but TCP for FW.
+      </pre>
 - The **end-to-end transport layer** adds error, flow- and congestion control.
 - **Application layer**
   - **Domain Name System** translates between names and IP addresses.
