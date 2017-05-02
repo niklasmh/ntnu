@@ -406,9 +406,34 @@ Sequence:
 
 #### 4.4 IP: Internet protocol
 
+The network layer in routers and hosts
+
+Routing protocols:
+- Path selection
+- RIP
+- OSPF
+- BGP
+^
+|
++---> Forwarding table.
+
 - Datagram format
 - IPv4 addressing
+  - Addressing conventions.
+  - Datagram format.
+  - Packet handling conventions.
+    <pre>
+    FTP-------+ . . . . . . . . .
+    SMTP-----TCP-----+. . . . . +---NET1.
+    HTTP------+ . . . | . . . . |
+    . . . . . . . . . +----IP---+---NET2
+    . . . . . . . . . | . . . . |
+    NV-------UDP-----+. . . . . +---NETₙ
+    RTP-------+ . . . . . . . . .
+    </pre>
 - ICMP
+  - Error reporting. E.g. TTL timeout.
+  - Router "signaling".
 - IPv6
 
 #### 4.5 Routing algorithms
