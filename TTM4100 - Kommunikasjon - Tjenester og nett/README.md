@@ -266,7 +266,20 @@ Tasks:
   - Broadcasts around in the network for a machine with an spesific IP. Tha machine with IP will answer back with its MAC address.
   - Wireshark: Src: Apple_44:45:67 | Dest: Broadcast | Protocol: ARP | Len: 42 | Info: Who has 123.456.789.10? Tell 0.0.0.0
   - MAC address prefixes: http://standards-oui.ieee.org/oui/oui.txt
+  - Send datagram from AtB, through R:
+    - A: Dest B -> R 111.111.111.110 next hop
+    - R: Dest B -> B 222.222.222.222 next hop
+  - Two ARP tables in router R, one for each IP subnetwork (LAN)
 
+Ethernet:
+  - First widely used LAN technology.
+  - Dominant wired LAN technology.
+  - Cheap $20 for network interface card.
+  - Kept up with speed race: 10Mbps - 10 Gbps
+  - Frame structure:
+    - Preamble: 8 bytes. 7*10101010 + 10101011
+      - Used to sync receiver, sender clock rates.
+    - CRC: 4 bytes, CRC-32 checked at reciever: if error is detected, frame is dropped.
 
 ### Network layer
 
