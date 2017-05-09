@@ -264,8 +264,9 @@ A day in a life of a simple web page request:
 Tasks:
 - Translate between IP and MAC with ARP.
   - Broadcasts around in the network for a machine with an spesific IP. Tha machine with IP will answer back with its MAC address.
-  - Wireshark: Src: Apple_03:23:45:67 | Dest: Broadcast | Protocol: ARP | Len: 42 | Info: Who has 123.456.789.10? Tell 0.0.0.0
+  - Wireshark: Src: Apple_44:45:67 | Dest: Broadcast | Protocol: ARP | Len: 42 | Info: Who has 123.456.789.10? Tell 0.0.0.0
   - MAC address prefixes: http://standards-oui.ieee.org/oui/oui.txt
+
 
 ### Network layer
 
