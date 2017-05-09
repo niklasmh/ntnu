@@ -262,6 +262,8 @@ A day in a life of a simple web page request:
 
 ### Link layer
 Tasks:
+- Translate between IP and MAC with ARP.
+  - Broadcasts around in the network for a machine with an spesific IP. Tha machine with IP will answer back with its MAC address.
 
 ### Network layer
 
