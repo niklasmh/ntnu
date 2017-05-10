@@ -271,15 +271,36 @@ Tasks:
     - R: Dest B -> B 222.222.222.222 next hop
   - Two ARP tables in router R, one for each IP subnetwork (LAN)
 
-Ethernet:
+Ethernet (Wired):
   - First widely used LAN technology.
   - Dominant wired LAN technology.
   - Cheap $20 for network interface card.
   - Kept up with speed race: 10Mbps - 10 Gbps
   - Frame structure:
-    - Preamble: 8 bytes. 7*10101010 + 10101011
+    - Preamble: **8 bytes**. 7*10101010 + 10101011
       - Used to sync receiver, sender clock rates.
-    - CRC: 4 bytes, CRC-32 checked at reciever: if error is detected, frame is dropped.
+    - Dest. addr: **6 bytes**
+    - Src. addr: **6 bytes**
+    - Type: **2 bytes**
+      - Describes how to intepret the packet. E.g. IPv4, AppleTalk, ARP...
+    - Data, like an IP packet. (min **46 bytes**)
+    - CRC: **4 bytes**, CRC-32 checked at reciever: if error is detected, frame is dropped.
+  - Connectionless -> unreliable.
+    - No handshake, like UDP in a way, between send/receive NIC (Network Interface Cards).
+    - Sending NIC does not send ACKs or NACKs to sending NIC.
+      - Streams kan lack datagrams (have gaps).
+      - Gaps are filled inn using TCP - else application see gaps.
+  - Ethernet (802.3) MAC protocol:
+    - unslottet CSMA/CD.
+  - Ex:
+    - A <----> B
+    - 10 Mbit/s ethernet.
+    - Propagation delay `325 bit times => RTT = 650 bit times`
+    - A transmits a frame, but B transmits a frame before A finishes. **Can A finish before it detects that B has transmittet?**
+    - A starts at `t = 0`, worst case A tranmits a minimum (8 + 6 + 6 + 2 + 46 + 4) bytes = 72 bytes = 576 bits.
+    - Worst case B transmits at `t = 324` because that is just below `325 bit times => T = 324+325 = 649 > 576`
+    - There is a max length of the ethernet segments to be sure to detect collisions - depends on the physical medium.
+
 
 ### Network layer
 
