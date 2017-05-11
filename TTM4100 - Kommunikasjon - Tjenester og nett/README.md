@@ -301,6 +301,10 @@ Ethernet (Wired):
     - Worst case B transmits at `t = 324` because that is just below `325 bit times => T = 324+325 = 649 > 576`
     - There is a max length of the ethernet segments to be sure to detect collisions - depends on the physical medium.
 
+Link layer switches:
+  - Interconnecting switches: Plug-and-play through self-learning.
+    - C sends framt to I, I responds to C.
+  
 
 ### Network layer
 
