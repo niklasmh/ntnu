@@ -259,6 +259,79 @@ Siste iterasjon, 10 mangler:
 
 7. Hashbaserte indekser (16.8)
     - Indeksstruktur som er bra for direkte aksess på søkenøkkel.
+      | Indeks | Blokk
+      |:------:| -----
+      | 0      |
+      | 1      | Post, Post
+      |        |
+      | 2      | Post
+      |        |
+      |        |
+      | M-1    |
+    - Om en blokk blir full havner neste i en overflytsblokk med en peker til.
+      - Håndtering:
+        - Åpen adressering: Lagrer i første ledige etterfølgende blokk.
+        - Separat overløp: Lenk sammen overløpsblokker.
+    - h-hashfunksjon skal spre postene godt.
+      - Ex: h(k) = K mod M - restfunksjon.
+
+8. Statisk hashing (16.8.3)
+    - MySQL: Partition by key.
+    - Fast antall blokker i samme fil.
+    - Må bruke overløp for dynamiske datamengder.
+    - Lange overløp som ødelegger ytelse.
+    - Oppg:
+      - Har en liten hashfil med 4 blokker.
+      - Key mod 4.
+      - Sett inn: 9, 11, 12, 7, 8, 4
+        | Key | Mod 4
+        |:---:| -----
+        |  9  | 01
+        | 11  | 11
+        | 12  | 00
+        |  7  | 11
+        |  8  | 00
+        |  4  | 00
+      - Fil:
+        | Indeks | Blokk
+        |:------:| -----
+        | 00     | 12, 8 => overløp [ 4 ]
+        | 01     | 9
+        | 10     |
+        | 11     | 11, 7
+
+9. Extendible hashing (16.8.3)
+    - Håndering a dynamiske datamengder.
+    - Løser problemet med statisk hashing:
+      - Hvis blokk er full, hvorfor ikke reorganisere filen ved å doble antall blokker?
+      - Lesing og skriving til hele fila.
+    - Bruk katalog med pekere til blokker og dobler katalog ved behov.
+      - => Splitte blokken som ble full.
+    - Ex:
+      - En katalog med 4 pekere til dataene.
+        <pre>
+        * => hashverdi av nøkkel
+        Global depth
+        . . .v
+        . .| 2 | . . .| 2 | <- Local depth
+        -------------------------------
+        00 | . | ---> | 4*, 12*, 16*, 32*
+        01 | . | ---> | 1*, 5*, 13*, 21*
+        10 | . | ---> | 10*
+        11 | . | ---> | 7*, 15*, 19*
+        -------------------------------
+        . . . . . . . | 2 | <- Local depth
+        </pre>
+      - Ser på de siste bitene i hashverdien (global depth)
+      - Directory dobling når vi dobler katalog for å få plass til flere verdier.
+
+10. Linear hashing (16.8.3)
+    - (MySQL: linear hash)
+    - En hashfil som kan være dynamisk uten å bruke katalog.
+    - Anta fila har M blokker 0, 1, ... , M-1 og h(K) = K mod M
+    - Bruker lenka overløp (som i statisk hashing).
+    - Splitter en og en blokk, hvorav navnet lineært.
+    - Ukontrollert splitting.
 
 ### Forelesning 17: (uke 12) – 21/3 Lagring/indekser. . . . . . . . . . . . kap. 17
 
