@@ -184,6 +184,82 @@ Siste iterasjon, 10 mangler:
 
 ### Forelesning 16: (uke 12) – 20/3 Lagring/indekser. . . . . . . . . . . . kap. 16
 
+#### Arkitektur for databasesystemer
+
+#### Hvordan lagres databasen?
+  - Poster / blokker
+  - Heapfiler
+  - Hashing
+  - B+-trær
+
+#### Hvordan indekserer vi databasen?
+- Hashing
+  - Statisk
+  - Extendible hashing
+  - Linear hashing
+- B+-trær
+
+1. Viktige egenskaper ved et databasesystem
+    - Håndtere store datamengder. Gjerne mer enn primærminne på datamaskin.
+    - Støtte effektiv aksess til store datamengder.
+
+2. Arkitektur / innhold
+    - JDBC / C# / SQLCommand / PHP
+      - SQL => SQL-kompliator <= SQL Catalog / Dictionary
+      - SQL-kompilator => Optimalisator <= Statistikk
+      - Optimalisator => Utfører (18)
+      - Utfører => DB-buffer
+      - DB-buffer => Tabeller, indekser (16) => Blokker (17), poster
+      - Utfører => Låser (21)
+      - Utfører => Logg (22)
+      - Utfører => Transaksjonstabell (20, 22)
+
+3. Datalagringsmedier (16.1)
+    - Primærlager / RAM
+      - Databasebuffer.
+    - Sekundærlager
+      - Magnetisk disk: Stor, men treg til tilfeldig lesning.
+      - SSD: Liten, men rask til tilfeldig lesing.
+
+4. Databaselagring (16.1.2)
+    - Databasen lagres i filer eller på "raw device"
+    - Lagring av tabeller:
+      - Heapfil
+      - Hashfil
+      - B+-trær (innoDB)
+    - Lagring av indekser
+      - Hashing
+      - B+-trær
+      - R-trær
+
+5. Lagring av poster (16.4)
+    - En rad i en tabell er lagret som en post i en fil.
+    - En post har felter med navn og datatype.
+    - Fig 16.5 (s. 562):
+      | 0. Name | 12. Ssn | 21. Salery | 25. Job_code | 29. Department
+      | --- | --- | --- | --- | ---
+      | Smith, John | 123456789 | XXXX | XXXX | Computer
+    - Man kan sette nummer på hver av kolonnene for å vise hvor mye plass som skal settes av.
+    - Deretter kan man finne data ved hjelp av dette biblioteket.
+    - Annen måte:
+      - | Name = Smith, John |#| Ssn = 123456789 |#| ...
+      - Her lagres attributt sammen ved verdi, litt som XML.
+
+6. Heapfiler (16.6)
+    - "Rått lager" av poster.
+    - Poster settes inn på slutten av filen.
+      - | Blokk | => Fylles med poster => | [Post] [Post] | | [Post] [Post] | ... | Slutt |
+      - Skal du finne en post må du gjennom hele filen.
+        - Derfor har man en indeks på et søkefelt.
+        - En referanse til posten:
+          - RecordId = (BlokkId, Indeks innen blokk)
+          - \+ Lett å sette inn posten.
+          - \+ God til tabellskann.
+          - \- Søk på felter.
+
+7. Hashbaserte indekser (16.8)
+    - Indeksstruktur som er bra for direkte aksess på søkenøkkel.
+
 ### Forelesning 17: (uke 12) – 21/3 Lagring/indekser. . . . . . . . . . . . kap. 17
 
 ### Forelesning 18: (uke 13) – 27/3 Queryprosessering . . . . . . . . . . . kap. 18
