@@ -328,10 +328,29 @@ Siste iterasjon, 10 mangler:
 10. Linear hashing (16.8.3)
     - (MySQL: linear hash)
     - En hashfil som kan være dynamisk uten å bruke katalog.
-    - Anta fila har M blokker 0, 1, ... , M-1 og h(K) = K mod M
+    - Anta fila har M blokkene 0, 1, ... , M-1 og h(K) = K mod M
     - Bruker lenka overløp (som i statisk hashing).
     - Splitter en og en blokk, hvorav navnet lineært.
     - Ukontrollert splitting.
+
+11. Ordnede indekser (17)
+    - ISAM (Index Sequential Access Method) - Gammel, finnes enda i noen store maskiner.
+    - InnoDB bruker for det meste idag.
+    - B-tre - Ordnet treindeks
+    - B+-tre - Ordnet treindeks
+
+12. Begreper innen indeksering (17)
+    - Indeksfelt: Attr / Felt av posten som indeksen bruker.
+    - Primærindeks: Indeks på primærnøkkelen.
+    - Klusterindeks: Indeks på en tabell som er lagret i samme rekkefølge som tabellen.
+      - => B+-tre.
+    - Sekundærindeks: Ekstra indeks på en annen attr / et annet felt enn primørnøkkelen.
+      - Denne indeksen kan være UNIQUE.
+    - Noen DBMS lar deg velge hvilken måte du kan lagre på, men ofte blir det bare B+-trær.
+
+13. Vanlige lagrings / indekssituasjoner:
+    - a) Tabell lagret i heapfil.
+      - Indeks på primærnøkkel (evt. en hash).
 
 ### Forelesning 17: (uke 12) – 21/3 Lagring/indekser. . . . . . . . . . . . kap. 17
 
