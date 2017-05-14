@@ -350,7 +350,41 @@ Siste iterasjon, 10 mangler:
 
 13. Vanlige lagrings / indekssituasjoner:
     - a) Tabell lagret i heapfil.
-      - Indeks på primærnøkkel (evt. en hash).
+      - Indeks på primærnøkkel (evt. en hash) med B+-tre.
+      - MySQL - MyISAM (pleide å være det frem til rundt 2013 hvor innoDB ble standard/default).
+    - b) B-tre på primærnøkkel -> Alltid bare en rotnode.
+      - Lagrer selve tabellraden i løvnodene.
+      - Clustered B+-tre.
+      - InnoDB - storage engine - bruke denne.
+    - c) Hashtabell med hashindex på primærnøkkel.
+      - Selve posten er lagret på indeksen.
+      - Clustered hashindex.
+
+14. ISAM - Index Sequential Access Method
+    - To nivåer med indeks.
+    - Sekvensiell lagring av dataene.
+    - Fordeler:
+      - Effektiv for å finne data baser på primærnøkkel.
+      - Veldig effektiv på sekvensiell skann på primærnøkkel.
+    - Ulempe:
+      - Vanskelig å sette inn data mellom andre data. Da må man flytte data.
+        - Vil si det går bra å sette de inn etterhverandre på slutten.
+
+15. B-trær (Opprinnelig, ikke B+) (17.3.1)
+    - Generalisering av ISAM med multiple nivåer.
+    - Bra på direkteaksess på søkenøkkel.
+    - Gode på sekvensielle skann og verdiområdesøk.
+    - Trær er balanserte.
+    - Poster også på indexnivå.
+
+16. B+-trær (17.3.2)
+    - Den er den mest bruke indeksen.
+    - Innsetting, gjenfinning og sletting (CRD) har alle kostnad: Log_f(N).
+      - N: Antall blokker.
+      - f: Fanout - antall poster på en indeksblokk (antall pekere i en blokk).
+    - Minimum: 50% fyllgrad.
+    - Avg: 67% fyllgrad. 2/3 full.
+    - Du vil helst ikke ha mindre i tilfelle det kommer mer info senere.
 
 ### Forelesning 17: (uke 12) – 21/3 Lagring/indekser. . . . . . . . . . . . kap. 17
 
