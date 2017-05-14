@@ -388,8 +388,21 @@ Siste iterasjon, 10 mangler:
     - Avg: 67% fyllgrad. 2/3 full.
     - Du vil helst ikke ha mindre i tilfelle det kommer mer info senere.
 
-17. 
-
+17. B+-trær i praksis (17.3.2)
+    - Typisk fanout: 133
+    - Typisk fyllgrad: 67%
+    - Typisk kapasitet
+      - Høyde 4: `133⁴ = 312900700 poster`
+      - Høyde 3: `133³ = 2352637 poster`
+    - Hvis løvnodene inneholder selve posten (clustered B+-tre):
+      - Høyde 4: `133⁴ * 20 = 47 mill poster`
+    - Vil i praksis ha de øverste nivåene.
+      | Nivå | Blokker | Plass
+      | --- | ---:| ---:
+      | Level 3 | 1 blokk | 8KB
+      | Level 2 | 133 blokk | 1MB
+      | Level 1 | 17600 blokk | 133MB
+      | Level 0 (root) | 2.3 mill blokk | 18GB
 
 ### Forelesning 18: (uke 13) – 27/3 Queryprosessering . . . . . . . . . . . kap. 18
 
