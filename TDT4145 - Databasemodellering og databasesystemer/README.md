@@ -333,6 +333,8 @@ Siste iterasjon, 10 mangler:
     - Splitter en og en blokk, hvorav navnet lineært.
     - Ukontrollert splitting.
 
+### Forelesning 17: (uke 12) – 21/3 Lagring/indekser. . . . . . . . . . . . kap. 17
+
 11. Ordnede indekser (17)
     - ISAM (Index Sequential Access Method) - Gammel, finnes enda i noen store maskiner.
     - InnoDB bruker for det meste idag.
@@ -386,7 +388,8 @@ Siste iterasjon, 10 mangler:
     - Avg: 67% fyllgrad. 2/3 full.
     - Du vil helst ikke ha mindre i tilfelle det kommer mer info senere.
 
-### Forelesning 17: (uke 12) – 21/3 Lagring/indekser. . . . . . . . . . . . kap. 17
+17. 
+
 
 ### Forelesning 18: (uke 13) – 27/3 Queryprosessering . . . . . . . . . . . kap. 18
 
