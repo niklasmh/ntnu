@@ -522,4 +522,24 @@ Routing protocols:
 
 ### Security in computer networks
 
+Symmetric key:
+- Faster -> Less CPU while being secure.
+- Same key for both encrypt and decrypt.
+- Less secure if the medium is less secure.
+- Cannot sign as the key does belong to more than one end.
+Public key:
+- Slower -> Needs more math.
+- Needs a private key and a public one.
+- Can be used over less secure networks as long you do not exploit your private key.
+- Can sign and verify the author.
+- RSA is using this idea.
+
+Signing:
+- Normally you can use `m + H(m + s) = m'`.
+  - m = Message
+  - H = Hashfunction (SHA-1, MD5, etc..)
+  - s = Secret - must be available in both ends - and not by a middleman.
+  - m' = Message with signing. This can then be verified as the end know the secret value.
+- A valid signing process should make sure author and integrity is correct. The method above keeps both.
+
 ### Multimedia networking
