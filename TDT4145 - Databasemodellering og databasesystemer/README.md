@@ -398,12 +398,12 @@ Siste iterasjon, 10 mangler:
       - Høyde 4: `133⁴ * 20 = 47 mill poster`
     - Vil i praksis ha de øverste nivåene.
 
-| Nivå | Blokker | Plass
-| --- | ---:| ---:
-| Level 3 | 1 blokk | 8KB
-| Level 2 | 133 blokk | 1MB
-| Level 1 | 17600 blokk | 133MB
-| Level 0 (root) | 2.3 mill blokk | 18GB
+      | Nivå | Blokker | Plass
+      | --- | ---:| ---:
+      | Level 3 | 1 blokk | 8KB
+      | Level 2 | 133 blokk | 1MB
+      | Level 1 | 17600 blokk | 133MB
+      | Level 0 (root) | 2.3 mill blokk | 18GB
 
 ### Forelesning 18: (uke 13) – 27/3 Queryprosessering . . . . . . . . . . . kap. 18
 
