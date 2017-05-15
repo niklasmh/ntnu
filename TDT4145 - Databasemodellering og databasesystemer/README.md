@@ -397,6 +397,7 @@ Siste iterasjon, 10 mangler:
     - Hvis løvnodene inneholder selve posten (clustered B+-tre):
       - Høyde 4: `133⁴ * 20 = 47 mill poster`
     - Vil i praksis ha de øverste nivåene.
+
 | Nivå | Blokker | Plass
 | --- | ---:| ---:
 | Level 3 | 1 blokk | 8KB
