@@ -542,4 +542,13 @@ Signing:
   - m' = Message with signing. This can then be verified as the end know the secret value.
 - A valid signing process should make sure author and integrity is correct. The method above keeps both.
 
+MAC VS. digital signing:
+- MAC (Message Authentication Code)
+  - Do not rely on encryption.
+- Digital signing
+  - Must have public key infrastructure -> to verify the author.
+  - DS is also used for digital certificates.
+- Both
+  - Uses hash.
+  - Are extensively used in practice.
 ### Multimedia networking
