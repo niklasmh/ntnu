@@ -284,6 +284,7 @@ Siste iterasjon, 10 mangler:
       - Har en liten hashfil med 4 blokker.
       - Key mod 4.
       - Sett inn: 9, 11, 12, 7, 8, 4
+
         | Key | Mod 4
         |:---:| -----
         |  9  | 01
@@ -293,6 +294,7 @@ Siste iterasjon, 10 mangler:
         |  8  | 00
         |  4  | 00
       - Fil:
+
         | Indeks | Blokk
         |:------:| -----
         | 00     | 12, 8 => overløp [ 4 ]
