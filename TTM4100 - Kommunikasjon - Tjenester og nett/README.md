@@ -551,4 +551,15 @@ MAC VS. digital signing:
 - Both
   - Uses hash.
   - Are extensively used in practice.
+
+Securing wireless LANs
+- WiFi used 802.11 spesification - today with 802.11i which is more secure.
+- WEP (Wired Equivalent Privacy)
+  - Goal is to act like wired network when it comes to security.
+  - Steps:
+    1. Wireless host requests auth by access point.
+    2. Access point responds to auth with 128-byte **nonce** (one time hash) value.
+    3. Wireless host encrypts the **nonce** using symmetric key that is then shared with access point.
+    4. Access point then decrypts the **nonce**.
+
 ### Multimedia networking
