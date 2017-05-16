@@ -552,7 +552,7 @@ MAC VS. digital signing:
   - Uses hash.
   - Are extensively used in practice.
 
-Securing wireless LANs
+Securing wireless LANs:
 - WiFi used 802.11 spesification - today with 802.11i which is more secure.
 - WEP (Wired Equivalent Privacy)
   - Goal is to act like wired network when it comes to security.
@@ -561,5 +561,40 @@ Securing wireless LANs
     2. Access point responds to auth with 128-byte **nonce** (one time hash) value.
     3. Wireless host encrypts the **nonce** using symmetric key that is then shared with access point.
     4. Access point then decrypts the **nonce**.
+
+Firewalls:
+- Goals:
+  - All traffic from outside to inside, and vice versa, passes through the firewall.
+  - Only auth traffic, as defined by local security policy, will be allowed to pass.
+  - The firewall itself is immune to penetration.
+- Cisco and Check Point are leading firewall vendors today (2015). Can create firewall using iptables on Linux.
+- Categories to callify firewalls:
+  - Traditional packet filters.
+    - Every packet goes through one router to the public Internet - this router is the "filter".
+    - Filter rules:
+      - IP source/dest.
+      - Protocol type in IP datagram field: TCP, UDP, ICMP, OSPF...
+      - TCP flag bits: SYN, ACK...
+      - ICMP message type.
+      - Rules for datagrams leaving/entering the network.
+      - Rules for router interfaces.
+    - Example rules:
+
+      | Policy | Firewall setting
+      | --- | ---
+      | No outside Web access. | Drop all outgoing packets to any IP address, port 80.
+      | Prevent network for being used for a smurf DoS attack. | Drop all ICMP ping packets going to a broadcast address (xx.xx.255.255).
+    - Rules in table:
+
+      | Action | Src | Dest | Protocol | Src port | Dest port | Flag bit
+      | --- | --- | --- | --- | --- | --- | ---
+      | allow | xxx.xx/x | outside of xxx.xx/x | TCP | > 1337 | 80 | ACK
+  - Stateful filters.
+    - Can watch the connections, making handshakes (SYN, SYNACK, ACK) and end calls (FIN) visible.
+    - This method can then check if the incoming request was requested by anyone from inside the firewall.
+    - The connection can then watch the sessions from handshake to closed connection (ACKs should also be correct to see an ongoing connection).
+  - Application gateways.
+    - Decides which application data that should arrive to the applications.
+    - Looks beyond TCP/UDP/IP headers.
 
 ### Multimedia networking
