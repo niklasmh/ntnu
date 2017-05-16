@@ -139,6 +139,8 @@ Internet approach bottom up:
     - Network layer exists in all devices, except those which only handles the link layer.
       - End systems.
       - Network nodes. Routers.
+    - HOL (Head-of-line) blocking
+      - Happens when packet is not allowed access to a free resource because it is being blocked (e.g. in a FIFO (First in, first out) queue) by another packet waiting for an unavailable resource. (Exam v2016)
     - Protocols
       - IP (Internet Protocol)
         - Addressing conventions.
