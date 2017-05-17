@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 __author__ = 'Niklas'
 # -*- coding: utf-8 -*-
 
