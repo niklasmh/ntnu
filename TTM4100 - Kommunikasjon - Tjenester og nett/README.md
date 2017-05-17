@@ -128,6 +128,8 @@ Internet approach bottom up:
             - Methods
               - Slottet ALOHA
                 - Sending at the same time. Sync clocks to know when the slots begin.
+                - No collision: Node send new frame in next slot.
+                - Collision: Retransmits after p probability time until success.
               - ALOHA
               - CSMA
               - CAMA/CD
