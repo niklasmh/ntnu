@@ -145,7 +145,19 @@ Internet approach bottom up:
                 - Pure unslottet ALOHA is at 18% - because they are not synced.
               - ALOHA
               - CSMA
+                - **Listen before transmit:** Send entire frame if idle, else if busy, defer transfer.
+                - Collision can still occur: Propagation delay nodes may not hear each others transmission. Packet wasted.
               - CAMA/CD
+                - Easier to detect collision in wired connections.
+                - Used by Ethernet.
+                - Efficiency = `1 / (1 + 5t_prop / t_trans)`
+                  - t_prop = max propagation delay between 2 nodes in LAN.
+                  - t_trans = time to transmit max-size frame.
+                - Pros:
+                  - Simple.
+                  - Cheap.
+                  - Decentrialized.
+                  - Better performance than ALOHA.
               - CSMA/CA
         3. Taking turns
             - Nodes take turns, but nodes with more to send can take longer turns.
