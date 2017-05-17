@@ -70,6 +70,15 @@ Performance parameters (Ytelse):
   - Lost packet mat be retransmittet by previous node, by source end system, or not at all.
 
 Internet approach bottom up:
+
+[//]: # "########  ##     ## ##    ##  ######  ####  ######     ###    ##            ##          ###    ##    ## ######## ########"
+[//]: # "##     ## ##     ##  ##  ##  ##    ##  ##  ##    ##   ## ##   ##            ##         ## ##    ##  ##  ##       ##     ##"
+[//]: # "##     ## ##     ##   ####   ##        ##  ##        ##   ##  ##            ##        ##   ##    ####   ##       ##     ##"
+[//]: # "########  #########    ##     ######   ##  ##       ##     ## ##            ##       ##     ##    ##    ######   ########"
+[//]: # "##        ##     ##    ##          ##  ##  ##       ######### ##            ##       #########    ##    ##       ##   ##"
+[//]: # "##        ##     ##    ##    ##    ##  ##  ##    ## ##     ## ##            ##       ##     ##    ##    ##       ##    ##"
+[//]: # "##        ##     ##    ##     ######  ####  ######  ##     ## ########      ######## ##     ##    ##    ######## ##     ##"
+
 - **Physical layer**
   - Digital communication, transmission of 0s and 1s by the physical layer.
     - Using either radio waves or voltage as measurements for 0s and 1s.
@@ -78,6 +87,15 @@ Internet approach bottom up:
     - They are sended over
       - Guided media - solid - copper, fiber, coax.
       - Unguided media - no wire - EMS - bidirectional - affected by refletion, interference and obstruction by objects.
+
+[//]: # "##       #### ##    ## ##    ##      ##          ###    ##    ## ######## ########"
+[//]: # "##        ##  ###   ## ##   ##       ##         ## ##    ##  ##  ##       ##     ##"
+[//]: # "##        ##  ####  ## ##  ##        ##        ##   ##    ####   ##       ##     ##"
+[//]: # "##        ##  ## ## ## #####         ##       ##     ##    ##    ######   ########"
+[//]: # "##        ##  ##  #### ##  ##        ##       #########    ##    ##       ##   ##"
+[//]: # "##        ##  ##   ### ##   ##       ##       ##     ##    ##    ##       ##    ##"
+[//]: # "######## #### ##    ## ##    ##      ######## ##     ##    ##    ######## ##     ##"
+
 - **Link layer**
   - **Framing** bits and transmit them over the link which is point-to-point of broadcast - using MAC address.
     - They are transported to the next device, by hop-to-hop, that should process the data further.
@@ -129,6 +147,17 @@ Internet approach bottom up:
       - The link layer is implemented in the network card through network drivers in each and every host/node.
         - NIC (Network interface card) implements link + physical layer.
         - Link layer is a mix of hardware and software.
+      - FDMA (Frequency Division Multiple Access)
+        - Channel spectrum divided into frquency bands.
+
+[//]: # "##    ## ######## ######## ##      ##  #######  ########  ##    ##      ##          ###    ##    ## ######## ########"
+[//]: # "###   ## ##          ##    ##  ##  ## ##     ## ##     ## ##   ##       ##         ## ##    ##  ##  ##       ##     ##"
+[//]: # "####  ## ##          ##    ##  ##  ## ##     ## ##     ## ##  ##        ##        ##   ##    ####   ##       ##     ##"
+[//]: # "## ## ## ######      ##    ##  ##  ## ##     ## ########  #####         ##       ##     ##    ##    ######   ########"
+[//]: # "##  #### ##          ##    ##  ##  ## ##     ## ##   ##   ##  ##        ##       #########    ##    ##       ##   ##"
+[//]: # "##   ### ##          ##    ##  ##  ## ##     ## ##    ##  ##   ##       ##       ##     ##    ##    ##       ##    ##"
+[//]: # "##    ## ########    ##     ###  ###   #######  ##     ## ##    ##      ######## ##     ##    ##    ######## ##     ##"
+
 - **Network layer**
   - The frame transports the **IP datagram** one hop towards its destination.
     - Datagram
@@ -186,6 +215,15 @@ Internet approach bottom up:
       - Broadcasts/emits message to recieve a new address.
       - Then the device will pick from the IPs available, then it can communicate.
   - The provided IP service is a **connectionless**, **best-effort** service without guarantees.
+
+[//]: # "######## ########     ###    ##    ##  ######  ########   #######  ########  ########      ##          ###    ##    ## ######## ########"
+[//]: # "   ##    ##     ##   ## ##   ###   ## ##    ## ##     ## ##     ## ##     ##    ##         ##         ## ##    ##  ##  ##       ##     ##"
+[//]: # "   ##    ##     ##  ##   ##  ####  ## ##       ##     ## ##     ## ##     ##    ##         ##        ##   ##    ####   ##       ##     ##"
+[//]: # "   ##    ########  ##     ## ## ## ##  ######  ########  ##     ## ########     ##         ##       ##     ##    ##    ######   ########"
+[//]: # "   ##    ##   ##   ######### ##  ####       ## ##        ##     ## ##   ##      ##         ##       #########    ##    ##       ##   ##"
+[//]: # "   ##    ##    ##  ##     ## ##   ### ##    ## ##        ##     ## ##    ##     ##         ##       ##     ##    ##    ##       ##    ##"
+[//]: # "   ##    ##     ## ##     ## ##    ##  ######  ##         #######  ##     ##    ##         ######## ##     ##    ##    ######## ##     ##"
+
 - **Transport layer**
     - UDP:
       - Contains:
@@ -248,6 +286,15 @@ Internet approach bottom up:
       Internet telephony . . . | SIP, RTP, proprietary (Skype) | Typically UDP, but TCP for FW.
       </pre>
   - The **end-to-end transport layer** adds error, flow- and congestion control.
+
+[//]: # "   ###    ########  ########  ##       ####  ######     ###    ######## ####  #######  ##    ##      ##          ###    ##    ## ######## ########"
+[//]: # "  ## ##   ##     ## ##     ## ##        ##  ##    ##   ## ##      ##     ##  ##     ## ###   ##      ##         ## ##    ##  ##  ##       ##     ##"
+[//]: # " ##   ##  ##     ## ##     ## ##        ##  ##        ##   ##     ##     ##  ##     ## ####  ##      ##        ##   ##    ####   ##       ##     ##"
+[//]: # "##     ## ########  ########  ##        ##  ##       ##     ##    ##     ##  ##     ## ## ## ##      ##       ##     ##    ##    ######   ########"
+[//]: # "######### ##        ##        ##        ##  ##       #########    ##     ##  ##     ## ##  ####      ##       #########    ##    ##       ##   ##"
+[//]: # "##     ## ##        ##        ##        ##  ##    ## ##     ##    ##     ##  ##     ## ##   ###      ##       ##     ##    ##    ##       ##    ##"
+[//]: # "##     ## ##        ##        ######## ####  ######  ##     ##    ##    ####  #######  ##    ##      ######## ##     ##    ##    ######## ##     ##"
+
 - **Application layer**
   - **Domain Name System** translates between names and IP addresses.
   - Distributed applications run only in end systems and exchange data across the network.
@@ -261,6 +308,14 @@ A day in a life of a simple web page request:
 - **TCP** -> 3-way handshake. Establish a reliable connection.
 - **HTTP** -> Send request with Src IP, Dst IP over TCP.
 - **TCP** -> Close connection.
+
+[//]: # "########  ######## ##    ##  ######  ##     ## ##     ##"
+[//]: # "##     ## ##       ###   ## ##    ## ##     ## ###   ###"
+[//]: # "##     ## ##       ####  ## ##       ##     ## #### ####"
+[//]: # "########  ######   ## ## ##  ######  ##     ## ## ### ##"
+[//]: # "##        ##       ##  ####       ## ##     ## ##     ##"
+[//]: # "##        ##       ##   ### ##    ## ##     ## ##     ##"
+[//]: # "##        ######## ##    ##  ######   #######  ##     ##"
 
 ### Link layer
 Tasks:
