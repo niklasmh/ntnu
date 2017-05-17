@@ -130,6 +130,19 @@ Internet approach bottom up:
                 - Sending at the same time. Sync clocks to know when the slots begin.
                 - No collision: Node send new frame in next slot.
                 - Collision: Retransmits after p probability time until success.
+                - Pros:
+                  - Transmits at full rate of channel continously.
+                  - Decentralized.
+                  - Simple.
+                - Cons:
+                  - Wasting slots in collisions.
+                  - Empty slots.
+                  - Needs to sync with clock - usually from a GPS.
+                  - Nodes must detect collision in less time than time to transmit packet.
+                - Probability of success in a node: `p(1-p)ᴺ⁻¹`
+                - Probability of success in any node: `Np(1-p)ᴺ⁻¹`
+                - At best: 37% success.
+                - Pure unslottet ALOHA is at 18% - because they are not synced.
               - ALOHA
               - CSMA
               - CAMA/CD
