@@ -24,7 +24,6 @@ def word(mystr):
 
         if 48 <= pos <= 58:
             newPos = 39 + pos - 48
-            print(newPos)
 
         newPos = 26 if pos == 32 else newPos
         newPos = 27 if pos == 33 else newPos
