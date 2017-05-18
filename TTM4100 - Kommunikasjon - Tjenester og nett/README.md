@@ -673,6 +673,22 @@ Routing protocols:
 
 ### Wireless and mobile
 
+#### 6.1 Intro
+
+Elements in a network:
+- Wireless hosts.
+- Wireless links.
+- Base station.
+- Network infrastructure.
+
+Classifying wireless networks:
+
+| | Infrastructure-based | Infrastructure-less
+| --- | --- | ---
+| Single-hop | Base station connected to a larger wired network. **Ex: 802.11 in public and 3G** | Base station not connected to wireless network. **Ex: Bluetooth and ad hoc in 802.11**
+| Multi-hop | Base station is wired to the larger network. Nodes may connect through other wireless nodes in network. **Ex: Some wireless sensor and wireless mesh networks** | No base, so relay on other nodes to reach destination. Nodes can be mobile. **Ex: Mobile (MANETs) and vehicular (VANET) ad hoc**
+
+#### 6.2
 
 [//]: # "       ######  ########  ######  ##     ## ########  #### ######## ##    ##"
 [//]: # "      ##    ## ##       ##    ## ##     ## ##     ##  ##     ##     ##  ##"
