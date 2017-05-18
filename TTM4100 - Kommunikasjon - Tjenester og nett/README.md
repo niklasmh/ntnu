@@ -681,6 +681,11 @@ Elements in a network:
 - Base station.
 - Network infrastructure.
 
+Ad-hoc mode:
+- **No base** stations
+- Nodes can only transmit to other nodes within link coverage.
+- Nodes organize themselves into a network: route among themselves.
+
 Classifying wireless networks:
 
 | | Infrastructure-based | Infrastructure-less
@@ -689,6 +694,58 @@ Classifying wireless networks:
 | Multi-hop | Base station is wired to the larger network. Nodes may connect through other wireless nodes in network. **Ex: Some wireless sensor and wireless mesh networks** | No base, so relay on other nodes to reach destination. Nodes can be mobile. **Ex: Mobile (MANETs) and vehicular (VANET) ad hoc**
 
 #### 6.2
+
+CDMA er ikke pensum lengre.
+
+#### 6.3
+
+IEEE 802.11 wireless LAN
+- CSMA/CA for muliple access.
+- Base station and ad-hoc
+  - Base station = access point (AP)
+- Basic Service Set (BSS)
+
+To avoid data frame collisions, make small reservation packets.
+- This works for long frames such that you can reserve a channel for a while.
+- First it transmits small RTS (request-to-send) packets using CSMA.
+  - Since they are small they does not cost much on collision, making this option optimal.
+- Access point then broadcasts CTS (clear-to-send) to the RTS request.
+  - All nodes will also hear the CTS, but only the sender got permission.
+- After sending the long packet, the receiver sends back an ACK.
+
+802.3 contains:
+- Source address.
+- Destination address.
+- Type.
+- Length.
+- Frame.
+- Checksum.
+
+802.11 contains:
+- Frame control.
+  - Protocol version.
+  - Type.
+  - SybType.
+    - Management (beacon, probe, auth).
+    - Control (RTS, CTS, ACK).
+    - Data.
+  - To AP.
+  - From AP.
+  - More frag.
+  - Retry.
+  - Power mgt.
+  - Mora data.
+  - WEP (added security/enscryption).
+  - Rsvd.
+- Duration - transmission time (data + ACK) in RTS/CTS and data frames in nanosec.
+- Address 1 (MAC to source).
+- Address 2 (MAC to destination).
+- Address 3 (MAC to router).
+- Seq - for re,iable data transfer.
+- Address 4.
+- Payload.
+- CRC.
+
 
 [//]: # "       ######  ########  ######  ##     ## ########  #### ######## ##    ##"
 [//]: # "      ##    ## ##       ##    ## ##     ## ##     ##  ##     ##     ##  ##"
