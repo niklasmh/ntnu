@@ -873,3 +873,13 @@ Firewalls:
 [//]: # "##    ## ########    ##     ###  ###   #######  ##     ## ##    ## #### ##    ##  ######"
 
 ### Multimedia networking
+
+Fixed playout delays:
+- What: When data is streamed, we want a continous/uninterrupted flow.
+- Problem: Packets arrive destination at different times (async requests) which makes some packets "too late" for the "live show".
+- Solution: Add some more time for the lastest packets to arrive.
+
+CDN (Content Distribution Network):
+- What: Services that provide content.
+- Problem: Hard to get content fast. Especially movies at a reasonable pace according to the clients transmission rate.
+- Solution: Offer service that can distribute content faster by having duplicate files (static files - as they are much easier to save) on different servers around the globe. They can then serve the files from near locations - making it alot faster.
