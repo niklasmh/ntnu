@@ -882,4 +882,7 @@ Fixed playout delays:
 CDN (Content Distribution Network):
 - What: Services that provide content.
 - Problem: Hard to get content fast. Especially movies at a reasonable pace according to the clients transmission rate.
-- Solution: Offer service that can distribute content faster by having duplicate files (static files - as they are much easier to save) on different servers around the globe. They can then serve the files from near locations - making it alot faster.
+- Solution: Offer service that can distribute content faster by having duplicate files (static files - as they are much easier to save) on different servers around the globe.
+  - They can then serve the files from near locations - making it alot faster.
+    - Uses ping to find the closest choice.
+  - The IP address can also be the same as long as the servers have duplicated content.
