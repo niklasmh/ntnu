@@ -51,10 +51,10 @@ Performance parameters (Ytelse):
     <pre>
     R = link bandwidth (bit/s)
     L = packet length (bits)
-    time to send bits into link = `L / R`
+    time to send bits into link = L / R
     d = length of physical link
     s = propagation speed in medium (-2x10⁴ m/sec)
-    propagation delay = d/s
+    propagation delay = d / s
     </pre>
   - Sources:
     1. Nodal processing
