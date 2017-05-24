@@ -262,6 +262,7 @@ Siste iterasjon, 10 mangler:
 
 7. Hashbaserte indekser (16.8)
     - Indeksstruktur som er bra for direkte aksess på søkenøkkel.
+
       | Indeks | Blokk
       |:------:| -----
       | 0      |
