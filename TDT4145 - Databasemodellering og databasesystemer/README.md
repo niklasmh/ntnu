@@ -398,10 +398,10 @@ Siste iterasjon, 10 mangler:
     - Typisk fanout: 133
     - Typisk fyllgrad: 67%
     - Typisk kapasitet
-      - Høyde 4: `133⁴ = 312900700 poster`
+      - Høyde 4: `133⁴ = 312900721 poster`
       - Høyde 3: `133³ = 2352637 poster`
     - Hvis løvnodene inneholder selve posten (clustered B+-tre):
-      - Høyde 4: `133⁴ * 20 = 47 mill poster`
+      - Høyde 4: `133⁴ * 20 = 47 millioner poster? Regner 6.2 milliarder.`
     - Vil i praksis ha de øverste nivåene.
 
       | Nivå | Blokker | Plass
