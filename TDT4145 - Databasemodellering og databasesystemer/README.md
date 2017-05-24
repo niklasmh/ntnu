@@ -443,6 +443,35 @@ Siste iterasjon, 10 mangler:
 
 ### Forelesning 18: (uke 13) – 27/3 Queryprosessering. Kap. 18
 
+#### Queryprosessering/optimalisering:
+  - Intro/oversetting
+  - Flettesortering
+  - Seleksjon
+  - Join
+
+1. Algoritmer for queryprosessering og optimalisering (18)
+<pre>
+JDBC/SQL
+
++----------------+      +-------------+
+| SQL-kompilator | <--- | SQL-katalog |
++----------------+      +-------------+
+        | Alg.         /
+        v            v/
+   +--------------------+      +------------+
+   | Queryoptimalisator | <--- | Statistikk |
+   +--------------------+      +------------+
+              | Alg./utførelsesplan
+              v
+          +-------+
+          | Utfør | Her velges en passende alg.
+          +-------+
+
+Optimalisering:
+  - Regelbasert.
+  - Kostnadsbasert optimalisering.
+</pre>
+
 ### Forelesning 19: (uke 13) – 28/3 Transaksjoner, teori. Kap. 20
 
 ### Forelesning 20: (uke 14) – 3/4 Transaksjoner, låser. Kap. 21
