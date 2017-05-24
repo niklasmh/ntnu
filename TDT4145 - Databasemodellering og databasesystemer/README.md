@@ -472,6 +472,50 @@ Optimalisering:
   - Kostnadsbasert optimalisering.
 </pre>
 
+2. Teknikker for å utføre relasjonsalgebraoperatorer (18.3)
+    - Indeksering: Bruker `WHERE`-utrykket til å trekke ut små mengder poster. (Spesielt for seleksjon.)
+    - Iterasjon: Skanner tabellen.
+    - Partisjonering: Sortere/hashe input. => Operasjoner på mindre datamengder.
+
+3. Statistikk om data
+    - For hver taell: #rader, #blokker.
+    - For hver indeks: #nøkkelverdier, #blokker, histogrammer
+    - For hvert B+-tre: Trehøyde, lowkey, highkey
+
+4. Aksessvei / Access path (18.3)
+    - Måte å få tak i data.
+      - Filskann
+      - Indeks som matcher en seleksjon.
+        - B+-tre-indeks på `<a, b, c>`
+          - Matcher `a = 5 AND b = 3`
+          - Matcher ikke `b = 3`
+      - Hashindeks på `<a, b, c>`
+        - Matcher `a = 5 AND b = 3 AND c = 2`
+        - Matcher ikke `a = 5 AND b = 3 AND c > 2`
+
+5. Oversetting SQL -> Algebra (18.1)
+    - Er en fordel å dele opp spørringen for å dele opp dataene. Her er aggregering først:
+<pre>
+SELECT lname, fname
+FROM Employee
+WHERE Salery > (SELECT MAX(Salery) FROM Employee WHERE dno = 5)
+
+T_(max(salery)) (G_dno=5 (Employee)) -> C
+PI_(lname, fname) (G_(salery>C) (Employee))
+</pre>
+
+6. Flettesortering (18.2)
+    - Sortering av store datamengder.
+    - 2 faser.
+    - Fase 1: Sorterer deler som får plass i RAM.
+      - Antall deler: nᵣ
+      - Antall blokker med data: b
+      - Tilgj. buffer: nᵦ
+      - Ex:
+        - nᵦ, b = 1024
+        - => nᵣ = ⌈b/nᵦ⌉
+        - nᵣ = 205
+
 ### Forelesning 19: (uke 13) – 28/3 Transaksjoner, teori. Kap. 20
 
 ### Forelesning 20: (uke 14) – 3/4 Transaksjoner, låser. Kap. 21
