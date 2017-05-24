@@ -411,6 +411,25 @@ Siste iterasjon, 10 mangler:
       | Level 1 | 17600 blokk | 133MB
       | Level 0 (root) | 2.3 mill blokk | 18GB
 
+18. Blokksplitting i B+-tre
+    - Pleier å splitte ved midterste post i antall eller størrelse.
+    - Max størrelse er ofte bestemt ur ifra 1/2 blokk-størrelse.
+    - Indeksposter er små (Nøkkel + blokk id).
+    - Løvnodeposter kan være større (clustered).
+
+20. Indekser på sammensatte nøkler (17.4)
+    - Ex:
+      - Employee (ssn, dno, age, street, zip, salery, skill)
+      - `SELECT * FROM Employee WHERE dno = 4 AND age > 50`
+      - Hvilke indekser hjelper mest?
+        - Indeks på dno:
+          - Finn all poster med `dno = 4` og se på de med `age > 50`.
+        - Indeks på age:
+          - Skann indeksen fra 50 og finn alle poster med `dno = 4`.
+        - Velger den som er mest selektivt: `dno` (avdelingsnr).
+          - Selektiv = den som filtrerer vekk flest poster.
+        - Bruker leksikalsk sortering.
+
 ### Forelesning 18: (uke 13) – 27/3 Queryprosessering. Kap. 18
 
 ### Forelesning 19: (uke 13) – 28/3 Transaksjoner, teori. Kap. 20
