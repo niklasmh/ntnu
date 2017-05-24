@@ -417,6 +417,17 @@ Siste iterasjon, 10 mangler:
     - Indeksposter er små (Nøkkel + blokk id).
     - Løvnodeposter kan være større (clustered).
 
+19. Eksempel med innsetting i B+-tre:
+    - Sett inn tallene: 2, 5, 14, 22, 27, 3, 7, 16, 24
+    - Skal ende opp med dette, ifølge algoritmen:
+<pre>
+               +-------[14, , ]--------+
+               |                       |
+   +--------[5, , ]        +-------[22, 27, ]-------+
+   |           |           |           |            |
+[2, 3, ]   [5, 7, ]   [14, 16, ]   [22, 24, ]   [27, 33, ]
+</pre>
+
 20. Indekser på sammensatte nøkler (17.4)
     - Ex:
       - Employee (ssn, dno, age, street, zip, salery, skill)
