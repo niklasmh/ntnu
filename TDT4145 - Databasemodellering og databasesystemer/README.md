@@ -236,13 +236,16 @@ Siste iterasjon, 10 mangler:
     - En rad i en tabell er lagret som en post i en fil.
     - En post har felter med navn og datatype.
     - Fig 16.5 (s. 562):
+
       | 0. Name | 12. Ssn | 21. Salery | 25. Job_code | 29. Department
       | --- | --- | --- | --- | ---
       | Smith, John | 123456789 | XXXX | XXXX | Computer
     - Man kan sette nummer på hver av kolonnene for å vise hvor mye plass som skal settes av.
     - Deretter kan man finne data ved hjelp av dette biblioteket.
     - Annen måte:
-      - | Name = Smith, John |#| Ssn = 123456789 |#| ...
+
+      | Name = Smith, John |#| Ssn = 123456789 |#| ...
+      | --- | --- | --- | --- | ---
       - Her lagres attributt sammen ved verdi, litt som XML.
 
 6. Heapfiler (16.6)
