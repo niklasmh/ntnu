@@ -1,6 +1,22 @@
 # TDT4180 - Menneske-maskin interaksjon
 
-### Forelesning 1: (13.01)
+## Pensum
+- [Introduksjon til begreper, prinsipper og praksis for konstruksjon av brukervennlige menneske-maskingrensesnitt](#f1)
+- [Oppgaveanalyse]()
+- [Feltstudie-teknikker]()
+- [Scenariebygging]()
+- [Iterative designmetoder]()
+- [Brukbarhetstesting]()
+- [Mentale modeller]()
+- [Metaforbruk]()
+- [Gestaltprinsipper for visuell komposisjon]()
+- [Empiriske og formelle evalueringsmetoder]()
+- [Dialogteknikker]()
+- [Prototypingsteknikker]()
+- [ISO standarder om brukskvalitet (spesielt ISO 9241-11 og ISO 9241-210)]()
+- [Innføring i vindussystemer]()
+
+###f1 Forelesning 1: (13.01)
  - Opplegg:
    - 5 eller 6 Øvinger (5 på planen).
      - 2 første om teknikkdel (Hallvard).
