@@ -181,6 +181,12 @@
 #### Iterativt design:
   - Kom sammen med skjermer og grafikk.
   - Begynte å utvikle med fossafalls-metode og se et behov for det.
+  - Metode (som i modellen over):
+    - +--> Analyse -> Prototyping -> Evaluering --+
+    - +-------------------------------------------+
+  - Skape valg, lage problemer, vil divergere (åpne).
+  - Ta valg, finne løsningner, vil konvergere (lukke).
+    - Løsning kommer gjerne til slutt da det bare er et valg igjen.
   - Feilrate:
     - Synker etterhvert med flere iterasjoner.
       - Fra rundt 50% - under 10% i 5 iterasjon.
@@ -245,9 +251,6 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
       - Lite brukerfokus.
     - 1984
       - Apple: Macintosh. og MS med PC.
-- Anvendelse av GUI komponenter
-  - 
-
 
 [//]: # "########  #######"
 [//]: # "##       ##     ##"
