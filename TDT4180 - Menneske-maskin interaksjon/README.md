@@ -21,7 +21,7 @@
 - [Empiriske og formelle evalueringsmetoder]()
 - [Dialogteknikker]()
 - [Prototypingsteknikker]()
-- [ISO standarder om brukskvalitet (spesielt ISO 9241-11 og ISO 9241-210)]()
+- [ISO standarder om brukskvalitet (spesielt ISO 9241-11 og ISO 9241-210)](#iso-9241-11-1998)
 - [Innføring i vindussystemer]()
 
 ## Forelesninger
@@ -231,7 +231,7 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
 
 ### Forelesning 2.5: (20.01)
 
-- MMI-historikk
+#### MMI-historikk
   - Mainframes (1960 - 1985) - First wave
     - Mange brukere, en datamaskin.
   - Personal computing (1985 - 2000) - Second wave
@@ -251,6 +251,19 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
       - Lite brukerfokus.
     - 1984
       - Apple: Macintosh. og MS med PC.
+
+#### Anvendelse av GUI komponenter
+- Typer elementer:
+  - Input
+  - Navigasjon
+  - Info
+  - Konteinere
+- Viktig med luft rundt for å skape grupper.
+- Oppsummering:
+  - Følg konvensjonene for bruk av kontrollelementer.
+  - Vær konsistent.
+  - Less is more!
+  - Test brukergrensesnittet.
 
 [//]: # "########  #######"
 [//]: # "##       ##     ##"
