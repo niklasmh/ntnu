@@ -16,7 +16,7 @@
 - [ISO standarder om brukskvalitet (spesielt ISO 9241-11 og ISO 9241-210)]()
 - [Innføring i vindussystemer]()
 
-###f1 Forelesning 1: (13.01)
+### <a name="f1"></a> Forelesning 1: (13.01)
  - Opplegg:
    - 5 eller 6 Øvinger (5 på planen).
      - 2 første om teknikkdel (Hallvard).
