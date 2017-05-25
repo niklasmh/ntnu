@@ -136,13 +136,49 @@
 
 #### Brukersentrert design:
 - Brukeropplevelsen (UX)
-  - Pugg en figur til eksamen.
-  - #### ISO 9241-210:
-    - *Hvordan* gå frem for å oppnå brukekvalitet i produkter.
-  - Viktig å involvere brukeren:
-    - Vi må kommunisere.
-    - Brukeren burde opplyses om hva som er mulig.
-- Iterativt design:
+#### ISO 9241-210:
+- Beskriver **hvordan* en går frem for å lage produkter, tjenester og systemer med høy brukskvalitet.
+- Viktig å involvere brukeren:
+  - Vi må kommunisere.
+  - Brukeren burde opplyses om hva som er mulig.
+- 2010
+- *Human-centered design of interactive systems*
+  - En brukersentrert designprosess har typisk:
+    - Aktiv involvering av brukere.
+    - Klar forståelse av brukere og oppgavene.
+    - En iterativ prosess.
+    - Tverrfaglige utviklingsteam.
+  - Sterkt fokus på at utvikler må forstå og kunne formulere produktets "brukssammenheng" [context og use](#context-of-use)
+  - Fokus på kommunikasjon med bruker gjennom f.eks. *konkrete* typer.
+- Den brukersentrerte design prosessen:
+<pre>
++-------------------------+
+| Plan the human centered |
+|     design process      |
++-------------------------+
+            |
+            v
++------------------------+               +-------------------------------+
+| Understand and specify | ------------> | Specify the user requirements |
+|  the context of use    |               +-------------------------------+
++------------------------+                       ^      |
+          ^                                     /       |
+           \ Iterate, where appropriate        /        |
+            + - - - - - - - - - - - - - - - - +         |
+            |                                  \        |
+            |                                   v       v
++----------------------+                 +-----------------------------+
+| Evaluate the designs |                 | Produce design solutions to |
+| against requirements | <-------------- |    meet user requirements   |
++----------------------+                 +-----------------------------+
+            |
+            v
+/-------------------------\
+| Designed solution meets |
+|    user requirements    |
+\-------------------------/
+</pre>
+#### Iterativt design:
   - Kom sammen med skjermer og grafikk.
   - Begynte å utvikle med fossafalls-metode og se et behov for det.
   - Feilrate:
@@ -212,44 +248,6 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
 - Anvendelse av GUI komponenter
   - 
 
-#### ISO 9241-210 (2):
-- 2010
-- *Human-centered design of interactive systems*
-  - En brukersentrert designprosess har typisk:
-    - Aktiv involvering av brukere.
-    - Klar forståelse av brukere og oppgavene.
-    - En iterativ prosess.
-    - Tverrfaglige utviklingsteam.
-  - Sterkt fokus på at utvikler må forstå og kunne formulere produktets "brukssammenheng" [context og use](#context-of-use)
-  - Fokus på kommunikasjon med bruker gjennom f.eks. *konkrete* typer.
-- Den brukersentrerte design prosessen:
-<pre>
-+-------------------------+
-| Plan the human centered |
-|     design process      |
-+-------------------------+
-            |
-            v
-+------------------------+               +-------------------------------+
-| Understand and specify | ------------> | Specify the user requirements |
-|  the context of use    |               +-------------------------------+
-+------------------------+                       ^      |
-          ^                                     /       |
-           \ Iterate, where appropriate        /        |
-            + - - - - - - - - - - - - - - - - +         |
-            |                                  \        |
-            |                                   v       v
-+----------------------+                 +-----------------------------+
-| Evaluate the designs |                 | Produce design solutions to |
-| against requirements | <-------------- |    meet user requirements   |
-+----------------------+                 +-----------------------------+
-            |
-            v
-/-------------------------\
-| Designed solution meets |
-|    user requirements    |
-\-------------------------/
-</pre>
 
 [//]: # "########  #######"
 [//]: # "##       ##     ##"
