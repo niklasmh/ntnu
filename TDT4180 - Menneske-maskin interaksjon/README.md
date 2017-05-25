@@ -9,7 +9,7 @@
 - [Brukbarhetstesting]()
 - [Mentale modeller]()
 - [Metaforbruk]()
-- [Gestaltprinsipper for visuell komposisjon]()
+- [Gestaltprinsipper for visuell komposisjon](#gestalt)
 - [Empiriske og formelle evalueringsmetoder]()
 - [Dialogteknikker]()
 - [Prototypingsteknikker]()
@@ -244,7 +244,7 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
 
 ### Forelesning 4.5: (03.02)
 
- - Gestalt
+ - #### Gestalt
    - Meningsfull helhet.
    - Prinsipper:
      - Likhet.
