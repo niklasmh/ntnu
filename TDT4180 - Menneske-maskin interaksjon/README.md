@@ -24,18 +24,26 @@
 - [Forelesning 3.5: (27.01)](#forelesning-35-2701)
 - [Forelesning 4: (01.02)](#forelesning-4-0102)
 - [Forelesning 4.5: (03.02)](#forelesning-45-0302)
-- [Forelesning 6: (08.02)](#forelesning-6-0802)
-- [Forelesning 6.5: (10.02)](#forelesning-65-1002)
-- [Forelesning 7: (15.02)](#forelesning-7-1502)
-- [Forelesning 7.5: (17.02)](#forelesning-75-1702)
-- [Forelesning 8: (24.02)](#forelesning-8-2402)
-- [Forelesning 9: (03.03)](#forelesning-9-0303)
-- [Forelesning 10: (10.03)](#forelesning-10-1003)
-- [Forelesning 11: (17.03)](#forelesning-11-1703)
-- [Forelesning 12: (24.03)](#forelesning-12-2403)
-- [Forelesning 13: (31.03)](#forelesning-13-3103)
-- [Forelesning 14: (07.04)](#forelesning-14-0704)
-- [Forelesning 15: (14.04)](#forelesning-15-1404)
+- [Forelesning 5: (08.02)](#forelesning-5-0802)
+- [Forelesning 5.5: (10.02)](#forelesning-55-1002)
+- [Forelesning 6: (15.02)](#forelesning-6-1502)
+- [Forelesning 6.5: (17.02)](#forelesning-65-1702)
+- [Forelesning 7: (24.02)](#forelesning-7-2402)
+- [Forelesning 8: (03.03)](#forelesning-8-0303)
+- [Forelesning 9: (10.03)](#forelesning-9-1003)
+- [Forelesning 10: (17.03)](#forelesning-10-1703)
+- [Forelesning 11: (24.03)](#forelesning-11-2403)
+- [Forelesning 12: (31.03)](#forelesning-12-3103)
+- [Forelesning 13: (07.04)](#forelesning-13-0704)
+- [Forelesning 14: (14.04)](#forelesning-14-1404)
+
+[//]: # "########   ##"
+[//]: # "##       ####"
+[//]: # "##         ##"
+[//]: # "######     ##"
+[//]: # "##         ##"
+[//]: # "##         ##"
+[//]: # "##       ######"
 
 ### Forelesning 1: (13.01)
  - Opplegg:
@@ -106,6 +114,15 @@
 
 Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
 
+
+[//]: # "########  #######"
+[//]: # "##       ##     ##"
+[//]: # "##              ##"
+[//]: # "######    #######"
+[//]: # "##       ##"
+[//]: # "##       ##"
+[//]: # "##       #########"
+
 ### Forelesning 2: (18.01)
 
  - Representasjon av GUI-innhold
@@ -125,6 +142,14 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
  - Scene graph-konseptet og grafikk i JavaFX og FXML
    - Ligner på web-programmering. HTML <=> FXML. CSS <=> CSS i JavaFX.
    - Veldig populært blant designere å bruke komponenter for å tegne grafikk.
+
+[//]: # "########  #######      ########"
+[//]: # "##       ##     ##     ##"
+[//]: # "##              ##     ##"
+[//]: # "######    #######      #######"
+[//]: # "##       ##                  ##"
+[//]: # "##       ##        ### ##    ##"
+[//]: # "##       ######### ###  ######"
 
 ### Forelesning 2.5: (20.01)
 
@@ -151,6 +176,14 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
  - Anvendelse av GUI komponenter
    - 
 
+[//]: # "########  #######"
+[//]: # "##       ##     ##"
+[//]: # "##              ##"
+[//]: # "######    #######"
+[//]: # "##              ##"
+[//]: # "##       ##     ##"
+[//]: # "##        #######"
+
 ### Forelesning 3: (25.01)
 
  - Interaktivitet med JavaFX og FXML og SceneBuilder
@@ -159,6 +192,14 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
        - at U går gjennom V -> C -> M -> C -> V
        - og I går gjennom V -> C -> V
  - Controller-klasser
+
+[//]: # "########  #######      ########"
+[//]: # "##       ##     ##     ##"
+[//]: # "##              ##     ##"
+[//]: # "######    #######      #######"
+[//]: # "##              ##           ##"
+[//]: # "##       ##     ## ### ##    ##"
+[//]: # "##        #######  ###  ######"
 
 ### Forelesning 3.5: (27.01)
 
@@ -237,10 +278,26 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
    - Øving 1
    - Øving 2
 
+[//]: # "######## ##"
+[//]: # "##       ##    ##"
+[//]: # "##       ##    ##"
+[//]: # "######   ##    ##"
+[//]: # "##       #########"
+[//]: # "##             ##"
+[//]: # "##             ##"
+
 ### Forelesning 4: (01.02)
 
  - Data-orienterte komponenter og interaktivitet
  - Mer om Controller-klasser.
+
+[//]: # "######## ##            ########"
+[//]: # "##       ##    ##      ##"
+[//]: # "##       ##    ##      ##"
+[//]: # "######   ##    ##      #######"
+[//]: # "##       #########           ##"
+[//]: # "##             ##  ### ##    ##"
+[//]: # "##             ##  ###  ######"
 
 ### Forelesning 4.5: (03.02)
 
@@ -289,56 +346,152 @@ Relevant litteratur: Johnson& Henderson 2002, læreboka kap. 2.
  - **Øvinger:**
    - Øving 3
 
-### Forelesning 6: (08.02)
+[//]: # "######## ########"
+[//]: # "##       ##"
+[//]: # "##       ##"
+[//]: # "######   #######"
+[//]: # "##             ##"
+[//]: # "##       ##    ##"
+[//]: # "##        ######"
+
+### Forelesning 5: (08.02)
 
  - Komplekse GUI-komponenter og datamodeller.
  - Egendefinerte komponentklasser
 
-### Forelesning 6.5: (10.02)
+[//]: # "######## ########     ########"
+[//]: # "##       ##           ##"
+[//]: # "##       ##           ##"
+[//]: # "######   #######      #######"
+[//]: # "##             ##           ##"
+[//]: # "##       ##    ## ### ##    ##"
+[//]: # "##        ######  ###  ######"
+
+### Forelesning 5.5: (10.02)
 
  - Gjesteforelesning om brukersentrert design
 
-### Forelesning 7: (15.02)
+[//]: # "########  #######"
+[//]: # "##       ##     ##"
+[//]: # "##       ##"
+[//]: # "######   ########"
+[//]: # "##       ##     ##"
+[//]: # "##       ##     ##"
+[//]: # "##        #######"
 
-### Forelesning 7.5: (17.02)
+### Forelesning 6: (15.02)
+
+[//]: # "########  #######      ########"
+[//]: # "##       ##     ##     ##"
+[//]: # "##       ##            ##"
+[//]: # "######   ########      #######"
+[//]: # "##       ##     ##           ##"
+[//]: # "##       ##     ## ### ##    ##"
+[//]: # "##        #######  ###  ######"
+
+### Forelesning 6.5: (17.02)
 
  - Presentasjon og diskusjon av øving om bruk av designprinsipper.
 
-### Forelesning 8: (24.02)
+[//]: # "######## ########"
+[//]: # "##       ##    ##"
+[//]: # "##           ##"
+[//]: # "######      ##"
+[//]: # "##         ##"
+[//]: # "##         ##"
+[//]: # "##         ##"
+
+### Forelesning 7: (24.02)
 
  - Brukersentrert design: Personas, scenarier, prototyping
 
-### Forelesning 9: (03.03)
+[//]: # "########  #######"
+[//]: # "##       ##     ##"
+[//]: # "##       ##     ##"
+[//]: # "######    #######"
+[//]: # "##       ##     ##"
+[//]: # "##       ##     ##"
+[//]: # "##        #######"
+
+### Forelesning 8: (03.03)
 
  - Brukersentrert design: Brukbarhetstesting
 
  - **Øvinger:**
    - Øving 4
 
-### Forelesning 10: (10.03)
+[//]: # "########  #######"
+[//]: # "##       ##     ##"
+[//]: # "##       ##     ##"
+[//]: # "######    ########"
+[//]: # "##              ##"
+[//]: # "##       ##     ##"
+[//]: # "##        #######"
+
+### Forelesning 9: (10.03)
 
  - Brukersentrert design: Gjennomgang av konkret design og utviklingsløp.
  
-### Forelesning 11: (17.03)
+[//]: # "########   ##     #####"
+[//]: # "##       ####    ##   ##"
+[//]: # "##         ##   ##     ##"
+[//]: # "######     ##   ##     ##"
+[//]: # "##         ##   ##     ##"
+[//]: # "##         ##    ##   ##"
+[//]: # "##       ######   #####"
+
+### Forelesning 10: (17.03)
 
  - Gjesteforelesning
 
-### Forelesning 12: (24.03)
+[//]: # "########   ##     ##"
+[//]: # "##       ####   ####"
+[//]: # "##         ##     ##"
+[//]: # "######     ##     ##"
+[//]: # "##         ##     ##"
+[//]: # "##         ##     ##"
+[//]: # "##       ###### ######"
+
+### Forelesning 11: (24.03)
 
  - Deltagende design
 
  - **Øvinger:**
    - Øving 5
 
-### Forelesning 13: (31.03)
+[//]: # "########   ##    #######"
+[//]: # "##       ####   ##     ##"
+[//]: # "##         ##          ##"
+[//]: # "######     ##    #######"
+[//]: # "##         ##   ##"
+[//]: # "##         ##   ##"
+[//]: # "##       ###### #########"
+
+### Forelesning 12: (31.03)
 
  - Ubiquitous computing og interaksjonsteknikker
 
-### Forelesning 14: (07.04)
+[//]: # "########   ##    #######"
+[//]: # "##       ####   ##     ##"
+[//]: # "##         ##          ##"
+[//]: # "######     ##    #######"
+[//]: # "##         ##          ##"
+[//]: # "##         ##   ##     ##"
+[//]: # "##       ######  #######"
+
+### Forelesning 13: (07.04)
 
  - Oppsummering
  - Gjennomgang av gamle eksamensoppgaver
 
-### Forelesning 15: (14.04)
+[//]: # "########   ##   ##"
+[//]: # "##       ####   ##    ##"
+[//]: # "##         ##   ##    ##"
+[//]: # "######     ##   ##    ##"
+[//]: # "##         ##   #########"
+[//]: # "##         ##         ##"
+[//]: # "##       ######       ##"
+
+### Forelesning 14: (14.04)
 
  - *Påskeferie*
