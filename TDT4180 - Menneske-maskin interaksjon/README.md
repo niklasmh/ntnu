@@ -1,7 +1,7 @@
 # TDT4180 - Menneske-maskin interaksjon
 
 ## Pensum
-- [Introduksjon til begreper, prinsipper og praksis for konstruksjon av brukervennlige menneske-maskingrensesnitt](#f1)
+- [Introduksjon til begreper, prinsipper og praksis for konstruksjon av brukervennlige menneske-maskingrensesnitt](#forelesning-1-1301)
 - [Oppgaveanalyse]()
 - [Feltstudie-teknikker]()
 - [Scenariebygging]()
@@ -16,7 +16,28 @@
 - [ISO standarder om brukskvalitet (spesielt ISO 9241-11 og ISO 9241-210)]()
 - [Innføring i vindussystemer]()
 
-### <a name="f1"></a> Forelesning 1: (13.01)
+## Forelesninger
+- [Forelesning 1: (13.01)](forelesning-1-1301")
+- [Forelesning 2: (18.01)](forelesning-2-1801")
+- [Forelesning 2.5: (20.01)](forelesning-25-2001")
+- [Forelesning 3: (25.01)](forelesning-3-2501")
+- [Forelesning 3.5: (27.01)](forelesning-35-2701")
+- [Forelesning 4: (01.02)](forelesning-4-0102")
+- [Forelesning 4.5: (03.02)](forelesning-45-0302")
+- [Forelesning 6: (08.02)](forelesning-6-0802")
+- [Forelesning 6.5: (10.02)](forelesning-65-1002")
+- [Forelesning 7: (15.02)](forelesning-7-1502")
+- [Forelesning 7.5: (17.02)](forelesning-75-1702")
+- [Forelesning 8: (24.02)](forelesning-8-2402")
+- [Forelesning 9: (03.03)](forelesning-9-0303")
+- [Forelesning 10: (10.03)](forelesning-10-1003")
+- [Forelesning 11: (17.03)](forelesning-11-1703")
+- [Forelesning 12: (24.03)](forelesning-12-2403")
+- [Forelesning 13: (31.03)](forelesning-13-3103")
+- [Forelesning 14: (07.04)](forelesning-14-0704")
+- [Forelesning 15: (14.04)](forelesning-15-1404")
+
+### Forelesning 1: (13.01)
  - Opplegg:
    - 5 eller 6 Øvinger (5 på planen).
      - 2 første om teknikkdel (Hallvard).
