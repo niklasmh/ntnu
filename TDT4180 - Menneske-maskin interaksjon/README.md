@@ -712,3 +712,12 @@ Relevant litteratur: Johnson& Henderson 2002, læreboka kap. 2.
 ### Forelesning 14: (14.04)
 
 - *Påskeferie*
+
+| Navn | Formål | Type data | God på | Dårlig på
+| --- | --- | --- | --- | ---
+| **Spørreskjema** | Få svar på spesifikke spørsmål | I hovedsak kvantitative | Kan nå mange pesoner | Vi må vite hva vi skal spørre om
+| **Intervju** | Utforske. Få innblikk i et tema. | Kvalitativt | Gi innsikt i et problem. Dialog med bruker. | Tar tid, og viser ikke faktisk arbeidskontekst.
+| **Fokusgrupper og workshops** | Dialog med gruppe av brukere | Kvalitativt | Komme dypt i å forstå et problem. Brukerinvolvering | Ressurskrevende.
+| **Observasjon** | Studie av faktisk brukskontekst | Kvalitativt | Forstå brukerens faktiske hverdag. | Tar tid. Krever ofte tillatelse, f.eks. på sykehus.
+| **Brukbarhets-testing.** | Evaluering av prototyp eller produkt | Kvalitativt og kvantitativt | Evaluere brukskvalitet av prototyp/produkt. | Krever at man har prototyp. Skjer ikke i faktisk kontekst.
+| **Logging av bruk** | Evaluering av faktisk bruk | Kvantitativt | Faktisk bruk. Mange personer. | Gir ikke innsyn i årsaker til problemer.
