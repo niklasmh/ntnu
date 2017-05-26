@@ -32,7 +32,7 @@
 - [Feltstudie-teknikker]()
 - [Scenariebygging]()
 - [Iterative designmetoder]()
-- [Brukbarhetstesting]()
+- [Brukbarhetstesting](#brukernære-metoder-i-systemutvikling)
 - [Mentale modeller]()
 - [Metaforbruk]()
 - [Gestaltprinsipper for visuell komposisjon](#gestalt)
@@ -712,6 +712,8 @@ Relevant litteratur: Johnson& Henderson 2002, læreboka kap. 2.
 ### Forelesning 14: (14.04)
 
 - *Påskeferie*
+
+#### Brukernære metoder i systemutvikling
 
 | Navn | Formål | Type data | God på | Dårlig på
 | --- | --- | --- | --- | ---
