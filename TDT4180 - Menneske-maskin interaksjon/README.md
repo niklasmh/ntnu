@@ -10,14 +10,24 @@
 
 ## Pensum
 - [Introduksjon til begreper, prinsipper og praksis for konstruksjon av brukervennlige menneske-maskingrensesnitt](#forelesning-1-1301)
-  - [Brukskvalitet (usability)](#brukskvalitet)
-    - [ISO 9241-11](#iso-9241-11-1998)
-  - [Brukersentrert design (user-centered design)](#brukersentrert-design)
-    - [ISO 9241-210](#iso-9241-210)
-  - [Usability](#usability)
-  - [Context of use](#context-of-use)
-  - [Beyond usability](#beyond-usability)
-  - [TAM](#tam-technology-acceptance-model)
+  - Begreper:
+    - [Brukskvalitet (usability)](#brukskvalitet)
+      - [ISO 9241-11](#iso-9241-11-1998)
+    - [Brukersentrert design (user-centered design)](#brukersentrert-design)
+      - [ISO 9241-210](#iso-9241-210)
+    - [Usability](#usability)
+    - [Context of use](#context-of-use)
+    - [Beyond usability](#beyond-usability)
+    - [TAM](#tam-technology-acceptance-model)
+  - Prinsipper:
+    - Don Norman ("Design of everyday things")
+      - [Visibility (Kan jeg se det?)](#visibility)
+      - [Affordable (Hvordan brukes det?)](#affordable)
+      - [Constraints (Hvorfor funker ikke dette?)](#constraints)
+      - [Feedback (Hva skjer nå?)](#feedback)
+      - [Mapping (Sammenhenger? Hva fører til hva?)](#mapping)
+      - [Consistency (Sett dette før?)](#consistency)
+    - [Universell utforming](#universell-utforming)
 - [Oppgaveanalyse]()
 - [Feltstudie-teknikker]()
 - [Scenariebygging]()
@@ -308,76 +318,186 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
 
 ### Forelesning 3.5: (27.01)
 
-- Designretningslinjer
-  - Nødvendig å teste om man følger retningelinjene? JA! De er bare en kravspekk. Den er ikke spesialiser for alle.
-  - Prinsipper:
-    - Don Normans's "Design of everyday things"
-      - **Visibility** => Kan jeg se det?
-        - Mer synlig funksjon => Enklere vil brukeren bruke funksjonen. Lettere mål til aksjon. Lettere å se tilstand.
-        - Eksempel:
-          - Automatisk vannkran.
-            - Hvor skal man putte hendene?
-            - Hvordan slå på vannet?
-      - **Affordable** => Hvordan kan jeg bruke det?
-        - Hvilken handling en gjenstand signaliserer. Hva forteller formen?
-        - Kommer fra psykologi (1977).
-        - Mulige aksjonen en omgivelse tilbyr en aktør.
-        - Perceived affordance (hva oppfatter en aktør at han skal gjøre):
-          - Grafiske grensesnitt har ikke "real affordance" - de er visuelle.
-          - Viktig at GUI har aksjoner som kan kobles til den virkelige verden.
-        - False affordance (feller):
-          - Labels som ser ut som knapper.
-        - Matrise:
-          <pre>
-          P | A |
-          1 | 1 | False affordance
-          1 | 0 | Perceived affordance
-          0 | 1 | Correct Rejection
-          0 | 0 | Hidden affordance
-          </pre>
-        - Eksempel:
-          - En hanske.
-          - Ser at man skal putte hånda i den.
-      - **Constraints** => Hvorfor kan jeg ikke gjøre slik?
-        - Signaliserer begrensninger i forhold til handlinger.
-        - Henger sammen med affordance. Affordance tilbyr ulike måter å bruke det. Constraints tilbyr litt mer hva vi gjør til vanlig pga. kultur eller noe.
-          - F.eks: Noe blir rødt. Forbinder det med stopp eller fare.
-          - Å snakke i mobil i forelesning.
-          - Henger sammen med f.eks. en dør som er flat og bare kan pushes fra den ene siden. På den andre siden kan den pulles. Det sier både hva den må fungere og har en begrensning.
-          - Trinnbasert oppsett av mail.
-            - Kan ikke gå videre om man har gjort noe feil eller mangler noe.
-      - **Feedback** => Hva skjer nå?
-        - Info til brukeren om hvilke handlinger som har blitt utført.
-        - Forteller også om hvilken tilstand systemet har.
-        - Gyldige handlinger skal alltid gi feedback. (Mener personlig at også ikke godkjente skal gi feedback).
-        - Eksempeler:
-          - Knapper forandrer ramme.
-          - Ratt gir motstand om man svinger.
-          - Knapper lager lyd.
-        - Ulike typer:
-          - Visuell.
-          - Auditiv.
-          - Taktil. Mostand eller vibrasjon.
-          - Kombinasjon av de over.
-      - **Mapping** => Er det en naturlig sammenheng mellom kontrollen og effekt?
-        - Overføring av design til den virkelige verden.
-        - Eksempel:
-          - Volumkontroll med vri-knapp:
-            - Med klokken -> Høyere volum
-            - Mot klokken -> Mindre volum
-        - Natual mapping:
-          - Layout på kontroll tilsvarer layout på apparat.
-          - Sammenheng mellom interaksjon og effekt.
-        - Omvendt av natural:
-          - Volumknapp med + neders og - øverst.
-        - Poor mapping:
-          - Stekeplater:
-            - Kan legge knapper på en linje med like lang avstand.
-            - Bedre med å samle 2 av de for å se hvilken side de tilhører.
-            - Beste er å legge de i samme form som platene (i en miniversjon).
-              - Det blir nå natual mapping.
-      - **Consistency** => Har jeg ikke sett dette før?
-        - Elementer som ser like ut bør ha samme funksjon.
+#### Flere typer designkunnskap
+  - Konvensjoner
+    - Regler for bruk av elementer (Checkbox for avkryssning).
+    - Hvordan håndtere interaksjoner fra bruker (F.eks. swipe for å scrolle).
+  - Designprinsipper/guidelines
+    - Basert på erfaring, kunnskap og sunn fornuft.
+    - Kan være vanskelig å operasjonalisere.
+  - Teorier
+    - F.eks. konseptuelle og mentale modeller.
+
+#### Hvorfor designprinsipper?
+  - Generalisere - slik at man kan samarbeide og bygge gode regler, sammen.
+  - Bra for:
+    - [Consistency](#consistency)
+    - Blikkfang
+    - Forenkling
+  - Det fungerer som en sjekkliste.
+    - Som reduserer designiterasjoner, og kostnader i form av tid og penger.
+  - Lenker til lister med designretningslinjer:
+    - [Jacob Nielsen](https://www.nngroup.com/articles/ten-usability-heuristics/)
+    - [Ben Shneiderman](https://www.cs.umd.edu/users/ben/goldenrules.html)
+    - [Bruce Togazzinis](http://asktog.com/atc/principles-of-interaction-design/)
+    - [Universell Design](http://universaldesign.ie/What-is-Universal-Design/The-7-Principles/)
+    - [WCAG 2.0](https://www.w3.org/Translations/WCAG20-no/#guidelines)
+
+#### Designretningslinjer
+- Nødvendig å teste om man følger retningelinjene? JA! De er bare en kravspekk. Den er ikke spesialiser for alle.
+- Prinsipper:
+  - Don Normans's "Design of everyday things"
+    - #### **Visibility**
+      - => Kan jeg se det?
+      - Mer synlig funksjon => Enklere vil brukeren bruke funksjonen. Lettere mål til aksjon. Lettere å se tilstand.
+      - Eksempel:
+        - Automatisk vannkran.
+          - Hvor skal man putte hendene?
+          - Hvordan slå på vannet?
+    - #### **Affordable**
+      - => Hvordan kan jeg bruke det?
+      - Hvilken handling en gjenstand signaliserer. Hva forteller formen?
+      - Kommer fra psykologi (1977).
+      - Mulige aksjonen en omgivelse tilbyr en aktør.
+      - Perceived affordance (hva oppfatter en aktør at han skal gjøre):
+        - Grafiske grensesnitt har ikke "real affordance" - de er visuelle.
+        - Viktig at GUI har aksjoner som kan kobles til den virkelige verden.
+      - False affordance (feller):
+        - Labels som ser ut som knapper.
+      - Matrise:
+        <pre>
+        P | A |
+        1 | 1 | False affordance
+        1 | 0 | Perceived affordance
+        0 | 1 | Correct Rejection
+        0 | 0 | Hidden affordance
+        </pre>
+      - Eksempel:
+        - En hanske.
+        - Ser at man skal putte hånda i den.
+    - #### **Constraints**
+      - => Hvorfor kan jeg ikke gjøre slik?
+      - Signaliserer begrensninger i forhold til handlinger.
+      - Henger sammen med affordance. Affordance tilbyr ulike måter å bruke det. Constraints tilbyr litt mer hva vi gjør til vanlig pga. kultur eller noe.
+        - F.eks: Noe blir rødt. Forbinder det med stopp eller fare.
+        - Å snakke i mobil i forelesning.
+        - Henger sammen med f.eks. en dør som er flat og bare kan pushes fra den ene siden. På den andre siden kan den pulles. Det sier både hva den må fungere og har en begrensning.
+        - Trinnbasert oppsett av mail.
+          - Kan ikke gå videre om man har gjort noe feil eller mangler noe.
+    - #### **Feedback**
+      - => Hva skjer nå?
+      - Info til brukeren om hvilke handlinger som har blitt utført.
+      - Forteller også om hvilken tilstand systemet har.
+      - Gyldige handlinger skal alltid gi feedback. (Mener personlig at også ikke godkjente skal gi feedback).
+      - Eksempeler:
+        - Knapper forandrer ramme.
+        - Ratt gir motstand om man svinger.
+        - Knapper lager lyd.
+      - Ulike typer:
+        - Visuell.
+        - Auditiv.
+        - Taktil. Mostand eller vibrasjon.
+        - Kombinasjon av de over.
+    - #### **Mapping**
+      - => Er det en naturlig sammenheng mellom kontrollen og effekt?
+      - Overføring av design til den virkelige verden.
+      - Eksempel:
+        - Volumkontroll med vri-knapp:
+          - Med klokken -> Høyere volum
+          - Mot klokken -> Mindre volum
+      - Natual mapping:
+        - Layout på kontroll tilsvarer layout på apparat.
+        - Sammenheng mellom interaksjon og effekt.
+      - Omvendt av natural:
+        - Volumknapp med + neders og - øverst.
+      - Poor mapping:
+        - Stekeplater:
+          - Kan legge knapper på en linje med like lang avstand.
+          - Bedre med å samle 2 av de for å se hvilken side de tilhører.
+          - Beste er å legge de i samme form som platene (i en miniversjon).
+            - Det blir nå natual mapping.
+    - #### **Consistency**
+      - => Har jeg ikke sett dette før?
+      - Elementer som ser like ut bør ha samme funksjon.
+
+#### Jacob Nielsens 10 brukbarhets-heuristikker
+- **Visibility of system status**
+  - Alltid tilbakemelding - så brukeren vet statusen til systemet.
+- **Match between system and the real world**
+  - Vis bilder, illustrer for å kommunisere med brukeren på best mulig måte.
+  - Bruk kjente begreper og metaforer som er vanlige.
+- **User control and freedom**
+  - La brukeren ha kontroll.
+  - Ha angre-muligheter på alle nivåer.
+- **Consistency and standards**
+  - Konsistens i grensesnitt
+  - Følg retningslinjene til platformen du bruker (iOS, Windows) - for [consistency](#consistency).
+  - Store bedrifter pleier f.eks. å ha designguidlines for logo og bruk av deres produkt.
+- **Error prevention**
+  - Bedre å unngå feil enn å måtte fikse feilene senere.
+  - Fleksibilitet. Kan være folk skriver addressen forskjellig om det bare er et skrivefelt.
+- **Recognition rather than recall**
+  - La brukeren få se mest mulig av relevant info.
+    - Vis font, om man skal velge font.
+    - Vis meny fra tidligere, om man skal dypere inn i den.
+  - Brukeren er dum.
+- **Flexibility and efficiency of use**
+  - Ha snarveier til mer erfarne brukere. De vil da bli mer effektive.
+  - Copy/Paste er en ganske standard snarvei.
+- **Aesthetic and minimalist design**
+  - Viktig med fokus på kun det viktigste.
+- **Help users recognize, diagnose, and recover from errors**
+  - Hjelp brukeren å unngå feil - som i auto-fullføring på tekstfelt.
+  - Hjelp med å håndtere feil - som å detektere og komme med forslag.
+- **Help and documentation**
+  - Lag et godt system for å finne hjelp. Forum, manual, toot tips, etc.
+  - Helst lavterskel.
+
+#### Universell utforming
+- Lage systemer som kan brukes av flest mulig i målgruppen.
+- Gjelder å være kreativ med blinde, de med lesevansker, osv.
+- "Design for all".
+- Etisk basis.
+- Definert i [WCAG 2.0](#hvorfor-designprinsipper).
+- Bygger på en forståelse av funksjonshemming som *relasjonell*.
+- Funksjonshemming oppstår når der ikke er samsvar med en persons funksjonsevner og krevene omgivelsene stiller.
+  - Dårlig design skaper funksjonehemming.
+  - Det er ikke personen som skaper funksjonshemningene.
+- **Menneskelig mangfold**
+  - Forskjellige fysiske evner, kognitive evner og senseevner.
+  - Barn, voksne og eldre.
+  - Frisk, skadet og syk.
+  - Mann og kvinne.
+  - Ulike kropper.
+- **7 Prinsipper for universell utforming**
+  1. Like muligheter for bruk
+      - Brukelig for personer med ulike ferdigheter.
+      - Like muligheter - ihvertfall oppnå det samme, selv om noen må bruke lengre tid.
+      - Privatliv skal være mulig.
+      - Ex: Automatiske skyvedører.
+  2. Fleksibel i bruk
+      - Kunne tåle mange variasjoner av ferdigheter.
+      - Løses gjerne med flere muligheter for å oppnå det samme.
+      - Ex: En saks for både høyre og ventre hånds personer.
+  3. Enkel og intuitiv bruk
+      - Eliminere unødig kompleksitet.
+      - Få brukeren til å kunne anta på en enkel måte - intuitivt.
+      - Vise hva som er viktig - fokus.
+      - Ex: Bruke bilder i manualer.
+  4. Forståelig informasjon
+      - Maksimere lesbarhet av essensiell informasjon.
+      - Ex: Skjermer på en flyplass for å vise informasjon om gates og tider.
+  5. Toleranse for feil
+      - Sørge for advarsler om bruker gjør feil.
+      - Vær mest mulig feilsikker.
+      - Ex: Undo knapper og trådløse RFID-skannere som bare trenger et kort i nærheten - ikke i en posisjon.
+  6. Lav fysisk anstrengelse
+      - Færrest mulig handlinger.
+      - Ex: Vask, som detekterer av seg selv, og lamper som kan skru seg på når noen er i rommet.
+  7. Større og plass for tilgang og bruk
+      - Gjøre det mulig for alle brukere å kunne bruke systemet.
+      - Både høye og lave skal kunne bruke det.
+      - Ex: Billettautomat på tog med lave skjermer.
 
 - **Øvinger:**
   - Øving 1
