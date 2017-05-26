@@ -60,8 +60,7 @@
 - [Forelesning 4.5: (03.02)](#forelesning-45-0302)
 - [Forelesning 5: (08.02)](#forelesning-5-0802)
 - [Forelesning 5.5: (10.02)](#forelesning-55-1002)
-- [Forelesning 6: (15.02)](#forelesning-6-1502)
-- [Forelesning 6.5: (17.02)](#forelesning-65-1702)
+- [Forelesning 6: (17.02)](#forelesning-6-1702)
 - [Forelesning 7: (24.02)](#forelesning-7-2402)
 - [Forelesning 8: (03.03)](#forelesning-8-0303)
 - [Forelesning 9: (10.03)](#forelesning-9-1003)
@@ -594,6 +593,10 @@ Relevant litteratur: Johnson& Henderson 2002, læreboka kap. 2.
 ### Forelesning 5.5: (10.02)
 
 - Gjesteforelesning om brukersentrert design
+  - Handlet om feedback:
+    - Visuell
+    - Auditiv
+    - Taktil
 
 [//]: # "########  #######"
 [//]: # "##       ##     ##"
@@ -603,17 +606,7 @@ Relevant litteratur: Johnson& Henderson 2002, læreboka kap. 2.
 [//]: # "##       ##     ##"
 [//]: # "##        #######"
 
-### Forelesning 6: (15.02)
-
-[//]: # "########  #######      ########"
-[//]: # "##       ##     ##     ##"
-[//]: # "##       ##            ##"
-[//]: # "######   ########      #######"
-[//]: # "##       ##     ##           ##"
-[//]: # "##       ##     ## ### ##    ##"
-[//]: # "##        #######  ###  ######"
-
-### Forelesning 6.5: (17.02)
+### Forelesning 6: (17.02)
 
 - Presentasjon og diskusjon av øving om bruk av designprinsipper.
 
