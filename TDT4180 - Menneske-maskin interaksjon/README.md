@@ -665,14 +665,32 @@ Denne modellen har 4 steg:
       - Overordnede ikke-funksjonelle krav (bl.a. brukervennlighet)
       - Scenarier og personas som viser tenkt system i bruk.
     - Brukerkrav liste ex:
-      
+
       | ID | Krav | Må | Bør | Kan | Kommentar/Forklaring | Kriterier
       | --- | --- | --- | --- | --- | --- | ---
       | 1. | App må gi bruker mulighet til feedbak | 1 | | | | |
       | 2. | App må gi bruker mulighet til å få verifikasjon hver gang hjelp mottas | 1 | | | Tidpunkt burde være på verifikasjonen |
       | 3. | Bør gi oversikt over tidligere historikk | | 2 | | |
 3. **Produce design solutions to meet user requirements:**
+    - Måter å utvikle designløsninger:
+      - Prototyping:
+        - Ikke-funksjonelle (papirprototyper)
+        - Funksjonelle (kjørende prototyper)
+      - Scenarier med persones for løsning i bruk.
+      - Designretningslinjer (Norma, Nielsen, etc)
+    - Formidling av designløsninger:
+      - Utprøving/Demo av selve prototypene.
+      - Vise scenarier med personas for tenkt system i bruk.
 4. **Evaluate the designs against requirements:**
+    - Evaluere designløsninger:
+      - Brukbarhetstesting i lab.
+      - Fokusgrupper for feedback på løsning.
+      - Felt-tester og logging av bruk.
+      - Skjema (SUS).
+    - Formidle resultat fra evaluering:
+      - Testrapport fra brukbarhetstest.
+      - Oppsummering av feedback fra fokusgrupper.
+      - Analyser av felt-tester og loggdata.
 
 [//]: # "######## ########"
 [//]: # "##       ##    ##"
