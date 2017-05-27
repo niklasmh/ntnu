@@ -610,6 +610,70 @@ Relevant litteratur: Johnson& Henderson 2002, læreboka kap. 2.
 
 - Presentasjon og diskusjon av øving om bruk av designprinsipper.
 
+#### Fasene i brukersentrert design:
+
+Gjentar modell:
+
+<pre>
++-------------------------+
+| Plan the human centered |
+|     design process      |
++-------------------------+
+            |
+            v
++------------------------+               +-------------------------------+
+| Understand and specify | ------------> | Specify the user requirements |
+|  the context of use    |               +-------------------------------+
++------------------------+                       ^      |
+          ^                                     /       |
+           \ Iterate, where appropriate        /        |
+            + - - - - - - - - - - - - - - - - +         |
+            |                                  \        |
+            |                                   v       v
++----------------------+                 +-----------------------------+
+| Evaluate the designs |                 | Produce design solutions to |
+| against requirements | <-------------- |    meet user requirements   |
++----------------------+                 +-----------------------------+
+            |
+            v
+/-------------------------\
+| Designed solution meets |
+|    user requirements    |
+\-------------------------/
+</pre>
+
+Denne modellen har 4 steg:
+1. **Understand and specify the context of use:**
+    - For å forstå "context of use":
+      - Feltstudier
+      - Intervjuer
+      - Gruppeintervju/fokusgrupper
+      - Automatisk logging av bruksmønster
+      - Rollespill
+      - Litteraturstudie
+    - Formidle "context of use":
+      - Personas basert på obervasjoner og intervju.
+      - Scenarier av dagens situasjon basert på observasjon.
+      - Loggdata-analyser.
+2. **Specify the user requirements:**
+    - Hvordan spesifisere krav:
+      - Intervju med brukere og andre interessenter.
+      - Fokusgrupper.
+      - Rollespill.
+    - Hvordan formidle krav:
+      - Kravlister (user requirements spesification)
+      - Overordnede ikke-funksjonelle krav (bl.a. brukervennlighet)
+      - Scenarier og personas som viser tenkt system i bruk.
+    - Brukerkrav liste ex:
+      
+      | ID | Krav | Må | Bør | Kan | Kommentar/Forklaring | Kriterier
+      | --- | --- | --- | --- | --- | --- | ---
+      | 1. | App må gi bruker mulighet til feedbak | 1 | | | | |
+      | 2. | App må gi bruker mulighet til å få verifikasjon hver gang hjelp mottas | 1 | | | Tidpunkt burde være på verifikasjonen |
+      | 3. | Bør gi oversikt over tidligere historikk | | 2 | | |
+3. **Produce design solutions to meet user requirements:**
+4. **Evaluate the designs against requirements:**
+
 [//]: # "######## ########"
 [//]: # "##       ##    ##"
 [//]: # "##           ##"
