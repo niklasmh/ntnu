@@ -867,11 +867,29 @@ PI_(lname, fname) (G_(salery>C) (Employee))
     - Tabell med fordeler/ulemper med de forskjellige nivåene:
 
       | Nivå | Dirty read | Unrepeatable read | Har fantomer
-      |:---:|:---:|:---:|:---:
+      |:--- |:---:|:---:|:---:
       | READ UNCOMMITTED | JA | JA | JA
       | READ COMMITTED | NEI | JA | JA
       | REPEATABLE READ | NEI | NEI | JA
       | SERIALIZEABLE | NEI | NEI | NEI
+
+10. Transaksjonshistorie (20.4.1)
+    - Historie (schedule)
+    - Ex:
+      - a) `r1(X); r2(X); w1(X); r1(Y); w2(X); w1(Y);`
+      - b) `r1(X); w1(X); r2(X); w2(X); r1(Y); a1`
+      - c) `w3(A); r3(A); w3(A); r1(X); w1(X); r3(X); r3(Y); r1(Y); w1(Y);`
+    - Konflikt:
+      - To aksjoner fra en historie er i konflikt hvis;
+        1. De tilhører forskjellige transaksjoner og
+        2. De bruker det samme dataelementet og
+        3. Minst en av aksjonene er en write.
+      - Ex (fra over):
+        - a)
+          - `r2(X) og w1(X) - kollisjon/konflikt.`
+          - `r2(X) og w2(X) - kollisjon/konflikt.`
+          - `r1(X) og r2(X) - ikke kollisjon.`
+      - To aksjoner er i konflikt hvis endringen av rekkefølgen endrer resultatet i databasen.
 
 ### Forelesning 20: (uke 14) – 3/4 Transaksjoner, låser. Kap. 21
 
