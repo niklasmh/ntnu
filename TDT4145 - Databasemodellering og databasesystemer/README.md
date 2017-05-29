@@ -867,7 +867,7 @@ PI_(lname, fname) (G_(salery>C) (Employee))
     - Tabell med fordeler/ulemper med de forskjellige nivåene:
 
       | Nivå | Dirty read | Unrepeatable read | Har fantomer
-      |:...:|:...:|:...:|:...:
+      |:---:|:---:|:---:|:---:
       | READ UNCOMMITTED | JA | JA | JA
       | READ COMMITTED | NEI | JA | JA
       | REPEATABLE READ | NEI | NEI | JA
