@@ -832,6 +832,47 @@ PI_(lname, fname) (G_(salery>C) (Employee))
     - D (Durability): Permanente, dvs. de mistes ikke etter commit. Skriver til loggen når det skrives til disk.
     - => En transaksjon er vanligvis en logisk operasjon.
 
+8. Commit/Abort (20.2.2-3)
+    - En transaksjon slutter med
+      - COMMIT => Alt gikk bra og endringene finnes i databasen.
+        - I JDBC => `Connection.commit();`
+      - ROLLBACK => Transaksjonen rulles tilbake og ingen endringer i transaksjonen fnnes i databasen.
+        - JDBC => `Connection.rollback();`
+      - Autocommit => Hver SQL-setning er en egen transaksjon.
+        - Kan skru av at det er default i JDBC. Så hver ";" vil commite om du ikke endrer det som i eksempelet under.
+        - JDBC: `Connection.SetAutoCommit(false);`
+        - Ex:
+          - `SET AUTOCOMMIT OFF;`
+          - `UPDATE Account SET b = b - 1000 WHERE aid = x;`
+          - `UPDATE Account SET b = b + 1000 WHERE aid = x;`
+          - `COMMIT;`
+      - Ex2: EKT
+        - `INSERT INTO Reg VALUES (1, 123123, 31, 100);`
+        - `INSERT INTO Reg VALUES (2, 123123, 32, 120);`
+        - `UPDATE Løper SET Status = 'ok' WHERE brikker = 123123;`
+        - `COMMIT;`
+
+9. SQLs isolasjonsnivå (20.6)
+    - `SET TRANSACTION ISOLATION LEVEL`
+      - `| READ UNCOMMITTED`
+      - `| READ COMMITTED`
+      - `| REPEATABLE READ`
+      - `v SERIALIZEABLE (default);`
+      - Mer isolasjon nedover, men får mer detaljert om du går høyere.
+    - Grunner til å bruke dette:
+      - Dirty read.
+      - Unrepeatable read.
+      - Unngå fantomer:
+        - Hvis T leser en mengde verdier basert på en søkebetingelse, så vil ikke denne mengden endre seg før T er ferdig.
+    - Tabell med fordeler/ulemper med de forskjellige nivåene:
+
+      | Nivå | Dirty read | Unrepeatable read | Har fantomer
+      |:...:|:...:|:...:|:...:
+      | READ UNCOMMITTED | JA | JA | JA
+      | READ COMMITTED | NEI | JA | JA
+      | REPEATABLE READ | NEI | NEI | JA
+      | SERIALIZEABLE | NEI | NEI | NEI
+
 ### Forelesning 20: (uke 14) – 3/4 Transaksjoner, låser. Kap. 21
 
 ### Forelesning 21: (uke 14) – 4/4 Transaksjoner, recovery. Kap. 22
