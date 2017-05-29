@@ -18,7 +18,7 @@
 - [Forelesning 17: (uke 12) – 21/3 Lagringindekser. Kap. 17](#forelesning-17-uke-12--213-lagringindekser-kap-17)
 - [Forelesning 18: (uke 13) – 27/3 Queryprosessering. Kap. 18](#forelesning-18-uke-13--273-queryprosessering-kap-18)
 - [Forelesning 19: (uke 13) – 28/3 Transaksjoner, teori. Kap. 20](#forelesning-19-uke-13--283-transaksjoner-teori-kap-20)
-- [Forelesning 20: (uke 14) – 3/4 Transaksjoner, låser. Kap. 21](#forelesning-20-uke-14--34-transaksjoner-laser-kap-21)
+- [Forelesning 20: (uke 14) – 3/4 Transaksjoner, låser. Kap. 21](#forelesning-20-uke-14--34-transaksjoner-låser-kap-21)
 - [Forelesning 21: (uke 14) – 4/4 Transaksjoner, recovery. Kap. 22](#forelesning-21-uke-14--44-transaksjoner-recovery-kap-22)
 
 ## Første del (Roger Midtstraum)
