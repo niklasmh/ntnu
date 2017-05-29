@@ -24,10 +24,9 @@
 ## Første del (Roger Midtstraum)
 
 ### Forelesning 1: (uke 2) – 9/1 Introduksjon til faget og databaser. Kap. 1 og 2
- - Database:
-   - En samling av data.
-   - Erstatning for filer. Bygger på de mest brukte metodene man brukte for å lagre i filer; Søk, legge til, slette og oppdatere (CRUD).
- - 
+- Database:
+  - En samling av data.
+  - Erstatning for filer. Bygger på de mest brukte metodene man brukte for å lagre i filer; Søk, legge til, slette og oppdatere (CRUD).
 
 [//]: # "                       ########     ###    ########    ###"
 [//]: # "                       ##     ##   ## ##      ##      ## ##"
@@ -45,111 +44,111 @@
 [//]: # "##     ##  #######  ########  ######## ######## ######## ######## ##     ## #### ##    ##  ######"
 
 ### Forelesning 2: (uke 2) – 10/1 Datamodellering. Kap. 3 og 4
- - ER-modell (Entity Relationship Model):
-   - Beskriver datastrukturen og organiseringen av data som skal bygge en database.
-   - Kan bruke et ER-diagram for å beskrive relasjoner, fremmednøkler og primærnøkler, samt kolonner i tabeller.
+- ER-modell (Entity Relationship Model):
+  - Beskriver datastrukturen og organiseringen av data som skal bygge en database.
+  - Kan bruke et ER-diagram for å beskrive relasjoner, fremmednøkler og primærnøkler, samt kolonner i tabeller.
 
 ### Forelesning 3: (uke 3) – 16/1 Datamodellering. Kap. 3 og 4
- - Kardinalitet:
-   - `(0, 1) <=> -o|-`
-   - `(0, n) <=> -o∈-`
-   - `(1, 1) <=> -||-`
-   - `(1, n) <=> -|∈-`
- - Rekursive relasjonsklasser:
-   - Eksempel:
-<pre>
-Person
-                 A             Underordnet
-      +--------------+    +---------------+
-      |              |    |               |
-      |              |    |               |
-      v         (0,1)|    |(0,1)          v
-                  +------------+
-  +-------+       |            |        +----+
- < Forhold >      | Person     |       < Sjef >
-  +----+--+       |            |        +-+--+
-       |          |            |          |
-       |          +---+--------+          |
-       |        (0,1) |   |(0,n)          |
-       |              ^   ^               |
-       |              |   |               |
-       +--------------+   +---------------+
-             B              Overordnet
+- Kardinalitet:
+  - `(0, 1) <=> -o|-`
+  - `(0, n) <=> -o∈-`
+  - `(1, 1) <=> -||-`
+  - `(1, n) <=> -|∈-`
+- Rekursive relasjonsklasser:
+  - Eksempel:
+    <pre>
+    Person
+                    A             Underordnet
+          +--------------+    +---------------+
+          |              |    |               |
+          |              |    |               |
+          v         (0,1)|    |(0,1)          v
+                      +------------+
+      +-------+       |            |        +----+
+    < Forhold >      | Person     |       < Sjef >
+      +----+--+       |            |        +-+--+
+          |          |            |          |
+          |          +---+--------+          |
+          |        (0,1) |   |(0,n)          |
+          |              ^   ^               |
+          |              |   |               |
+          +--------------+   +---------------+
+                B              Overordnet
 
-Relasjonsky
-                Relasjoner
-            +--------------+----------+
-  +------------+           |          |
-  |            +-----------+  Forhold |
-  |  Harald    |           |          |
-  |            |           +----------+
-  |  Sonja     +-------------+
-  |            |
-  |  Erna      +--------------+
-  |            |          +-----------+
-  |  Siv       +----------+           |
-  |  Børge     |          |  Sjef     |
-  +------------+          |           |
-                          +-----------+
+    Relasjonsky
+                    Relasjoner
+                +--------------+----------+
+      +------------+           |          |
+      |            +-----------+  Forhold |
+      |  Harald    |           |          |
+      |            |           +----------+
+      |  Sonja     +-------------+
+      |            |
+      |  Erna      +--------------+
+      |            |          +-----------+
+      |  Siv       +----------+           |
+      |  Børge     |          |  Sjef     |
+      +------------+          |           |
+                              +-----------+
 
-Person = { Harald, Sonja, Erna, Siv, Børge }
-Forhold = { (Harald, Sonja) }
-Sjef = { (Harald, Erna), (Erna, Siv), (Erna, Børge) }
-</pre>
- - Relasjoner av grad > 2:
-   - Eksempel:
-<pre>
-                                +---------+
-                                | Student |
-                                +---------+
-                                      |(0,n)
-   +--------+                         |
-   |Emne    |                        DeltarIGruppe
-   +--------+                         |
-  (0,n)|    |(0,n)                    |
-       |    |                         |
-       |   EmneBrukerGruppe           |(1,n)
-       |    |                      +-----------+
-       |    +----------------------+StudGruppe |
-       |                     (0,n) +-----------+
-    HarVeileder
-       |
-       |
-       |  +------------+
-       +--+  Veileder  |
-     (1,n)+------------+
-</pre>
-   - Her er det også mulig å legge til en relasjon mellom Emne, Veileder og StudGruppe som heter VeilederGruppeEmne.
-   - `{ (SGID, EID, VID), ... }`
-   - Finnes ikke relasjoner som har relasjoner i dette faget.
- - Svake entitetsklasse:
-   - Mangler "naturlig" nøkkel.
-   - Kan av og til identifisere gjennom relasjon til annen e-klasse.
-   - Eksempel:
-<pre>
-              +-----+knr
-  +-----------+
-  |Kommune    |
-  +-----------+
-   (0,n)|     |
-        |     +-----+navn
-     HarGate
-        |
-   (1,1)|                \*Unik i en kommune
-   +==========+
-   | Gate     +----+\_navn\_\*
-   +==========+
-</pre>
- - Prosess:
-   1. En e-klasser, noen attr.
-   2. Finn r-klasser med navn.
-   3. Komplette med attr., nøklaer og andre restriksjon.
-   4. Vurder modellen.
-   5. Oppfylle krav/bruke
-   6. r.klasser -> e-klasser
-   7. e-klasse -> attr, rel.
-   8. r-klasse spille slå sammen.
-   9. attr. -> e-klasse/rel.
+    Person = { Harald, Sonja, Erna, Siv, Børge }
+    Forhold = { (Harald, Sonja) }
+    Sjef = { (Harald, Erna), (Erna, Siv), (Erna, Børge) }
+    </pre>
+- Relasjoner av grad > 2:
+  - Eksempel:
+    <pre>
+                                    +---------+
+                                    | Student |
+                                    +---------+
+                                          |(0,n)
+      +--------+                         |
+      |Emne    |                        DeltarIGruppe
+      +--------+                         |
+      (0,n)|    |(0,n)                    |
+          |    |                         |
+          |   EmneBrukerGruppe           |(1,n)
+          |    |                      +-----------+
+          |    +----------------------+StudGruppe |
+          |                     (0,n) +-----------+
+        HarVeileder
+          |
+          |
+          |  +------------+
+          +--+  Veileder  |
+        (1,n)+------------+
+    </pre>
+  - Her er det også mulig å legge til en relasjon mellom Emne, Veileder og StudGruppe som heter VeilederGruppeEmne.
+  - `{ (SGID, EID, VID), ... }`
+  - Finnes ikke relasjoner som har relasjoner i dette faget.
+- Svake entitetsklasse:
+  - Mangler "naturlig" nøkkel.
+  - Kan av og til identifisere gjennom relasjon til annen e-klasse.
+  - Eksempel:
+    <pre>
+                  +-----+knr
+      +-----------+
+      |Kommune    |
+      +-----------+
+      (0,n)|     |
+            |     +-----+navn
+        HarGate
+            |
+      (1,1)|                \*Unik i en kommune
+      +==========+
+      | Gate     +----+\_navn\_\*
+      +==========+
+    </pre>
+- Prosess:
+  1. En e-klasser, noen attr.
+  2. Finn r-klasser med navn.
+  3. Komplette med attr., nøklaer og andre restriksjon.
+  4. Vurder modellen.
+  5. Oppfylle krav/bruke
+  6. r.klasser -> e-klasser
+  7. e-klasse -> attr, rel.
+  8. r-klasse spille slå sammen.
+  9. attr. -> e-klasse/rel.
 
 [//]: # "########  ######## ##          ###     ######        ##  #######  ##    ##  ######"
 [//]: # "##     ## ##       ##         ## ##   ##    ##       ## ##     ## ###   ## ##    ##"
@@ -271,18 +270,18 @@ Hashing:
   - Avg. B+-tre er 3. Kan anta det på eksamen.
   - Eksamen ex:
     - Oppg: Vi skal sette inn følgende nøkler i et B+-tre i den gitte rekkefølge: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.
-<pre>
-    +-----------------+-----[3, 5, 7]---+-----------------+
-    |                 |                 |                 |
-[1, 2, ]           [3, 4, ]         [5, 6, ]         [7, 8, 9]
+      <pre>
+          +-----------------+-----[3, 5, 7]---+-----------------+
+          |                 |                 |                 |
+      [1, 2, ]           [3, 4, ]         [5, 6, ]         [7, 8, 9]
 
-Siste iterasjon, 10 mangler:
-              +-------------------[5, ]------------------+
-              |                                          |
-    +-----[3, , ]-----+                 +-------------[7, 9, ]-----------+
-    |                 |                 |                |               |
-[1, 2, ]           [3, 4, ]         [5, 6, ]         [7, 8, ]        [9, 10, ]
-</pre>
+      Siste iterasjon, 10 mangler:
+                    +-------------------[5, ]------------------+
+                    |                                          |
+          +-----[3, , ]-----+                 +-------------[7, 9, ]-----------+
+          |                 |                 |                |               |
+      [1, 2, ]           [3, 4, ]         [5, 6, ]         [7, 8, ]        [9, 10, ]
+      </pre>
 - Hashing
   - En unik nøkkelverdi. Kjappere å finne.
   - Må unngå primærnøkkel.
@@ -314,10 +313,10 @@ Siste iterasjon, 10 mangler:
 #### Arkitektur for databasesystemer
 
 #### Hvordan lagres databasen?
-  - Poster / blokker
-  - Heapfiler
-  - Hashing
-  - B+-trær
+- Poster / blokker
+- Heapfiler
+- Hashing
+- B+-trær
 
 #### Hvordan indekserer vi databasen?
 - Hashing
@@ -547,13 +546,13 @@ Siste iterasjon, 10 mangler:
 19. Eksempel med innsetting i B+-tre:
     - Sett inn tallene: 2, 5, 14, 22, 27, 3, 7, 16, 24
     - Skal ende opp med dette, ifølge algoritmen:
-<pre>
-               +-------[14, , ]--------+
-               |                       |
-   +--------[5, , ]        +-------[22, 27, ]-------+
-   |           |           |           |            |
-[2, 3, ]   [5, 7, ]   [14, 16, ]   [22, 24, ]   [27, 33, ]
-</pre>
+      <pre>
+                    +-------[14, , ]--------+
+                    |                       |
+        +--------[5, , ]        +-------[22, 27, ]-------+
+        |           |           |           |            |
+      [2, 3, ]   [5, 7, ]   [14, 16, ]   [22, 24, ]   [27, 33, ]
+      </pre>
 
 20. Indekser på sammensatte nøkler (17.4)
     - Ex:
@@ -592,27 +591,27 @@ Siste iterasjon, 10 mangler:
   - Join
 
 1. Algoritmer for queryprosessering og optimalisering (18)
-<pre>
-JDBC/SQL
+    <pre>
+    JDBC/SQL
 
-+----------------+      +-------------+
-| SQL-kompilator | <--- | SQL-katalog |
-+----------------+      +-------------+
-        | Alg.         /
-        v            v/
-   +--------------------+      +------------+
-   | Queryoptimalisator | <--- | Statistikk |
-   +--------------------+      +------------+
-              | Alg./utførelsesplan
-              v
-          +-------+
-          | Utfør | Her velges en passende alg.
-          +-------+
+    +----------------+      +-------------+
+    | SQL-kompilator | <--- | SQL-katalog |
+    +----------------+      +-------------+
+            | Alg.         /
+            v            v/
+      +--------------------+      +------------+
+      | Queryoptimalisator | <--- | Statistikk |
+      +--------------------+      +------------+
+                  | Alg./utførelsesplan
+                  v
+              +-------+
+              | Utfør | Her velges en passende alg.
+              +-------+
 
-Optimalisering:
-  - Regelbasert.
-  - Kostnadsbasert optimalisering.
-</pre>
+    Optimalisering:
+      - Regelbasert.
+      - Kostnadsbasert optimalisering.
+    </pre>
 
 2. Teknikker for å utføre relasjonsalgebraoperatorer (18.3)
     - Indeksering: Bruker `WHERE`-utrykket til å trekke ut små mengder poster. (Spesielt for seleksjon.)
@@ -752,6 +751,86 @@ PI_(lname, fname) (G_(salery>C) (Employee))
 [//]: # "   ##    ##     ## ##     ## ##    ##  ######  ##     ## ##    ##  ######   ######   #######  ##    ## ######## ##     ##"
 
 ### Forelesning 19: (uke 13) – 28/3 Transaksjoner, teori. Kap. 20
+
+1. Transaksjoner (20-22)
+    - [Kap. 20](#forelesning-19-uke-13--283-transaksjoner-teori-kap-20)
+      - Hvorfor vi har transaksjoner.
+      - Transaksjoner og SQL
+      - Transaksjoneteori
+    - [Kap. 21](#forelesning-20-uke-14--34-transaksjoner-låser-kap-21)
+      - Flerbrukerkontroll
+      - Låsing
+      - Multiversjonskontroll
+    - [Kap. 22](#forelesning-21-uke-14--44-transaksjoner-recovery-kap-22)
+      - Logging og recovery
+      - Abortering av transaksjoner
+      - Krasjrecovery
+
+2. Hvorfor transaksjoner
+    - Støtter deling og samtidig aksess.
+    - Støtter sikker, atomisk akksess til store mengder data.
+
+3. Databaseoperasjoner (20.1.2)
+    - X - databaseobjekt post/blokk
+    - read(x) => r(x)
+    - write(x) => w(x)
+    - Tilhørende en transaksjon 1.
+    - read₁(x) => r₁(x)
+    - commit₁ => c₁ => Avslutning av transaksjon 1 - alt gikk bra.
+    - abort₁ => a₁ => Rollback
+
+4. Samtidighetsproblemer, eksempel (20.1.3)
+    - 2 transaksjoner:
+      - T1: `BEGIN A = A + 100, B = B - 100 END` - (Overfører 100 til en annen konto)
+      - T1: `BEGIN A = A * 1.06, B = B * 1.06 END` - (Legg til 6% rente til begge kontoer)
+    - En mulig fletting:
+      <pre>
+      T1: A = A + 100                  B = B - 100
+                      \              /             \
+      T2:               A = A * 1.06                 B = B * 1.06
+      </pre>
+    - Annen mulig fletting (not good, bank taper):
+      <pre>
+      T1: A = A + 100                                B = B - 100
+                      \                             /
+      T2:               A = A * 1.06 -> B = B * 1.06
+      </pre>
+    - Historie (Schedule)
+      - `T1: r(A), w(A) . . . . . . . . . . . . . r(B), w(B)`
+      - `T2: . . . . . . . r(A), w(A), r(B), w(B)`
+      - `=> r1(A), w1(A), r2(A), w2(A), r2(B), w2(B), r1(B), w1(B)`
+
+5. Samtidighetsproblemer, klasser (20.1.3)
+    - Dirty read:
+      - `=> r1(A); w1(A); r2(A); w2(A); c2; r1(B); w(B); a1`
+      - Lese før noen har committet.
+    - Lost update:
+      - `=> w1(A); w2(A); w2(B); c2; w1(B); c1`
+      - Overskriver litt for tidlig.
+    - Unrepeatable read:
+      - `=> r1(A); r2(A); w2(A); c2; r1(A); w1(A); c1`
+    - Incorrect summary:
+      - En transaksjon beregner en aggregatfunksjon.
+      - En annen gjør oppdateringer samtidig.
+      - `=> w3(A); r3(A); w3(A); r1(X); w1(X); r3(X); r3(Y); r1(Y); w1(Y)`
+
+6. Hvorfor trenger vi recovery? (20.x)
+    - 2 typer recovery:
+      1. En transaksjon aborterer (rollback)
+      2. Nodekrasjrecovery (datamaskin krasjer)
+          - Krever at databsesystemet må restartes.
+    - Typer av feil:
+      - Systemkrasj - Maskinvare eller programvare.
+      - Brukerfeil - Manglende date eller feil i data.
+      - Samtidighetskontroll - Andre queries ble utført samtidig.
+
+7. ACID-egenskaper ved en transaksjon (20.3)
+    - Transaksjon: En gruppering av operasjoner mot databasen.
+    - A (Atomiske): Enten kjøres alle, ellers kjøres ingen.
+    - C (Consistency): Transaksjon overholder konsistenskrav (PK, REFS, CHECK, ... -> [constraints]).
+    - I (Isolation): Transaksjonene er isolert fra hverandre. Upåvirket av hverandre (kan merke ytelse, tho).
+    - D (Durability): Permanente, dvs. de mistes ikke etter commit. Skriver til loggen når det skrives til disk.
+    - => En transaksjon er vanligvis en logisk operasjon.
 
 ### Forelesning 20: (uke 14) – 3/4 Transaksjoner, låser. Kap. 21
 
