@@ -679,6 +679,69 @@ PI_(lname, fname) (G_(salery>C) (Employee))
 
 8. Eksempel på seleksjon
     - `SELECT * FROM Employee WHERE lname < 'C%'`
+    - Antar 10% av lname tilfredstiller betingelsen.
+    - Totalt 204800 poster.
+    - 200 poster i en blokk.
+    - 1024 blokker i heapfilen.
+    - Metode 1: Filskann
+      - 1024 I/O-er
+    - Metode 2: B+-tre som postene (Clustered) sortert på lname
+      - `10% * 1024 * 1.5 (blokker på løvnivå) = 154 I/O-er`
+    - Metode 3: Heapfil + sekundærindeks:
+      - a) Antar B+-tre er 10% av 1024 (Indeksposten er 10% av resten av posten)
+        - `103 blokkaer * 10% = 11 blokker`
+      - b) Men det er en \* der, ergo:
+        - 204800 poster må hentes fra heapfil.
+        - Potensielt like mange O/I-er som poster => 20480 I/O-er.
+      - => a) + b) = 20491 I/O-er.
+
+9. Metoder for utføring av join (18.3.2)
+    - **J1: Nested-loop-join**
+      - For hver blokk i den ene tabellen, skann den andre tabellen og se etter matcher.
+      - Raskeste måten å gjøre det på.
+    - **J2: Single-loop-join (index nested loop)**
+      - Loope gjennom den ene tabellen, slå opp i en indeks for den andre.
+    - **J3: Sort-merge-join**
+      - Sorter tabellene på joinattributtene, så flett tabellene
+      - Smart om den allerede er sortert på join-attr
+    - **J4: Partition-hash-join**
+      - Partisjonere inputargumentene på join-attr.
+      - Probe/join
+        - Les og join tilsvarende partisjoner fra de to tabellene.
+
+10. Joineksempel
+    - `Employee (_SSN_, fname, lname, salery, ..., dno)`
+    - `Department (dname, _dnumber_, ...)`
+    - `SELECT e.lname, e.salery FROM Employee e, Department d WHERE e.dno = d.dnumber AND d.name = 'Accounting'`
+    - Info:
+    - Department: 5000 poster lagret i 10 blokker.
+    - Employee: 60000 poster lagret i 2000 blokker.
+    - Minne: 7 blokker.
+    - Regne på antall I/O-er for lesing.
+      - J1 - nested loop:
+        - 5 buffer til den ene tabellen.
+        - 1 buffer til den andre.
+        - 1 buffer til resultat.
+        - Først leser inn halve Department tabellen (10 blokker) => 5 blokker.
+        - Så kan vi lese inn en og en blokk fra den andre, som blir 2000 blokker fra Employee.
+        - Gjør det 2 ganger fordi vi delte Department på 2.
+        - `=> (5 + 2000) * 2 = 4010`
+      - J3 - Sort-merge-join:
+        - Antar de er usorterte.
+        - Sorter Department:
+          - Sort `b = 10, nᵦ = 7, nᵣ = ⌈10/7⌉ = 2 delfiler`
+          - Merge: `dₘ = nᵦ - 1 = 6`
+            - `=> ⌈log₆(2)⌉ = 1`
+            - partisjonering + lese/skrive
+            - `=> (2 * 10) + (2 * 10 * 1) = 40 I/O-er`
+        - Sorter Employee:
+          - `b = 2000, nᵦ = 7, nᵣ = ⌈2000/7⌉ = 286 delfiler`
+          - Merge: `dₘ = nᵦ - 1 = 7`
+            - `=> ⌈log₆(286)⌉ = 4`
+            - (lese/skrive partisjonering) + (lese/skrive)
+            - `=> (2 * 2000) + (2 * 2000 * 2) = 12000`
+        - Join av sorterte filer: `10 + 2000 = 2010`
+        - Totalt `40 + 12000 + 2010 = 14050` I/O-er.
 
 [//]: # "######## ########     ###    ##    ##  ######     ###    ##    ##  ######        ##  #######  ##    ## ######## ########"
 [//]: # "   ##    ##     ##   ## ##   ###   ## ##    ##   ## ##   ##   ##  ##    ##       ## ##     ## ###   ## ##       ##     ##"
