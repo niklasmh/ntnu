@@ -893,6 +893,32 @@ PI_(lname, fname) (G_(salery>C) (Employee))
 
 ### Forelesning 20: (uke 14) – 3/4 Transaksjoner, låser. Kap. 21
 
+- Transaksjonsteori:
+  - Gjenopprettbarhet
+  - Serialiserbarhet
+- Låsing
+- Vranglås
+- Multiversjonssamtidighetskontroll
+
+11. Historier og gjenopprettbarhet (20.4.2)
+    - **Gjenopprettbar historie** (recoverable schedule)
+      - Hver transaksjon committer etter at transaksjoner de har lest fra har committed.
+      - `H1: w2(A); w1(B); w1(B); w1(A); r2(B); c1; c2;`
+    - Historier som unngår gallopperende abort (**ACA** - avoid cascading abort)
+      - Kan kun lese verdier som er committed. Ex:
+        - `H1: w1(A); w1(B); w2(A); c1; r2(B); c2;`
+    - **Strikt historie**:
+      - Når transaksjoner verken kan lese eller skrive ikke-commitede verdier.
+        - `H1: w1(A); w1(B); w2(A); c1; r2(B); c2;` (ikke strikt)
+        - `H2: w1(A); w1(B); w2(B); c1; w2(A); c2;` (strikt)
+      - Fordel: Kan gjøre UNDO recoverage ved before image (se i loggen fra tidligere).
+    - Sammenheng: Strikt ⋸ ACA ⋸ Gjenopprettbar (⋸ => is in).
+    - Ex:
+      - `H1: r1(A); w1(A); r1(A); w2(A); c2; c1;` => (Ikke gjenopprettbar)
+      - `H2: r1(A); w1(A); c1; r2(A); w2(A); c2;` => (Strikt)
+      - `H3: r1(A); w1(A); r2(A); w2(A); c1; c2;` => (Gjenopprettbar - fordi vi leser en verdi som er skrevet av en annen transaksjon)
+      - `H4: r2(A); w2(B); w1(B); c2; r1(A); c1;` => (ACA - fordi w1(B) skriver før w2(B) har committa)
+
 ### Forelesning 21: (uke 14) – 4/4 Transaksjoner, recovery. Kap. 22
 
 Gitt følgende historier:
