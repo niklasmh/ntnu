@@ -649,14 +649,36 @@ PI_(lname, fname) (G_(salery>C) (Employee))
 6. Flettesortering (18.2)
     - Sortering av store datamengder.
     - 2 faser.
-    - Fase 1: Sorterer deler som får plass i RAM.
-      - Antall deler: nᵣ
-      - Antall blokker med data: b
-      - Tilgj. buffer: nᵦ
-      - Ex:
-        - nᵦ, b = 1024
-        - => nᵣ = ⌈b/nᵦ⌉
-        - nᵣ = 205
+      - Fase 1: Sorterer deler som får plass i RAM.
+        - Antall deler: nᵣ
+        - Antall blokker med data: b
+        - Tilgj. buffer: nᵦ
+        - Ex:
+          - `nᵦ = 5, b = 1024`
+          - `=> nᵣ = ⌈b/nᵦ⌉`
+          - `nᵣ = 205`
+          - Vi har 205 sorterte delfiler.
+          - Så flette de i fase 2.
+      - Fase 2: Flette sammen sorterte delfiler.
+        - Fra fase 1 har vi 205 sorterte delfiler.
+        - Har `nᵦ = 5` tilgjengelige buffer => 4 input og 1 output.
+        - Får etter fletting: 55 delfiler => 13 delfiler => 4 delfiler => 1 fil. (x / 4 input)
+    - Flettegrad `dₘ`
+      - Antall delfiler som kan flettes i hvert pass
+        - `dₘ = nᵦ - 1 = 4`
+        - Minus et siste for outputfil.
+      - Flettepass: `⌈log_(dₘ)(nᵣ)⌉`
+        - Ex:
+          - `nᵦ = 5, dₘ = 4, nᵣ = 205`
+          - `=> ⌈log₄(205)⌉ => ⌈3.84⌉ => 4`
+
+7. Metoder for enkle seleksjoner (18.3.1)
+    1. Lineært filskann.
+    2. Bruk clusteres B+-tra eller hashindeks.
+    3. Bruke sekundærindeks.
+
+8. Eksempel på seleksjon
+    - `SELECT * FROM Employee WHERE lname < 'C%'`
 
 [//]: # "######## ########     ###    ##    ##  ######     ###    ##    ##  ######        ##  #######  ##    ## ######## ########"
 [//]: # "   ##    ##     ##   ## ##   ###   ## ##    ##   ## ##   ##   ##  ##    ##       ## ##     ## ###   ## ##       ##     ##"
