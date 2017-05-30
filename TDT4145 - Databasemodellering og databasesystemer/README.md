@@ -1064,7 +1064,72 @@ PI_(lname, fname) (G_(salery>C) (Employee))
       - **Før-bilde:** Verdi før endringen (Har du delete eller update) -> Undo
       - **Etter-bilde:** Verdi etter endringen (Blir skrevet om det er en insert) -> Redo
 
-### Oppsummering av eksamen:
+27. Datastrukturer for recovery (ARIES) (22.5)
+    - Transaksjonstabell:
+      - Et element per aktiv transaksjon. De har:
+        - Transaksjons id.
+        - Tilstand (Aktiv, committing, aborting, prepared).
+        - LastLSN - Peker til nyeste blokkpost.
+        - ... - Mangle flere (44+/-)
+      - Dirty Page Table (DPT)
+        - Et element per "dirty" blokk i buffer. De har:
+          - Page id.
+          - RecLSN - LSN til elste loggpost som gjorde blokken "dirty".
+
+28. Sjekkpunkting (22.5)
+    - Periodisk lager DBMS-et sjekkpunkt i loggen som minimaliserer tiden det tar å gjøre recovery.
+    - Du slipper dermed å skanne hele loggen ved recovery.
+    - Skjer f.eks. 2 ganger i minuttet.
+    - Punkter:
+      1. `begin_checkpoint` skrives til loggen.
+      2. `end_checkpoint` skrives til loggen. Inneholder:
+          - Transaksjonstabell
+          - Dirty Page Table (DPT)
+      3. Lagre LSN til `begin_checkpoint` på sikkert sted.
+          - Logganker.
+    - I noen systemer er sjekkpunkting koblet til å skrive "dirty"-blokker til disk, men ikke ARIES.
+
+29. Abortering av transaksjon (22.5)
+    - Sett transaksjonstilstand til aborting.
+    - Finn lastLSN fra transaksjonstabell.
+    - For hve loggpost i transaksjonen (bakover, via LastLSN)
+      - Lag CLR (Compansating log post), som gjør det motsatta av loggposten (non-CLR).
+      - Gjør redo på CLR-en.
+    - Fjerne transaksjonen fra transaksjonstabellen.
+
+30. Recovery etter krasj
+    - Mål: Sørge for at vinnertransaksjoner er permanente.
+    - Sørge for at tapertransaksjoner blir borte. (abortert)
+      <pre>
+                          DPT               LastUpdate
+      Gammel               v                    v                 Ny
+      ---------------------|--------------------|------------------- Logg
+                                                |------------------> Analyse
+                           |---------------------------------------> Redo
+      <------------------------------------------------------------| Undo
+
+      1. Analyse: Finn vinnere og tapere.
+      2. Redo av alle loggposter.
+      3. Undo lager nye loggposter med kompansering.
+      </pre>
+
+31. Redo av loggpost (ARIES) (22.5)
+    - Loggposten trenger ikke redo hvis:
+      1. Den tilhørende blokken ikke er en Dirty Page Table (DPT)
+      2. Blokken er i DPT, men RecLSN for blokken i DPT er større enn loggposten sin LSN.
+      3. Blokken sin PageLSN er større enn (eller lik) loggposten sin LSN.
+    - Ellers redo loggpost.
+      - Skriver after image inne i blokken.
+      - Oppdaterer deretter blokken sin pageLSN til loggposten sin LSN.
+
+32. Andre recovery teknikker (22.2-4)
+    - Undo/no-redo: Som ARIES, men kun undo-logging.
+    - No-undo/redo: Som ARIES, men kun redo-logging.
+    - Shadowing:
+      - Ingen logging. Bruker kopier av data ved oppdatering.
+      - Ved commit: Kopier inn en katalog med pekere til nye data.
+
+### Oppsummeringsforelesning
 
 Gitt følgende historier:
 1. r1(X); r2(Y), w3(X); r2(X); r1(Y); c1; c2; c3;
@@ -1137,7 +1202,7 @@ Ex:
 - ARIES: No-Force, Steal. Undo/Redo.
 - LSN: Logginsekvens-nummer: I stigende rekkefølge.
 - PageLSN: LSN til logpost som sist endret en blokk.
-- FlushedLSN: LSN til nteste loggpost skrevet til disk.
+- FlushedLSN: LSN til neste loggpost skrevet til disk.
 
 - Aries: Redo-Undo.
 - Skriver loggen til disk før den skriver blokken.
