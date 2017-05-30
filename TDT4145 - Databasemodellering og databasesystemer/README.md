@@ -912,7 +912,7 @@ PI_(lname, fname) (G_(salery>C) (Employee))
     - **Strikt historie**:
       - Når transaksjoner verken kan lese eller skrive ikke-committede verdier.
         - `H1: w1(A); w1(B); w2(A); c1; r2(B); c2;` (ikke strikt)
-        - `H2: w1(A); w1(B); w2(B); c1; w2(A); c2;` (strikt)
+        - `H2: w1(A); w1(B); c1; w2(B); w2(A); c2;` (strikt)
       - Fordel: Kan gjøre UNDO recoverage ved before image (se i loggen fra tidligere).
     - Sammenheng: Strikt ⋸ ACA ⋸ Gjenopprettbar (⋸ => is in).
     - Ex:
