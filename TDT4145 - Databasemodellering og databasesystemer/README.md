@@ -921,6 +921,81 @@ PI_(lname, fname) (G_(salery>C) (Employee))
       - `H3: r1(A); w1(A); r2(A); w2(A); c1; c2;` => (Gjenopprettbar - fordi vi leser en verdi som er skrevet av en annen transaksjon)
       - `H4: r2(A); w2(B); w1(B); c2; r1(A); c1;` => (ACA - fordi w1(B) skriver før w2(B) har committa)
 
+12. Historier og serialiserbarhet (20.5.1)
+    - Seriell historie:
+      - En historie som ikke fletter operasjoner fra forskjellige transaksjoner.
+    - Serialiserbare historie:
+      - En historie som har samme effekti på databasen som en seriell historie.
+      - Ergo: Samme effektiv som om de kjørte etterhverandre - selv om de kjører i parallell.
+    - Hvorfor ønsker vi serialiserbarhet?
+      - Fordi vi øsnker å tillate samtidighet.
+        1. Parallell - fordi alle datamaskiner bruker for det meste parallellitet.
+        2. Kan være mye diskaksess - så da kan andre transaksjoner jobbe når disken aksesseres.
+
+13. Konfliktserialiserbarhet (20.5.1)
+    - Konflikt mellom 2 operasjoner:
+      - En leser og den andre skriver.
+      - Begge skriver.
+    - Konfliktekvivalens:
+      - 2 historier er konfliktekvivalente hvis de kan bli like ved å bytte plass (rekkefølge) for operasjoner som ikke er i konflikt.
+    - Konfliktserialiserbar:
+      - En historier er konfliktserialiserbar hvis den er konfliktekvivalent med en seriell historie.
+    - Konfliktserialiserbarhet impliserer serialiserbarhet, men ikke nødvendigvis motsatt.
+
+14. Presidensgrafer (20.5.2)
+    - Rettet graf.
+    - Nodene er transaksjoner i en historie.
+    - Kantene er operasjonene:
+      - T1 -> T2 når det finnes en operasjon i T1 som er i koflikt med en i T2, og T1 sin operasjon skjer før T2 sin operasjon.
+    - Hvis en presedensgraf ikke har sykler, er historien konfliktserialiserbar.
+
+15. Serialiserbarhet ved låsing (21.1.1)
+    - Bruker låser av dataelement (post eller blokk) for å garantere konfliktserialiserbarhet.
+    - Låsertyper:
+      - Delt lås (leselås)
+      - Ekslusiv lås (skrivelås)
+
+16. Implementasjon av låser (21.1.1)
+    - Fungerer ved:
+      - Du har en låsetabell i minnet - raskt tilgjengelig.
+      - Kan ha:
+        - Postlåser.
+        - Blokklåser.
+        - Tabellåser.
+        - Verdiområdelåser (rangelock).
+        - Predikatlås (I where clause i SQL).
+    - Er ikke viktig å lagre de siden de er enkle å gjenskape.
+
+17. 2PL - Tofaselåsing (21.1.2)
+    - En transaksjon har tofaselåsing hvis alle låseoperasjoner skjer før opplåsningsoperasjonen.
+    - Tofaselåsing impliserer serialiserbarhet.
+    - 4 former for faselåsing:
+      1. Basic 2PL. Låser ved behov. `/\`
+      2. Konservativ 2PL. Låser alt før man gjør noe som helst. Må vite eksakt hva som skal låses. `|\`
+      3. Strikt 2PL. Deler låsingen i 2 faser. `/^|`
+      4. Rigorous 2PL. Låser når den trenger ting, så slippe alt i et tidspunkt (med commit/abort). `/|`
+
+18. Vranglås (21.1.3)
+    - 2 eller flere transaksjoner venter gjensidig på hverandres låser.
+    - Kan løses med 3 forskjellige strategier:
+      1. Unngåelse (Ikke viktig for pensum).
+      2. Oppdagelse.
+      3. Bruke en timeout.
+
+19. Vranglåsoppdagelse (21.1.3)
+    - Vanligste løsningen.
+    - Konstruerer en wait-for-graph.
+      - Hver transaksjon er en node.
+      - Hvis transaksjon T1 venter på en lås holdt av T2 får vi en rettet kant T1 -> T2.
+      - Har en vranglås om det er en sykel i den grafen.
+      - Prøv å abortere en transaksjon og se om sykelen forsvinner.
+
+20. Timeout (21.1.3)
+    - Enkleste løsningen.
+    - Lar hver transaksjon har en timeout.
+    - Hvis timeouten går, aborteres transaksjonen.
+    - Vanskeig å sette timeouten.
+
 ### Forelesning 21: (uke 14) – 4/4 Transaksjoner, recovery. Kap. 22
 
 Gitt følgende historier:
