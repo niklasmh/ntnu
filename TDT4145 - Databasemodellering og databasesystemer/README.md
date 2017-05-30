@@ -996,6 +996,9 @@ PI_(lname, fname) (G_(salery>C) (Employee))
     - Hvis timeouten går, aborteres transaksjonen.
     - Vanskeig å sette timeouten.
 
+21. Hvorfor recovery (22)
+    - Databasesystemet støtter sikker, atomisk aksess til store mengder data.
+
 ### Forelesning 21: (uke 14) – 4/4 Transaksjoner, recovery. Kap. 22
 
 Gitt følgende historier:
