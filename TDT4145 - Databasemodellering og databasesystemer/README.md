@@ -902,13 +902,15 @@ PI_(lname, fname) (G_(salery>C) (Employee))
 
 11. Historier og gjenopprettbarhet (20.4.2)
     - **Gjenopprettbar historie** (recoverable schedule)
-      - Hver transaksjon committer etter at transaksjoner de har lest fra har committed.
-      - `H1: w2(A); w1(B); w1(B); w1(A); r2(B); c1; c2;`
+      - Hver transaksjon committer etter at transaksjoner de har lest fra har committed. Ex:
+        - `H1: w2(A); w1(B); w1(B); w1(A); r2(B); c1; c2;` (Gjenopprettbar)
+        - `H2: w2(A); w1(B); w1(B); w1(A); r2(B); c2; c1;` (Ikke gjenopprettbar)
     - Historier som unngår gallopperende abort (**ACA** - avoid cascading abort)
       - Kan kun lese verdier som er committed. Ex:
-        - `H1: w1(A); w1(B); w2(A); c1; r2(B); c2;`
+        - `H1: w1(A); w1(B); w2(A); c1; r2(B); c2;` (ACA)
+        - `H2: w1(A); w1(B); w2(A); r2(B); c1; c2;` (Ikke ACA)
     - **Strikt historie**:
-      - Når transaksjoner verken kan lese eller skrive ikke-commitede verdier.
+      - Når transaksjoner verken kan lese eller skrive ikke-committede verdier.
         - `H1: w1(A); w1(B); w2(A); c1; r2(B); c2;` (ikke strikt)
         - `H2: w1(A); w1(B); w2(B); c1; w2(A); c2;` (strikt)
       - Fordel: Kan gjøre UNDO recoverage ved before image (se i loggen fra tidligere).
