@@ -1132,7 +1132,7 @@ PI_(lname, fname) (G_(salery>C) (Employee))
 ### Oppsummeringsforelesning
 
 Gitt følgende historier:
-1. r1(X); r2(Y), w3(X); r2(X); r1(Y); c1; c2; c3;
+1. r1(X); r2(Y); w3(X); r2(X); r1(Y); c1; c2; c3;
   - Leser fra 2 X
   - Ikke gjenopprettbar.
 2. r1(X); r1(Y); w1(X); r2(Y); w2(X); w1x r3y c1 c2 c3
