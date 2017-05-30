@@ -996,6 +996,8 @@ PI_(lname, fname) (G_(salery>C) (Employee))
     - Hvis timeouten går, aborteres transaksjonen.
     - Vanskeig å sette timeouten.
 
+### Forelesning 21: (uke 14) – 4/4 Transaksjoner, recovery. Kap. 22
+
 21. Hvorfor recovery (22)
     - Databasesystemet støtter sikker, atomisk aksess til store mengder data.
     - Transaksjoner har 4 egenskaper: ACID.
@@ -1015,7 +1017,54 @@ PI_(lname, fname) (G_(salery>C) (Employee))
     { T4, T5 } - skal aborteres (tapere)
     </pre>
 
-### Forelesning 21: (uke 14) – 4/4 Transaksjoner, recovery. Kap. 22
+23. Force/Steal-klassifisering av logging/recovery-algoritmer (22.1.3)
+    - Utgangspunkt: Hvor fleksibel er buffermanager?
+      - Når kan "dirty" blokker skrives?
+      - Når må "dirty" blokker skrives?
+    - Force: Må en "dirty" blokk tvinges til disk ved commit.
+      - Tregt: Blokkene kan være spredd over hele disken.
+    - Steal: Kan en transaksjon stjele plassen i bufferet til ei "dirty"-blokk.
+      - Hvis ikke, må en aktiv transaksjon ha alle "dirty"-blokker i bufferet inntil commit.
+    - Kombinasjoner:
+
+      | | No-steal | Steal
+      | --- | --- | ---
+      | Force | Shadowing (ikke logging) (22.4) | Undo-logging/No-redo (22.3)
+      | No-force | Redo-logging/No-undo (22.2) | Undo/Redo (ARIES) (27.5)
+
+24. Undo/Redo
+    - Write-ahead logging (WAL).
+    - Hver endring (CUD) legges i en loggpost i loggen.
+    - Egenskaper:
+      1. Skriv loggposten som endret en blokk til disk før du skriver blokk til disk. -> For undo
+      2. Skriv loggen til disk før en transaksjon committer. (Force-log-to-disk) -> For redo
+
+25. WAT-konseptet ARIES (22.5)
+    - Skriver gjerne all logg i en stor logg-buffer for å gjøre det kjapt.
+    - Har loggposter i en loggpost, med:
+      - LSN (Logg-sekvens-nummber)
+        - Identifikator for loggpost. Stigende nummer.
+    - Har datablokker, med:
+      - PageLSN
+        - Er en LSN til loggposten som sist endret datablokken.
+    - Har flushLSN
+      - LSN til den nyeste loggposten skrevet til disk.
+        - Brukes til å sjekke om vi har skrevet loggen.
+    - Ved skriving av datablokk til disk, sjekk PageLSN <= flushedLSN.
+      - Hvis ikke, skriv loggen først.
+
+26. Loggpost i ARIES (22.5)
+    - Den har:
+      - **LSN:** Skrivet om i forrige punkt ^.
+      - **Transaksjons Id:**
+      - **Previous LSN:** Peker til forrige loggpost i samme transaksjon for abortering.
+      - **Operation Type:** Insert/Update/Delete (CUD)
+      - **Page Id:** Hvilken blokk ble endret.
+      - **Offset:** Hvor i blokka ble endringen gjort.
+      - **Før-bilde:** Verdi før endringen (Har du delete eller update) -> Undo
+      - **Etter-bilde:** Verdi etter endringen (Blir skrevet om det er en insert) -> Redo
+
+### Oppsummering av eksamen:
 
 Gitt følgende historier:
 1. r1(X); r2(Y), w3(X); r2(X); r1(Y); c1; c2; c3;
