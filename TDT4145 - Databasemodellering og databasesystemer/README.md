@@ -998,6 +998,22 @@ PI_(lname, fname) (G_(salery>C) (Employee))
 
 21. Hvorfor recovery (22)
     - Databasesystemet støtter sikker, atomisk aksess til store mengder data.
+    - Transaksjoner har 4 egenskaper: ACID.
+      - A: Atomisk: Enten kjører alt eller ingenting.
+      - D: Durable: Er permanente. Ved commit mistes ikke data.
+
+22. Transaksjoner etter recovery (22)
+    <pre>
+    -------------------------------> Tid
+    T1  |----|
+    T2     |----|
+    T3        |----| (<- Fullførte = vinner)
+    T4          |------------------> (Aner ikke hva som skulle skje her = taper)
+    T5              |-------------->
+
+    { T1, T2, T3 } - skal være permanente (vinnere)
+    { T4, T5 } - skal aborteres (tapere)
+    </pre>
 
 ### Forelesning 21: (uke 14) – 4/4 Transaksjoner, recovery. Kap. 22
 
