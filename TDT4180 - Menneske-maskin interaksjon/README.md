@@ -527,44 +527,46 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
 
 ### Forelesning 4.5: (03.02)
 
-- #### Gestalt
-  - Meningsfull helhet.
-  - Prinsipper:
-    - **Likhet.**
-      - Like farger og former sees sammen.
-    - **Nærhet.**
-      - Elementer som står nær hverandre oppfattes som samhørende.
-      - I GUI kan dette være formelementer som grupperes slik at de omhandler den samme informasjonen.
-    - **Mental komplettering.**
-      - Vi oppfatter lukkede eller sluttede former. Slik som når 2 streker fullfører et hjørne - selv om hjørnet ikke er synlig.
-      - I GUI pleier man å lage silhuetter slik at man danner former med det tomme rom.
-    - **Kontinuitet.**
-      - Linjer fortsetter i den retningen de avbrytes. Er nesten det samme som mental komplettering.
-      - Om du har en halv-sirkel vet du at den vil fullføre en sirkel.
-    - **Helhet. Forgrunn/bakgrunn.**
-      - Vi oppfatter raskt om noe er forgrunn eller bakgrunn.
-      - Farge, kontrast, rammer, størrelse og perspektiv påvirker hva som er bakgrunn og forgrunn.
-      - I GUI kan det være vindu-prinsippet til Windows og forsåvidt alle andre OS. Legger på skygge for å heve ut.
-- #### Konseptuelle- og mentale modeller
-  - 3 modeller
-    - Design Modell: Designer
-    - Bruker Modell: Bruker
-    - System Modell: Systembilde
-  - Elementer:
-    - **Design metaforen** som benyttes evt.
-    - **Konsepter** brukeres må forholde seg til når h*n bruker systemet.
-    - **Relasjonene** mellom konseptene.
-    - **Overførbarhet (mapping)** mellom konseptene ...
-  - Eksempel:
-    - AtB Mobillett:
-      - Velg antall og type.
-      - Betal.
-      - Motta.
-      - Vise.
-- #### Metaforer
-  - Kan gå ut på dato slik som en diskett for å lagre.
-  - Skalerer ikke. Skrivebord er som den fysiske verden - kan ikke bli noe mer.
-  - Forsikre om at metaforen ikke sender ut feil signaler. F.eks. et skrivespill for barn burde ikke inneholder zombier og masse andre elementer.
+#### Gestalt
+- Meningsfull helhet.
+- Prinsipper:
+  - **Likhet.**
+    - Like farger og former sees sammen.
+  - **Nærhet.**
+    - Elementer som står nær hverandre oppfattes som samhørende.
+    - I GUI kan dette være formelementer som grupperes slik at de omhandler den samme informasjonen.
+  - **Mental komplettering.**
+    - Vi oppfatter lukkede eller sluttede former. Slik som når 2 streker fullfører et hjørne - selv om hjørnet ikke er synlig.
+    - I GUI pleier man å lage silhuetter slik at man danner former med det tomme rom.
+  - **Kontinuitet.**
+    - Linjer fortsetter i den retningen de avbrytes. Er nesten det samme som mental komplettering.
+    - Om du har en halv-sirkel vet du at den vil fullføre en sirkel.
+  - **Helhet. Forgrunn/bakgrunn.**
+    - Vi oppfatter raskt om noe er forgrunn eller bakgrunn.
+    - Farge, kontrast, rammer, størrelse og perspektiv påvirker hva som er bakgrunn og forgrunn.
+    - I GUI kan det være vindu-prinsippet til Windows og forsåvidt alle andre OS. Legger på skygge for å heve ut.
+
+#### Konseptuelle- og mentale modeller
+- 3 modeller
+  - Design Modell: Designer
+  - Bruker Modell: Bruker
+  - System Modell: Systembilde
+- Elementer:
+  - **Design metaforen** som benyttes evt.
+  - **Konsepter** brukeres må forholde seg til når h*n bruker systemet.
+  - **Relasjonene** mellom konseptene.
+  - **Overførbarhet (mapping)** mellom konseptene ...
+- Eksempel:
+  - AtB Mobillett:
+    - Velg antall og type.
+    - Betal.
+    - Motta.
+    - Vise.
+
+#### Metaforer
+- Kan gå ut på dato slik som en diskett for å lagre.
+- Skalerer ikke. Skrivebord er som den fysiske verden - kan ikke bli noe mer.
+- Forsikre om at metaforen ikke sender ut feil signaler. F.eks. et skrivespill for barn burde ikke inneholder zombier og masse andre elementer.
 
 Relevant litteratur: Johnson& Henderson 2002, læreboka kap. 2.
 
