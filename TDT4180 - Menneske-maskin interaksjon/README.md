@@ -28,13 +28,15 @@
       - [Mapping (Sammenhenger? Hva fører til hva?)](#mapping)
       - [Consistency (Sett dette før?)](#consistency)
     - [Universell utforming](#universell-utforming)
+    - [Ubiquitous computing (UbiComp)](#ubiquitous-computing-ubicomp)
+    - [Interaksjonsteknikker](#interaksjonsteknikker)
 - [Oppgaveanalyse]()
 - [Feltstudie-teknikker]()
 - [Scenariebygging]()
 - [Iterative designmetoder]()
 - [Brukbarhetstesting](#brukernære-metoder-i-systemutvikling)
 - [Mentale modeller](#konseptuelle--og-mentale-modeller)
-- [Metaforbruk]()
+- [Metaforbruk](#metaforer)
 - [Gestaltprinsipper for visuell komposisjon](#gestalt)
 - [Empiriske og formelle evalueringsmetoder]()
 - [Dialogteknikker]()
@@ -559,7 +561,7 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
       - Betal.
       - Motta.
       - Vise.
-- Metaforer
+- #### Metaforer
   - Kan gå ut på dato slik som en diskett for å lagre.
   - Skalerer ikke. Skrivebord er som den fysiske verden - kan ikke bli noe mer.
   - Forsikre om at metaforen ikke sender ut feil signaler. F.eks. et skrivespill for barn burde ikke inneholder zombier og masse andre elementer.
@@ -769,6 +771,30 @@ Denne modellen har 4 steg:
 ### Forelesning 12: (31.03)
 
 - Ubiquitous computing og interaksjonsteknikker
+
+#### Ubiquitous computing (UbiComp)
+- Interaksjon med datamaskiner hvor som helst, når som helst.
+- Teknologien er i "bakgrunnen" av brukerens bevissthet.
+  - Integrert i de fysiske omgivelsene (smarte omgivelser).
+  - Transparent - "Forlengelse" av kroppen.
+  - Sømløst integrert i livene våre.
+
+#### Interaksjonsteknikker
+- Interaksjonsteknikk er en kombo av in- og utdata, med relevant maskin-/programvare, som gjør relevante oppgaver mulig for bruker å gjennomføre.
+- Ex: Drag-and-drop
+  - Flytte på elementer med en musepeker i f.eks. mapper og filer.
+
+#### Desktop computing VS. Ubiquitous computing
+
+| | Dektop - PC/Internett | UbiComp - Mobil, trådløs IT
+| --- | --- | ---
+| Forgrunn / Bakgrunn | Hovedfokuset er på bruk av PCen. | Mobiltelefonen er integrert med andre aktiviteter.
+| En bruker / Flere brukere | Ofte én bruker. Samhandling over nett | Flere brukere samtidig, i den fysiske verden.
+| Omgivelses-data | Fysiske posisjon er irrelevant (CyberSpace) | Lokasjon og sensordata kan brukes av software.
+| Hardware og ergonomi | PCen har funnet sin fysiske form (desktop/laptop). | Hardware/form blir viktig (størrelse, vekt, form, materialer, batterilevetid)
+| Skjerm og input, nye brukergr.snitt. | Store skjermer, tastatur og mus | Små skjermer, penn, knapper, berøring, stemmestyring, kroppen som interaksjonsmedium
+
+#### Ubiquitous computing (UbiComp)
 
 [//]: # "########   ##    #######"
 [//]: # "##       ####   ##     ##"
