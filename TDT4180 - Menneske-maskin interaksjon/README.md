@@ -33,7 +33,7 @@
 - [Scenariebygging]()
 - [Iterative designmetoder]()
 - [Brukbarhetstesting](#brukernære-metoder-i-systemutvikling)
-- [Mentale modeller]()
+- [Mentale modeller](#konseptuelle--og-mentale-modeller)
 - [Metaforbruk]()
 - [Gestaltprinsipper for visuell komposisjon](#gestalt)
 - [Empiriske og formelle evalueringsmetoder]()
@@ -534,7 +534,7 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
       - Elementer som står nær hverandre oppfattes som samhørende.
       - I GUI kan dette være formelementer som grupperes slik at de omhandler den samme informasjonen.
     - **Mental komplettering.**
-      - Vi oppfatter lukkede eller sluttede former. Slik som når 2 streker fullfører et hjørne - som om hjørnet ikke er synlig.
+      - Vi oppfatter lukkede eller sluttede former. Slik som når 2 streker fullfører et hjørne - selv om hjørnet ikke er synlig.
       - I GUI pleier man å lage silhuetter slik at man danner former med det tomme rom.
     - **Kontinuitet.**
       - Linjer fortsetter i den retningen de avbrytes. Er nesten det samme som mental komplettering.
@@ -543,7 +543,7 @@ Relevant litteratur: ISO 9241-11, ISO 9241-210, læreboka kap. 1.
       - Vi oppfatter raskt om noe er forgrunn eller bakgrunn.
       - Farge, kontrast, rammer, størrelse og perspektiv påvirker hva som er bakgrunn og forgrunn.
       - I GUI kan det være vindu-prinsippet til Windows og forsåvidt alle andre OS. Legger på skygge for å heve ut.
-- Konseptuelle- og mentale modeller
+- #### Konseptuelle- og mentale modeller
   - 3 modeller
     - Design Modell: Designer
     - Bruker Modell: Bruker
