@@ -30,19 +30,19 @@
     - [Universell utforming](#universell-utforming)
     - [Ubiquitous computing (UbiComp)](#ubiquitous-computing-ubicomp)
     - [Interaksjonsteknikker](#interaksjonsteknikker)
-- [Oppgaveanalyse]()
-- [Feltstudie-teknikker]()
-- [Scenariebygging]()
-- [Iterative designmetoder]()
+- Oppgaveanalyse
+- Feltstudie-teknikker
+- Scenariebygging
+- Iterative designmetoder
 - [Brukbarhetstesting](#brukernære-metoder-i-systemutvikling)
 - [Mentale modeller](#konseptuelle--og-mentale-modeller)
 - [Metaforbruk](#metaforer)
 - [Gestaltprinsipper for visuell komposisjon](#gestalt)
-- [Empiriske og formelle evalueringsmetoder]()
-- [Dialogteknikker]()
-- [Prototypingsteknikker]()
+- Empiriske og formelle evalueringsmetoder
+- Dialogteknikker
+- Prototypingsteknikker
 - [ISO standarder om brukskvalitet (spesielt ISO 9241-11 og ISO 9241-210)](#iso-9241-11-1998)
-- [Innføring i vindussystemer]()
+- Innføring i vindussystemer
 
 [//]: # "########  #######  ########  ######## ##       ########  ######  ##    ## #### ##    ##  ######   ######## ########"
 [//]: # "##       ##     ## ##     ## ##       ##       ##       ##    ## ###   ##  ##  ###   ## ##    ##  ##       ##     ##"
