@@ -1153,7 +1153,7 @@ H1: r1(X); r2(Y) r1(Y); r3(X); r3(Y); w1(X); c1; w3(Y); c3; r2(X); w2(Z); c2;
 => Ikke konflikt serialiserbar.
 
 ##### Låser:
-- 2PL: Alle låseoperasjoner skjer før ale opplåsningsoperasjoner.
+- 2PL: Alle låseoperasjoner skjer før alle opplåsningsoperasjoner.
 - Basic:
   - Konservativ: Låser alt man trenger aller først.
     - Unngå timeout, ergo ikke lag sykel.
@@ -1163,8 +1163,8 @@ H1: r1(X); r2(Y) r1(Y); r3(X); r3(Y); w1(X); c1; w3(Y); c3; r2(X); w2(Z); c2;
     - Strict.
 
 Ex:
-  - H4: r1a r2b w1b w1c r2a c1 c2
-  - H5: rl1a r1a rl2b r2b rl2a r2a unl2 c2 wl1b w1b wl1c w1c unl1 c1
+  - H4: r1(A); r2(B); w1(B); w1(C); r2(A); c1; c2;
+  - H5: rl1(A); r1(A); rl2(B); r2(B); rl2(A); r2(A); unl2; c2; wl1(B); w1(B); wl1(C); w1(C); unl1; c1;
 
 #### Transaksjoner
 - Atomic: Kjør alt eller ingenting.
