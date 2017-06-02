@@ -1149,7 +1149,7 @@ Serialiserbarhet:
 Konfliktsseialiserbarhet
   - Presedensgraf - hvilke transaksjoner må kommer før de andre. Finner det sykler? Hvis ikke - konfliktserialiserbar.
 
-H1: r1(X); r2(Y) r1(Y); r3(X); r3(Y); w1(X); c1; w3(Y); c3; r2(X); w2(Z); c2;
+H1: r1(X); r2(Y); r1(Y); r3(X); r3(Y); w1(X); c1; w3(Y); c3; r2(X); w2(Z); c2;
 => Ikke konflikt serialiserbar.
 
 ##### Låser:
