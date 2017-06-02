@@ -1133,55 +1133,31 @@ PI_(lname, fname) (G_(salery>C) (Employee))
 
 Gitt følgende historier:
 1. r1(X); r2(Y); w3(X); r2(X); r1(Y); c1; c2; c3;
-  - Leser fra 2 X
-  - Ikke gjenopprettbar.
-2. r1(X); r1(Y); w1(X); r2(Y); w2(X); w1x r3y c1 c2 c3
-  - 1 -> x
-  - 1 -> x
-  - 2 ->
-  - 
-3. r2x w3x c3 w1y c1 r2y w2z c2
-  - t2 -> x
-  - t3 -> wx
-  - t3 -> cx
-  - 3 0 y
-  - 2y
-  - 
-  - Gjenopprettbar, ACA og strikt.
+    - Leser fra 2 X
+    - Ikke gjenopprettbar.
+2. r1(X); r1(Y); w1(X); r2(Y); w2(X); w1(X); r3(Y); c1; c2; c3;
+3. r2(X); w3(X); c3; w1(Y); c1; r2(Y); w2(Z); c2;
+    - Gjenopprettbar, ACA og strikt.
 
 - r => read
 - w => write
 - c => commit
 - a => abort
 
-Avgjør recoveryegenskapene (ikke gjennopprettbar, gjenopprettbar, ACA eller strikt) til historiene.
-
-- Ikke gjen
-- Gjen:
-  - Transaksjoner som leser endringer av andr, må committe etter di.
-- ACA:
-  - 
-
-
 Serialiserbarhet:
   - Ekvivalent med en seriell historie
 Konfliktsseialiserbarhet
-  - Presedensgraf - hvilke transaksjoner må kommer før de andre.
-  Finner det sykler? Hvis ikke - konfliktserialiserbar.
+  - Presedensgraf - hvilke transaksjoner må kommer før de andre. Finner det sykler? Hvis ikke - konfliktserialiserbar.
 
-H1: r1x r2y r1y r3x r3y w1x c1 w3y c3 r2x w2z c2
-
-t3 -> t1 -> t2 -> t3
-t1 -> t3
-
+H1: r1(X); r2(Y) r1(Y); r3(X); r3(Y); w1(X); c1; w3(Y); c3; r2(X); w2(Z); c2;
 => Ikke konflikt serialiserbar.
 
 ##### Låser:
 - 2PL: Alle låseoperasjoner skjer før ale opplåsningsoperasjoner.
 - Basic:
-  -  Konservativ: Låser alt man trenger aller først.
-    - Unngå det med timeout, lage sykel.
-  - Stict: Opplåsning av skrivelåser etter ferdig transaksjon.
+  - Konservativ: Låser alt man trenger aller først.
+    - Unngå timeout, ergo ikke lag sykel.
+  - Strict: Opplåsning av skrivelåser etter ferdig transaksjon.
     - Ikke Konservativ.
   - Rigorous: Opplåsing av alle låser etter ferdig transaksjon.
     - Strict.
