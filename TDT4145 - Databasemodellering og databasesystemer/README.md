@@ -221,24 +221,24 @@ Eksempel som fikser NF:
 <pre>
 Bryter med 1NF, 2NF, 3NF, BCNF og 4NF:
 
-           +------------+-----+------------------------------------------------+
-           |            |     |                                                |
-           |            |     |       +--------+----------+----------+         |
-           |            |     |       |        |          |          |         |
-           +_           v     v   ____+__      v          v          v         v
-PizzaOrdre(O#, Linje#, Dato, Tid, PizzaID, PizzaNavn, PizzaType, PizzaPris, KundeNr, KundeNavn, KundeTlf, Antall, Sum)
-           +-  --+---                ^                                      ---+---      ^          ^       ^      ^
-           |     |                   |                                         |         |          |       |      |
-           |     |                   |                                         +---------+----------+       |      |
-           |     |                   |                                                                      |      |
-           +-----+-------------------+-----------------------------------------------------------------------------+
+<b></b>           +------------+-----+------------------------------------------------+
+<b></b>           |            |     |                                                |
+<b></b>           |            |     |       +--------+----------+----------+         |
+<b></b>           |            |     |       |        |          |          |         |
+<b></b>           +_           v     v   ____+__      v          v          v         v
+<b>PizzaOrdre</b>(O#, Linje#, Dato, Tid, PizzaID, PizzaNavn, PizzaType, PizzaPris, KundeNr, KundeNavn, KundeTlf, Antall, Sum)
+<b></b>           +-  --+---                ^                                      ---+---      ^          ^       ^      ^
+<b></b>           |     |                   |                                         |         |          |       |      |
+<b></b>           |     |                   |                                         +---------+----------+       |      |
+<b></b>           |     |                   |                                                                      |      |
+<b></b>           +-----+-------------------+-----------------------------------------------------------------------------+
 
 Bedre løsning:
 
-Ordre(O#, Dato, Tid, KundeNr)
-OrdreLinje(O#, #Linje, PizzaID, Antall, Sum)
-Kunde(KundeNr#, KundeNavn, KundeTlf)
-Pizza(PizzaID#, PizzaNavn, PizzaType, PizzaPris)
+<b>Ordre</b>(O#, Dato, Tid, KundeNr)
+<b>OrdreLinje</b>(O#, Linje#, PizzaID, Antall, Sum)
+<b>Kunde</b>(KundeNr#, KundeNavn, KundeTlf)
+<b>Pizza</b>(PizzaID#, PizzaNavn, PizzaType, PizzaPris)
 </pre>
 
 [//]: # "########  ########  ######  ####  ######   ##    ## ######## ########  #######  ########  ####"
