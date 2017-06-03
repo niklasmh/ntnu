@@ -217,6 +217,30 @@ Normalformer (Ref. wikipendium):
 
 ### Forelesning 10: Normalisering. Kap. 14
 
+Eksempel som fikser NF:
+<pre>
+Bryter med 1NF, 2NF, 3NF, BCNF og 4NF:
+
+           +------------+-----+------------------------------------------------+
+           |            |     |                                                |
+           |            |     |       +--------+----------+----------+         |
+           |            |     |       |        |          |          |         |
+           +_           v     v   ____+__      v          v          v         v
+PizzaOrdre(O#, Linje#, Dato, Tid, PizzaID, PizzaNavn, PizzaType, PizzaPris, KundeNr, KundeNavn, KundeTlf, Antall, Sum)
+           +-  --+---                ^                                      ---+---      ^          ^       ^      ^
+           |     |                   |                                         |         |          |       |      |
+           |     |                   |                                         +---------+----------+       |      |
+           |     |                   |                                                                      |      |
+           +-----+-------------------+-----------------------------------------------------------------------------+
+
+Bedre løsning:
+
+Ordre(O#, Dato, Tid, KundeNr)
+OrdreLinje(O#, #Linje, PizzaID, Antall, Sum)
+Kunde(KundeNr#, KundeNavn, KundeTlf)
+Pizza(PizzaID#, PizzaNavn, PizzaType, PizzaPris)
+</pre>
+
 [//]: # "########  ########  ######  ####  ######   ##    ## ######## ########  #######  ########  ####"
 [//]: # "##     ## ##       ##    ##  ##  ##    ##  ###   ##    ##    ##       ##     ## ##     ##  ##"
 [//]: # "##     ## ##       ##        ##  ##        ####  ##    ##    ##       ##     ## ##     ##  ##"
@@ -228,7 +252,6 @@ Normalformer (Ref. wikipendium):
 ### Forelesning 11: Designteori. Kap. 15
 
 ### Forelesning 12: Designteori. Kap. 15
-
 
 ## Andre del (Svein Erik Bratsberg)
 
