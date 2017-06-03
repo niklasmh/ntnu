@@ -214,6 +214,7 @@ Normalformer (Ref. wikipendium):
 - 3NF: Every non-prime attribute in the table is directly dependent on every candidate key.
 - BCNF: Every non-trivial functional dependency is a dependency on a superkey.
 - 4NF: For every non-trivial multi-valued dependency (MVD) X->>Y, X is a superkey.
+- 5NF: Exists, but not in corriculum. It is about splitting a table to multiple tables.
 
 ### Forelesning 10: Normalisering. Kap. 14
 
