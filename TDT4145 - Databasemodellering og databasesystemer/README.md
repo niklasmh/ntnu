@@ -780,15 +780,15 @@ PI_(lname, fname) (G_(salery>C) (Employee))
 ### Forelesning 19: Transaksjoner, teori. Kap. 20
 
 1. Transaksjoner (20-22)
-    - [Kap. 20](#forelesning-19-uke-13--283-transaksjoner-teori-kap-20)
+    - [Kap. 20](#forelesning-19-transaksjoner-teori-kap-20)
       - Hvorfor vi har transaksjoner.
       - Transaksjoner og SQL
       - Transaksjoneteori
-    - [Kap. 21](#forelesning-20-uke-14--34-transaksjoner-låser-kap-21)
+    - [Kap. 21](#forelesning-20-transaksjoner-låser-kap-21)
       - Flerbrukerkontroll
       - Låsing
       - Multiversjonskontroll
-    - [Kap. 22](#forelesning-21-uke-14--44-transaksjoner-recovery-kap-22)
+    - [Kap. 22](#forelesning-21-transaksjoner-recovery-kap-22)
       - Logging og recovery
       - Abortering av transaksjoner
       - Krasjrecovery
