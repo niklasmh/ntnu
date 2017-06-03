@@ -1038,7 +1038,7 @@ PI_(lname, fname) (G_(salery>C) (Employee))
     T2     |----|                    |--> Fullførte => vinner
     T3        |----|                 ⊥
     T4          |------------------> T
-    T5              |--------------> ⊥--> Ukjent hendelse => taper)
+    T5              |--------------> ⊥--> Ukjent hendelse => taper
 
     { T1, T2, T3 } - skal være permanente (vinnere)
     { T4, T5 } - skal aborteres (tapere)
@@ -1097,7 +1097,7 @@ PI_(lname, fname) (G_(salery>C) (Employee))
         - Transaksjons id.
         - Tilstand (Aktiv, committing, aborting, prepared).
         - LastLSN - Peker til nyeste blokkpost.
-        - ... - Mangle flere (44+/-)
+        - ... - Mange flere (44+/-)
       - Dirty Page Table (DPT)
         - Et element per "dirty" blokk i buffer. De har:
           - Page id.
