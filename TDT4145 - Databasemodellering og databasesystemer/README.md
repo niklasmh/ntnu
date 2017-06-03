@@ -217,7 +217,7 @@ Normalformer (Ref. wikipendium):
 - 5NF:  Exists, but not in corriculum. It is about splitting a table to multiple tables.
 
 \*non-prime = non-key.
-\*candidate key = keys, only one of them can be a primary key in a table.
+\*candidate key = unique keys (or unique set of keys). Only one of them can be a primary key in a table.
 
 ### Forelesning 10: Normalisering. Kap. 14
 
