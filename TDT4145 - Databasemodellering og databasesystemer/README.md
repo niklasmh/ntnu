@@ -13,7 +13,7 @@
 - [Forelesning 10: Normalisering. Kap. 14](#forelesning-10-normalisering-kap-14)
 - [Forelesning 11: Designteori. Kap. 15](#forelesning-11-designteori-kap-15)
 - [Forelesning 12: Designteori. Kap. 15](#forelesning-12-designteori-kap-15)
-- [Forelesning 13: System- og databasedesign. Eget notat](#forelesning-13-system-og-databasedesign-eget-notat)
+- [Forelesning 13: System- og databasedesign. Eget notat](#forelesning-13-system--og-databasedesign-eget-notat)
 - [Forelesning 16: Lagringindekser. Kap. 16](#forelesning-16-lagringindekser-kap-16)
 - [Forelesning 17: Lagringindekser. Kap. 17](#forelesning-17-lagringindekser-kap-17)
 - [Forelesning 18: Queryprosessering. Kap. 18](#forelesning-18-queryprosessering-kap-18)
