@@ -1,29 +1,29 @@
 # TDT4180 - Databasemodellering og databasesystemer
 
 ## Forelesningsplan
-- [Forelesning 1: (uke 2) – 9/1 Introduksjon til faget og databaser. Kap. 1 og 2](#forelesning-1-uke-2--91-introduksjon-til-faget-og-databaser-kap-1-og-2)
-- [Forelesning 2: (uke 2) – 10/1 Datamodellering. Kap. 3 og 4](#forelesning-2-uke-2--101-datamodellering-kap-3-og-4)
-- [Forelesning 3: (uke 3) – 16/1 Datamodellering. Kap. 3 og 4](#forelesning-3-uke-3--161-datamodellering-kap-3-og-4)
-- [Forelesning 4: (uke 3) – 17/1 Relasjonsmodellen. Kap. 5](#forelesning-4-uke-3--171-relasjonsmodellen-kap-5)
-- [Forelesning 5: (uke 4) – 23/1 Modelloversetting og Relasjonsalgebra. Kap. 9 og 8](#forelesning-5-uke-4--231-modelloversetting-og-relasjonsalgebra-kap-9-og-8)
-- [Forelesning 6: (uke 4) – 24/1 Relasjonsalgebra og SQL. Kap. 6 og 8](#forelesning-6-uke-4--241-relasjonsalgebra-og-sql-kap-6-og-8)
-- [Forelesning 7: (uke 5) – 30/1 SQL. Kap. 6 og 7](#forelesning-7-uke-5--301-sql-kap-6-og-7)
-- [Forelesning 8: (uke 5) – 31/1 SQL og Normalisering. Kap. 6, 7 og 14](#forelesning-8-uke-5--311-sql-og-normalisering-kap-6-7-og-14)
-- [Forelesning 9: (uke 6) – 6/2 Normalisering. Kap. 14](#forelesning-9-uke-6--62-normalisering-kap-14)
-- [Forelesning 10: (uke 6) – 7/2 Normalisering. Kap. 14](#forelesning-10-uke-6--72-normalisering-kap-14)
-- [Forelesning 11: (uke 7) – 13/2 Designteori. Kap. 15](#forelesning-11-uke-7--132-designteori-kap-15)
-- [Forelesning 12: (uke 7) – 14/2 Designteori. Kap. 15](#forelesning-12-uke-7--142-designteori-kap-15)
-- [Forelesning 13: (uke 8) – 20/2 System- og databasedesign. Eget notat](#forelesning-13-uke-8--202-system-og-databasedesign-eget-notat)
-- [Forelesning 16: (uke 12) – 20/3 Lagringindekser. Kap. 16](#forelesning-16-uke-12--203-lagringindekser-kap-16)
-- [Forelesning 17: (uke 12) – 21/3 Lagringindekser. Kap. 17](#forelesning-17-uke-12--213-lagringindekser-kap-17)
-- [Forelesning 18: (uke 13) – 27/3 Queryprosessering. Kap. 18](#forelesning-18-uke-13--273-queryprosessering-kap-18)
-- [Forelesning 19: (uke 13) – 28/3 Transaksjoner, teori. Kap. 20](#forelesning-19-uke-13--283-transaksjoner-teori-kap-20)
-- [Forelesning 20: (uke 14) – 3/4 Transaksjoner, låser. Kap. 21](#forelesning-20-uke-14--34-transaksjoner-låser-kap-21)
-- [Forelesning 21: (uke 14) – 4/4 Transaksjoner, recovery. Kap. 22](#forelesning-21-uke-14--44-transaksjoner-recovery-kap-22)
+- [Forelesning 1: Introduksjon til faget og databaser. Kap. 1 og 2](#forelesning-1-introduksjon-til-faget-og-databaser-kap-1-og-2)
+- [Forelesning 2: Datamodellering. Kap. 3 og 4](#forelesning-2-datamodellering-kap-3-og-4)
+- [Forelesning 3: Datamodellering. Kap. 3 og 4](#forelesning-3-datamodellering-kap-3-og-4)
+- [Forelesning 4: Relasjonsmodellen. Kap. 5](#forelesning-4-relasjonsmodellen-kap-5)
+- [Forelesning 5: Modelloversetting og Relasjonsalgebra. Kap. 9 og 8](#forelesning-5-modelloversetting-og-relasjonsalgebra-kap-9-og-8)
+- [Forelesning 6: Relasjonsalgebra og SQL. Kap. 6 og 8](#forelesning-6-relasjonsalgebra-og-sql-kap-6-og-8)
+- [Forelesning 7: SQL. Kap. 6 og 7](#forelesning-7-sql-kap-6-og-7)
+- [Forelesning 8: SQL og Normalisering. Kap. 6, 7 og 14](#forelesning-8-sql-og-normalisering-kap-6-7-og-14)
+- [Forelesning 9: Normalisering. Kap. 14](#forelesning-9-normalisering-kap-14)
+- [Forelesning 10: Normalisering. Kap. 14](#forelesning-10-normalisering-kap-14)
+- [Forelesning 11: Designteori. Kap. 15](#forelesning-11-designteori-kap-15)
+- [Forelesning 12: Designteori. Kap. 15](#forelesning-12-designteori-kap-15)
+- [Forelesning 13: System- og databasedesign. Eget notat](#forelesning-13-system-og-databasedesign-eget-notat)
+- [Forelesning 16: Lagringindekser. Kap. 16](#forelesning-16-lagringindekser-kap-16)
+- [Forelesning 17: Lagringindekser. Kap. 17](#forelesning-17-lagringindekser-kap-17)
+- [Forelesning 18: Queryprosessering. Kap. 18](#forelesning-18-queryprosessering-kap-18)
+- [Forelesning 19: Transaksjoner, teori. Kap. 20](#forelesning-19-transaksjoner-teori-kap-20)
+- [Forelesning 20: Transaksjoner, låser. Kap. 21](#forelesning-20-transaksjoner-låser-kap-21)
+- [Forelesning 21: Transaksjoner, recovery. Kap. 22](#forelesning-21-transaksjoner-recovery-kap-22)
 
 ## Første del (Roger Midtstraum)
 
-### Forelesning 1: (uke 2) – 9/1 Introduksjon til faget og databaser. Kap. 1 og 2
+### Forelesning 1: Introduksjon til faget og databaser. Kap. 1 og 2
 - Database:
   - En samling av data.
   - Erstatning for filer. Bygger på de mest brukte metodene man brukte for å lagre i filer; Søk, legge til, slette og oppdatere (CRUD).
@@ -43,12 +43,12 @@
 [//]: # "##     ## ##     ## ##     ## ##       ##       ##       ##       ##    ##   ##  ##   ### ##    ##"
 [//]: # "##     ##  #######  ########  ######## ######## ######## ######## ##     ## #### ##    ##  ######"
 
-### Forelesning 2: (uke 2) – 10/1 Datamodellering. Kap. 3 og 4
+### Forelesning 2: Datamodellering. Kap. 3 og 4
 - ER-modell (Entity Relationship Model):
   - Beskriver datastrukturen og organiseringen av data som skal bygge en database.
   - Kan bruke et ER-diagram for å beskrive relasjoner, fremmednøkler og primærnøkler, samt kolonner i tabeller.
 
-### Forelesning 3: (uke 3) – 16/1 Datamodellering. Kap. 3 og 4
+### Forelesning 3: Datamodellering. Kap. 3 og 4
 - Kardinalitet:
   - `(0, 1) <=> -o|-`
   - `(0, n) <=> -o∈-`
@@ -165,9 +165,9 @@
 [//]: # "     ##     ## ##     ## ##     ## ##       ##       ##       ##       ##   ###"
 [//]: # "     ##     ##  #######  ########  ######## ######## ######## ######## ##    ##"
 
-### Forelesning 4: (uke 3) – 17/1 Relasjonsmodellen. Kap. 5
+### Forelesning 4: Relasjonsmodellen. Kap. 5
 
-### Forelesning 5: (uke 4) – 23/1 Modelloversetting og Relasjonsalgebra. Kap. 9 og 8
+### Forelesning 5: Modelloversetting og Relasjonsalgebra. Kap. 9 og 8
 
 [//]: # "########  ######## ##          ###     ######        ##  #######  ##    ##  ######"
 [//]: # "##     ## ##       ##         ## ##   ##    ##       ## ##     ## ###   ## ##    ##"
@@ -184,7 +184,7 @@
 [//]: # "         ##     ## ##       ##    ##  ##       ##     ## ##    ##  ##     ##"
 [//]: # "         ##     ## ########  ######   ######## ########  ##     ## ##     ##"
 
-### Forelesning 6: (uke 4) – 24/1 Relasjonsalgebra og SQL. Kap. 6 og 8
+### Forelesning 6: Relasjonsalgebra og SQL. Kap. 6 og 8
 
 [//]: # " ######   #######  ##"
 [//]: # "##    ## ##     ## ##"
@@ -194,9 +194,9 @@
 [//]: # "##    ## ##    ##  ##"
 [//]: # " ######   ##### ## ########"
 
-### Forelesning 7: (uke 5) – 30/1 SQL. Kap. 6 og 7
+### Forelesning 7: SQL. Kap. 6 og 7
 
-### Forelesning 8: (uke 5) – 31/1 SQL og Normalisering. Kap. 6, 7 og 14
+### Forelesning 8: SQL og Normalisering. Kap. 6, 7 og 14
 
 [//]: # "##    ##  #######  ########  ##     ##    ###    ##       ####  ######  ######## ########  #### ##    ##  ######"
 [//]: # "###   ## ##     ## ##     ## ###   ###   ## ##   ##        ##  ##    ## ##       ##     ##  ##  ###   ## ##    ##"
@@ -206,7 +206,7 @@
 [//]: # "##   ### ##     ## ##    ##  ##     ## ##     ## ##        ##  ##    ## ##       ##    ##   ##  ##   ### ##    ##"
 [//]: # "##    ##  #######  ##     ## ##     ## ##     ## ######## ####  ######  ######## ##     ## #### ##    ##  ######"
 
-### Forelesning 9: (uke 6) – 6/2 Normalisering. Kap. 14
+### Forelesning 9: Normalisering. Kap. 14
 
 Normalformer (Ref. wikipendium):
 - 1NF: A table represents a relation and has no repeating groups. All attribute values are required to be atomic.
@@ -215,7 +215,7 @@ Normalformer (Ref. wikipendium):
 - BCNF: Every non-trivial functional dependency is a dependency on a superkey.
 - 4NF: For every non-trivial multi-valued dependency (MVD) X->>Y, X is a superkey.
 
-### Forelesning 10: (uke 6) – 7/2 Normalisering. Kap. 14
+### Forelesning 10: Normalisering. Kap. 14
 
 [//]: # "########  ########  ######  ####  ######   ##    ## ######## ########  #######  ########  ####"
 [//]: # "##     ## ##       ##    ##  ##  ##    ##  ###   ##    ##    ##       ##     ## ##     ##  ##"
@@ -225,9 +225,9 @@ Normalformer (Ref. wikipendium):
 [//]: # "##     ## ##       ##    ##  ##  ##    ##  ##   ###    ##    ##       ##     ## ##    ##   ##"
 [//]: # "########  ########  ######  ####  ######   ##    ##    ##    ########  #######  ##     ## ####"
 
-### Forelesning 11: (uke 7) – 13/2 Designteori. Kap. 15
+### Forelesning 11: Designteori. Kap. 15
 
-### Forelesning 12: (uke 7) – 14/2 Designteori. Kap. 15
+### Forelesning 12: Designteori. Kap. 15
 
 
 ## Andre del (Svein Erik Bratsberg)
@@ -261,7 +261,7 @@ Normalformer (Ref. wikipendium):
 [//]: # "          ##     ## ##       ##    ##  ##  ##    ##  ##   ###"
 [//]: # "          ########  ########  ######  ####  ######   ##    ##"
 
-### Forelesning 13: (uke 8) – 20/2 System- og databasedesign. Eget notat
+### Forelesning 13: System- og databasedesign. Eget notat
 
 Hashing:
 - B+-trær
@@ -308,7 +308,7 @@ Hashing:
 [//]: # "##       ##     ## ##    ##  ##    ##   ##  ##   ### ##    ##"
 [//]: # "######## ##     ##  ######   ##     ## #### ##    ##  ######"
 
-### Forelesning 16: (uke 12) – 20/3 Lagring/indekser. Kap. 16
+### Forelesning 16: Lagring/indekser. Kap. 16
 
 #### Arkitektur for databasesystemer
 
@@ -465,7 +465,7 @@ Hashing:
     - Splitter en og en blokk, hvorav navnet lineært.
     - Ukontrollert splitting.
 
-### Forelesning 17: (uke 12) – 21/3 Lagring/indekser. Kap. 17
+### Forelesning 17: Lagring/indekser. Kap. 17
 
 11. Ordnede indekser (17)
     - ISAM (Index Sequential Access Method) - Gammel, finnes enda i noen store maskiner.
@@ -582,7 +582,7 @@ Hashing:
 [//]: # "##        ##    ##  ##     ## ##    ## ##       ##    ## ##    ## ##       ##    ##   ##  ##   ### ##    ##"
 [//]: # "##        ##     ##  #######   ######  ########  ######   ######  ######## ##     ## #### ##    ##  ######"
 
-### Forelesning 18: (uke 13) – 27/3 Queryprosessering. Kap. 18
+### Forelesning 18: Queryprosessering. Kap. 18
 
 #### Queryprosessering/optimalisering:
   - Intro/oversetting
@@ -750,7 +750,7 @@ PI_(lname, fname) (G_(salery>C) (Employee))
 [//]: # "   ##    ##    ##  ##     ## ##   ### ##    ## ##     ## ##   ##  ##    ## ##    ## ##     ## ##   ### ##       ##    ##"
 [//]: # "   ##    ##     ## ##     ## ##    ##  ######  ##     ## ##    ##  ######   ######   #######  ##    ## ######## ##     ##"
 
-### Forelesning 19: (uke 13) – 28/3 Transaksjoner, teori. Kap. 20
+### Forelesning 19: Transaksjoner, teori. Kap. 20
 
 1. Transaksjoner (20-22)
     - [Kap. 20](#forelesning-19-uke-13--283-transaksjoner-teori-kap-20)
@@ -891,7 +891,7 @@ PI_(lname, fname) (G_(salery>C) (Employee))
           - `r1(X) og r2(X) - ikke kollisjon.`
       - To aksjoner er i konflikt hvis endringen av rekkefølgen endrer resultatet i databasen.
 
-### Forelesning 20: (uke 14) – 3/4 Transaksjoner, låser. Kap. 21
+### Forelesning 20: Transaksjoner, låser. Kap. 21
 
 - Transaksjonsteori:
   - Gjenopprettbarhet
@@ -996,7 +996,7 @@ PI_(lname, fname) (G_(salery>C) (Employee))
     - Hvis timeouten går, aborteres transaksjonen.
     - Vanskeig å sette timeouten.
 
-### Forelesning 21: (uke 14) – 4/4 Transaksjoner, recovery. Kap. 22
+### Forelesning 21: Transaksjoner, recovery. Kap. 22
 
 21. Hvorfor recovery (22)
     - Databasesystemet støtter sikker, atomisk aksess til store mengder data.
