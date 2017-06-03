@@ -1019,9 +1019,9 @@ PI_(lname, fname) (G_(salery>C) (Employee))
 
 20. Timeout (21.1.3)
     - Enkleste løsningen.
-    - Lar hver transaksjon har en timeout.
+    - Lar hver transaksjon ha en timeout.
     - Hvis timeouten går, aborteres transaksjonen.
-    - Vanskeig å sette timeouten.
+    - Vanskelig å sette timeouten.
 
 ### Forelesning 21: Transaksjoner, recovery. Kap. 22
 
@@ -1034,11 +1034,11 @@ PI_(lname, fname) (G_(salery>C) (Employee))
 22. Transaksjoner etter recovery (22)
     <pre>
     -------------------------------> Tid
-    T1  |----|
-    T2     |----|
-    T3        |----| (<- Fullførte = vinner)
-    T4          |------------------> (Aner ikke hva som skulle skje her = taper)
-    T5              |-------------->
+    T1  |----|                       T
+    T2     |----|                    |--> Fullførte => vinner
+    T3        |----|                 ⊥
+    T4          |------------------> T
+    T5              |--------------> ⊥--> Ukjent hendelse => taper)
 
     { T1, T2, T3 } - skal være permanente (vinnere)
     { T4, T5 } - skal aborteres (tapere)
