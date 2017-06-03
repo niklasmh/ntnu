@@ -209,12 +209,15 @@
 ### Forelesning 9: Normalisering. Kap. 14
 
 Normalformer (Ref. wikipendium):
-- 1NF: A table represents a relation and has no repeating groups. All attribute values are required to be atomic.
-- 2NF: No non-prime attribute in the table is partially dependent on any candidate key.
-- 3NF: Every non-prime attribute in the table is directly dependent on every candidate key.
+- 1NF:  A table represents a relation and has no repeating groups. All attribute values are required to be atomic.
+- 2NF:  No non-prime\* attribute in the table is partially dependent on any candidate key\*.
+- 3NF:  Every non-prime attribute in the table is directly dependent on every candidate key.
 - BCNF: Every non-trivial functional dependency is a dependency on a superkey.
-- 4NF: For every non-trivial multi-valued dependency (MVD) X->>Y, X is a superkey.
-- 5NF: Exists, but not in corriculum. It is about splitting a table to multiple tables.
+- 4NF:  For every non-trivial multi-valued dependency (MVD) X->>Y, X is a superkey.
+- 5NF:  Exists, but not in corriculum. It is about splitting a table to multiple tables.
+
+\*non-prime = non-key.
+\*candidate key = keys, only one of them can be a primary key in a table.
 
 ### Forelesning 10: Normalisering. Kap. 14
 
