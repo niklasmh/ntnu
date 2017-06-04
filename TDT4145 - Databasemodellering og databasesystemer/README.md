@@ -1101,7 +1101,7 @@ PI_(lname, fname) (G_(salery>C) (Employee))
       - Dirty Page Table (DPT)
         - Et element per "dirty" blokk i buffer. De har:
           - Page id.
-          - RecLSN - LSN til elste loggpost som gjorde blokken "dirty".
+          - RecLSN - LSN til eldste loggpost som gjorde blokken "dirty".
 
 28. Sjekkpunkting (22.5)
     - Periodisk lager DBMS-et sjekkpunkt i loggen som minimaliserer tiden det tar å gjøre recovery.
