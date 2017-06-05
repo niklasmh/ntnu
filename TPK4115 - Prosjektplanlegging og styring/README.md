@@ -43,6 +43,3 @@
 - analysere prosjektstatus ut fra informasjon om tids- og kostnadsindekser, og utvikle prognoser for arbeidsomfang ved fullførelse og ny varighet for prosjektet.
 - vurdere og velge hensiktsmessig prosjektorganiseringsmodell basert på prosjektkarakterstikker som varighet, størrelse og kompleksitet.
 - erkjenne utfordringer som følge av organisatoriske faktorer i prosjekter (for eksempel struktur, kultur, autoritet, og ansvar).
-
-## Oppsummering
-
