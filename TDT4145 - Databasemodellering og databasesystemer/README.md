@@ -223,7 +223,7 @@ Normalformer (Ref. wikipendium):
 
 Eksempel som fikser NF:
 <pre>
-Bryter med 2NF, 3NF, BCNF og 4NF:
+Bryter med 2NF (som også vil si at den bryter med 3NF, BCNF og 4NF):
 
 <b></b>           +------------+-----+------------------------------------------------+
 <b></b>           |            |     |                                                |
