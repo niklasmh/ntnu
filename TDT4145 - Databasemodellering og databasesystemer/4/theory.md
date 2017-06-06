@@ -26,10 +26,10 @@
   - Explanation: Intersection is b,c. a or d would be required for lossless
 - **R₁(a, b, d) and R₂(b, c, d)**
   - Lossless: Yes
-  - Explanation: Intersection b,c. b→c, which gives us b, c, d = R₂
+  - Explanation: Intersection b,d. b→c, which gives us b, c, d = R₂
 - **R₁(a, b, d) and R₂(b, c)**
   - Lossless: Yes
-  - Explanation: Interseciton b, b→c = R₂
+  - Explanation: Intersection b. b→c = R₂
 
 ### g) Give a definition of the 3rd normal norm (3NF).
 - 3NF requires that:
