@@ -26,6 +26,11 @@ Syllabus:
 
 Topics:
 - Inteligent systems
+- Logical systems
+- Search
+- Knowledge representation
+- Planning
+- ...
 
 Today:
 - What is AI?
