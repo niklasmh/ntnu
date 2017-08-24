@@ -73,6 +73,11 @@ TDT4180*/*
 !TDT4180*/T*
 !TDT4180*/README.md
 
+# Grunnleggende Visuell Databehandling
+TDT4195*/*
+!TDT4195*/exercises/1/*
+!TDT4195*/README.md
+
 # Fysikk
 TFY4125*/
 
