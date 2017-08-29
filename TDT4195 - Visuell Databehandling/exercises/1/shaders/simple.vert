@@ -4,5 +4,6 @@ in vec3 position;
 
 void main()
 {
-    gl_Position = vec4(position, 1.0f);
+    vec3 newPosition = position * vec3(-1, -1, 1);
+    gl_Position = vec4(newPosition, 1.0f);
 }
