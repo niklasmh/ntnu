@@ -40,3 +40,23 @@ Today:
 - Biological substrate only (John Searle, philosopher)
 - Other researchers believe that *sub-synbolic* processing (signal processing) may be needed ro repoicate intelligence.
   - Sub-symbolic: Neural networks
+
+### Lecture 2
+
+State diagram
+
+```
++-----------------------------+   +---------------------+
+|                   Sensors <--------                   |
+|                     |       |   |                     |
+|                     v       |   |                     |
+|                  The world  |   |                     |
+|                     |       |   |                     |
+|                     |       |   |     Environment     |
+|                     v       |   |                     |
+|  Rules -------> What action |   |                     |
+|                     |       |   |                     |
+|                     v       |   |                     |
+|                 Actuators -------->                   |
++-----------------------------+   +---------------------+
+```
