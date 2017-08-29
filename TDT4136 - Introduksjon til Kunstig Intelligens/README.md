@@ -70,6 +70,7 @@ State diagram evolved
 |                     v       |   |                     |
 |                  The world  |   |                     |
 |                     |       |   |                     |
+|                     v       |   |                     |
 |                 What will   |   |                     |
 |                  be done    |   |                     |
 |                     |       |   |     Environment     |
