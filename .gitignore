@@ -75,7 +75,10 @@ TDT4180*/*
 
 # Grunnleggende Visuell Databehandling
 TDT4195*/*
-!TDT4195*/exercises/1/*
+!TDT4195*/exercises/
+TDT4195*/exercises/*
+!TDT4195*/exercises/[0-9]/
+!TDT4195*/exercises/[0-9]/*
 !TDT4195*/tests/
 !TDT4195*/README.md
 
