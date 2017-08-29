@@ -77,8 +77,12 @@ TDT4180*/*
 TDT4195*/*
 !TDT4195*/exercises/
 TDT4195*/exercises/*
-!TDT4195*/exercises/[0-9]/
-!TDT4195*/exercises/[0-9]/*
+!TDT4195*/exercises/[1-6]/
+TDT4195*/exercises/[1-6]/*
+!TDT4195*/exercises/[1-6]/shaders/
+!TDT4195*/exercises/[1-6]/src/
+TDT4195*/exercises/[1-6]/src/*
+!TDT4195*/exercises/[1-6]/src/program.cpp
 !TDT4195*/tests/
 !TDT4195*/README.md
 
