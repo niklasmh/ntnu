@@ -50,6 +50,10 @@ TDT4110*/*
 !TDT4110*/Code/
 !TDT4110*/Øvinger/
 
+# Kognitive arkitekturer
+TDT4137*/*
+!TDT4137*/README.md
+
 # Programvareutvikling
 TDT4140*/*
 !TDT4140*/tdt4140-bot-project
