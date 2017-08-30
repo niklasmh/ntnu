@@ -30,7 +30,7 @@ Topics:
 - Search
 - Knowledge representation
 - Planning
-- ...
+- Natural language processing
 
 Today:
 - What is AI?
