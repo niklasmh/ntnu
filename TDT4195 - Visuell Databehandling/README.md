@@ -107,3 +107,13 @@ Stage 0: v0 v2 v1
 Stage 1: vi0 v0 v2 vi2
 Stage 2: vi2 vi0 v0 v2
 Stage 3: vi3 vi0 v0 vi1
+
+### Check if point is in polygon
+Parity
+Winding number
+
+### Polygon clipping
+GH alg. ex:
+
+Starting by removing the outside of the first polygon.
+Then clipping the rest of the outside of the second polygon.
