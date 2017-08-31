@@ -89,3 +89,21 @@ dx = 2.5 & dy = 2.5
 p1 = -2.5, q1 = -0.5
 
 Compute: tm = max({})
+
+
+## Lecture 3
+
+            v2
+       vi1 / \
++------------+vw
+|        /   | \
+|     v0 -- -|- v1
+|            |vi0
+|            |
+|            |
++------------+
+  
+Stage 0: v0 v2 v1
+Stage 1: vi0 v0 v2 vi2
+Stage 2: vi2 vi0 v0 v2
+Stage 3: vi3 vi0 v0 vi1
