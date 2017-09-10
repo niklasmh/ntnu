@@ -23,3 +23,10 @@ Gjør de kronologisk. De er avhengig av hverandre.
 5. Programmering i Soar/Icarus (valgfri om de andre er gjort. Mye jobbing på siste)
 
 80% for å komme opp i eksamen.
+
+# Oppsummering
+
+Fitts law:
+```
+T_pos = l_m * log₂(D/S + .5)
+```
