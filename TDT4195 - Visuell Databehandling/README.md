@@ -117,3 +117,41 @@ GH alg. ex:
 
 Starting by removing the outside of the first polygon.
 Then clipping the rest of the outside of the second polygon.
+
+### Perspective projection matrix
+
+P_per =
+
+[
+    d 0 0 0
+    0 d 0 0
+    0 0 d 0
+    0 0 1 0
+]
+
+=>
+
+P_per * [
+    x
+    y
+    z
+    1
+]
+
+=
+
+[
+    x * d
+    y * d
+    z * d
+    1
+] / z
+
+=
+
+[
+    x * d / z
+    y * d / z
+    d
+    1
+]
