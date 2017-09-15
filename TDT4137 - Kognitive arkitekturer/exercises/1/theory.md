@@ -20,3 +20,22 @@ Maks og minimumtiden vil variere mellom `105ms og 470ms`.
 Regnestykket blir slik: `tₚ + 3tc = 100ms + 210ms = 310ms`
 
 Hvor minste tiden og makstiden er `125ms og 710ms`.
+
+**c) Hva menes med ID (Index of Difficulty)?**
+
+ID er en del av Fitts lov som generelt forklarer hvor vanskelig en oppgave er å utføre. Den tar hensyn til størrelse på målet og avstanden.
+
+**Vi skal bruke Fitts lov til å vise at det er mye hurtigere å flytte kursor til et mål som ligger langs kanten av skjermen enn til et mål som kan posisjoneres fritt bort fra kanten.**
+
+**Ser vi på menyrekken (menu bar) på Macintosh så ligger den alltid helt i kanten på toppen av skjermen: [bilde]**
+
+**På Windows ligger tilsvarende menyer (fullskjermmodus) litt unna kanten, adskilt med en "blå" toppstripe: [bilde]**
+
+**Den kan i tillegg flyte fritt med vinduet.**
+
+**Anta at størrelsen W for Windowsmenyen er 5 mm (figuren over er feil skalert). Målinger på en 15" flatskjerm viser at "kanteffekten" gir en effekt som om W = 50 mm på Macintosh (selv om målet fysisk sett er ca 5 mm også her). Dette skyldes at en slipper å stoppe innenfor menyen - en kan bare flytte kursor mot kanten med passende bevegelse. Anta at a=50 og b=150 i Fitts lov (Shannon utgaven) og at gjennomsnittlig avstand fra kursor til menyrekken er A=80 mm (på en 15" skjerm). Hvor lang tid tar det å nå menyrekken (menyfelt) på hhv. Macintosh og Windows?**
+
+Her kan vi tenke oss at Macintosh har en evig stor meny, ettersom bevegelsen kan fortsette i samme retning i evig tid. Dette gjør også at Macintosh blir en klar vinner. Vi kan også bevise dette ved Shannons versjon av Fitts lov:
+
+Windows: `50 + 150*log₂(80 / 5 + 1) = 663`
+Macintosh: `50 + 150*log₂(80 / 50 + 1) = 257`
