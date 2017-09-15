@@ -37,5 +37,11 @@ ID er en del av Fitts lov som generelt forklarer hvor vanskelig en oppgave er å
 
 Her kan vi tenke oss at Macintosh har en evig stor meny, ettersom bevegelsen kan fortsette i samme retning i evig tid. Dette gjør også at Macintosh blir en klar vinner. Vi kan også bevise dette ved Shannons versjon av Fitts lov:
 
-Windows: `50 + 150*log₂(80 / 5 + 1) = 663`
+Windows: `50 + 150*log₂(80 / 5 + 1) = 663`  
 Macintosh: `50 + 150*log₂(80 / 50 + 1) = 257`
+
+**d) Hvor mange bilder pr. sekund må du vise for å lage en illusjon av kontinuitet i tid?**
+
+Man må ta hensyn til hvor ofte man klarer å motta og registrere data. Om man har en frekvens som er høyere enn Fast Man klarer å motta, føles det ut som bildene slår seg sammen og blir kontinuerlige. Ergo blir dette formelen vi kan bruke:
+
+Svar: `1 / tₚ = 1 frame / 0.05 sek = 20 frames per sek`
