@@ -53,6 +53,9 @@ TDT4110*/*
 # Kognitive arkitekturer
 TDT4137*/*
 !TDT4137*/README.md
+!TDT4137*/exercises/
+TDT4137*/exercises/*
+!TDT4137*/exercises/[1-5]/
 
 # Programvareutvikling
 TDT4140*/*
