@@ -27,9 +27,8 @@ void runProgram(GLFWwindow* window)
 
     float g_color_buffer_data[] = {
       1.0f, 0.0f, 0.0f, 1.0f,
-      1.0f, 0.0f, 0.0f, 1.0f,
-      1.0f, 0.0f, 0.0f, 1.0f,
-      1.0f, 0.0f, 0.0f, 1.0f,
+      1.0f, 1.0f, 0.0f, 1.0f,
+      0.0f, 1.0f, 0.0f, 1.0f,
     };
 
     GLuint vao = vertexArrayObject(
@@ -85,6 +84,9 @@ GLuint vertexArrayObject(float *vertices, uint vertexCount, uint *indices, uint 
     glGenBuffers(1, &colorbuffer);
     glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
     glBufferData(GL_ARRAY_BUFFER, colorCount, colors, GL_STATIC_DRAW);
+
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)0);
 
     return vertexbuffer;
 }
