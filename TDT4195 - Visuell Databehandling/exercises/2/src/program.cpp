@@ -9,27 +9,45 @@ void runProgram(GLFWwindow* window)
 {
     // Enable depth (Z) buffer (accept "closest" fragment)
     glEnable(GL_DEPTH_TEST);
-    glDepthFunc(GL_LESS);
+    glDepthFunc(GL_GREATER);
+    glClearDepth(-1);
 
     // Configure miscellaneous OpenGL settings
     glEnable(GL_CULL_FACE);
+
+    // Making it possible to add transparency
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     // Set default colour after clearing the colour buffer
     glClearColor(0.3f, 0.8f, 1.0f, 1.0f);
 
     float g_vertex_buffer_data[] = {
-         0.6f, -0.8f, -1.2f,
-         0.0f,  0.4f,  0.0f,
-        -0.8f, -0.2f,  1.2f,
+        -0.4f,  -0.25f, 0.6f,
+         0.1f,  -0.25f, 0.6f,
+        -0.15f,  0.3f,  0.6f,
+        -0.1f,  -0.25f, 0.7f,
+         0.4f,  -0.25f, 0.7f,
+         0.15f,  0.3f,  0.7f,
+        -0.25f, -0.58f, 0.8f,
+         0.25f, -0.58f, 0.8f,
+         0.0f,  -0.03f, 0.8f,
     };
-
-    uint g_index_buffer_data[] = { 0, 1, 2 };
 
     float g_color_buffer_data[] = {
-      1.0f, 0.0f, 0.0f, 1.0f,
-      1.0f, 1.0f, 0.0f, 1.0f,
-      0.0f, 1.0f, 0.0f, 1.0f,
+        1.0f, 0.0f, 0.0f, 0.4f,
+        1.0f, 0.0f, 0.0f, 0.4f,
+        1.0f, 0.0f, 0.0f, 0.4f,
+        0.0f, 1.0f, 0.0f, 0.4f,
+        0.0f, 1.0f, 0.0f, 0.4f,
+        0.0f, 1.0f, 0.0f, 0.4f,
+        0.0f, 0.0f, 1.0f, 0.4f,
+        0.0f, 0.0f, 1.0f, 0.4f,
+        0.0f, 0.0f, 1.0f, 0.4f,
     };
+
+    unsigned int g_index_buffer_data[] = { 0,1,2,3,4,5,6,7,8, };
+
 
     GLuint vao = vertexArrayObject(
       g_vertex_buffer_data, sizeof(g_vertex_buffer_data),
