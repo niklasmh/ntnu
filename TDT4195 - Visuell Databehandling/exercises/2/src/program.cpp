@@ -3,7 +3,7 @@
 #include "gloom/gloom.hpp"
 #include "gloom/shader.hpp"
 
-GLuint vertexArrayObject(float *vertices, uint vertexCount, uint *indices, uint indexCount);
+GLuint vertexArrayObject(float *vertices, uint vertexCount, uint *indices, uint indexCount, float *colors, uint colorCount);
 
 void runProgram(GLFWwindow* window)
 {
@@ -12,7 +12,7 @@ void runProgram(GLFWwindow* window)
     glDepthFunc(GL_LESS);
 
     // Configure miscellaneous OpenGL settings
-    // glEnable(GL_CULL_FACE);
+    glEnable(GL_CULL_FACE);
 
     // Set default colour after clearing the colour buffer
     glClearColor(0.3f, 0.8f, 1.0f, 1.0f);
@@ -23,11 +23,20 @@ void runProgram(GLFWwindow* window)
         -0.8f, -0.2f,  1.2f,
     };
 
-    uint g_index_buffer_data[] = { 0, 1, 2 }; // Work in progress ...
+    uint g_index_buffer_data[] = { 0, 1, 2 };
 
-    //static const GLfloat g_color_buffer_data[] = {};
+    float g_color_buffer_data[] = {
+      1.0f, 0.0f, 0.0f, 1.0f,
+      1.0f, 0.0f, 0.0f, 1.0f,
+      1.0f, 0.0f, 0.0f, 1.0f,
+      1.0f, 0.0f, 0.0f, 1.0f,
+    };
 
-    GLuint vao = vertexArrayObject(g_vertex_buffer_data, sizeof(g_vertex_buffer_data), g_index_buffer_data, sizeof(g_index_buffer_data));
+    GLuint vao = vertexArrayObject(
+      g_vertex_buffer_data, sizeof(g_vertex_buffer_data),
+      g_index_buffer_data, sizeof(g_index_buffer_data),
+      g_color_buffer_data, sizeof(g_color_buffer_data)
+    );
 
     Gloom::Shader shader;
     shader.makeBasicShader("../gloom/shaders/simple.vert", "../gloom/shaders/simple.frag");
@@ -53,7 +62,7 @@ void runProgram(GLFWwindow* window)
     shader.destroy();
 }
 
-GLuint vertexArrayObject(float *vertices, uint vertexCount, uint *indices, uint indexCount)
+GLuint vertexArrayObject(float *vertices, uint vertexCount, uint *indices, uint indexCount, float *colors, uint colorCount)
 {
     GLuint VertexArrayID;
     glGenVertexArrays(1, &VertexArrayID);
@@ -71,6 +80,11 @@ GLuint vertexArrayObject(float *vertices, uint vertexCount, uint *indices, uint 
     glGenBuffers(1, &indexbuffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexbuffer);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indexCount, indices, GL_STATIC_DRAW);
+
+    GLuint colorbuffer;
+    glGenBuffers(1, &colorbuffer);
+    glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
+    glBufferData(GL_ARRAY_BUFFER, colorCount, colors, GL_STATIC_DRAW);
 
     return vertexbuffer;
 }
