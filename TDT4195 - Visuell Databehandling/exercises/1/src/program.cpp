@@ -3,7 +3,7 @@
 #include "gloom/gloom.hpp"
 #include "gloom/shader.hpp"
 
-GLuint vertexArrayObject(const GLfloat *vertices, int vertexCount);
+GLuint vertexArrayObject(float *vertices, uint vertexCount, uint *indices, uint indexCount);
 
 void runProgram(GLFWwindow* window)
 {
@@ -17,13 +17,15 @@ void runProgram(GLFWwindow* window)
     // Set default colour after clearing the colour buffer
     glClearColor(0.3f, 0.8f, 1.0f, 1.0f);
 
-    static const GLfloat g_vertex_buffer_data[] = {
+    float g_vertex_buffer_data[] = {
          0.6f, -0.8f, -1.2f,
          0.0f,  0.4f,  0.0f,
         -0.8f, -0.2f,  1.2f,
     };
 
-    GLuint vertexbuffer = vertexArrayObject(g_vertex_buffer_data, sizeof(g_vertex_buffer_data));
+    uint g_index_buffer_data[] = { 0, 1, 2 };
+
+    GLuint vao = vertexArrayObject(g_vertex_buffer_data, sizeof(g_vertex_buffer_data), g_index_buffer_data, sizeof(g_index_buffer_data));
 
     Gloom::Shader shader;
     shader.makeBasicShader("../gloom/shaders/simple.vert", "../gloom/shaders/simple.frag");
@@ -36,12 +38,7 @@ void runProgram(GLFWwindow* window)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // Draw your scene here
-        glEnableVertexAttribArray(0);
-        glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
-
-        glDrawArrays(GL_TRIANGLES, 0, static_cast<int>(sizeof(g_vertex_buffer_data) / 3));
-        glDisableVertexAttribArray(0);
+        glDrawElements(GL_TRIANGLES, sizeof(g_index_buffer_data) / sizeof(uint), GL_UNSIGNED_INT, 0);
 
         // Handle other events
         glfwPollEvents();
@@ -54,7 +51,7 @@ void runProgram(GLFWwindow* window)
     shader.destroy();
 }
 
-GLuint vertexArrayObject(const GLfloat *vertices, int vertexCount)
+GLuint vertexArrayObject(float *vertices, uint vertexCount, uint *indices, uint indexCount)
 {
     GLuint VertexArrayID;
     glGenVertexArrays(1, &VertexArrayID);
@@ -64,6 +61,14 @@ GLuint vertexArrayObject(const GLfloat *vertices, int vertexCount)
     glGenBuffers(1, &vertexbuffer);
     glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
     glBufferData(GL_ARRAY_BUFFER, vertexCount, vertices, GL_STATIC_DRAW);
+
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+
+    GLuint indexbuffer;
+    glGenBuffers(1, &indexbuffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexbuffer);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indexCount, indices, GL_STATIC_DRAW);
 
     return vertexbuffer;
 }
