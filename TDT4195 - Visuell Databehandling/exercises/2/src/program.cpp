@@ -1,4 +1,6 @@
 // Local headers
+#include <iostream>
+#include <glm/ext.hpp>
 #include "program.hpp"
 #include "gloom/gloom.hpp"
 #include "gloom/shader.hpp"
@@ -48,6 +50,9 @@ void runProgram(GLFWwindow* window)
 
     unsigned int g_index_buffer_data[] = { 0,1,2,3,4,5,6,7,8, };
 
+    float value = 0.0f;
+    glm::mat4x4 identityMatrix = glm::mat4(1.0f);
+    glm::mat4x4 perspectiveMatrix = glm::perspective(glm::radians(45.0f), 16.0f / 9.0f, 1.0f, 100.0f);
 
     GLuint vao = vertexArrayObject(
       g_vertex_buffer_data, sizeof(g_vertex_buffer_data),
@@ -64,6 +69,23 @@ void runProgram(GLFWwindow* window)
     {
         // Clear colour and depth buffers
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        // Assign a value to our uniform variable
+
+        value += 0.1f;
+        glm::mat4x4 perspectiveMatrix = glm::perspective(glm::radians(45.0f), 16.0f / 9.0f, -10.0f, 100.0f);
+        glm::mat4 View = glm::lookAt(
+            glm::vec3(4,3,3),
+            glm::vec3(0,0,0),
+            glm::vec3(0,1,0)
+        );
+        glm::mat4x4 translation = glm::translate(glm::mat4(), glm::vec3(0.0f, 0.0f, 0.0f));
+        glm::mat4x4 rotX = glm::rotate(glm::radians(value), glm::vec3(1.0f, 0.0f, 0.0f));
+        glm::mat4x4 rotY = glm::rotate(glm::radians(value), glm::vec3(0.0f, 1.0f, 0.0f));
+
+        glm::mat4x4 finalTransformationMatrix = perspectiveMatrix * translation * identityMatrix;
+
+        glUniformMatrix4fv(4, 1, GL_FALSE, glm::value_ptr(finalTransformationMatrix));
 
         // Draw your scene here
         glDrawElements(GL_TRIANGLES, sizeof(g_index_buffer_data) / sizeof(uint), GL_UNSIGNED_INT, 0);

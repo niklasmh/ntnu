@@ -2,12 +2,12 @@
 
 in vec3 position;
 in layout(location=1) vec4 vertexColor;
+uniform layout(location=4) mat4 m;
 
 out layout(location=1) vec4 outVertexColor;
 
 void main()
 {
     outVertexColor = vertexColor;
-    vec3 newPosition = position * vec3(-1, -1, 1);
-    gl_Position = vec4(newPosition, 1.0f);
+    gl_Position = vec4(position, 1.0f) * m;
 }
