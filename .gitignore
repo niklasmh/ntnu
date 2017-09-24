@@ -50,6 +50,13 @@ TDT4110*/*
 !TDT4110*/Code/
 !TDT4110*/Øvinger/
 
+# Intro til Kunstig Intelligens
+TDT4136*/*
+!TDT4136*/README.md
+!TDT4136*/exercises/
+TDT4136*/exercises/*
+!TDT4136*/exercises/[1-5]/
+
 # Kognitive arkitekturer
 TDT4137*/*
 !TDT4137*/README.md
