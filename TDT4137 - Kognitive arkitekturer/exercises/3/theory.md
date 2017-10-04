@@ -3,16 +3,16 @@
 ## a)
 
 ```
-                0.6                 0.4
+            MIN(0.6,               0.4)
 IF distance is Small AND delta is Growing THEN action is None
 => 0.4
-                0.6                0.3
+            MIN(0.6,               0.3)
 IF distance is Small AND delta is Stable THEN action is SlowDown
 => 0.3
-                 0.1                  0.4
+             MIN(0.1)                 0.4)
 IF distance is Perfect AND delta is Growing THEN action is SpeedUp
 => 0.1
-                 0.0            (1 - 0.4)                 (1 - 0)
+             MIN(0.0,          OR(NOT(0.4),              NOT(0.0)))
 IF distance is VeryBig AND (delta is NOT Growing OR delta is NOT GrowingFast) THEN action is FloorIt
 => 0.0
                   0.0
@@ -46,10 +46,10 @@ Ut fra diagrammet får jeg:
 | 9 | 0 | 0 |
 | 10 | 0 | 0 |
 
-Sum:
+Sum:  
 `Y = -3.6, X*Y = 3.4`
 
-Dette gir at defuzzificationsummen (COG) blir:
+Dette gir at defuzzificationsummen (COG) blir:  
 `X*Y / Y = -3.6 / 3.4 = -1.0588`
 
 ## b)
@@ -80,4 +80,5 @@ Programmet ble mye mer presist og kalkulerte:
 | 9 | 0 | 0
 | 10 | 0 | 0
 
-`COG = -0.16981132075471744`
+Dette gir at defuzzificationsummen (COG) blir:  
+`-0.16981132075471744`
