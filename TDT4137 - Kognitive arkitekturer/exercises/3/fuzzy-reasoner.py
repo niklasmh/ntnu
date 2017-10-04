@@ -56,23 +56,24 @@ def NOT (x):
 def getval (fuzzyset, key, x):
     keyset = fuzzyset["keys"][key]
 
-    # Sjekker om endene slutter på topp
+    # Checks if the ends is at the top
     if fuzzyset["start"] == keyset[0] and x <= keyset[1]: return 1
     if fuzzyset["end"] == keyset[3] and x >= keyset[2]: return 1
 
-    # Sjekker deretter om x er utenfor trapeset
+    # Then checks if x if outside the definition value
     if x <= keyset[0]: return 0
     if x >= keyset[3]: return 0
 
-    # Sjekker så om x er på toppen av trapeset
+    # Then checks if x it at a top
     if keyset[1] <= x <= keyset[2]: return 1
 
-    # Om vi kommer hit treffer x i en av bakkene
+    # Last case is if x matches one of the slopes
     if keyset[0] < x < keyset[1]: return (x - keyset[0]) / (keyset[1] - keyset[0])
     if keyset[2] < x < keyset[3]: return 1 - (x - keyset[2]) / (keyset[3] - keyset[2])
 
     return 0
 
+# This function takes care of the spesific reasoning logic in the program
 def fuzzyfication (sets):
     dist = sets["distance"]
     delt = sets["delta"]
@@ -81,21 +82,30 @@ def fuzzyfication (sets):
     weights["SlowDown"] = AND(getval(dist, "Small", distance), getval(delt, "Stable", delta))
     weights["SpeedUp"] = AND(getval(dist, "Perfect", distance), getval(delt, "Growing", delta))
     weights["FloorIt"] = AND(getval(dist, "VeryBig", distance), OR(NOT(getval(delt, "Growing", delta)), NOT(getval(delt, "GrowingFast", delta))))
-    weights["BreakHard"] = getval(dist, "VerySmall", distance)
+    weights["BrakeHard"] = getval(dist, "VerySmall", distance)
     return weights
 
 def aggregation (actions, weights):
-    #for i in range(actions["start"], actions["end"]):
+    clipping = []
+    for x in range(actions["start"], actions["end"] + 1):
+        val = 0
+        for (action, vals) in actions["keys"].items():
+            if weights[action] > 0:
+                if vals[0] < x < vals[3]:
+                    val = max(val, min(getval(actions, action, x), weights[action]))
+        clipping.append(val)
+        #print((x, val))
 
-    #for (action, val) in actions["keys"]:
+    return clipping
 
-    return []
-
-def defuzzyfication ():
-    return 0
+def defuzzyfication (actions, values):
+    weightsTimesX = [(x + actions["start"])*val for x, val in enumerate(values)]
+    return sum(weightsTimesX) / sum(values)
 
 def main ():
     weights = fuzzyfication(fuzzysets)
     values = aggregation(actions, weights)
+    cog = defuzzyfication(actions, values)
+    print(cog)
 
 main()
