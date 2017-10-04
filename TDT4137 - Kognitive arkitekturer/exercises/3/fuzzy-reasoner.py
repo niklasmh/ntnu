@@ -1,7 +1,12 @@
 #!/usr/bin/python3
 
+from sys import argv
+
 distance = 3.75
 delta = 1.2
+if len(argv) > 1:
+    distance = float(argv[1]) or distance
+    delta = float(argv[2]) or delta
 
 distanceset = {
     "start": 0,
