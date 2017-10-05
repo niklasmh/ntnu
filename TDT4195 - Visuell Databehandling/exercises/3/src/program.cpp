@@ -219,14 +219,14 @@ void handleKeyboardInput(GLFWwindow* window)
 float* createBox(float cx, float cy, float cz, float w, float h, float d, float scale)
 {
     float g_vertex_buffer_data[] = {
-        fmax(w + cx, cx), fmax(h + cy, cy), fmax(d + cz, cz),
-        fmin(w + cx, cx), fmax(h + cy, cy), fmax(d + cz, cz),
-        fmax(w + cx, cx), fmin(h + cy, cy), fmax(d + cz, cz),
-        fmin(w + cx, cx), fmin(h + cy, cy), fmax(d + cz, cz),
-        fmax(w + cx, cx), fmax(h + cy, cy), fmin(d + cz, cz),
-        fmin(w + cx, cx), fmax(h + cy, cy), fmin(d + cz, cz),
-        fmax(w + cx, cx), fmin(h + cy, cy), fmin(d + cz, cz),
-        fmin(w + cx, cx), fmin(h + cy, cy), fmin(d + cz, cz),
+        std::max(w + cx, cx), std::max(h + cy, cy), std::max(d + cz, cz),
+        std::min(w + cx, cx), std::max(h + cy, cy), std::max(d + cz, cz),
+        std::max(w + cx, cx), std::min(h + cy, cy), std::max(d + cz, cz),
+        std::min(w + cx, cx), std::min(h + cy, cy), std::max(d + cz, cz),
+        std::max(w + cx, cx), std::max(h + cy, cy), std::min(d + cz, cz),
+        std::min(w + cx, cx), std::max(h + cy, cy), std::min(d + cz, cz),
+        std::max(w + cx, cx), std::min(h + cy, cy), std::min(d + cz, cz),
+        std::min(w + cx, cx), std::min(h + cy, cy), std::min(d + cz, cz),
     };
 
     static float vba[24];
