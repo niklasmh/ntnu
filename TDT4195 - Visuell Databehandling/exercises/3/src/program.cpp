@@ -164,43 +164,53 @@ void handleKeyboardInput(GLFWwindow* window)
     {
         glfwSetWindowShouldClose(window, GL_TRUE);
     }
-    else if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+
+    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
     {
         cordY += 0.01;
     }
-    else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+
+    if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
     {
         cordY -= 0.01;
     }
-    else if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+
+    if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
     {
         cordX -= 0.01;
     }
-    else if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+
+    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
     {
         cordX += 0.01;
     }
-    else if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
+
+    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
     {
         cordZ += 0.01;
     }
-    else if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
+
+    if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
     {
         cordZ -= 0.01;
     }
-    else if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
     {
         rotX += 1.0;
     }
-    else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
     {
         rotX -= 1.0;
     }
-    else if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
     {
         rotY -= 1.0;
     }
-    else if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
     {
         rotY += 1.0;
     }
