@@ -243,3 +243,21 @@ float* createBox(float cx, float cy, float cz, float w, float h, float d, float 
 
     return vba;
 }
+
+float* createGroundSquare(float cx, float cy, float cz, float w, float h, float scale)
+{
+    float g_vertex_buffer_data[] = {
+        std::max(w + cx, cx), std::max(h + cy, cy), cz,
+        std::min(w + cx, cx), std::max(h + cy, cy), cz,
+        std::max(w + cx, cx), std::min(h + cy, cy), cz,
+        std::min(w + cx, cx), std::min(h + cy, cy), cz,
+    };
+
+    static float vba[24];
+
+    for (int i = 0; i < 24; i++) {
+        vba[i] = g_vertex_buffer_data[i] * scale;
+    }
+
+    return vba;
+}
