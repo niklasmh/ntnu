@@ -107,8 +107,8 @@ costs = {
 
 # Adding a heuristic based on the distance from goal and cost
 def heuristic_cost_estimate(src, dst):
-  dist_factor = 0
-  cost_factor = 10
+  dist_factor = 1
+  cost_factor = 100
   (sx, sy) = getPoint(src)
   (dx, dy) = getPoint(dst)
   return ((sx - dx)**2 + (sy - dy)**2)**.5 * dist_factor + costs[getSign(src)] * cost_factor
@@ -127,6 +127,7 @@ def astar(M, start, goal):
   }
 
   state["openSet"][getId(start)] = start
+  drawHalfCross(getPoint(start)[0], getPoint(start)[1])
   state["gScore"][getId(start)] = 0
   state["fScore"][getId(start)] = heuristic_cost_estimate(start, goal)
 
@@ -136,12 +137,21 @@ def astar(M, start, goal):
 
     if state["openSet"]:
       run_astar_step(state, frame)
+    else:
+      frame.after_cancel(state["after_id"])
+      print("Failed")
 
   root.state = state
   if ANIMATE:
     Refresh(root)
   else:
-    while run_astar_step(state) == 0: continue
+    while state["openSet"]:
+      mode = run_astar_step(state)
+      if mode == 0:
+        continue
+      elif mode == 1:
+        return 1
+    print("Failed")
 
   return 0
 
@@ -153,7 +163,6 @@ def run_astar_step(state, frame=None):
       current = val
 
   if current == goal:
-    print("GOAL!")
     #draw_markings(M, state["closedSet"], state["openSet"]) # If we want to draw every state once again
     reconstruct_path(state["cameFrom"], current)
     if frame:
@@ -185,7 +194,7 @@ def run_astar_step(state, frame=None):
     state["cameFrom"][neighbor_id] = current
     state["gScore"][neighbor_id] = tentative_gScore
     state["fScore"][neighbor_id] = getScore(state["gScore"], neighbor) + heuristic_cost_estimate(neighbor, goal)
-  return 0
+  return 2
 
 # Finding the path back by following each nodes "best path"
 def reconstruct_path(cameFrom, current):
