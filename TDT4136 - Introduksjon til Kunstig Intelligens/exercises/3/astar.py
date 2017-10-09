@@ -6,11 +6,11 @@ argc = len(argv)
 from time import sleep
 
 INFINITY = 99999
-DIST_FACTOR = 1
-COST_FACTOR = 1
+DIST_FACTOR = 10 # Task 1: Only the distance matter
+COST_FACTOR = 0
 ANIMATE = False
 SHOW_BOARD_ONLY = False
-INTERVAL = 20 # milliseconds
+INTERVAL = 20
 FILE = None
 
 if argc >= 2: FILE = argv[1]
@@ -122,10 +122,9 @@ def heuristic_cost_estimate(src, dst):
   return (abs(sx - dx) + abs(sy - dy)) * dist_factor + costs[getSign(src)] * cost_factor
   #return ((sx - dx)**2 + (sy - dy)**2)**.5 * dist_factor + costs[getSign(src)] * cost_factor
 
+# The main code for finding the path
 def astar(M, start, goal):
   global root
-  global tick
-  global prevTick
 
   state = {
     "closedSet": {},
@@ -162,8 +161,6 @@ def astar(M, start, goal):
         return 1
     print("Failed")
 
-  return 0
-
 def run_astar_step(state, frame=None):
   vals = list(state["openSet"].values())
   if len(vals): current = vals.pop()
@@ -195,13 +192,16 @@ def run_astar_step(state, frame=None):
       drawHalfCross(x, y)
       state["openSet"][neighbor_id] = neighbor
 
-    tentative_gScore = getScore(state["gScore"], current) + dist_between(current, neighbor)
+    temp_gScore = getScore(state["gScore"], current) + dist_between(current, neighbor)
 
-    if tentative_gScore >= getScore(state["gScore"], neighbor):
+    if temp_gScore >= getScore(state["gScore"], neighbor):
       continue
 
+    (nx, ny) = getPoint(neighbor)
+    (cx, cy) = getPoint(current)
+    drawLine(nx, ny, cx, cy)
     state["cameFrom"][neighbor_id] = current
-    state["gScore"][neighbor_id] = tentative_gScore
+    state["gScore"][neighbor_id] = temp_gScore
     state["fScore"][neighbor_id] = getScore(state["gScore"], neighbor) + heuristic_cost_estimate(neighbor, goal)
   return 2
 
@@ -249,6 +249,9 @@ def drawOtherHalfCross(x, y, p=(2 - 2**.5 / 2) / 4, fill="black", width=w/28, **
 
 def drawHalfCross(x, y, p=(2 - 2**.5 / 2) / 4, fill="black", width=w/28, **kwargs):
   return canvas.create_line(x * w + w * p, y * h + h * p, x * w + w - w * p, y * h + h - h * p, fill=fill, width=width, **kwargs)
+
+def drawLine(x, y, x2, y2, fill="black", width=w/28, **kwargs):
+  return canvas.create_line(x * w + w / 2, y * h + h / 2, x2 * w + w / 2, y2 * h + h / 2, fill=fill, width=width, **kwargs)
 
 def drawRect(x, y, p=0, width=w/28, **kwargs):
   return canvas.create_rectangle(x * w + w * p, y * h + h * p, x * w + w - w * p, y * h + h - h * p, width=width, **kwargs)
