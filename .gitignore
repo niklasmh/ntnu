@@ -55,7 +55,7 @@ TDT4136*/*
 !TDT4136*/README.md
 !TDT4136*/exercises/
 TDT4136*/exercises/*
-#!TDT4136*/exercises/[1-5]/
+!TDT4136*/exercises/[1-5]/
 
 # Kognitive arkitekturer
 TDT4137*/*
