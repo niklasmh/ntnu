@@ -119,7 +119,8 @@ def heuristic_cost_estimate(src, dst):
   cost_factor = COST_FACTOR
   (sx, sy) = getPoint(src)
   (dx, dy) = getPoint(dst)
-  return ((sx - dx)**2 + (sy - dy)**2)**.5 * dist_factor + costs[getSign(src)] * cost_factor
+  return (abs(sx - dx) + abs(sy - dy)) * dist_factor + costs[getSign(src)] * cost_factor
+  #return ((sx - dx)**2 + (sy - dy)**2)**.5 * dist_factor + costs[getSign(src)] * cost_factor
 
 def astar(M, start, goal):
   global root
