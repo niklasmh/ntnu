@@ -6,6 +6,8 @@ argc = len(argv)
 from time import sleep
 
 INFINITY = 99999
+DIST_FACTOR = 1
+COST_FACTOR = 1
 ANIMATE = False
 SHOW_BOARD_ONLY = False
 INTERVAL = 20 # milliseconds
@@ -18,6 +20,12 @@ if argc >= 3:
   else:
     INTERVAL = int(argv[2])
     ANIMATE = INTERVAL > 0
+if argc >= 4:
+  try:
+    (DIST_FACTOR, COST_FACTOR) = map(int, argv[3].split(","))
+  except:
+    print("The 3. arg is on format: dist_factor,cost_factor")
+    print("Now using 1,1 as default...")
 
 root = tk.Tk()
 
@@ -107,8 +115,8 @@ costs = {
 
 # Adding a heuristic based on the distance from goal and cost
 def heuristic_cost_estimate(src, dst):
-  dist_factor = 1
-  cost_factor = 100
+  dist_factor = DIST_FACTOR
+  cost_factor = COST_FACTOR
   (sx, sy) = getPoint(src)
   (dx, dy) = getPoint(dst)
   return ((sx - dx)**2 + (sy - dy)**2)**.5 * dist_factor + costs[getSign(src)] * cost_factor
