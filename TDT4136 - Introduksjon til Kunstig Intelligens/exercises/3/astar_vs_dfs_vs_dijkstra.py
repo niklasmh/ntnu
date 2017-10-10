@@ -133,7 +133,7 @@ def find_path(M, algorithm, start, goal):
   state = {
     "closedSet": {},
     "openSet": {},
-    "openQueue": [],
+    "openQueue": [], # For BFS
     "cameFrom": fillDictByMap(M, None),
     "gScore": fillDictByMap(M),
     "fScore": fillDictByMap(M)
@@ -211,7 +211,7 @@ def run_astar_step(state, frame=None):
   return 2
 
 def run_bfs_step(state, frame=None):
-  current = state["openQueue"].pop(0) if len(state["openQueue"]) else start
+  current = state["openQueue"].pop(0) if len(state["openQueue"]) else start # Using an array as a queue for open nodes
 
   if current == goal:
     reconstruct_path(state["cameFrom"], current)
@@ -235,25 +235,17 @@ def run_bfs_step(state, frame=None):
       (x, y) = getPoint(neighbor)
       drawHalfCross(x, y)
       state["openSet"][neighbor_id] = neighbor
-      state["openQueue"].append(neighbor)
+      state["openQueue"].append(neighbor) # Appending neighbor to the open queue
 
     temp_gScore = getScore(state["gScore"], current) + dist_between(current, neighbor)
 
     if temp_gScore >= getScore(state["gScore"], neighbor):
       continue
 
-    #if neighbor_id in state["cameFrom"] and getScore(state["gScore"], state["cameFrom"][neighbor_id]) > getScore(state["gScore"], current):
-    if state["cameFrom"][neighbor_id]:
-      if getCost(state["cameFrom"][neighbor_id]) > getCost(current):
-        state["cameFrom"][neighbor_id] = current
-        (nx, ny) = getPoint(neighbor)
-        (cx, cy) = getPoint(current)
-        drawLine(nx, ny, cx, cy)
-    else:
-      state["cameFrom"][neighbor_id] = current
-      (nx, ny) = getPoint(neighbor)
-      (cx, cy) = getPoint(current)
-      drawLine(nx, ny, cx, cy)
+    state["cameFrom"][neighbor_id] = current
+    (nx, ny) = getPoint(neighbor)
+    (cx, cy) = getPoint(current)
+    drawLine(nx, ny, cx, cy)
     state["gScore"][neighbor_id] = temp_gScore
     state["fScore"][neighbor_id] = getScore(state["gScore"], neighbor) + heuristic_cost_estimate(neighbor, goal)
   return 2
@@ -262,7 +254,7 @@ def run_dijkstra_step(state, frame=None):
   vals = list(state["openSet"].values())
   if len(vals): current = vals.pop()
   for val in vals:
-    if getScore(state["gScore"], val) < getScore(state["gScore"], current):
+    if getScore(state["gScore"], val) < getScore(state["gScore"], current): # Switched fScore with gScore
       current = val
 
   if current == goal:
@@ -293,13 +285,12 @@ def run_dijkstra_step(state, frame=None):
     if temp_gScore >= getScore(state["gScore"], neighbor):
       continue
 
-    if neighbor_id in state["cameFrom"] and getScore(state["gScore"], state["cameFrom"][neighbor_id]) > getScore(state["gScore"], current):
-        state["cameFrom"][neighbor_id] = current
-        (nx, ny) = getPoint(neighbor)
-        (cx, cy) = getPoint(current)
-        drawLine(nx, ny, cx, cy)
+    state["cameFrom"][neighbor_id] = current
+    (nx, ny) = getPoint(neighbor)
+    (cx, cy) = getPoint(current)
+    drawLine(nx, ny, cx, cy)
     state["gScore"][neighbor_id] = temp_gScore
-    state["fScore"][neighbor_id] = getScore(state["gScore"], neighbor) # + heuristic_cost_estimate(neighbor, goal)
+    state["fScore"][neighbor_id] = getScore(state["gScore"], neighbor) + heuristic_cost_estimate(neighbor, goal)
   return 2
 
 # Finding the path back by following each nodes "best path"
