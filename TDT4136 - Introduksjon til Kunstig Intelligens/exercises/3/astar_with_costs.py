@@ -220,7 +220,7 @@ def reconstruct_path(cameFrom, current):
       cost += getCost(current)
       (x, y) = getPoint(current)
       drawCircle(x, y, 1 / 4, fill="black")
-  print("Heruistic of: " + str(heru))
+  #print("Heruistic of: " + str(heru))
   print("This path costs: " + str(cost))
   return total_path
 
