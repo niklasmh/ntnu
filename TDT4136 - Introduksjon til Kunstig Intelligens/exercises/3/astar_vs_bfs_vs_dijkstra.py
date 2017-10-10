@@ -5,8 +5,9 @@ from sys import stdin, argv
 argc = len(argv)
 from time import sleep
 
-INFINITY = 99999
-DIST_FACTOR = 0
+# Setting used constants
+INFINITY = float("inf")
+DIST_FACTOR = 3
 COST_FACTOR = 10 # Task 3: Only cost will affect the A* algorithm
 ALGORITHM = 'astar'
 ANIMATE = False
@@ -14,6 +15,8 @@ SHOW_BOARD_ONLY = False
 INTERVAL = 20
 FILE = None
 
+# Getting args from user
+# Format: <file> [interval_in_ms [dist_factor,cost_factor | astar | bfs | dijkstra]]
 if argc >= 2: FILE = argv[1]
 if argc >= 3:
   if argv[2].lower() == "show":
@@ -31,8 +34,10 @@ if argc >= 4:
     print("The 3. arg is on format: dist_factor,cost_factor | astar | bfs | dijkstra")
     print("Now using 1,1 as default...")
 
+# Defining the GUI in Tkinter
 root = tk.Tk()
 
+# Setting some variables in the global scope
 start = None
 goal = None
 M = []
@@ -41,6 +46,7 @@ ch = 0
 x = 0
 y = 0
 
+# Check if file is piped in with "< file.txt" or added as an argument
 if FILE:
   for i in open(FILE, "r"):
     M.append([])
@@ -68,10 +74,11 @@ else:
 
 cw = len(M[0])
 
-# Centering the window and setting the size to 80% of the smallest side
+# Centering the window and setting the size of the smallest side
 sw = root.winfo_screenwidth()
 sh = root.winfo_screenheight()
 
+# Calculating the block sizing for the board based on the window size
 if sw / sh < cw / ch:
   w = .8 * sw / cw
   h = .8 * (sw * ch / cw) / ch
@@ -79,6 +86,7 @@ else:
   w = .8 * (sh * cw / ch) / cw
   h = .8 * sh / ch
 
+# Positioning the window in center and setting width to the calculated one
 root.geometry('%dx%d+%d+%d' % (w * cw, h * ch, sw / 2 - w * cw / 2, sh / 2 - h * ch / 2))
 
 # Making sense of the data
@@ -123,35 +131,51 @@ def heuristic_cost_estimate(src, dst):
   cost_factor = COST_FACTOR
   (sx, sy) = getPoint(src)
   (dx, dy) = getPoint(dst)
-  return (abs(sx - dx) + abs(sy - dy)) * dist_factor + costs[getSign(src)] * cost_factor
-  #return ((sx - dx)**2 + (sy - dy)**2)**.5 * dist_factor + costs[getSign(src)] * cost_factor
+  dist = (abs(sx - dx) + abs(sy - dy)) * dist_factor # Hamming distance
+  cost = costs[getSign(src)] * cost_factor # Cost based on type
+  return dist + cost
 
 # The main code for finding the path
 def find_path(M, algorithm, start, goal):
   global root
 
+  # Declearing a state with:
+  # - Closed nodes => empty dict of closed nodes with id as key
+  # - Open nodes => empty dict of open nodes with id as kay
+  # - Open nodes queue => Empty queue making an order for the open nodes
+  # - Parent node => dict with all nodes and None as value on all of them
+  # - g(x) score => dict with infinity on all nodes by default
+  # - f(x) score => dict with infinity on all nodes by default
   state = {
-    "closedSet": {},
-    "openSet": {},
+    "closed": {},
+    "open": {},
     "openQueue": [], # For BFS
-    "cameFrom": fillDictByMap(M, None),
+    "parent": fillDictByMap(M, None),
     "gScore": fillDictByMap(M),
     "fScore": fillDictByMap(M)
   }
 
-  state["openSet"][getId(start)] = start
+  # Now adding the start node to the open dict and queue
+  state["open"][getId(start)] = start
   state["openQueue"] = [ start ]
+
+  # Adding a open mark on the start node
   drawHalfCross(getPoint(start)[0], getPoint(start)[1])
+
+  # Also setting the start node to 0 for g(x)
   state["gScore"][getId(start)] = 0
+
+  # Calculating an initial heruistic to the start node
+  # As g(x) is 0 we do not need any g(x) value added to the f(x) for this node
   state["fScore"][getId(start)] = heuristic_cost_estimate(start, goal)
 
   def Refresh(frame):
     state = frame.state
     state["after_id"] = frame.after(INTERVAL, Refresh, frame)
 
-    if state["openSet"]:
+    if state["open"]: # Continue as long there are elements in the open dict
       run_step[ALGORITHM](state, frame)
-    else:
+    else: # If the open set is empty, the search is over and has failed
       frame.after_cancel(state["after_id"])
       print("Failed")
 
@@ -159,50 +183,53 @@ def find_path(M, algorithm, start, goal):
   if ANIMATE:
     Refresh(root)
   else:
-    while state["openSet"]:
+    while state["open"]: # Continue as long there are elements in the open dict
       mode = run_step[ALGORITHM](state)
-      if mode == 0:
+      if mode == 0: # If the stepper returns 1, the algorithm is still searching
         continue
-      elif mode == 1:
-        return 1
+      elif mode == 1: # If the stepper returns 1, the goal has been found
+        return
+
+    # If the open set is empty, the search is over and has failed
     print("Failed")
 
+# Running a step in A* based on the current state
 def run_astar_step(state, frame=None):
-  vals = list(state["openSet"].values())
+  vals = list(state["open"].values())
   if len(vals): current = vals.pop()
   for val in vals:
     if getScore(state["fScore"], val) < getScore(state["fScore"], current):
       current = val
 
   if current == goal:
-    reconstruct_path(state["cameFrom"], current)
+    reconstruct_path(state["parent"], current)
     if frame:
       frame.after_cancel(state["after_id"])
     return 1
 
-  if getId(current) in state["openSet"]:
-    del state["openSet"][getId(current)]
+  if getId(current) in state["open"]:
+    del state["open"][getId(current)]
     (x, y) = getPoint(current)
     drawOtherHalfCross(x, y)
-  state["closedSet"][getId(current)] = current
+  state["closed"][getId(current)] = current
 
   for neighbor in getNeighbors(M, current):
     neighbor_id = getId(neighbor)
 
-    if neighbor_id in state["closedSet"]:
+    if neighbor_id in state["closed"]:
       continue
 
-    if not neighbor_id in state["openSet"]:
+    if not neighbor_id in state["open"]:
       (x, y) = getPoint(neighbor)
       drawHalfCross(x, y)
-      state["openSet"][neighbor_id] = neighbor
+      state["open"][neighbor_id] = neighbor
 
     temp_gScore = getScore(state["gScore"], current) + dist_between(current, neighbor)
 
     if temp_gScore >= getScore(state["gScore"], neighbor):
       continue
 
-    state["cameFrom"][neighbor_id] = current
+    state["parent"][neighbor_id] = current
     (nx, ny) = getPoint(neighbor)
     (cx, cy) = getPoint(current)
     drawLine(nx, ny, cx, cy)
@@ -210,31 +237,32 @@ def run_astar_step(state, frame=None):
     state["fScore"][neighbor_id] = getScore(state["gScore"], neighbor) + heuristic_cost_estimate(neighbor, goal)
   return 2
 
+# Running a step in bfs based on the current state
 def run_bfs_step(state, frame=None):
   current = state["openQueue"].pop(0) if len(state["openQueue"]) else start # Using an array as a queue for open nodes
 
   if current == goal:
-    reconstruct_path(state["cameFrom"], current)
+    reconstruct_path(state["parent"], current)
     if frame:
       frame.after_cancel(state["after_id"])
     return 1
 
-  if getId(current) in state["openSet"]:
-    del state["openSet"][getId(current)]
+  if getId(current) in state["open"]:
+    del state["open"][getId(current)]
     (x, y) = getPoint(current)
     drawOtherHalfCross(x, y)
-  state["closedSet"][getId(current)] = current
+  state["closed"][getId(current)] = current
 
   for neighbor in getNeighbors(M, current):
     neighbor_id = getId(neighbor)
 
-    if neighbor_id in state["closedSet"]:
+    if neighbor_id in state["closed"]:
       continue
 
-    if not neighbor_id in state["openSet"]:
+    if not neighbor_id in state["open"]:
       (x, y) = getPoint(neighbor)
       drawHalfCross(x, y)
-      state["openSet"][neighbor_id] = neighbor
+      state["open"][neighbor_id] = neighbor
       state["openQueue"].append(neighbor) # Appending neighbor to the open queue
 
     temp_gScore = getScore(state["gScore"], current) + dist_between(current, neighbor)
@@ -242,7 +270,7 @@ def run_bfs_step(state, frame=None):
     if temp_gScore >= getScore(state["gScore"], neighbor):
       continue
 
-    state["cameFrom"][neighbor_id] = current
+    state["parent"][neighbor_id] = current
     (nx, ny) = getPoint(neighbor)
     (cx, cy) = getPoint(current)
     drawLine(nx, ny, cx, cy)
@@ -250,42 +278,43 @@ def run_bfs_step(state, frame=None):
     state["fScore"][neighbor_id] = getScore(state["gScore"], neighbor) + heuristic_cost_estimate(neighbor, goal)
   return 2
 
+# Running a step in dijkstra based on the current state
 def run_dijkstra_step(state, frame=None):
-  vals = list(state["openSet"].values())
+  vals = list(state["open"].values())
   if len(vals): current = vals.pop()
   for val in vals:
     if getScore(state["gScore"], val) < getScore(state["gScore"], current): # Switched fScore with gScore
       current = val
 
   if current == goal:
-    reconstruct_path(state["cameFrom"], current)
+    reconstruct_path(state["parent"], current)
     if frame:
       frame.after_cancel(state["after_id"])
     return 1
 
-  if getId(current) in state["openSet"]:
-    del state["openSet"][getId(current)]
+  if getId(current) in state["open"]:
+    del state["open"][getId(current)]
     (x, y) = getPoint(current)
     drawOtherHalfCross(x, y)
-  state["closedSet"][getId(current)] = current
+  state["closed"][getId(current)] = current
 
   for neighbor in getNeighbors(M, current):
     neighbor_id = getId(neighbor)
 
-    if neighbor_id in state["closedSet"]:
+    if neighbor_id in state["closed"]:
       continue
 
-    if not neighbor_id in state["openSet"]:
+    if not neighbor_id in state["open"]:
       (x, y) = getPoint(neighbor)
       drawHalfCross(x, y)
-      state["openSet"][neighbor_id] = neighbor
+      state["open"][neighbor_id] = neighbor
 
     temp_gScore = getScore(state["gScore"], current) + dist_between(current, neighbor)
 
     if temp_gScore >= getScore(state["gScore"], neighbor):
       continue
 
-    state["cameFrom"][neighbor_id] = current
+    state["parent"][neighbor_id] = current
     (nx, ny) = getPoint(neighbor)
     (cx, cy) = getPoint(current)
     drawLine(nx, ny, cx, cy)
@@ -294,14 +323,14 @@ def run_dijkstra_step(state, frame=None):
   return 2
 
 # Finding the path back by following each nodes "best path"
-def reconstruct_path(cameFrom, current):
+def reconstruct_path(parent, current):
   heru = heuristic_cost_estimate(current, goal)
   cost = getCost(current)
   total_path = [ current ]
   (x, y) = getPoint(current)
   drawCircle(x, y, 1 / 4, fill="black")
-  while current and getId(current) in cameFrom:
-    current = cameFrom[getId(current)]
+  while current and getId(current) in parent:
+    current = parent[getId(current)]
     total_path.append(current)
     if current:
       heru += heuristic_cost_estimate(current, goal)
@@ -312,10 +341,10 @@ def reconstruct_path(cameFrom, current):
   print("This path costs: " + str(cost))
   return total_path
 
-def draw_markings(M, closedSet, openSet):
+def draw_markings(M, closed, openSet):
   for i in M:
     for j in i:
-      if getId(j) in closedSet:
+      if getId(j) in closed:
         (x, y) = getPoint(j)
         drawCross(x, y, (2 - 2**.5 / 2) / 4, fill="black", width=w/28)
       if getId(j) in openSet:
@@ -410,4 +439,5 @@ run_step = {
 if not SHOW_BOARD_ONLY:
   find_path(M, ALGORITHM, start, goal)
 
+# Displaying the GUI
 root.mainloop()
