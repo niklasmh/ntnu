@@ -195,131 +195,186 @@ def find_path(M, algorithm, start, goal):
 
 # Running a step in A* based on the current state
 def run_astar_step(state, frame=None):
+
+  # First checking the state for the "best node" based on the f(x)
   vals = list(state["open"].values())
   if len(vals): current = vals.pop()
   for val in vals:
     if getScore(state["fScore"], val) < getScore(state["fScore"], current):
       current = val
 
+  # If the current is the goal, we are done
   if current == goal:
+    #draw_markings(M, state["closed"], state["open"]) # If we want to draw every state once again
     reconstruct_path(state["parent"], current)
     if frame:
       frame.after_cancel(state["after_id"])
     return 1
 
+  # Deleting the chosen from open nodes and adding it to closed nodes
   if getId(current) in state["open"]:
     del state["open"][getId(current)]
     (x, y) = getPoint(current)
     drawOtherHalfCross(x, y)
   state["closed"][getId(current)] = current
 
+  # Going through all its neighbors
   for neighbor in getNeighbors(M, current):
     neighbor_id = getId(neighbor)
 
+    # If neighbor is closed, we stop. Skipping this makes A* greedy and fast.
     if neighbor_id in state["closed"]:
       continue
 
+    # Then, if the neigbor does not exist in open nodes:
     if not neighbor_id in state["open"]:
       (x, y) = getPoint(neighbor)
       drawHalfCross(x, y)
+
+      # Adding the neighbor to the open set, making it searchable in the future
       state["open"][neighbor_id] = neighbor
 
+    # Calculating a score for this node
     temp_gScore = getScore(state["gScore"], current) + dist_between(current, neighbor)
 
+    # If the score calculated previously is not "better", skip, as it has already a better parent
     if temp_gScore >= getScore(state["gScore"], neighbor):
       continue
 
-    state["parent"][neighbor_id] = current
     (nx, ny) = getPoint(neighbor)
     (cx, cy) = getPoint(current)
     drawLine(nx, ny, cx, cy)
+
+    # Connecting the current node as the parent
+    state["parent"][neighbor_id] = current
+
+    # Setting the new g(x) score to the calculated one
     state["gScore"][neighbor_id] = temp_gScore
-    state["fScore"][neighbor_id] = getScore(state["gScore"], neighbor) + heuristic_cost_estimate(neighbor, goal)
+
+    # Setting a new f(x) = g(x) + h(x) to the neighbor
+    state["fScore"][neighbor_id] = temp_gScore + heuristic_cost_estimate(neighbor, goal)
   return 2
 
 # Running a step in bfs based on the current state
 def run_bfs_step(state, frame=None):
-  current = state["openQueue"].pop(0) if len(state["openQueue"]) else start # Using an array as a queue for open nodes
 
+  # Popping the first node from the open FIFO queue
+  current = state["openQueue"].pop(0) if len(state["openQueue"]) else start
+
+  # If the current is the goal, we are done searching
   if current == goal:
+    #draw_markings(M, state["closed"], state["open"]) # If we want to draw every state once again
     reconstruct_path(state["parent"], current)
     if frame:
       frame.after_cancel(state["after_id"])
     return 1
 
+  # Deleting the chosen from open nodes and adding it to closed nodes
   if getId(current) in state["open"]:
     del state["open"][getId(current)]
     (x, y) = getPoint(current)
     drawOtherHalfCross(x, y)
   state["closed"][getId(current)] = current
 
+  # Going through all its neighbors
   for neighbor in getNeighbors(M, current):
     neighbor_id = getId(neighbor)
 
+    # If neighbor is closed, we stop. Skipping this makes A* greedy and fast.
     if neighbor_id in state["closed"]:
       continue
 
+    # Then, if the neigbor does not exist in open nodes:
     if not neighbor_id in state["open"]:
       (x, y) = getPoint(neighbor)
       drawHalfCross(x, y)
+
+      # Adding the neighbor to the open set, making it searchable in the future
       state["open"][neighbor_id] = neighbor
       state["openQueue"].append(neighbor) # Appending neighbor to the open queue
 
+    # Calculating a score for this node
     temp_gScore = getScore(state["gScore"], current) + dist_between(current, neighbor)
 
+    # If the score calculated previously is not "better", skip, as it has already a better parent
     if temp_gScore >= getScore(state["gScore"], neighbor):
       continue
 
-    state["parent"][neighbor_id] = current
     (nx, ny) = getPoint(neighbor)
     (cx, cy) = getPoint(current)
     drawLine(nx, ny, cx, cy)
+
+    # Connecting the current node as the parent
+    state["parent"][neighbor_id] = current
+
+    # Setting the new g(x) score to the calculated one
     state["gScore"][neighbor_id] = temp_gScore
-    state["fScore"][neighbor_id] = getScore(state["gScore"], neighbor) + heuristic_cost_estimate(neighbor, goal)
+
+    # Setting a new f(x) = g(x) + h(x) to the neighbor
+    state["fScore"][neighbor_id] = temp_gScore + heuristic_cost_estimate(neighbor, goal)
   return 2
 
 # Running a step in dijkstra based on the current state
 def run_dijkstra_step(state, frame=None):
+
+  # First checking the state for the "best node" based on the f(x)
   vals = list(state["open"].values())
   if len(vals): current = vals.pop()
   for val in vals:
-    if getScore(state["gScore"], val) < getScore(state["gScore"], current): # Switched fScore with gScore
+    if getScore(state["gScore"], val) < getScore(state["gScore"], current): # Switching fScore with gScore
       current = val
 
+  # If the current is the goal, we are done searching
   if current == goal:
+    #draw_markings(M, state["closed"], state["open"]) # If we want to draw every state once again
     reconstruct_path(state["parent"], current)
     if frame:
       frame.after_cancel(state["after_id"])
     return 1
 
+  # Deleting the chosen from open nodes and adding it to closed nodes
   if getId(current) in state["open"]:
     del state["open"][getId(current)]
     (x, y) = getPoint(current)
     drawOtherHalfCross(x, y)
   state["closed"][getId(current)] = current
 
+  # Going through all its neighbors
   for neighbor in getNeighbors(M, current):
     neighbor_id = getId(neighbor)
 
+    # If neighbor is closed, we stop. Skipping this makes A* greedy and fast.
     if neighbor_id in state["closed"]:
       continue
 
+    # Then, if the neigbor does not exist in open nodes:
     if not neighbor_id in state["open"]:
       (x, y) = getPoint(neighbor)
       drawHalfCross(x, y)
-      state["open"][neighbor_id] = neighbor
 
+      # Adding the neighbor to the open set, making it searchable in the future
+      state["open"][neighbor_id] = neighbor
+      state["openQueue"].append(neighbor) # Appending neighbor to the open queue
+
+    # Calculating a score for this node
     temp_gScore = getScore(state["gScore"], current) + dist_between(current, neighbor)
 
+    # If the score calculated previously is not "better", skip, as it has already a better parent
     if temp_gScore >= getScore(state["gScore"], neighbor):
       continue
 
-    state["parent"][neighbor_id] = current
     (nx, ny) = getPoint(neighbor)
     (cx, cy) = getPoint(current)
     drawLine(nx, ny, cx, cy)
+
+    # Connecting the current node as the parent
+    state["parent"][neighbor_id] = current
+
+    # Setting the new g(x) score to the calculated one
     state["gScore"][neighbor_id] = temp_gScore
-    state["fScore"][neighbor_id] = getScore(state["gScore"], neighbor) + heuristic_cost_estimate(neighbor, goal)
+
+    # Setting a new f(x) = g(x) + h(x) to the neighbor
+    state["fScore"][neighbor_id] = temp_gScore + heuristic_cost_estimate(neighbor, goal)
   return 2
 
 # Finding the path back by following each nodes "best path"
