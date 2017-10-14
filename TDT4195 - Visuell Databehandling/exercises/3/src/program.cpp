@@ -1,50 +1,150 @@
-// Local headers
-#include <iostream>
-#include <glm/ext.hpp>
 #include "program.hpp"
-//#include "sceneGraph.hpp"
 #include "gloom/gloom.hpp"
 #include "gloom/shader.hpp"
+#include "sceneGraph.cpp"
+#include <glm/ext.hpp>
 
-int vertexArrayObject(float *vertices, unsigned int vertexCount, unsigned int *indices, unsigned int indexCount, float *colors, unsigned int colorCount);
-float* createBox(float cx, float cy, float cz, float w, float h, float d, float scale);
-float* createGroundSquare(float cx, float cy, float cz, float w, float h, float scale);
-SceneNode* generateSceneNodes();
-void updateSceneGraph(SceneNode* node);
-void drawSceneNodes(SceneNode* node, glm::mat4 transformMatrix);
+#include <iostream>
+
+#include <math.h>
+#include <vector>
+
+
+// Input file here:
+char const* filePath = "coordinates_0.txt";
+
+
+/**
+ * Run the program while setting the file path externally (as an argument).
+ * 
+ * @params window {GLFWwindow*} A pointer to the a pointer to the startup window
+ * @params window {char const*} A string of the file path to the coordinates
+ */
+void runProgram(GLFWwindow* window, char* file) {
+    filePath = file;
+    runProgram(window);
+}
+
 
 // Position
-float rotX = 0;
-float rotY = 0;
+float rotX = 48.0f;
+float rotY = 120.0f;
 float cordX = 0;
-float cordY = -2.0f;
-float cordZ = -3.0f;
+float cordY = -28.0f;
+float cordZ = -5.0f;
+
 
 // Globals
 int pointsCount = 12 * 8;
+int grundTileCount = 12 * 4;
 SceneNode* startNode;
-int vaoGround;
-int vaoHead;
-int vaoBody;
-int vaoArmLeft;
-int vaoArmRight;
-int vaoLegLeft;
-int vaoLegRight;
+GLuint vaoHead;
+GLuint vaoBody;
+GLuint vaoArmLeft;
+GLuint vaoArmRight;
+GLuint vaoLegLeft;
+GLuint vaoLegRight;
+
 
 // Animation
 float deltaAnimTime;
+float animTime;
 SceneNode* root;
 bool firstTarget = true;
 std::vector<glm::vec3> destinationPoints;
 glm::vec3 destinationLocation;
 int pointIndex = 0;
+std::vector<int2> coords;
+float pathDistance = 0.0f;
+int coordIndex = 0;
 
-void runProgram(GLFWwindow* window)
-{
+
+// Adding some "physics", such that the player can jump
+float gravity = -0.01f;
+float velocity = 0.0f;
+float floorY = 0.0f;
+float playerHeight = 24.0f;
+bool jumpReady = true;
+
+
+// Vertices
+
+// Adding the index buffer for a cube of triangles created in createBox
+unsigned int g_index_buffer_data[] = {
+    0, 1, 2,
+    2, 1, 3,
+    2, 6, 0,
+    6, 4, 0,
+    3, 1, 7,
+    1, 5, 7,
+    4, 6, 7,
+    4, 7, 5,
+    4, 5, 1,
+    4, 1, 0,
+    7, 6, 2,
+    7, 2, 3,
+};
+
+
+// Adding a color buffer making the cube contain all color gradients
+float g_color_buffer_data[] = {
+    1.0f, 1.0f, 1.0f, 1.0f, // White
+    1.0f, 1.0f, 0.0f, 1.0f, // Yellow
+    0.0f, 1.0f, 1.0f, 1.0f, // Cyan
+    0.0f, 1.0f, 0.0f, 1.0f, // Green
+    1.0f, 0.0f, 1.0f, 1.0f, // Pink
+    1.0f, 0.0f, 0.0f, 1.0f, // Red
+    0.0f, 0.0f, 1.0f, 1.0f, // Blue
+    0.0f, 0.0f, 0.0f, 1.0f, // Black
+};
+
+
+// Setting some constant variables for creating the initial VAOs
+const int ibdBoxCount = sizeof(g_index_buffer_data);
+const int cbdCount = sizeof(g_color_buffer_data);
+const float scale = 0.1f;
+
+
+// Creating the initial VAOs for the ground squares
+const int floorSizeW = 7;
+const int floorSizeH = 5;
+const int floorTileCount = floorSizeW * floorSizeH;
+float floorScale = 8.0f;
+GLuint vaoGround[floorTileCount];
+
+unsigned int g_index_buffer_data_ground[] = {
+    0, 2, 1,
+    2, 3, 1,
+};
+
+float green_color_buffer_data_ground[] = {
+    0.0f, 1.0f, 0.0f, 1.0f, // Green
+    0.0f, 1.0f, 0.0f, 1.0f, // Green
+    0.0f, 1.0f, 0.0f, 1.0f, // Green
+    0.0f, 1.0f, 0.0f, 1.0f, // Green
+};
+
+float purple_color_buffer_data_ground[] = {
+    0.5f, 0.0f, 1.0f, 1.0f, // Purple
+    0.5f, 0.0f, 1.0f, 1.0f, // Purple
+    0.5f, 0.0f, 1.0f, 1.0f, // Purple
+    0.5f, 0.0f, 1.0f, 1.0f, // Purple
+};
+
+const int ibdGroundCount = sizeof(g_index_buffer_data_ground);
+const int cbdGroundCount = sizeof(green_color_buffer_data_ground);
+
+
+/**
+ * The GUI program.
+ * 
+ * @params window {GLFWwindow*} A pointer to the a pointer to the startup window
+ */
+void runProgram(GLFWwindow* window) {
+
     // Enable depth (Z) buffer (accept "closest" fragment)
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
-    glClearDepth(1);
 
     // Configure miscellaneous OpenGL settings
     glEnable(GL_CULL_FACE);
@@ -57,100 +157,215 @@ void runProgram(GLFWwindow* window)
     glClearColor(0.3f, 0.8f, 1.0f, 1.0f);
 
     // Generating the whole scene graph
-    //startNode = generateSceneNodes();
-    
-    // Adding the index buffer for a cube of triangles created in createBox
-    unsigned int g_index_buffer_data[] = {
-        0, 1, 2,
-        2, 1, 3,
-        2, 6, 0,
-        6, 4, 0,
-        3, 1, 7,
-        1, 5, 7,
-        4, 6, 7,
-        4, 7, 5,
-        4, 5, 1,
-        4, 1, 0,
-        7, 6, 2,
-        7, 2, 3,
-    };
+    startNode = generateSceneNodes();
 
-    // Adding a color buffer making the cube contain all color gradients
-    float g_color_buffer_data[] = {
-        1.0f, 1.0f, 1.0f, 1.0f, // White
-        1.0f, 1.0f, 0.0f, 1.0f, // Yellow
-        0.0f, 1.0f, 1.0f, 1.0f, // Cyan
-        0.0f, 1.0f, 0.0f, 1.0f, // Green
-        1.0f, 0.0f, 1.0f, 1.0f, // Pink
-        1.0f, 0.0f, 0.0f, 1.0f, // Red
-        0.0f, 0.0f, 1.0f, 1.0f, // Blue
-        0.0f, 0.0f, 0.0f, 1.0f, // Black
-    };
+    // Creating a perspective matrix
+    glm::mat4 perspectiveMatrix = glm::perspective(glm::radians(45.0f), 16.0f / 9.0f, 1.0f, 100.0f);
 
-    // Setting some constant variables for creating the initial VAOs
-    const int ibdCount = sizeof(g_index_buffer_data);
-    const int cbdCount = sizeof(g_color_buffer_data);
-    const float scale = 0.1f;
+    // Activating vertex and fragment shaders from text files
+    Gloom::Shader shader;
+    shader.makeBasicShader("../gloom/shaders/simple.vert", "../gloom/shaders/simple.frag");
+    shader.activate();
+
+    // Getting the walk path
+    coords = readCoordinatesFile(filePath);
+
+    // Creating a delta time and a total animation time
+    deltaAnimTime = getTimeDeltaSeconds();
+    animTime = 0.0f;
+
+    // Rendering Loop
+    while (!glfwWindowShouldClose(window)) {
+
+        // Updating the animation timing
+        deltaAnimTime = getTimeDeltaSeconds();
+        animTime += deltaAnimTime;
+
+        // Clear colour and depth buffers
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        // Translation
+        glm::mat4 translationMatrix = glm::translate(glm::mat4(), glm::vec3(cordX, cordY, cordZ));
+        glm::mat4 rotXMatrix = glm::rotate(glm::radians(rotX), glm::vec3(1.0f, 0.0f, 0.0f));
+        glm::mat4 rotYMartix = glm::rotate(glm::radians(rotY), glm::vec3(0.0f, 1.0f, 0.0f));
+
+        // Adding the matrices in the correct order: Perspective <- Cam rotation <- Cam translation <- Instance tranformations etc...
+        glm::mat4 finalTransformMatrix = perspectiveMatrix * rotXMatrix * rotYMartix * translationMatrix;
+
+        // Updating all the nodes positions relative to the root node
+        updateSceneGraph(startNode);
+
+        // Draw the scene graph while passing in our calculated matrix describing the view (camera)
+        drawSceneNodes(startNode, finalTransformMatrix);
+
+        // Handle other events
+        glfwPollEvents();
+        handleKeyboardInput(window);
+
+        // Flip buffers
+        glfwSwapBuffers(window);
+    }
+
+    shader.deactivate();
+    shader.destroy();
+}
+
+
+/**
+ * Updates the scend graph such that the node parameters gets correct.
+ * To search through the graph, we are using recursion.
+ * 
+ * @params node {SceneNode*} A pointer to the a pointer to the node which should be updated
+ */
+void updateSceneGraph(SceneNode* node) {
+
+    // Update the state of the nodes before we can change their transformations
+    switch (node->motionType) {
+        case NONE:
+            break;
+
+        case LEFT_ARM_MOTION:
+            node->rotationX = 30.0f * sin(animTime * 10.0f);
+            break;
+
+        case RIGHT_ARM_MOTION:
+            node->rotationX = 30.0f * -sin(animTime * 10.0f);
+            break;
+
+        case LEFT_LEG_MOTION:
+            node->rotationX = 30.0f * -sin(animTime * 10.0f);
+            break;
+
+        case RIGHT_LEG_MOTION:
+            node->rotationX = 30.0f * sin(animTime * 10.0f);
+            break;
+
+        case HEAD_MOTION:
+            break;
+
+        case TORSO_MOTION:
+
+            // Fetching the start and end coord based on an index:
+            int2 coordStart = coords[coordIndex % coords.size()];
+            int2 coordEnd = coords[(coordIndex + 1) % coords.size()];
+
+            // Setting the body rotation from start to end position
+            node->rotationDirection = std::atan2(coordEnd.x - coordStart.x, coordEnd.y - coordStart.y);
+
+            // Adding a distance to walk based on the time interval
+            float distance = deltaAnimTime / 2.0f;
+            pathDistance += distance;
+
+            // Calculate the added x and y from the start coord based on a total time
+            float x = pathDistance * sin(node->rotationDirection);
+            float y = pathDistance * cos(node->rotationDirection);
+
+            // Checking if the body has passed the end goal in distance
+            float totalDistance = std::sqrt(std::pow(coordEnd.y - coordStart.y, 2) + std::pow(coordEnd.x - coordStart.x, 2));
+            if (pathDistance > totalDistance) {
+
+                // We now change index and set the total distance walked to 0 so we can tavel the new route (line)
+                coordIndex++;
+                pathDistance = 0;
+            }
+
+            // Updating the position based on the floor tiles
+            node->x = (coordStart.x + x + 0.5f) * floorScale;
+            node->z = (coordStart.y + y + 0.5f) * floorScale;
+
+            // Rotating the body along the y-axis, which affects all nodes attached to the body
+            node->rotationY = glm::degrees(node->rotationDirection);
+
+            // Making it possible to jump
+            velocity += gravity;
+            node->y += velocity;
+            if (node->y <= floorY + playerHeight * scale) {
+                node->y = floorY + playerHeight * scale;
+                velocity = 0.0f;
+                jumpReady = true;
+            }
+            break;
+    }
+
+    // First create all transformations
+    glm::mat4 translationMatrix = glm::translate(glm::vec3(node->x, node->y, node->z));
+    glm::mat4 rotXMatrix = glm::rotate(glm::radians(node->rotationX), glm::vec3(1.0f, 0.0f, 0.0f));
+    glm::mat4 rotYMatrix = glm::rotate(glm::radians(node->rotationY), glm::vec3(0.0f, 1.0f, 0.0f));
+    glm::mat4 rotZMatrix = glm::rotate(glm::radians(node->rotationZ), glm::vec3(0.0f, 0.0f, 1.0f));
+    glm::mat4 rotMatrix = rotXMatrix * rotYMatrix * rotZMatrix;
+
+    // Add them together in the correct order
+    glm::mat4 localTransformMatrix = translationMatrix * rotMatrix;
+
+    // Apply them to the node
+    node->currentTransformationMatrix = localTransformMatrix;
+
+    // Do this for all its child nodes
+    for (SceneNode* child : node->children) {
+        updateSceneGraph(child);
+    }
+}
+
+
+/**
+ * Draw the scene based on the scene graph and the global transformations applied.
+ * 
+ * @params node {SceneNode*} A pointer to the a pointer to the node in the scene graph which should be drawn
+ * @params transformMatrix {glm::mat4} The final transform matrix which should be applied to all vertices
+ */
+void drawSceneNodes(SceneNode* node, glm::mat4 transformMatrix) {
+
+    // Check if node has a VAO. If that is true, draw it
+    if (node->vertexArrayObjectID != -1) {
+
+        // Adding the spesific transformation from the current node to its vertices
+        transformMatrix *= node->currentTransformationMatrix;
+
+        // Referring to the created ID such that we know which buffers we should handle
+        glBindVertexArray(node->vertexArrayObjectID);
+
+        // Before drawing, we apply our new transformation to the uniform in the vertex shader
+        glUniformMatrix4fv(4, 1, GL_FALSE, glm::value_ptr(glm::transpose(transformMatrix)));
+
+        // Drawing the triangles from the buffers
+        glDrawElements(GL_TRIANGLES, node->indexCount, GL_UNSIGNED_INT, (void*)0);
+    }
+
+    // Then we go through all its children, if there is any
+    for (SceneNode* child : node->children) {
+        drawSceneNodes(child, transformMatrix);
+    }
+}
+
+/**
+ * Creating all the shapes into the buffers and attaching them to a scene graph.
+ * Also setting their initial positions.
+ * 
+ * @return {SceneNode*} A pointer to the pointer to the root node in the scene graph
+ */
+SceneNode* generateSceneNodes() {
 
     // Creating the initial VAOs for the body
-    vaoHead = vertexArrayObject(createBox(-4.0f, 24.0f, -4.0f, 8.0f, 8.0f, 8.0f, scale), pointsCount, g_index_buffer_data, ibdCount, g_color_buffer_data, cbdCount);
-    vaoBody = vertexArrayObject(createBox(-4.0f, 24.0f, -2.0f, 8.0f, -12.0f, 4.0f, scale), pointsCount, g_index_buffer_data, ibdCount, g_color_buffer_data, cbdCount);
-    vaoArmLeft = vertexArrayObject(createBox(-8.0f, 24.0f, -2.0f, 4.0f, -12.0f, 4.0f, scale), pointsCount, g_index_buffer_data, ibdCount, g_color_buffer_data, cbdCount);
-    vaoArmRight = vertexArrayObject(createBox(4.0f, 24.0f, -2.0f, 4.0f, -12.0f, 4.0f, scale), pointsCount, g_index_buffer_data, ibdCount, g_color_buffer_data, cbdCount);
-    vaoLegLeft = vertexArrayObject(createBox(-4.0f, 12.0f, -2.0f, 4.0f, -12.0f, 4.0f, scale), pointsCount, g_index_buffer_data, ibdCount, g_color_buffer_data, cbdCount);
-    vaoLegRight = vertexArrayObject(createBox(0.0f, 12.0f, -2.0f, 4.0f, -12.0f, 4.0f, scale), pointsCount, g_index_buffer_data, ibdCount, g_color_buffer_data, cbdCount);
-    
-    // Adding the VAOs to a list
-    GLuint vaoList[] = {
-        vaoHead,
-        vaoBody,
-        vaoArmLeft,
-        vaoArmRight,
-        vaoLegLeft,
-        vaoLegRight,
-    };
+    vaoHead = vertexArrayObject(createBox(-4.0f, 0.0f, -4.0f, 8.0f, 8.0f, 8.0f, scale), pointsCount, g_index_buffer_data, ibdBoxCount, g_color_buffer_data, cbdCount);
+    vaoBody = vertexArrayObject(createBox(-4.0f, 0.0f, -2.0f, 8.0f, -12.0f, 4.0f, scale), pointsCount, g_index_buffer_data, ibdBoxCount, g_color_buffer_data, cbdCount);
+    vaoArmLeft = vertexArrayObject(createBox(-2.0f, 0.0f, -2.0f, 4.0f, -12.0f, 4.0f, scale), pointsCount, g_index_buffer_data, ibdBoxCount, g_color_buffer_data, cbdCount);
+    vaoArmRight = vertexArrayObject(createBox(-2.0f, 0.0f, -2.0f, 4.0f, -12.0f, 4.0f, scale), pointsCount, g_index_buffer_data, ibdBoxCount, g_color_buffer_data, cbdCount);
+    vaoLegLeft = vertexArrayObject(createBox(-2.0f, 0.0f, -2.0f, 4.0f, -12.0f, 4.0f, scale), pointsCount, g_index_buffer_data, ibdBoxCount, g_color_buffer_data, cbdCount);
+    vaoLegRight = vertexArrayObject(createBox(-2.0f, 0.0f, -2.0f, 4.0f, -12.0f, 4.0f, scale), pointsCount, g_index_buffer_data, ibdBoxCount, g_color_buffer_data, cbdCount);
 
-    // Creating the initial VAOs for the ground squares
-    const int floorSizeW = 7;
-    const int floorSizeH = 5;
-    const int floorTileCount = floorSizeW * floorSizeH;
-    float floorScale = 1.0f;
-    GLuint vaoGround[floorTileCount];
-
-    unsigned int g_index_buffer_data_ground[] = {
-        0, 2, 1,
-        2, 3, 1,
-    };
-
-    float green_color_buffer_data_ground[] = {
-        0.0f, 1.0f, 0.0f, 1.0f, // Green
-        0.0f, 1.0f, 0.0f, 1.0f, // Green
-        0.0f, 1.0f, 0.0f, 1.0f, // Green
-        0.0f, 1.0f, 0.0f, 1.0f, // Green
-    };
-
-    float purple_color_buffer_data_ground[] = {
-        0.5f, 0.0f, 1.0f, 1.0f, // Purple
-        0.5f, 0.0f, 1.0f, 1.0f, // Purple
-        0.5f, 0.0f, 1.0f, 1.0f, // Purple
-        0.5f, 0.0f, 1.0f, 1.0f, // Purple
-    };
-
-    const int ibdGroundCount = sizeof(g_index_buffer_data_ground);
-    const int cbdGroundCount = sizeof(green_color_buffer_data_ground);
-
+    // Creating VAOs for each tile. The advantage of this is that the floot can change its structure if needed.
     for (int i = 0; i < floorTileCount; i++) {
 
         // Switching between even/odd colors on chess board
         if (i % 2 == 0) {
             vaoGround[i] = vertexArrayObject(
-                createGroundSquare((i % floorSizeW - floorSizeW / 2) * floorSizeW, 0.0f, -std::floor(i / floorSizeW) * floorSizeH, floorSizeW, floorSizeH, floorScale), pointsCount,
+                createGroundSquare(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, floorScale), grundTileCount,
                 g_index_buffer_data_ground, ibdGroundCount,
                 green_color_buffer_data_ground, cbdGroundCount
             );
         } else {
             vaoGround[i] = vertexArrayObject(
-                createGroundSquare((i % floorSizeW - floorSizeW / 2) * floorSizeW, 0.0f, -std::floor(i / floorSizeW) * floorSizeH, floorSizeW, floorSizeH, floorScale), pointsCount,
+                createGroundSquare(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, floorScale), grundTileCount,
                 g_index_buffer_data_ground, ibdGroundCount,
                 purple_color_buffer_data_ground, cbdGroundCount
             );
@@ -160,7 +375,7 @@ void runProgram(GLFWwindow* window)
     // Generating a SceneNode for each object
     SceneNode* rootNode = createSceneNode();
     SceneNode* groundNode = createSceneNode();
-    SceneNode* squareNode = createSceneNode();
+    SceneNode* tileNodes[floorTileCount];
 
     SceneNode* headNode = createSceneNode();
     SceneNode* bodyNode = createSceneNode();
@@ -171,7 +386,6 @@ void runProgram(GLFWwindow* window)
 
     // Connecting the edges between the nodes in the scene graph
     addChild(rootNode, groundNode);
-    addChild(groundNode, squareNode);
 
     addChild(rootNode, bodyNode);
     addChild(bodyNode, headNode);
@@ -180,72 +394,74 @@ void runProgram(GLFWwindow* window)
     addChild(bodyNode, legLeftNode);
     addChild(bodyNode, legRightNode);
 
+    for (unsigned int i = 0; i < floorTileCount; i++) {
 
-    // Creating an identity and perspective matrix for later
-    glm::mat4x4 identityMatrix = glm::mat4(1.0f);
-    glm::mat4x4 perspectiveMatrix = glm::perspective(glm::radians(45.0f), 16.0f / 9.0f, 1.0f, 100.0f);
+        // Binding all the tiles to the ground node
+        tileNodes[i] = createSceneNode();
+        addChild(groundNode, tileNodes[i]);
 
-    // Activating vertex and fragment shaders from text files
-    Gloom::Shader shader;
-    shader.makeBasicShader("../gloom/shaders/simple.vert", "../gloom/shaders/simple.frag");
-    shader.activate();
-
-    deltaAnimTime = getTimeDeltaSeconds();
-
-    // Rendering Loop
-    while (!glfwWindowShouldClose(window))
-    {
-        // Updating the animation timing
-        deltaAnimTime = getTimeDeltaSeconds();
-
-        // Clear colour and depth buffers
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-        // Assign a value to our uniform variable
-
-        // Translation
-        glm::mat4x4 translation = glm::translate(glm::mat4(), glm::vec3(cordX, cordY, cordZ));
-        glm::mat4x4 transposedTrans = glm::transpose(translation);
-
-        // Rotation
-        glm::mat4x4 rotXMatrix = glm::rotate(glm::radians(rotX), glm::vec3(1.0f, 0.0f, 0.0f));
-        glm::mat4x4 rotYMartix = glm::rotate(glm::radians(rotY), glm::vec3(0.0f, 1.0f, 0.0f));
-
-        glm::mat4x4 transposedRotX = glm::transpose(rotXMatrix);
-        glm::mat4x4 transposedRotY = glm::transpose(rotYMartix);
-
-        glm::mat4x4 finalTransformMatrix = transposedRotX * transposedRotY * transposedTrans * perspectiveMatrix * identityMatrix;
-        glUniformMatrix4fv(4, 1, GL_FALSE, glm::value_ptr(finalTransformMatrix));
-
-        //updateSceneGraph(startNode);
-        //drawSceneNodes(startNode, finalTransformMatrix);
-        // Drawing VAOs from the VAO ground array
-        int listSize = sizeof(vaoGround);
-        for (int i = 0; i < listSize; i++) {
-            glBindVertexArray(vaoGround[i]);
-            //printf("VAO id: %i\n", vaoGround[i]);
-            glDrawElements(GL_TRIANGLES, sizeof(g_index_buffer_data_ground) / sizeof(unsigned int), GL_UNSIGNED_INT, (void*)0);
-        }
-        // Drawing VAOs from the VAO body array
-        listSize = sizeof(vaoList);
-        for (int i = 0; i < listSize; i++) {
-            glBindVertexArray(vaoList[i]);
-            glDrawElements(GL_TRIANGLES, sizeof(g_index_buffer_data) / sizeof(unsigned int), GL_UNSIGNED_INT, (void*)0);
-        }
-
-        // Handle other events
-        glfwPollEvents();
-        handleKeyboardInput(window);
-
-        // Flip buffers
-        glfwSwapBuffers(window);
+        // Adding all the tiles as their own nodes while setting their positions
+        tileNodes[i]->x = (i % floorSizeW) * floorScale;
+        tileNodes[i]->y = floorY;
+        tileNodes[i]->z = std::floor(i / floorSizeW) * floorScale;
+        tileNodes[i]->vertexArrayObjectID = vaoGround[i];
+        tileNodes[i]->indexCount = ibdGroundCount;
     }
-    shader.deactivate();
-    shader.destroy();
+
+    // Head
+    bodyNode->motionType = HEAD_MOTION;
+    headNode->vertexArrayObjectID = vaoHead;
+    headNode->indexCount = ibdBoxCount;
+
+    // Torso
+    bodyNode->y = playerHeight * scale;
+    bodyNode->motionType = TORSO_MOTION;
+    bodyNode->vertexArrayObjectID = vaoBody;
+    bodyNode->indexCount = ibdBoxCount;
+
+    // Left arm
+    armLeftNode->x = -6.0f * scale;
+    armLeftNode->motionType = LEFT_ARM_MOTION;
+    armLeftNode->vertexArrayObjectID = vaoArmLeft;
+    armLeftNode->indexCount = ibdBoxCount;
+
+    // Right arm
+    armRightNode->x = 6.0f * scale;
+    armRightNode->motionType = RIGHT_ARM_MOTION;
+    armRightNode->vertexArrayObjectID = vaoArmRight;
+    armRightNode->indexCount = ibdBoxCount;
+
+    // Left leg
+    legLeftNode->x = -2.0f * scale;
+    legLeftNode->y = -12.0f * scale;
+    legLeftNode->motionType = LEFT_LEG_MOTION;
+    legLeftNode->vertexArrayObjectID = vaoLegLeft;
+    legLeftNode->indexCount = ibdBoxCount;
+
+    // Right leg
+    legRightNode->x = 2.0f * scale;
+    legRightNode->y = -12.0f * scale;
+    legRightNode->motionType = RIGHT_LEG_MOTION;
+    legRightNode->vertexArrayObjectID = vaoLegRight;
+    legRightNode->indexCount = ibdBoxCount;
+
+    return rootNode;
 }
 
-int vertexArrayObject(float *vertices, unsigned int vertexCount, unsigned int *indices, unsigned int indexCount, float *colors, unsigned int colorCount)
-{
+
+/**
+ * Creating a vertex array object which is binded to the buffers.
+ * 
+ * @param vertices {float*} A pointer to the vertices for all points
+ * @param vertexCount {unsigned int} The number of vertices given
+ * @param indices {unsigned int*} A pointer to the indices for describing all points in the triangles
+ * @param indexCount {unsigned int} The number of indices given
+ * @param colors {float*} A pointer to the colors of each vertex given
+ * @param colorCount {unsigned int} The number of color points given
+ * 
+ * @return {int} The ID for the vertex array object
+ */
+int vertexArrayObject(float *vertices, unsigned int vertexCount, unsigned int *indices, unsigned int indexCount, float *colors, unsigned int colorCount) {
     GLuint VertexArrayID;
     glGenVertexArrays(1, &VertexArrayID);
     glBindVertexArray(VertexArrayID);
@@ -274,44 +490,84 @@ int vertexArrayObject(float *vertices, unsigned int vertexCount, unsigned int *i
     return VertexArrayID;
 }
 
-void handleKeyboardInput(GLFWwindow* window)
-{
+
+/**
+ * Listener for keyboard events.
+ * 
+ * @param window {GLFWwindow*} A pointer to the a pointer to the startup window
+ */
+void handleKeyboardInput(GLFWwindow* window) {
+
     // Use escape key for terminating the GLFW window
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(window, GL_TRUE);
-    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
-        cordY += 0.01;
-    if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
-        cordY -= 0.01;
-    if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
-        cordX -= 0.01;
-    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
-        cordX += 0.01;
-    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
-        cordZ += 0.01;
-    if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS)
-        cordZ -= 0.01;
-    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-        rotX += 1.0;
-    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-        rotX -= 1.0;
-    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-        rotY -= 1.0;
-    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-        rotY += 1.0;
+
+    // Making it possible to navigate as a drone
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) moveCam(0, 0, 1.0f, 0.1f);
+    if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) moveCam(0, 0, -1.0f, 0.1f);
+    if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) moveCam(1.0f, 0, 0, 0.1f);
+    if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) moveCam(-1.0f, 0, 0, 0.1f);
+    if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) moveCam(0, 1.0f, 0, 0.1f);
+    if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) moveCam(0, -1.0f, 0, 0.1f);
+    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) rotX -= 1.0;
+    if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) rotX += 1.0;
+    if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) rotY -= 1.0;
+    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) rotY += 1.0;
+
+    // Making the body jump
+    if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS && jumpReady) {
+        velocity = 0.3f;
+        jumpReady = false;
+    }
 }
 
-float* createBox(float cx, float cy, float cz, float w, float h, float d, float scale)
-{
+
+/**
+ * Translate the cam relative to its rotation.
+ * 
+ * @params x {float} Steps in the x-axis of the cam
+ * @params y {float} Steps in the y-axis of the cam
+ * @params z {float} Steps in the z-axis of the cam
+ * @params scale {float} The scale of the steps
+ */
+void moveCam(float x, float y, float z, float scale) {
+    float dist = scale * std::sqrt(x * x + y * y + z * z);
+
+    cordX += x * dist * sin(glm::radians(-rotY) + PI / 2);
+    cordZ += x * dist * cos(glm::radians(-rotY) + PI / 2);
+    
+    cordX += y * dist * sin(glm::radians(-rotY)) * cos(glm::radians(rotX) - PI / 2);
+    cordY += y * dist * sin(glm::radians(rotX) - PI / 2);
+    cordZ += y * dist * cos(glm::radians(-rotY)) * cos(glm::radians(rotX) - PI / 2);
+
+    cordX += z * dist * sin(glm::radians(-rotY)) * cos(glm::radians(rotX));
+    cordY += z * dist * sin(glm::radians(rotX));
+    cordZ += z * dist * cos(glm::radians(-rotY)) * cos(glm::radians(rotX));
+}
+
+
+/**
+ * Creating vertices for a box shape.
+ * 
+ * @param offX {float} Offset position in the x-axis
+ * @param offY {float} Offset position in the y-axis
+ * @param offZ {float} Offset position in the z-axis
+ * @param w {float} Width
+ * @param h {float} Height
+ * @param d {float} Depth
+ * 
+ * @return {float*} A pointer to the pointer to a vertex buffer array with 8 unique points
+ */
+float* createBox(float offX, float offY, float offZ, float w, float h, float d, float scale) {
     float g_vertex_buffer_data[] = {
-        std::max(w + cx, cx), std::max(h + cy, cy), std::max(d + cz, cz),
-        std::min(w + cx, cx), std::max(h + cy, cy), std::max(d + cz, cz),
-        std::max(w + cx, cx), std::min(h + cy, cy), std::max(d + cz, cz),
-        std::min(w + cx, cx), std::min(h + cy, cy), std::max(d + cz, cz),
-        std::max(w + cx, cx), std::max(h + cy, cy), std::min(d + cz, cz),
-        std::min(w + cx, cx), std::max(h + cy, cy), std::min(d + cz, cz),
-        std::max(w + cx, cx), std::min(h + cy, cy), std::min(d + cz, cz),
-        std::min(w + cx, cx), std::min(h + cy, cy), std::min(d + cz, cz),
+        std::max(w + offX, offX), std::max(h + offY, offY), std::max(d + offZ, offZ),
+        std::min(w + offX, offX), std::max(h + offY, offY), std::max(d + offZ, offZ),
+        std::max(w + offX, offX), std::min(h + offY, offY), std::max(d + offZ, offZ),
+        std::min(w + offX, offX), std::min(h + offY, offY), std::max(d + offZ, offZ),
+        std::max(w + offX, offX), std::max(h + offY, offY), std::min(d + offZ, offZ),
+        std::min(w + offX, offX), std::max(h + offY, offY), std::min(d + offZ, offZ),
+        std::max(w + offX, offX), std::min(h + offY, offY), std::min(d + offZ, offZ),
+        std::min(w + offX, offX), std::min(h + offY, offY), std::min(d + offZ, offZ),
     };
 
     static float vba[24];
@@ -323,177 +579,31 @@ float* createBox(float cx, float cy, float cz, float w, float h, float d, float 
     return vba;
 }
 
-float* createGroundSquare(float cx, float cy, float cz, float w, float h, float scale)
-{
+
+/**
+ * Creating vertices for a flat rectangle aligned with the xz-plane.
+ * 
+ * @param offX {float} Offset position in the x-axis
+ * @param offY {float} Offset position in the y-axis
+ * @param offZ {float} Offset position in the z-axis
+ * @param w {float} Width
+ * @param h {float} Height
+ * 
+ * @return {float*} A pointer to the pointer to a vertex buffer array with 4 unique points
+ */
+float* createGroundSquare(float offX, float offY, float offZ, float w, float h, float scale) {
     float g_vertex_buffer_data[] = {
-        std::max(w + cx, cx), cy, std::max(h + cz, cz),
-        std::min(w + cx, cx), cy, std::max(h + cz, cz),
-        std::max(w + cx, cx), cy, std::min(h + cz, cz),
-        std::min(w + cx, cx), cy, std::min(h + cz, cz),
+        std::max(w + offX, offX), offY, std::max(h + offZ, offZ),
+        std::min(w + offX, offX), offY, std::max(h + offZ, offZ),
+        std::max(w + offX, offX), offY, std::min(h + offZ, offZ),
+        std::min(w + offX, offX), offY, std::min(h + offZ, offZ),
     };
 
     static float vba[12];
 
     for (int i = 0; i < 12; i++) {
         vba[i] = g_vertex_buffer_data[i] * scale;
-        //std::cout << i << " = " << vba[i] << std::endl;
     }
 
     return vba;
-}
-
-// --- Matrix Stack related functions ---
-
-// You can use these to create a more "realistic" scene graph implementation 
-
-// Allocate a new empty matrix stack on the heap
-std::stack<glm::mat4>* createEmptyMatrixStack() {
-    return new std::stack<glm::mat4>();
-}
-
-// Push a matrix on top of the stack
-void pushMatrix(std::stack<glm::mat4>* stack, glm::mat4 matrix) {
-    stack->push(matrix);
-}
-
-// Remove a matrix from the top of the stack. The popped value is not returned.
-void popMatrix(std::stack<glm::mat4>* stack) {
-    stack->pop();
-}
-
-// Return the matrix which is currently at the top of the stack
-glm::mat4 peekMatrix(std::stack<glm::mat4>* stack) {
-    return stack->top();
-}
-
-// Pretty prints the values of a matrix to stdout. 
-void printMatrix(glm::mat4 matrix) {
-    float* values = glm::value_ptr(matrix);
-
-    printf("(%f, %f, %f, %f)\n(%f, %f, %f, %f)\n(%f, %f, %f, %f)\n(%f, %f, %f, %f)\n",
-        values[0], values[4], values[8], values[12], 
-        values[1], values[5], values[9], values[13], 
-        values[2], values[6], values[10], values[14], 
-        values[3], values[7], values[11], values[15]);
-}
-
-// --- Scene Graph related functions ---
-
-// Creates an empty SceneNode instance.
-// Values are initialised because otherwise they may contain garbage memory.
-SceneNode* createSceneNode() {
-    SceneNode* node = new SceneNode;
-    node->rotationX = 0;
-    node->rotationY = 0;
-    node->rotationZ = 0;
-    node->x = 0;
-    node->y = 0;
-    node->z = 0;
-    node->directionVector = glm::vec3(0, 0, 0);
-    node->rotationDirection = glm::vec3(0, 0, 0);
-    node->motionType = NONE;
-    node->referencePoint = glm::vec3(0, 0, 0);
-    node->vertexArrayObjectID = -1;
-    return node;
-}
-
-// Add a child node to its parent's list of children
-void addChild(SceneNode* parent, SceneNode* child) {
-    parent->children.push_back(child);
-}
-
-// Pretty prints the current values of a SceneNode instance to stdout
-void printNode(SceneNode* node) {
-    printf(
-        "SceneNode {\n"
-        "    Child count: %i\n"
-        "    Rotation: (%f, %f, %f)\n"
-        "    Location: (%f, %f, %f)\n"
-        "    Reference point: (%f, %f, %f)\n"
-        "    VAO ID: %i\n"
-        "}\n",
-        node->children.size() / sizeof(unsigned int),
-        node->rotationX, node->rotationY, node->rotationZ,
-        node->x, node->y, node->z,
-        node->referencePoint.x, node->referencePoint.y, node->referencePoint.z,
-        node->vertexArrayObjectID
-    );
-}
-
-// --- Utility functions ---
-
-// The standard library's random number generator needs to be seeded in order to produce
-// different results every time the program is run. This should only happen once, so
-// we keep track here with a global variable whether this has happened previously.
-bool isRandomInitialised = false;
-
-//float randomm() {
-//	if (!isRandomInitialised) {
-//		// Initialise the random number generator using the current time as a seed
-//		srand(static_cast <unsigned> (time(0)));
-//		isRandomInitialised = true;
-//	}
-//	// rand() produces a random integer between 0 and RAND_MAX. This normalises it to a number between 0 and 1.
-//	return static_cast <float> (rand()) / static_cast <float>(RAND_MAX);
-//}
-
-// In order to be able to calculate when the getTimeDeltaSeconds() function was last called, we need to know the point in time when that happened. This requires us to keep hold of that point in time. 
-// We initialise this value to the time at the start of the program.
-static std::chrono::steady_clock::time_point _previousTimePoint = std::chrono::steady_clock::now();
-
-// Calculates the elapsed time since the previous time this function was called.
-double getTimeDeltaSeconds() {
-    // Determine the current time
-    std::chrono::steady_clock::time_point currentTime = std::chrono::steady_clock::now();
-    // Look up the time when the previous call to this function occurred.
-    //std::chrono::steady_clock::time_point previousTime = _previousTimePoint;
-
-    // Calculate the number of nanoseconds that elapsed since the previous call to this function
-    long long timeDelta = std::chrono::duration_cast<std::chrono::nanoseconds>(currentTime - _previousTimePoint).count();
-    // Convert the time delta in nanoseconds to seconds
-    double timeDeltaSeconds = (double)timeDelta / 1000000000.0;
-    
-    // Store the previously measured current time
-    _previousTimePoint = currentTime;
-    
-    // Return the calculated time delta in seconds
-    return timeDeltaSeconds;
-}
-
-float toRadians(float angleDegrees) {
-    return angleDegrees * (PI / 180.0);
-}
-
-// Reads a text file containing 2D integer coordinates in a specific format
-// and returns a vector with these coordinates.
-std::vector<int2> readCoordinatesFile(std::string filePath) {
-    // Open input file
-    std::ifstream inputFile(filePath);
-    std::vector<int2> foundPoints;
-
-    // Check in case the file failed to open
-    if(!inputFile)
-    {
-        std::cerr << "Could not open file located at: " << filePath.c_str() << std::endl;
-        std::cerr << "Most likely the file was not found." << std::endl;
-        return foundPoints;
-    }
-
-    // Determine the number of points in the text file (specified by the first line)
-    int pointCount;
-    inputFile >> pointCount;
-
-    // Read all coordinates
-    for(int i = 0; i < pointCount; i++)
-    {
-        int2 currentPoint;
-        inputFile >> currentPoint.x >> currentPoint.y;
-        foundPoints.push_back(currentPoint);
-    }
-
-    // We'll be good citizens and let the OS know we're done with this file
-    inputFile.close();
-
-    // Return the points we loaded
-    return foundPoints;
 }
