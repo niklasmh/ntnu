@@ -93,6 +93,7 @@ TDT4195*/*
 TDT4195*/exercises/*
 !TDT4195*/exercises/[1-6]/
 TDT4195*/exercises/[1-6]/*
+!TDT4195*/exercises/[1-6]/*.py
 !TDT4195*/exercises/[1-6]/shaders/
 !TDT4195*/exercises/[1-6]/src/
 TDT4195*/exercises/[1-6]/src/*
