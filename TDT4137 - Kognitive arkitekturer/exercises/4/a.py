@@ -75,8 +75,13 @@ perceptron([
 #  ([1], 0)
 #])
 
-# Output
 '''
+Task B:
+
+Vektene endrer seg ut ifra hvilken startverdi som både vektene og threshold har til å starte med.
+
+Output:
+
 Initial weights [-0.44262521907278585, -0.410286078571349]
 Threshold 0.2
 Epoch 1
