@@ -1,16 +1,15 @@
 #!/usr/bin/python3
 
 import numpy as np
-#from PIL import Image
 import matplotlib.pyplot as plt
 from scipy import misc
 
 image = misc.imread('./images/4.1.07-jelly-beans.tiff')
 #image = misc.imread('./images/rainbow.tiff')
 #image = misc.imread('./images/lochness.tiff')
-#print(image.shape)
 
 
+# Return a greyed version of the image
 def grey(img):
   img = np.array(img)
   r = img[..., 0]
@@ -25,13 +24,14 @@ def grey(img):
   return img
 
 
+# Return a greyed version of the image based on the lumination
 def betterGrey(img):
   img = np.array(img)
   r = img[..., 0]
   g = img[..., 1]
   b = img[..., 2]
 
-  avgGrey = (r * 0.2126 + g * 0.7152 + b * 0.0722) # Avoiding overflow
+  avgGrey = r * 0.2126 + g * 0.7152 + b * 0.0722
 
   img[..., 0] = avgGrey
   img[..., 1] = avgGrey

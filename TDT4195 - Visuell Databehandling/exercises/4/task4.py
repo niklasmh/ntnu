@@ -7,7 +7,18 @@ from scipy import misc
 image = misc.imread('./images/4.1.07-jelly-beans.tiff')
 #image = misc.imread('./images/rainbow.tiff')
 #image = misc.imread('./images/lochness.tiff')
-#image = misc.imread('./images/doge.tiff')
+
+# Make the image normalized to begin with
+image = image / 255
+
+
+# Function for normalizing a convolved image
+def normalize(inputImage):
+  minimum = np.min(inputImage)
+  inputImage = inputImage - minimum
+  maximum = np.max(inputImage)
+  return inputImage / maximum
+
 
 # The main function for applying a filter to an 2d-rgb-array
 def spatialConvolution(inputImage, kernel):
@@ -24,6 +35,7 @@ def spatialConvolution(inputImage, kernel):
     for x in range(imgWidth):
       sr, sg, sb = 0, 0, 0 # Red, green and blue sum
 
+      # To keep the control withour using fancy numpy, we iterate the kernel manually
       for ky in range(h):
         for kx in range(w):
           lx = kx - cw # Locale x, also called i in equation 4
@@ -136,15 +148,8 @@ sobelY = [
   [1, 2, 1]
 ]
 
-image = image / 255
 # Create a grey scaled image
 greyImage = grey(image)
-
-def normalize(inputImage):
-  minimum = np.min(inputImage)
-  inputImage = inputImage - minimum
-  maximum = np.max(inputImage)
-  return inputImage / maximum
 
 # Generate a image with the sobel filter
 # Notice the absolute conversion. That is why the background is black instead of an average grey
@@ -152,7 +157,7 @@ imgX = normalize(np.absolute(spatialConvolution(greyImage, sobelX)))
 imgY = normalize(np.absolute(spatialConvolution(greyImage, sobelY)))
 
 # Adding the sobel filters together
-img = normalize(np.sqrt(np.power(imgX, 2) + np.power(imgY, 2)))
+sobelImage = normalize(np.sqrt(np.power(imgX, 2) + np.power(imgY, 2)))
 
 
 _, ax = plt.subplots(1, 3, figsize=(30, 16))
@@ -166,7 +171,7 @@ ax[1].imshow(applyFilter(greyImage, gauss5x5))
 ax[1].set_axis_off()
 
 # Display the image with the absolute of both sobel filters added together
-ax[2].imshow(img)
+ax[2].imshow(sobelImage)
 ax[2].set_axis_off()
 
 plt.show()

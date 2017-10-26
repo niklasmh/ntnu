@@ -7,7 +7,6 @@ from scipy import misc
 image = misc.imread('./images/4.1.07-jelly-beans.tiff')
 #image = misc.imread('./images/rainbow.tiff')
 #image = misc.imread('./images/lochness.tiff')
-#print(image.shape)
 
 
 # Our better grey function from task 2
@@ -17,7 +16,7 @@ def grey(img):
   g = img[..., 1]
   b = img[..., 2]
 
-  avgGrey = (r * 0.2126 + g * 0.7152 + b * 0.0722)
+  avgGrey = r * 0.2126 + g * 0.7152 + b * 0.0722
 
   img[..., 0] = avgGrey
   img[..., 1] = avgGrey
