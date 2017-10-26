@@ -9,7 +9,7 @@ def perceptron(expectedIO, times=100):
   # Init
   weightCount = len(expectedIO[0][0])
   weights = [random() - .5 for i in range(weightCount)]
-  threshold = 0.2#random() - .5
+  threshold = random() - .5
   learning_rate = 0.1
   epoch = 0
   matches = 0
