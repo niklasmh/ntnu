@@ -76,7 +76,7 @@ perceptron([
 #])
 
 '''
-Task B:
+Oppgave B:
 
 Vektene endrer seg ut ifra hvilken startverdi som både vektene og threshold har til å starte med.
 Får man iterert nok ganger, vil man finne vektene som trengs for å finne resultatet av AND og OR operatorene.
