@@ -30,6 +30,7 @@ gauss5 = np.array([
 gauss5 = gauss5 / np.sum(gauss5)
 
 def unsharpMasking(image, smoothing, k):
+
     # Change image to freq domain shift center and make values easier to see
     fimage = np.fft.fft2(image)
     fimage = np.fft.fftshift(fimage)

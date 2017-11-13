@@ -24,6 +24,7 @@ highpass = lowpass * -1
 highpass[2][2] += 1
 
 def freqFilter(image, kernel):
+
     # Change image to freq domain shift center and make values easier to see
     fimage = np.fft.fft2(image)
     fimage = np.fft.fftshift(fimage)
