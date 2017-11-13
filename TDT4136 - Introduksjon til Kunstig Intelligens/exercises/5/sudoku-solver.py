@@ -200,3 +200,11 @@ def print_sudoku_solution(solution):
         print
         if row == 2 or row == 5:
             print '------+-------+------'
+
+filename = 'boards/medium.txt'
+filename = 'boards/hard.txt'
+filename = 'boards/veryhard.txt'
+filename = 'boards/easy.txt'
+
+csp = create_sudoku_csp(filename)
+#print_sudoku_solution(csp.backtracking_search())
