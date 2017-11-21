@@ -3,7 +3,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import imageio
-import math
 from skimage.morphology import erosion, dilation
 
 # Read in image
