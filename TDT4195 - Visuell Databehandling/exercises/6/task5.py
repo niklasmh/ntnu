@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 import imageio
 from skimage.draw import line
 from skimage.feature import canny
-from skimage.morphology import square, erosion, dilation, rectangle, closing
-from skimage.transform import hough_line, hough_line_peaks, probabilistic_hough_line
+from skimage.morphology import square, erosion, dilation, closing
+from skimage.transform import hough_line, hough_line_peaks
 
 # Read in image
 filepath = "images/task5-01.tiff"
