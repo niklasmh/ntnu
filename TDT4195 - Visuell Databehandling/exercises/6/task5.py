@@ -37,6 +37,8 @@ def findLines(img):
 
 # Removing long lines from image
 def removeChessboard(img):
+
+    # Get the major lines in the image
     edges, dilatedEdges, (h, theta, d) = findLines(img)
 
     # Create image with ones to fill inn lines
@@ -58,6 +60,7 @@ def removeChessboard(img):
     # Erode the lines bigger, such that they cover the original lines
     lines = erosion(lines, square(13))
 
+    # Remove major lines and close shape paths
     removedChessboard = closing(edges * lines, square(8))
 
     return removedChessboard
