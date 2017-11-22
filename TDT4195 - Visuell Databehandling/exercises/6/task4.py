@@ -11,8 +11,10 @@ img = imageio.imread(filepath)
 
 def removeNoise(img, r=7):
 
+    structuringElement = disk(r)
+
     # Applying erosion at the binary image
-    eroded = erosion(img, disk(r))
+    eroded = erosion(img, structuringElement)
 
     # Dilate the remaining pixels from the eroded image
     dilated = dilation(eroded, structuringElement)
