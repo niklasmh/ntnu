@@ -3,11 +3,37 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import imageio
-from skimage.morphology import erosion
+from skimage.morphology import erosion, dilation
 
 # Read in image
 filepath = "images/noisy.tiff"
 img = imageio.imread(filepath)
+
+def removeNoise(img, r=7):
+
+    # Creating a circle inside an array
+    c = r # Center
+    d = 2 * r + 1 # Diameter
+    y, x = np.ogrid[-c:d-c, -c:d-c] # Create a True/False grid in numpy
+    mask = x * x + y * y <= r * r # Circular shape
+    structuringElement = np.zeros((d, d))
+    structuringElement[mask] = 1 # Fill ones at the places with True
+
+    # Applying erosion at the binary image
+    eroded = erosion(img, structuringElement)
+
+    # Dilate the remaining pixels from the eroded image
+    dilated = dilation(eroded, structuringElement)
+
+    # We have now opened the image. Now we need to close it:
+
+    # We could have done this in the same step as the last, but we want to show all steps
+    dilated2 = dilation(dilated, structuringElement)
+
+    # Then we close by eroding back to normal
+    result = erosion(dilated2, structuringElement)
+
+    return result
 
 def boundaryExtraction(img):
 
@@ -22,10 +48,11 @@ def boundaryExtraction(img):
 
     return eroded, boundaryExtract
 
-eroded, boundaryExtract = boundaryExtraction(img)
+noiseRemoved = removeNoise(img)
+eroded, boundaryExtract = boundaryExtraction(noiseRemoved)
 
 _, ax = plt.subplots(1, 3, figsize=(30, 10))
-ax[0].imshow(img, cmap=plt.cm.gray)
+ax[0].imshow(noiseRemoved, cmap=plt.cm.gray)
 ax[0].set_axis_off()
 ax[1].imshow(eroded, cmap=plt.cm.gray)
 ax[1].set_axis_off()
