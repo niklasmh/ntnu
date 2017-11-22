@@ -3,7 +3,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import imageio
-from skimage.morphology import erosion, dilation
+from skimage.morphology import erosion, dilation, disk
 
 # Read in image
 filepath = "images/noisy.tiff"
@@ -11,16 +11,8 @@ img = imageio.imread(filepath)
 
 def removeNoise(img, r=7):
 
-    # Creating a circle inside an array
-    c = r # Center
-    d = 2 * r + 1 # Diameter
-    y, x = np.ogrid[-c:d-c, -c:d-c] # Create a True/False grid in numpy
-    mask = x * x + y * y <= r * r # Circular shape
-    structuringElement = np.zeros((d, d))
-    structuringElement[mask] = 1 # Fill ones at the places with True
-
     # Applying erosion at the binary image
-    eroded = erosion(img, structuringElement)
+    eroded = erosion(img, disk(r))
 
     # Dilate the remaining pixels from the eroded image
     dilated = dilation(eroded, structuringElement)
