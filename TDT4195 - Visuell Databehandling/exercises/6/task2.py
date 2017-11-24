@@ -57,6 +57,8 @@ def getNeighbors(img, pixel):
 _, ax = plt.subplots(1, 2, figsize=(15, 6))
 ax[0].imshow(filepath, cmap=plt.cm.gray)
 ax[0].set_axis_off()
+
 ax[1].imshow(regionGrow(filepath, seedpoints, threshold), cmap=plt.cm.gray)
 ax[1].set_axis_off()
+
 plt.show()

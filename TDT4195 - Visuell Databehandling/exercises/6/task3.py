@@ -41,12 +41,17 @@ eroded, dilated, dilated2, eroded2 = removeNoise(img, 7)
 _, ax = plt.subplots(1, 5, figsize=(30, 10))
 ax[0].imshow(img, cmap=plt.cm.gray)
 ax[0].set_axis_off()
+
 ax[1].imshow(eroded, cmap=plt.cm.gray)
 ax[1].set_axis_off()
+
 ax[2].imshow(dilated, cmap=plt.cm.gray)
 ax[2].set_axis_off()
+
 ax[3].imshow(dilated2, cmap=plt.cm.gray)
 ax[3].set_axis_off()
+
 ax[4].imshow(eroded2, cmap=plt.cm.gray)
 ax[4].set_axis_off()
+
 plt.show()
