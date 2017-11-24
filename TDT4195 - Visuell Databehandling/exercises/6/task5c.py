@@ -86,6 +86,45 @@ def segmentImage(img):
 
     return regions
 
+# Calculating the moment of inertia for a region, making the edges more valuable
+def momentOfInertia(region):
+    image = region.image
+    bbox = region.bbox
+    w = bbox[2] - bbox[0]
+    h = bbox[3] - bbox[1]
+    cx = region.centroid[0] - bbox[0]
+    cy = region.centroid[1] - bbox[1]
+    centerDist = (max(w - cx, cx)**2 + max(h - cy, cy)**2)**.5
+    size = int((w**2 + h**2)**.5 / 2 + centerDist)
+
+    accumulator = 0
+    prevCircle = np.zeros((size * 2 + 1, size * 2 + 1))
+    for i in range(size + 1):
+        circle = np.pad(disk(i), size - i, mode='constant')
+        ring = circle - prevCircle
+        prevCircle = circle
+
+        offX = size - w + int(cx)
+        offY = size - h + int(cy)
+        offX2 = len(ring[0]) - offX - w
+        offY2 = len(ring) - offY - h
+        accumulator += np.sum(image * ring[offX:-offX2, offY:-offY2])**2
+
+    return accumulator
+
+def getShapeValue(region, mode='area'):
+
+    # Making different orders based on the shape signatures
+    order = [ 0, 1, 2, 3, 4 ]
+    value = 0
+
+    # Choose which method to measure a shape signature
+    if mode == 'shannon': value = shannon_entropy(region.image)
+    elif mode == 'moi': value = momentOfInertia(region)
+    else: value = region.area
+
+    return value, order
+
 def recognizeShapes(img):
 
     # Label and partition the regions
@@ -93,6 +132,7 @@ def recognizeShapes(img):
 
     # Define info about shapes in the image
     # The order attribute is the order which the shapes are distributed based on a utility (area, shannon_entropy)
+    shapeOrder = [ "star", "triangle", "romboid", "hexagon", "circle" ]
     shapes = {
         "star": { "bbox": None, "centroid": [ 0, 0 ], "color": [ .5, .5, .5 ], "order": 0 },
         "triangle": { "bbox": None, "centroid": [ 0, 0 ], "color": [ .9, .9, .4 ], "order": 1 },
@@ -103,20 +143,23 @@ def recognizeShapes(img):
 
     # Collection of shape attributes for each region
     shapeInfo = []
+    orderMapping = []
     for region in regions:
-        # Based on area
-        #shapeInfo.append([region.area, region.centroid, region.bbox])
+        value, orderMapping = getShapeValue(region, 'moi')
+        shapeInfo.append({
+            "value": value,
+            "centroid": region.centroid,
+            "bbox": region.bbox
+        })
 
-        # Based on the shannon entropy
-        shapeInfo.append([shannon_entropy(region.image), region.centroid, region.bbox])
-
-    shapeInfo.sort()
+    shapeInfo.sort(key=lambda k: k["value"])
 
     # Connecting the centroids and bounding boxes to each shape
     for shape in shapes:
-        shapes[shape]["centroid"][0] = int(shapeInfo[shapes[shape]["order"]][1][0])
-        shapes[shape]["centroid"][1] = int(shapeInfo[shapes[shape]["order"]][1][1])
-        shapes[shape]["bbox"] = shapeInfo[shapes[shape]["order"]][2]
+        index = orderMapping[shapes[shape]["order"]]
+        shapes[shape]["centroid"][0] = int(shapeInfo[index]["centroid"][0])
+        shapes[shape]["centroid"][1] = int(shapeInfo[index]["centroid"][1])
+        shapes[shape]["bbox"] = shapeInfo[index]["bbox"]
 
     return shapes
 
