@@ -23,19 +23,27 @@ def regionGrow(img, seedpoints, T):
     newImage = np.zeros_like(img)
     includedPixels = []
 
+    # For each seedpoint check which pixels are part of its set
     for seedpoint in seedpoints:
         intensityValue = img[seedpoint[0],seedpoint[1]].astype('float16')
         pixelQueue = getNeighbors(img, seedpoint)
+
+        # Continue checking pixels until there are no unexplored neighbors
         while pixelQueue:
             currentPixel = pixelQueue.pop()
             pixelValue = img[currentPixel[0],currentPixel[1]].astype('float16')
+
+            # Check if the pixel should be part of the set
             if abs(pixelValue - intensityValue) < T:
                 includedPixels.append(currentPixel)
                 neighbors = getNeighbors(img, currentPixel)
+
+                # Makeing we dont add pixel which are already in the set or are in the queue
                 for pixel in neighbors:
                     if pixel not in includedPixels and pixel not in pixelQueue:
                         pixelQueue.append(pixel)
 
+    # Make the new image
     for pixel in includedPixels:
         newImage[pixel[0],pixel[1]] = 255
     return newImage
