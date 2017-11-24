@@ -11,7 +11,7 @@ from skimage.transform import hough_line, hough_line_peaks
 from scipy.ndimage import binary_fill_holes
 
 # Read in image
-filepath = "images/task5-03.tiff"
+filepath = "images/task5-01.tiff"
 img = imageio.imread(filepath)
 
 def findEdges(img):
