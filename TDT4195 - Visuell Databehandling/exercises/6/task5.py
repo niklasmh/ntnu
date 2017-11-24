@@ -92,7 +92,7 @@ def recognizeShapes(img):
     regions = segmentImage(removedNoise)
 
     # Define info about shapes in the image
-    # The order attribute is the order which the shapes is 
+    # The order attribute is the order which the shapes are distributed based on a utility (area, shannon_entropy)
     shapes = {
         "star": { "bbox": None, "centroid": [ 0, 0 ], "color": [ .5, .5, .5 ], "order": 0 },
         "triangle": { "bbox": None, "centroid": [ 0, 0 ], "color": [ .9, .9, .4 ], "order": 1 },
