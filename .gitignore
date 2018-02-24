@@ -103,6 +103,20 @@ TDT4195*/exercises/[1-6]/src/*
 !TDT4195*/tests/
 !TDT4195*/README.md
 
+# Grafikk og visualisering
+TDT4230*/*
+!TDT4230*/exercises/
+TDT4230*/exercises/*
+!TDT4230*/exercises/[1-6]/
+TDT4230*/exercises/[1-6]/*
+!TDT4230*/exercises/[1-6]/*.py
+!TDT4230*/exercises/[1-6]/shaders/
+!TDT4230*/exercises/[1-6]/src/
+TDT4230*/exercises/[1-6]/src/*
+!TDT4230*/exercises/[1-6]/src/*.*pp
+!TDT4230*/tests/
+!TDT4230*/README.md
+
 # Fysikk
 TFY4125*/
 
