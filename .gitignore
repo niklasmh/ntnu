@@ -29,6 +29,7 @@ IT2805*/Documents/*/images/*
 
 # Webutvikling
 IT2810*/*
+!IT2810*/it2810-04-oppgave-*
 !IT2810*/A*/
 !IT2810*/*.html
 !IT2810*/*.md
