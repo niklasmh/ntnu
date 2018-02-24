@@ -19,3 +19,6 @@
 [submodule "TTM4100 - Kommunikasjon - Tjenester og nett/ttm4100-ktn-chat-project"]
 	path = TTM4100 - Kommunikasjon - Tjenester og nett/ttm4100-ktn-chat-project
 	url = git@github.com:niklasmh/ttm4100-ktn-chat-project.git
+[submodule "IT2810 - Webutvikling/it2810-04-oppgave-2"]
+	path = IT2810 - Webutvikling/it2810-04-oppgave-2
+	url = git@bitbucket.org:trondaal/it2810-04-oppgave-2.git
