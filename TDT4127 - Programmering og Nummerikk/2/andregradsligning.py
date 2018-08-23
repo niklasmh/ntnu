@@ -2,7 +2,7 @@
 
 from sys import argv
 import re
-float_format = re.compile(r'^\-?[0-9]+\.?[0-9]*')
+float_format = re.compile(r'^\-?[0-9]*\.?[0-9]*')
 
 a, b, c = 1, 1, 1
 
@@ -29,7 +29,6 @@ else:
     c = float(c_input)
 
 d = b**2 - 4*a*c
-print(d)
 
 if d == 0:
     if a != 0:
