@@ -13,7 +13,6 @@ def eksponent(bits):
     e = [int(bit) for bit in bits][::-1]
     s = sum([bit*2**i for i, bit in enumerate(e)])
     l = 2**(len(e)-1) - 1
-    #print('---------', s, l, s-l, bits)
     return s - l
 
 
@@ -78,8 +77,6 @@ def tall_til_bit(tall, bitpresisjon=64):
     mantissa_binær = heltall_binær + desimaltall_binær
     normalisert_mantissa_binær = mantissa_binær[mantissa_binær.index('1') + 1:][:23 if bitpresisjon == 32 else 52]
 
-    #print(heltall_binær, desimaltall_binær, normalisert_mantissa_binær, eksp)
-    #print(fortegn_binær + normalisert_mantissa_binær + eksponent_binær, eksponent_binær)
     return fortegn_binær + normalisert_mantissa_binær + eksponent_binær
 
 
