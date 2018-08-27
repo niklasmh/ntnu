@@ -5,7 +5,7 @@
 - **b) Hvordan er disse bitsene fordelt med tanke på antall bits til fortegn, eksponent og mantisse?**
 
   - 1 til fortegn
-  - 11 til exponent
+  - 11 til eksponent
   - 52 til mantisse
 
 - **c) Hva er, i absoluttverdi, de største og minste tallene man kan representere ved bruk av dobbel-presisjons flyttall?**
