@@ -75,7 +75,10 @@ def tall_til_bit(tall, bitpresisjon=64):
     desimaltall_binær = tall_til_binærdesimal(desimaltall, bitpresisjon)
 
     mantissa_binær = heltall_binær + desimaltall_binær
-    normalisert_mantissa_binær = mantissa_binær[mantissa_binær.index('1') + 1:][:23 if bitpresisjon == 32 else 52]
+    try:
+        normalisert_mantissa_binær = mantissa_binær[mantissa_binær.index('1') + 1:][:23 if bitpresisjon == 32 else 52]
+    except ValueError:
+        normalisert_mantissa_binær = '0'*(23 if bitpresisjon == 32 else 52)
 
     return fortegn_binær + normalisert_mantissa_binær + eksponent_binær
 
@@ -105,3 +108,18 @@ print('Oppgave d)')
 print(' - 0.25 =>', fl32(0.25))
 print(' - 4.5  =>', fl32(4.5))
 print(' - 0.1  =>', fl32(0.1))
+
+# e)
+def truncation_error(a, presisjon=64):
+    if presisjon == 32:
+        e_mach = 2**-23
+        return str(abs(fl32(a) - a)) + ' ≤ ' + str(e_mach * abs(a))
+    else:
+        e_mach = 2**-52
+        return str(abs(fl64(a) - a)) + ' ≤ ' + str(e_mach * abs(a))
+
+print()
+print('Oppgave e)')
+print(' - 3.1415            =>', truncation_error(3.1415,32))
+print(' - 6.022140857*10^23 =>', truncation_error(6.022140857e23,32))
+print(' - 0.8*10^-10        =>', truncation_error(0.8e-10,32))

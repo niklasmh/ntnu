@@ -23,6 +23,7 @@
 
 - **e) Finn den absolutte avrundingsfeilen til tallene under når dobbel-presisjons flyttall benyttes.**
 
-  - 3.1415: -3.814697265625e-9
-  - 6.022140857\*10^23: 14683781913362432
-  - 0.8\*10^-10: -3.196642239799984963610768318e-19
+  - 3.1415: `3.814697446813398e-09`
+  - 6.022140857\*10^23: `2.1345015120789504e+16`
+  - 0.8\*10^-10: `2.1792339086532588e-11`
+  - Har verifisert svarene med koden i `./Theory.py`.
