@@ -10,8 +10,9 @@
 
 - **c) Hva er, i absoluttverdi, de største og minste tallene man kan representere ved bruk av dobbel-presisjons flyttall?**
 
-  - Største tall: `2^63`.
-  - Minste tall: `0`.
+  - Største tall: `1 11111111 xxxxxx...x => 1 * 2^128 * x = Infinite`.
+  - Nest største tall: `1 11111110 11111111...1 => 1 * 2^127 * 0.9999999... = 2^128`.
+  - Minste tall: `1 00000000 00000000...0 => 1 * 2^0 * 0 = 0`.
 
 - **d) Konverter tallene under til dobbel-presisjons flyttall, fl(a), og kommentér for hver av dem om dette er en eksakt representasjon eller ikke. Du trenger ikke finne flere enn de åtte første mantissebitsene.**
 
