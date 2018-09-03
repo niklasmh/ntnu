@@ -19,7 +19,7 @@
   - 0.25: Eksakt. Eksponent: `125`. Mantisse: `2^-1 = .01`.
   - 4.5: Eksakt. Eksponent: `129`. Mantisse: `2^0 = .1`.
   - 0.1: Ikke eksakt fordi mantisse kan presiseres uendelig. Eksponent: `123`. Mantisse: `2^0 + 2^-2 + 2^-3 ... = .100110011 ...`.
-  - Har verifisert svarene med koden i `./theory.py`.
+  - Har verifisert svarene med koden i `./Theory.py`.
 
 - **e) Finn den absolutte avrundingsfeilen til tallene under når dobbel-presisjons flyttall benyttes.**
 
