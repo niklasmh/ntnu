@@ -48,7 +48,7 @@ def bisection(function, interval, print_output=True, exit_on_error=True, single_
     return (a + b) / 2
 
 
-''' a) '' '
+''' a)
 answer = float(input('Which number does the method converge to? '))
 
 solution = bisection(f, (-1, 2), print_output=False)
@@ -64,7 +64,7 @@ a = float(input('Lower limit of interval: '))
 b = float(input('Upper limit of interval: '))
 interval = (a, b)
 
-''' b) '' '
+''' b)
 # Sikker på at bisect search skal kunne finne mer enn et nullpunkt?
 first_search = bisection(f, (interval[0], interval[1] / 2), print_output=False, exit_on_error=False)
 second_search = bisection(f, (interval[1] / 2, interval[1]), print_output=False, exit_on_error=False)
@@ -76,7 +76,7 @@ else:
     print('There is one zero between {} and {}.'.format(interval[0], interval[1]))
 #'''
 
-''' c) '' '
+''' c)
 bisection(f, interval, single_loop=True)
 #'''
 
