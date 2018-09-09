@@ -15,12 +15,6 @@ def is_close_to(x, close_to=.01):
     return abs(x) <= close_to
 
 
-# Interval
-a = float(input('Lower limit of interval: '))
-b = float(input('Upper limit of interval: '))
-interval = (a, b)
-
-
 # Bisection
 def bisection(function, interval, print_output=True, exit_on_error=True, single_loop=False):
     a = interval[0]
@@ -46,7 +40,7 @@ def bisection(function, interval, print_output=True, exit_on_error=True, single_
 
         f1 = function(a)
         f2 = function(b)
-        break
+        if single_loop: break
 
     if print_output:
         print('There is a zero between {} and {}.'.format(a, b))
@@ -55,15 +49,20 @@ def bisection(function, interval, print_output=True, exit_on_error=True, single_
 
 
 ''' a) '' '
-answer = int(input('Which number does the method converge to? '))
+answer = float(input('Which number does the method converge to? '))
 
-solution = bisection(f, interval)
-
+solution = bisection(f, (-1, 2), print_output=False)
+print(answer, solution)
 if is_close_to(solution - answer, .1):
     print('Great! Correct answer.')
 else:
     print('Wrong.')
+exit()
 #'''
+
+a = float(input('Lower limit of interval: '))
+b = float(input('Upper limit of interval: '))
+interval = (a, b)
 
 ''' b) '' '
 # Sikker på at bisect search skal kunne finne mer enn et nullpunkt?
