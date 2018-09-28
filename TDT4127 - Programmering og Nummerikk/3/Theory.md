@@ -2,7 +2,7 @@
 
 - **a) How can one deduce the secant method from Newton's method?**
 
-  - Not here.
+  - If you replace the derivative in Newton's method with an approximation, you get the secant method.
 
 - **b) Will Newton's method always converge to a zero?**
 
