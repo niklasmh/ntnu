@@ -58,6 +58,6 @@ for term in terms:
     i = 0
     N = len(docs)
     for doc in docs:
-        print('{:.2f}'.format(tfs[term][i], N, ns[term], tfs[term][i] * log2(N / ns[term])), end=' ')
+        print('{:.2f}'.format(tfs[term][i] * log2(N / ns[term])), end=' ')
         i += 1
     print()
