@@ -12,7 +12,7 @@ docs = [
     { Winter },
     { Spring, Spring },
     { Winter, Autumn, Spring },
-    { Spring, Spring, Autumn,  },
+    { Spring, Spring, Autumn },
     { Spring, Spring, Winter },
     { Winter, Autumn, Winter, Spring },
 ]
@@ -20,15 +20,15 @@ docs = [
 def l(s): return len(set(s))
 
 queries = [
-    { 'f': lambda doc: l(doc & { Spring }) and l(doc & { Autumn }), 'q': "Spring AND Autumn" },
-    { 'f': lambda doc: l(doc & { Autumn }) and l(doc & { Winter }), 'q': "Autumn AND Winter" },
-    { 'f': lambda doc: l(doc & { Winter }) or l(doc & { Spring }), 'q': "Winter OR Spring" },
-    { 'f': lambda doc: l(doc & { Autumn }) and not l(doc & { Spring }), 'q': "Autumn NOT Spring" },
-    { 'f': lambda doc: l(doc & { Winter }), 'q': "Winter" }
+    { 'f': lambda d: Spring in d and Autumn in d, 'q': 'Spring AND Autumn' },
+    { 'f': lambda d: Autumn in d and Winter in d, 'q': 'Autumn AND Winter' },
+    { 'f': lambda d: Winter in d or Spring in d, 'q': 'Winter OR Spring' },
+    { 'f': lambda d: Autumn in d and not Spring in d, 'q': 'Autumn NOT Spring' },
+    { 'f': lambda d: Winter in d, 'q': 'Winter' }
 ]
 
 for query in queries:
     print(query['q'])
     for doc in docs:
-        print(doc if query['f'](doc) else 'nope')
+        print('1' if query['f'](doc) else '-', end='')
     print()
