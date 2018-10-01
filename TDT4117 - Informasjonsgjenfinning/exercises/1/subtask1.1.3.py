@@ -24,11 +24,40 @@ def find_tf(f):
 
 terms = [ Winter, Autumn, Spring ]
 
+tfs = {}
 for term in terms:
+    tfs[term] = []
     print(term)
     for doc in docs:
         c = doc.count(term)
         tf = find_tf(c)
+        tfs[term].append(tf)
         print(c, end=' ')
         print(tf if c else '-')
+    print()
+
+ns = {}
+for term in terms:
+    ns[term] = []
+    print(term)
+    n = 0
+    N = len(docs)
+    for doc in docs:
+        n += 1 if doc.count(term) else 0
+
+    ns[term] = n
+
+    print('n idf')
+    print(n, end=' ')
+    print(log2(N/n))
+    print()
+
+print('Document-term-matrix:')
+for term in terms:
+    print(term)
+    i = 0
+    N = len(docs)
+    for doc in docs:
+        print('{:.2f}'.format(tfs[term][i], N, ns[term], tfs[term][i] * log2(N / ns[term])), end=' ')
+        i += 1
     print()
