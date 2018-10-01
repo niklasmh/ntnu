@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-''' a)
+#''' a)
 def siksak():
     print()                                         ##
     print("**  **  **  **  **  **  **  **  **")     ##
@@ -18,7 +18,7 @@ siksak()
 print("Del 4: ... ytterligere data ...")
 #'''
 
-''' b)
+#''' b)
 from turtle import *
  
 def flyto(x, y):
@@ -60,7 +60,7 @@ circle(50,30)
 circle(50,-60)
 #'''
 
-''' c)
+#''' c)
 def komparativ(adj):
     # GROVT FORENKLET FOR Å KUNNE FOKUSERE PÅ HOVEDPOENGET
     if len(adj) >= 8: # unøyaktig
@@ -104,7 +104,7 @@ else:
     print("Feil, det var", fasit)
 #'''
 
-''' d)
+#''' d)
 def main():
     def komparativ(adj):
         # GROVT FORENKLET FOR Å KUNNE FOKUSERE PÅ HOVEDPOENGET

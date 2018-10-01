@@ -2,7 +2,7 @@
 
 from math import *
 
-#''' a)
+# a)
 def f(x):
     return (x - 12)*exp(x*.5) - 8*(x + 2)**2
 
@@ -11,14 +11,12 @@ def g(x):
 
 print(f(0))
 print(g(1))
-#'''
 
-#''' b)
+# b)
 def differentiate(x_k, x_k1, func):
     return (func(x_k) - func(x_k1)) / (x_k - x_k1)
 
 print(differentiate(9, 10, f))
-#'''
 
 #''' c)
 def secant_method(x0, x1, func, tol):
