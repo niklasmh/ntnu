@@ -16,10 +16,11 @@ def set_gravity(gravity):
     global GRAVITY
     GRAVITY = gravity
 
-def new_get_fall_time(meter, gravity=GRAVITY):
-    return (2*meter/gravity)**.5
+set_gravity(8.67)
 
-set_gravity(9.67)
+def new_get_fall_time(meter, gravity=GRAVITY):
+    print(gravity, GRAVITY)
+    return (2*meter/gravity)**.5
 
 print(new_get_fall_time(20))
 print(new_get_fall_time(20, 1.62))
