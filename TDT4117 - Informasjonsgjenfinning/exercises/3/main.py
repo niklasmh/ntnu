@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 '''
-Collaboarated with Petter T. Bemelmans
+Collaborated with Petter T. Bemelmans
 '''
 
 # 1.0 Create a random sequence
