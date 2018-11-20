@@ -88,7 +88,7 @@ def flower(num, i=1):
     left(360 / num)
     petal()
     if i < num:
-        flower(12, i + 1)
+        flower(num, i + 1)
     if i == 1:
         end_fill()
 
