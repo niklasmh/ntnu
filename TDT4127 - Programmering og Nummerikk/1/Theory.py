@@ -105,9 +105,14 @@ def fl64(a):
 
 print()
 print('Oppgave d)')
-print(' - 0.25 =>', fl32(0.25))
-print(' - 4.5  =>', fl32(4.5))
-print(' - 0.1  =>', fl32(0.1))
+print('32 bit:')
+print(' - 0.25 =>', tall_til_32bit(0.25), '=>', fl32(0.25))
+print(' - 4.5  =>', tall_til_32bit(4.5), '=>', fl32(4.5))
+print(' - 0.1  =>', tall_til_32bit(0.1), '=>', fl32(0.1))
+print('64 bit:')
+print(' - 0.25 =>', tall_til_64bit(0.25), '=>', fl64(0.25))
+print(' - 4.5  =>', tall_til_64bit(4.5), '=>', fl64(4.5))
+print(' - 0.1  =>', tall_til_64bit(0.1), '=>', fl64(0.1))
 
 # e)
 def truncation_error(a, presisjon=64):
@@ -120,6 +125,6 @@ def truncation_error(a, presisjon=64):
 
 print()
 print('Oppgave e)')
-print(' - 3.1415            =>', truncation_error(3.1415,32))
-print(' - 6.022140857*10^23 =>', truncation_error(6.022140857e23,32))
-print(' - 0.8*10^-10        =>', truncation_error(0.8e-10,32))
+print(' - 3.1415            =>', truncation_error(3.1415))
+print(' - 6.022140857*10^23 =>', truncation_error(6.022140857e23))
+print(' - 0.8*10^-10        =>', truncation_error(0.8e-10))
