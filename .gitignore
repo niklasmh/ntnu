@@ -34,6 +34,9 @@ IT2810*/*
 !IT2810*/*.html
 !IT2810*/*.md
 
+# Master
+IT3902*/
+
 # Math, not code
 TMA*/
 
